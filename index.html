@@ -87,13 +87,6 @@
   <header class="site-header" data-header>
     <div class="container header-inner">
       <div class="header-start">
-        <button class="theme-toggle" type="button" role="switch" aria-checked="false" aria-label="Modo oscuro" data-theme-toggle>
-          <span class="theme-toggle__track" aria-hidden="true">
-            <svg class="icon theme-toggle__sun"><use href="#i-light_mode"/></svg>
-            <svg class="icon theme-toggle__moon"><use href="#i-dark_mode"/></svg>
-            <span class="theme-toggle__knob"></span>
-          </span>
-        </button>
         <a class="brand" href="#inicio" aria-label="Pulso Devs, ir al inicio">
           <img class="brand__logo" src="assets/img/pulsodevs-small.png" alt="" width="128" height="123">
           <span class="brand__name">Pulso Devs</span>
@@ -106,11 +99,18 @@
           <li><a href="#talleres">Talleres</a></li>
           <li><a href="#oportunidades">Oportunidades</a></li>
           <li><a href="#vision">Visión</a></li>
-          <li><a href="#fundador">Fundador</a></li>
         </ul>
       </nav>
 
-      <div class="header-end">
+      <!-- Botón de apariencia reubicado a la derecha, junto a la píldora de Únete -->
+      <div class="header-end flex items-center gap-2.5">
+        <button class="theme-toggle" type="button" role="switch" aria-checked="false" aria-label="Modo oscuro" data-theme-toggle>
+          <span class="theme-toggle__track" aria-hidden="true">
+            <svg class="icon theme-toggle__sun"><use href="#i-light_mode"/></svg>
+            <svg class="icon theme-toggle__moon"><use href="#i-dark_mode"/></svg>
+            <span class="theme-toggle__knob"></span>
+          </span>
+        </button>
         <a class="btn btn--primary btn--sm header-cta" href="#unete">Únete</a>
         <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Abrir menú" data-menu-toggle>
           <svg class="icon icon--menu" aria-hidden="true"><use href="#i-menu"/></svg>
@@ -126,7 +126,6 @@
           <li><a href="#talleres">Talleres</a></li>
           <li><a href="#oportunidades">Oportunidades</a></li>
           <li><a href="#vision">Visión</a></li>
-          <li><a href="#fundador">Fundador</a></li>
         </ul>
         <a class="btn btn--primary btn--block" href="#unete">Únete a la comunidad</a>
       </nav>
@@ -160,8 +159,8 @@
 
       <div class="container hero__body">
         <div class="hero__copy">
-          <p class="hero__lead">Una comunidad para desarrolladores junior que quieren aprender, construir y crecer juntos.</p>
-          <p class="hero__sub">Frontend, backend, fullstack e ingeniería de IA. Talleres en vivo, apoyo para tus proyectos y oportunidades para dar tus primeros pasos en la industria.</p>
+          <p class="hero__lead">Acá tienes una comunidad para que no construyas nada solo.</p>
+          <p class="hero__sub"><strong>Desarrollo Web & IA.</strong> Talleres en vivo, apoyo para tus proyectos y oportunidades para dar tus primeros pasos en la industria.</p>
           <div class="hero__actions">
             <a class="btn btn--primary" href="#unete">Únete a la comunidad</a>
             <a class="btn btn--ghost" href="#comunidad">Conoce Pulso Devs</a>
@@ -170,7 +169,7 @@
         <aside class="invite" aria-label="Abierta a toda Latinoamérica">
           <svg class="icon invite__icon" aria-hidden="true"><use href="#i-public"/></svg>
           <p class="invite__title">Latinoamérica está invitada.</p>
-          <p class="invite__text">No importa desde qué país nos escribas: si estás empezando en desarrollo, este espacio también es tuyo.</p>
+          <p class="invite__text">No importa desde qué país nos escribas: si estás empezando en desarrollo, <strong>¡esta comunidad es para ti!</strong></p>
         </aside>
       </div>
     </section>
@@ -180,8 +179,8 @@
       <div class="container about__grid">
         <div class="about__intro">
           <h2 class="section-title" id="about-title">Un lugar para no aprender en solitario.</h2>
-          <p class="about__statement">Pulso Devs es una comunidad tecnológica de desarrolladores junior: personas que están dando sus primeros pasos en la industria y que prefieren avanzar acompañadas.</p>
-          <p>Nacimos a partir de una gran comunidad de ex-alumnos de Felipe Cuevas, pero no somos un grupo cerrado. La puerta está abierta para cualquier desarrollador junior de Latinoamérica que quiera aprender, colaborar y crecer con otros.</p>
+          <p class="about__statement"><strong>Pulso Devs</strong> es una comunidad tecnológica de desarrolladores web: personas que están dando sus primeros pasos en la industria y que les gusta avanzar en compañía.</p>
+          <p><strong>No somos un grupo cerrado.</strong> La puerta está abierta para cualquier desarrollador web de Latinoamérica que quiera aprender, colaborar y crecer con otros.</p>
         </div>
 
         <div class="areas">
@@ -200,7 +199,7 @@
               <span class="area__desc">Del navegador a la base de datos, de punta a punta.</span>
             </li>
             <li class="area">
-              <span class="area__name">Ingeniería de IA</span>
+              <span class="area__name">Inteligencia Artificial</span>
               <span class="area__desc">Modelos, agentes y aplicaciones que integran inteligencia artificial.</span>
             </li>
           </ul>
@@ -303,12 +302,12 @@
               <dd>Gratuito</dd>
             </div>
             <div class="facts__row">
-              <dt><svg class="icon" aria-hidden="true"><use href="#i-person"/></svg>Instructor</dt>
-              <dd>Felipe Cuevas</dd>
+              <dt><svg class="icon" aria-hidden="true"><use href="#i-person"/></svg>Instructores</dt>
+              <dd>Desarrolladores Web Senior</dd>
             </div>
             <div class="facts__row">
               <dt><svg class="icon" aria-hidden="true"><use href="#i-groups"/></svg>Más adelante</dt>
-              <dd>Se sumarán nuevos instructores</dd>
+              <dd>Nuevos instructores de IA y más</dd>
             </div>
           </dl>
         </div>
@@ -333,25 +332,25 @@
               </span>
             </li>
             <li class="topic">
-              <span class="topic__name">Desarrollo Web + IA con Claude Code</span>
+              <span class="topic__name">Desarrollo Web + IA</span>
               <span class="topic__tech">
                 <span class="tech tech--wide" title="Claude"><svg width="102" height="22" viewBox="0 0 512 110" role="img" aria-label="Claude"><use href="#logo-claude"/></svg></span>
               </span>
             </li>
             <li class="topic">
-              <span class="topic__name">Ingeniería de Datos y Machine Learning</span>
+              <span class="topic__name">Ingeniería de Datos + Tecnología Cloud</span>
               <span class="topic__tech">
                 <span class="tech" title="Python"><svg width="22" height="22" viewBox="0 0 256 255" role="img" aria-label="Python"><use href="#logo-python"/></svg></span>
               </span>
             </li>
             <li class="topic">
-              <span class="topic__name">Desarrollo Web + Cloud</span>
+              <span class="topic__name">Desarrollo Web + Tecnología Cloud</span>
               <span class="topic__tech">
                 <span class="tech" title="AWS"><svg width="37" height="22" viewBox="0 0 256 153" role="img" aria-label="AWS"><use href="#logo-aws"/></svg></span>
               </span>
             </li>
             <li class="topic">
-              <span class="topic__name">Aplicaciones con agentes de IA</span>
+              <span class="topic__name">Aplicaciones con Agentes de IA</span>
               <span class="topic__tech">
                 <span class="tech tech--icon"><svg class="icon" aria-hidden="true"><use href="#i-smart_toy"/></svg></span>
               </span>
@@ -361,34 +360,6 @@
             <svg class="icon" aria-hidden="true"><use href="#i-schedule"/></svg>
             Las próximas fechas se anunciarán pronto dentro de la comunidad.
           </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================== OPORTUNIDADES ============================== -->
-    <section class="section opportunities" id="oportunidades" aria-labelledby="opp-title">
-      <div class="container">
-        <div class="opportunities__head">
-          <h2 class="section-title" id="opp-title">Oportunidades que no deberían pasarte de largo</h2>
-          <p class="section-lead">Becas, certificaciones, empleos y convocatorias aparecen todo el tiempo, pero cuesta enterarse a tiempo. En Pulso Devs podrás encontrar información sobre:</p>
-        </div>
-
-        <ul class="opp-wall">
-          <li>Becas de estudio</li>
-          <li>Programas oficiales</li>
-          <li>Certificaciones gratuitas</li>
-          <li>Descuentos en certificaciones</li>
-          <li>Oportunidades de trabajo</li>
-          <li>Prácticas profesionales</li>
-          <li>Pasantías</li>
-          <li>Eventos</li>
-          <li>Recursos</li>
-          <li>Convocatorias</li>
-        </ul>
-
-        <div class="opportunities__foot">
-          <p>Por ejemplo, programas educativos y certificaciones de empresas como Oracle o Google cuando estén disponibles.</p>
-          <p class="fineprint">Pulso Devs difunde oportunidades públicas. Mencionarlas no implica una alianza oficial con esas empresas.</p>
         </div>
       </div>
     </section>
@@ -421,55 +392,6 @@
         </div>
 
         <p class="vision__motto">Construimos nuestro futuro tecnológico juntos.</p>
-      </div>
-    </section>
-
-    <!-- ============================== FUNDADOR ============================== -->
-    <section class="section section--surface founder" id="fundador" aria-labelledby="founder-title">
-      <div class="container founder__grid">
-        <figure class="founder__portrait" data-founder-portrait>
-          <!-- Si se define FOUNDER.photoUrl en config.js, ui.js reemplaza este monograma por la fotografía. -->
-          <div class="founder__monogram" aria-hidden="true">
-            <img class="founder__mark" src="assets/img/pulsodevs-small.png" alt="" width="128" height="123">
-            <span>FC</span>
-          </div>
-          <figcaption class="sr-only">Felipe Cuevas, fundador de Pulso Devs</figcaption>
-        </figure>
-
-        <div class="founder__content">
-          <h2 class="section-title" id="founder-title">Detrás de Pulso Devs</h2>
-          <p class="founder__name">Felipe Cuevas</p>
-          <p class="founder__role">Fundador de Pulso Devs e Ingeniero Informático</p>
-
-          <div class="founder__bio">
-            <p>Felipe lleva más de diez años formando desarrolladores en instituciones como INACAP, Duoc UC, IPLACEX e IACC, y como instructor de bootcamps de Talento Digital (SENCE), donde ha guiado rutas de Desarrollo Fullstack Java, Fullstack Python e Ingeniería de Datos.</p>
-            <p>Su forma de enseñar es cercana, práctica y ordenada: talleres guiados, buenas prácticas de código y mejora continua, para que cada estudiante termine con dominio real de la tecnología y un portafolio sólido.</p>
-            <p>Pulso Devs nace a partir de su comunidad de ex-alumnos con una idea simple: que nadie que esté empezando en desarrollo tenga que hacerlo en solitario.</p>
-          </div>
-
-          <blockquote class="founder__quote">
-            <p>«Enseño lo que me apasiona y lo que domino técnicamente.»</p>
-          </blockquote>
-
-          <dl class="credentials">
-            <div><dt>Docencia</dt><dd>Docente universitario e instructor certificado de Alura Latam</dd></div>
-            <div><dt>AWS</dt><dd>Developer Associate, Cloud Practitioner y AI Practitioner</dd></div>
-            <div><dt>Oracle</dt><dd>Cinco certificaciones, entre ellas Desarrollador Profesional OCI e IA Generativa Profesional</dd></div>
-            <div><dt>Python</dt><dd>Certificación PCEP del Python Institute</dd></div>
-            <div><dt>Formación docente</dt><dd>Diplomado en Andragogía y Formación Profesional, Universidad de Chile</dd></div>
-          </dl>
-
-          <div class="founder__links">
-            <a class="link-arrow" href="https://www.linkedin.com/in/ffelipecuevasc" target="_blank" rel="noopener noreferrer" data-founder-linkedin>
-              LinkedIn de Felipe <svg class="icon" aria-hidden="true"><use href="#i-arrow_outward"/></svg>
-              <span class="sr-only">(se abre en una pestaña nueva)</span>
-            </a>
-            <a class="link-arrow" href="https://felipecuevas.dev" target="_blank" rel="noopener noreferrer" data-founder-website>
-              felipecuevas.dev <svg class="icon" aria-hidden="true"><use href="#i-arrow_outward"/></svg>
-              <span class="sr-only">(se abre en una pestaña nueva)</span>
-            </a>
-          </div>
-        </div>
       </div>
     </section>
 
@@ -563,7 +485,8 @@
           <img class="brand__logo" src="assets/img/pulsodevs-small.png" alt="" width="128" height="123">
           <span class="brand__name">Pulso Devs</span>
         </a>
-        <p>Comunidad latinoamericana de desarrolladores junior. Aprendemos, construimos y crecemos juntos.</p>
+        <p>Comunidad de desarrolladores web en Chile y Latam.</p>
+        <p><strong>Fundador:</strong> Felipe Cuevas.</p>
       </div>
 
       <nav class="footer__nav" aria-label="Navegación del pie de página">
@@ -572,7 +495,6 @@
           <li><a href="#talleres">Talleres</a></li>
           <li><a href="#oportunidades">Oportunidades</a></li>
           <li><a href="#vision">Visión</a></li>
-          <li><a href="#fundador">Fundador</a></li>
         </ul>
       </nav>
 
