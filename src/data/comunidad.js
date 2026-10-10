@@ -79,15 +79,15 @@ export const comunidad = {
 
   /**
    * Temáticas de los talleres (sección #talleres), en el orden del prototipo.
-   * El nombre del ícono de cada una se agrega en la iteración 01-03 (AUD-02-003).
+   * `icono` es un nombre de src/data/iconos.js (los elegió el desarrollador; AUD-02-003).
    */
   tematicas: [
-    { nombre: 'Desarrollo Web' },
-    { nombre: 'Desarrollo Fullstack' },
-    { nombre: 'Desarrollo Web + IA' },
-    { nombre: 'Ingeniería de Datos + Tecnología Cloud' },
-    { nombre: 'Desarrollo Web + Tecnología Cloud' },
-    { nombre: 'Aplicaciones con Agentes de IA' },
+    { nombre: 'Desarrollo Web', icono: 'web' },
+    { nombre: 'Desarrollo Fullstack', icono: 'code_blocks' },
+    { nombre: 'Desarrollo Web + IA', icono: 'wand_stars' },
+    { nombre: 'Ingeniería de Datos + Tecnología Cloud', icono: 'cloud_sync' },
+    { nombre: 'Desarrollo Web + Tecnología Cloud', icono: 'rocket_launch' },
+    { nombre: 'Aplicaciones con Agentes de IA', icono: 'robot_2' },
   ],
 };
 

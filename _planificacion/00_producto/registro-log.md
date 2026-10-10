@@ -3,7 +3,7 @@
 **Fuente única de verdad del trabajo pendiente.** Si discrepa con `_planificacion/README.md` o con cualquier otro documento de planificación, prevalece este archivo.
 
 - **Última actualización:** 2026-10-10
-- **Iteración activa:** 01-02 (arquitectura base), en revisión desde 2026-10-10. 01-01 quedó entregada y con commit `10fc2c8`.
+- **Iteración activa:** 01-03 (Tailwind local, fuentes e íconos), en revisión desde 2026-10-10. 01-02 quedó entregada y con commit `17ed29e`.
 - **Prototipo de referencia:** commit `d60c55e`. La transición de cambio de tema **no** existe en el prototipo: se implementa directamente en Astro en 02-03.
 - **Próximo hito:** hitos 1 y 2: sitio migrado a Astro 7 y Tailwind 4 compilado localmente, desplegado por primera vez en `https://comunidadpulso.dev` con Workers Builds (iteración 01-06).
 - **Alcance del sitio:** una sola página (One Page) con secciones ancladas (RDA-011).
@@ -18,8 +18,8 @@
 | Iteración | Nombre                                                       | Épica | Estado    | Depende de | Bitácora |
 | :-------- | :----------------------------------------------------------- | :---- | :-------- | :--------- | :------- |
 | 01-01     | Andamiaje del proyecto                                       | 01    | Terminada | —          | [bitacora-01-01-2026-10-10](../99_bitacora/bitacora-01-01-2026-10-10.md) |
-| 01-02     | Arquitectura base, layout y datos de la comunidad            | 01    | En revisión | 01-01    | [bitacora-01-02-2026-10-10](../99_bitacora/bitacora-01-02-2026-10-10.md) |
-| 01-03     | Tailwind local, fuentes autoalojadas e íconos                | 01    | Pendiente | 01-02      | — |
+| 01-02     | Arquitectura base, layout y datos de la comunidad            | 01    | Terminada | 01-01      | [bitacora-01-02-2026-10-10](../99_bitacora/bitacora-01-02-2026-10-10.md) |
+| 01-03     | Tailwind local, fuentes autoalojadas e íconos                | 01    | En revisión | 01-02    | [bitacora-01-03-2026-10-10](../99_bitacora/bitacora-01-03-2026-10-10.md) |
 | 01-04     | Header, tema, hero y pie de página                           | 01    | Pendiente | 01-03      | — |
 | 01-05     | Secciones de contenido                                       | 01    | Pendiente | 01-04      | — |
 | 01-06     | Despliegue en Cloudflare Workers y retiro del prototipo      | 01    | Pendiente | 01-05      | — |
@@ -51,8 +51,8 @@ Bloquean contenido o diseño. Mientras falten, se usa `PENDIENTE_DATO` en `src/d
 | Enlace «Oportunidades» del menú | AUD-01-005 | 01-04 | Confirmado: se retira (el menú queda con Comunidad, Talleres y Visión) |
 | Nombres de las temáticas de talleres | AUD-01-002 | — | Confirmado: se dejan tal como están por ahora |
 | Logotipos de tecnologías en las temáticas de talleres | AUD-01-003 | — | Confirmado (2026-10-10): **no** se usan; las temáticas llevan los íconos Material Symbols Light que eligió el desarrollador |
-| SVG oficiales de las tecnologías | AUD-01-003 | 01-03 | Recibidos: 29 archivos `Logos*.svg` en `assets/icons/`; pasan a `src/icons/` con el prefijo `tec-` en 01-03 |
-| Nombres de los 6 íconos de temáticas de talleres | AUD-02-003 | 01-03 | Se identifican comparando su `path` con Material Symbols Light; si alguno no coincide, se pregunta |
+| SVG oficiales de las tecnologías | AUD-01-003 | 01-03 | Recibidos: 29 archivos `Logos*.svg`; copiados sin modificar a `src/icons/tec-*.svg` en 01-03 |
+| Nombres de los 6 íconos de temáticas de talleres | AUD-02-003 | 01-03 | Confirmados en 01-03: coinciden exactamente con `web`, `code-blocks`, `wand-stars`, `cloud-sync`, `rocket-launch` y `robot-2` |
 | PDF con la información del primer taller (el único hasta ahora) | AUD-01-004 | 03-01 | Recibido el 2026-10-10 (Luma: «Del Vibe Coding a la Ingeniería Web», 3 de octubre de 2026). Datos publicables aprobados el 2026-10-10 (RDA-014) |
 | Enlace del perfil de LinkedIn de la comunidad | — | 01-02 y 01-04 | Recibido: `https://www.linkedin.com/company/comunidad-pulso-devs/home/` (en `config.js` del prototipo) |
 | Lista de ajustes estéticos y visuales (hito 3) | — | 02-02 | Pendiente |
@@ -64,6 +64,7 @@ Bloquean contenido o diseño. Mientras falten, se usa `PENDIENTE_DATO` en `src/d
 | :--- | :-- | :---------- |
 | Aceptar la medición con Cloudflare Web Analytics tras medir su efecto | RDA-010 | Desarrollador |
 | Si se hace la navegación multipágina (Épica 06), después del despliegue | RDA-011 | Desarrollador |
+| Grosor de los íconos de interfaz: el prototipo trae 20 de 21 con trazo de peso 400 (~20 % más de tinta y ~5 % más grandes) y `DESIGN.md` §7 dice peso 300 (Light). 01-03 usa Material Symbols Light (300); mantener el trazo del prototipo exige otro set (por ejemplo `@iconify-json/material-symbols`, dependencia nueva) | — | Desarrollador |
 
 ## 4. Propuestas fuera de alcance
 
@@ -73,6 +74,7 @@ Ideas detectadas durante el trabajo que no forman parte de lo planificado.
 | :-------- | :----- | :---- |
 | Medir clics en el botón del grupo de WhatsApp (el desarrollador lo evaluará «quizás en el futuro») | Respuesta del desarrollador | 2026-10-09 |
 | Navegación multipágina (Épica 06, en evaluación) | Respuesta del desarrollador | 2026-10-09 |
+| Corregir `DESIGN.md` §7: nombre de los íconos como están en `src/data/iconos.js` (variante `-outline` del set) y aclarar el peso real de los íconos (ver §3) | Bitácora 01-03 | 2026-10-10 |
 | Sumar a `DESIGN.md` `.joincard`, `.band--dots`, `.founder-chip`, LinkedIn en el pie y la lista real de íconos y logotipos (requiere aprobación) | Auditoría 02 | 2026-10-10 |
 
 ## 5. Historial de cambios del registro
@@ -88,3 +90,4 @@ Ideas detectadas durante el trabajo que no forman parte de lo planificado.
 | 2026-10-10 | El desarrollador aprueba publicar los 80 asistentes, el sorteo de 20 licencias de JetBrains y el despliegue en vivo con GitHub Pages; no se menciona el bootcamp (RDA-014). 03-01 queda sin datos pendientes. |
 | 2026-10-10 | Iteración 01-01 con commit `10fc2c8` (Terminada). Decisiones del desarrollador sobre sus pendientes: PNPM se mantiene en 12.8.1; `.prettierignore` conserva `AGENTS.md`, `DESIGN.md`, `README.md` y `LICENSE`; estilo de Prettier aceptado; los 37 renombrados quedan en el índice. Se corrigen tres errores de documentación (doble punto en 01-01 y numeración de la Auditoría 02, que pasa a AUD-02-001 a AUD-02-007). |
 | 2026-10-10 | Iteración 01-02 implementada por Claude Code en `main` y dejada `En revisión`: `src/data/comunidad.js`, `LayoutBase`, `CabeceraSEO`, `404`, portada con secciones ancladas, año del pie calculado al compilar e integración que falla ante `PENDIENTE_DATO`. Pendiente del desarrollador: revisar, hacer commit y push. |
+| 2026-10-10 | Iteración 01-02 con commit `17ed29e` (Terminada). Iteración 01-03 implementada por Claude Code en `main` y dejada `En revisión`: tokens y componentes comunes en Tailwind 4, fuentes autoalojadas (Lexend e IBM Plex Sans) con la Fonts API de Astro, `Icono.astro` con `astro-icon` y 29 logotipos `tec-*.svg` idénticos a los originales. Los 6 íconos de temáticas coinciden exactamente con Material Symbols Light. Queda por decidir el grosor de los íconos del sprite (§3). |

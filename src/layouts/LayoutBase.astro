@@ -1,4 +1,5 @@
 ---
+import { Font } from 'astro:assets';
 import CabeceraSEO from '../components/CabeceraSEO.astro';
 import { anioActual, comunidad } from '../data/comunidad.js';
 import '../styles/global.css';
@@ -41,6 +42,11 @@ const { titulo, descripcion, noindex } = Astro.props;
         document.documentElement.setAttribute('data-theme', tema);
       })();
     </script>
+    <!-- Fuentes autoalojadas (RDA-004). Cada familia es un archivo variable (todos los pesos comparten
+         archivo), así que se precarga solo el estilo normal y no las cursivas, que el sitio no usa. -->
+    <Font cssVariable="--font-lexend" preload={[{ style: 'normal', subset: 'latin' }]} />
+    <Font cssVariable="--font-plex-sans" preload={[{ style: 'normal', subset: 'latin' }]} />
+
     <slot name="head" />
   </head>
   <body>

@@ -1,0 +1,34 @@
+---
+import { Icon } from 'astro-icon/components';
+import { iconos } from '../data/iconos.js';
+
+/**
+ * Ícono de interfaz (Material Symbols Light) como SVG en línea, con el nombre de uso definido
+ * en `src/data/iconos.js`. Es decorativo por defecto (`aria-hidden="true"`); si el ícono es el
+ * único contenido de un control, pasa `etiqueta` y se expone como imagen con ese texto.
+ *
+ * @typedef {object} Props
+ * @property {string} nombre Nombre del ícono en `src/data/iconos.js`; si no existe, la compilación falla.
+ * @property {string} [clase] Clases CSS adicionales (se suman a `icon`).
+ * @property {string} [etiqueta] Texto alternativo. Si se omite, el ícono es decorativo.
+ */
+
+/** @type {Props} */
+const { nombre, clase = '', etiqueta } = Astro.props;
+
+if (!(nombre in iconos)) {
+  throw new Error(`Icono: "${nombre}" no existe en src/data/iconos.js.`);
+}
+
+const decorativo = !etiqueta;
+const nombreIconify = iconos[nombre];
+---
+
+<Icon
+  name={`material-symbols-light:${nombreIconify}`}
+  class:list={['icon', clase]}
+  aria-hidden={decorativo ? 'true' : undefined}
+  role={decorativo ? undefined : 'img'}
+  aria-label={etiqueta}
+  focusable="false"
+/>
