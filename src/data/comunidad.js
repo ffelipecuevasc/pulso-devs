@@ -31,6 +31,7 @@ export const comunidad = {
       'Una comunidad para desarrolladores junior que quieren aprender, construir y crecer juntos. Abierta a toda Latinoamérica.',
     textoAltImagen: 'Logotipo de Pulso Devs',
     colorTema: '#FFFFFF',
+    colorTemaOscuro: '#00131D',
   },
 
   /** Única forma de unirse a la comunidad (RDA-006). */

@@ -3,7 +3,7 @@
 **Fuente única de verdad del trabajo pendiente.** Si discrepa con `_planificacion/README.md` o con cualquier otro documento de planificación, prevalece este archivo.
 
 - **Última actualización:** 2026-10-10
-- **Iteración activa:** 01-03 (Tailwind local, fuentes e íconos), en revisión desde 2026-10-10. 01-02 quedó entregada y con commit `17ed29e`.
+- **Iteración activa:** 01-04 (header, tema, hero y pie), en revisión desde 2026-10-10. 01-03 quedó entregada y con commit `33fa8ec`.
 - **Prototipo de referencia:** commit `d60c55e`. La transición de cambio de tema **no** existe en el prototipo: se implementa directamente en Astro en 02-03.
 - **Próximo hito:** hitos 1 y 2: sitio migrado a Astro 7 y Tailwind 4 compilado localmente, desplegado por primera vez en `https://comunidadpulso.dev` con Workers Builds (iteración 01-06).
 - **Alcance del sitio:** una sola página (One Page) con secciones ancladas (RDA-011).
@@ -19,8 +19,8 @@
 | :-------- | :----------------------------------------------------------- | :---- | :-------- | :--------- | :------- |
 | 01-01     | Andamiaje del proyecto                                       | 01    | Terminada | —          | [bitacora-01-01-2026-10-10](../99_bitacora/bitacora-01-01-2026-10-10.md) |
 | 01-02     | Arquitectura base, layout y datos de la comunidad            | 01    | Terminada | 01-01      | [bitacora-01-02-2026-10-10](../99_bitacora/bitacora-01-02-2026-10-10.md) |
-| 01-03     | Tailwind local, fuentes autoalojadas e íconos                | 01    | En revisión | 01-02    | [bitacora-01-03-2026-10-10](../99_bitacora/bitacora-01-03-2026-10-10.md) |
-| 01-04     | Header, tema, hero y pie de página                           | 01    | Pendiente | 01-03      | — |
+| 01-03     | Tailwind local, fuentes autoalojadas e íconos                | 01    | Terminada | 01-02      | [bitacora-01-03-2026-10-10](../99_bitacora/bitacora-01-03-2026-10-10.md) |
+| 01-04     | Header, tema, hero y pie de página                           | 01    | En revisión | 01-03    | [bitacora-01-04-2026-10-10](../99_bitacora/bitacora-01-04-2026-10-10.md) |
 | 01-05     | Secciones de contenido                                       | 01    | Pendiente | 01-04      | — |
 | 01-06     | Despliegue en Cloudflare Workers y retiro del prototipo      | 01    | Pendiente | 01-05      | — |
 | 02-01     | Fuente de lectura definitiva (Figtree)                       | 02    | Pendiente | 01-06      | — |
@@ -64,7 +64,6 @@ Bloquean contenido o diseño. Mientras falten, se usa `PENDIENTE_DATO` en `src/d
 | :--- | :-- | :---------- |
 | Aceptar la medición con Cloudflare Web Analytics tras medir su efecto | RDA-010 | Desarrollador |
 | Si se hace la navegación multipágina (Épica 06), después del despliegue | RDA-011 | Desarrollador |
-| Grosor de los íconos de interfaz: el prototipo trae 20 de 21 con trazo de peso 400 (~20 % más de tinta y ~5 % más grandes) y `DESIGN.md` §7 dice peso 300 (Light). 01-03 usa Material Symbols Light (300); mantener el trazo del prototipo exige otro set (por ejemplo `@iconify-json/material-symbols`, dependencia nueva) | — | Desarrollador |
 
 ## 4. Propuestas fuera de alcance
 
@@ -74,7 +73,7 @@ Ideas detectadas durante el trabajo que no forman parte de lo planificado.
 | :-------- | :----- | :---- |
 | Medir clics en el botón del grupo de WhatsApp (el desarrollador lo evaluará «quizás en el futuro») | Respuesta del desarrollador | 2026-10-09 |
 | Navegación multipágina (Épica 06, en evaluación) | Respuesta del desarrollador | 2026-10-09 |
-| Corregir `DESIGN.md` §7: nombre de los íconos como están en `src/data/iconos.js` (variante `-outline` del set) y aclarar el peso real de los íconos (ver §3) | Bitácora 01-03 | 2026-10-10 |
+| Revisar el resto de `DESIGN.md` frente a lo migrado: §7 aún dice que los logotipos de tecnologías «se usarán en las temáticas de talleres» (decisión revertida el 2026-10-10), §6 describe la tarjeta de «Únete» como `.welcome` (hoy `.joincard`) y los anchos de §5 incluyen un formulario que ya no existe (requiere aprobación; `DESIGN.md` §7 solo se corrigió en los nombres de íconos y el peso) | Bitácora 01-04 | 2026-10-10 |
 | Sumar a `DESIGN.md` `.joincard`, `.band--dots`, `.founder-chip`, LinkedIn en el pie y la lista real de íconos y logotipos (requiere aprobación) | Auditoría 02 | 2026-10-10 |
 
 ## 5. Historial de cambios del registro
@@ -91,3 +90,4 @@ Ideas detectadas durante el trabajo que no forman parte de lo planificado.
 | 2026-10-10 | Iteración 01-01 con commit `10fc2c8` (Terminada). Decisiones del desarrollador sobre sus pendientes: PNPM se mantiene en 12.8.1; `.prettierignore` conserva `AGENTS.md`, `DESIGN.md`, `README.md` y `LICENSE`; estilo de Prettier aceptado; los 37 renombrados quedan en el índice. Se corrigen tres errores de documentación (doble punto en 01-01 y numeración de la Auditoría 02, que pasa a AUD-02-001 a AUD-02-007). |
 | 2026-10-10 | Iteración 01-02 implementada por Claude Code en `main` y dejada `En revisión`: `src/data/comunidad.js`, `LayoutBase`, `CabeceraSEO`, `404`, portada con secciones ancladas, año del pie calculado al compilar e integración que falla ante `PENDIENTE_DATO`. Pendiente del desarrollador: revisar, hacer commit y push. |
 | 2026-10-10 | Iteración 01-02 con commit `17ed29e` (Terminada). Iteración 01-03 implementada por Claude Code en `main` y dejada `En revisión`: tokens y componentes comunes en Tailwind 4, fuentes autoalojadas (Lexend e IBM Plex Sans) con la Fonts API de Astro, `Icono.astro` con `astro-icon` y 29 logotipos `tec-*.svg` idénticos a los originales. Los 6 íconos de temáticas coinciden exactamente con Material Symbols Light. Queda por decidir el grosor de los íconos del sprite (§3). |
+| 2026-10-10 | Iteración 01-03 con commit `33fa8ec` (Terminada). Decisiones del desarrollador: se dejan los íconos Material Symbols Light (peso 300) y se acepta la diferencia de trazo con el prototipo; se quita la cursiva de IBM Plex Sans; se aprueba corregir `DESIGN.md` §7 (nombres de íconos y mención del peso) y verificar en 01-04 y 01-05 los tokens y `container` sin uso. Iteración 01-04 implementada por Claude Code en `main` y dejada `En revisión`: header, control de tema, menú móvil, hero y pie con paridad medida (sin «Oportunidades»); `sharp` agregado como dependencia (aprobada de antemano para `MissingSharp`). |

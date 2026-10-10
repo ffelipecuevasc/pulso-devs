@@ -1,0 +1,33 @@
+---
+import { Picture } from 'astro:assets';
+import logo from '../assets/img/pulsodevs-small.png';
+import { comunidad } from '../data/comunidad.js';
+
+/**
+ * Marca: logotipo oficial más el nombre, como enlace al inicio de la página.
+ *
+ * @typedef {object} Props
+ * @property {string} etiqueta Texto accesible del enlace (el logotipo es decorativo).
+ * @property {string} [href] Destino del enlace. Por defecto, `#inicio`.
+ * @property {number} [ancho] Ancho en píxeles con que se muestra el logotipo (32 en el header, 40 en el pie).
+ * @property {'eager' | 'lazy'} [carga] Carga de la imagen: `eager` en el header (sobre el pliegue), `lazy` en el pie.
+ */
+
+/** @type {Props} */
+const { etiqueta, href = '#inicio', ancho = 32, carga = 'eager' } = Astro.props;
+const alto = Math.round((ancho * logo.height) / logo.width);
+---
+
+<a class="brand" href={href} aria-label={etiqueta}>
+  <Picture
+    class="brand__logo"
+    src={logo}
+    alt=""
+    width={ancho}
+    height={alto}
+    loading={carga}
+    densities={[1, 2]}
+    formats={['avif', 'webp']}
+  />
+  <span class="brand__name">{comunidad.nombreCorto}</span>
+</a>

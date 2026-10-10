@@ -1,0 +1,92 @@
+---
+import { Icon } from 'astro-icon/components';
+import Icono from './Icono.astro';
+import Marca from './Marca.astro';
+import { anioActual, comunidad } from '../data/comunidad.js';
+
+/**
+ * Pie de página: marca, descripción, crédito del fundador (única mención del fundador en el sitio,
+ * RDA-009), navegación, botón para unirse, LinkedIn de la comunidad y copyright con el año
+ * calculado al compilar. Los enlaces salen de `src/data/comunidad.js`.
+ *
+ * @typedef {object} Props
+ * @property {string} [prefijo] Prefijo de los enlaces de ancla (`''` en la portada, `'/'` en otras páginas).
+ */
+
+/** @type {Props} */
+const { prefijo = '' } = Astro.props;
+const { fundador, redes } = comunidad;
+---
+
+<footer class="site-footer">
+  <div class="container footer__grid">
+    <div class="footer__brand">
+      <Marca
+        etiqueta={`${comunidad.nombreCorto}, volver al inicio`}
+        href={`${prefijo}#inicio`}
+        ancho={40}
+        carga="lazy"
+      />
+      <p class="footer__about">
+        Comunidad latinoamericana de desarrolladores junior. Aprendemos y crecemos juntos.
+      </p>
+
+      <a
+        class="founder-chip"
+        href={fundador.sitioWeb}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={`Sitio web de ${fundador.nombre}, fundador de ${comunidad.nombreCorto} (se abre en una pestaña nueva)`}
+      >
+        <span class="founder-chip__icon" aria-hidden="true">
+          <Icono nombre="language" />
+        </span>
+        <span class="founder-chip__text">
+          <span class="founder-chip__role">Fundador</span>
+          <span class="founder-chip__name">{fundador.nombre}</span>
+        </span>
+        <Icono nombre="arrow_outward" clase="founder-chip__arrow" />
+      </a>
+    </div>
+
+    <nav class="footer__nav" aria-labelledby="footer-nav-title">
+      <p class="footer__heading" id="footer-nav-title">
+        Explora
+      </p>
+      <ul>
+        {comunidad.navegacion.map((item) => (
+          <li>
+            <a href={prefijo + item.href}>{item.texto}</a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <div class="footer__cta">
+      <p class="footer__heading">¿Estás empezando en desarrollo?</p>
+      <a class="btn btn--primary" href={`${prefijo}#unete`}>
+        Únete a la comunidad
+      </a>
+      <a
+        class="social-link"
+        href={redes.linkedin}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={`Perfil de LinkedIn de ${comunidad.nombre} (se abre en una pestaña nueva)`}
+      >
+        <Icon name="tec-linkedin" class="icon" aria-hidden="true" focusable="false" />
+        <span>Síguenos en LinkedIn</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="container footer__bottom">
+    <p>
+      © {anioActual} {comunidad.nombre}
+    </p>
+    <p class="footer__latam">
+      <Icono nombre="public" />
+      Hecha en comunidad, abierta a toda Latinoamérica
+    </p>
+  </div>
+</footer>

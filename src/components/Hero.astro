@@ -1,0 +1,89 @@
+---
+import { Picture } from 'astro:assets';
+import Icono from './Icono.astro';
+import logo from '../assets/img/pulsodevs.png';
+import { comunidad } from '../data/comunidad.js';
+
+/**
+ * Hero de la portada (`#inicio`): el único `h1` del sitio, el trazo de pulso que termina en el
+ * logotipo, el mensaje, los botones y la invitación a toda Latinoamérica.
+ * El latido y el anillo se animan con CSS; `src/scripts/pulso-logo.js` repite el anillo al pasar el cursor.
+ */
+
+// El eslogan viene de comunidad.js; la palabra «pulso» se destaca.
+const [antes, despues] = comunidad.eslogan.split('pulso');
+---
+
+<section class="hero" id="inicio" aria-labelledby="hero-title">
+  <div class="container">
+    <h1 class="hero__title" id="hero-title">
+      <span class="hero__kicker">
+        <span class="beat" aria-hidden="true"></span>Comunidad
+      </span>
+      <span class="hero__wordmark">{comunidad.nombreCorto}</span>
+    </h1>
+  </div>
+
+  <div class="hero__trace">
+    <div class="container hero__trace-row">
+      <span class="trace-line trace-line--in" aria-hidden="true"></span>
+      <svg
+        class="trace-spike"
+        viewBox="0 0 168 84"
+        preserveAspectRatio="xMidYMid meet"
+        aria-hidden="true"
+        focusable="false"
+      >
+        <path d="M0 42 H40 L50 33 L58 42 H68 L77 6 L88 78 L97 42 H110 L120 34 L130 42 H168"></path>
+      </svg>
+      <span class="trace-line trace-line--short" aria-hidden="true"></span>
+      <span class="hero__logo" data-hero-logo>
+        <Picture
+          src={logo}
+          alt={comunidad.seo.textoAltImagen}
+          width={logo.width}
+          height={logo.height}
+          widths={[200, 400]}
+          sizes="clamp(5rem, 15vw, 12.5rem)"
+          formats={['avif', 'webp']}
+          priority
+        />
+      </span>
+      <span class="trace-line trace-line--out" aria-hidden="true"></span>
+    </div>
+  </div>
+
+  <div class="container hero__body">
+    <div class="hero__copy">
+      <p class="hero__lead">
+        {antes}
+        <strong>pulso</strong>
+        {despues}
+      </p>
+      <p class="hero__sub">
+        <strong>Desarrollo Web &amp; IA.</strong> Talleres en vivo, apoyo para tus proyectos y
+        oportunidades para dar tus primeros pasos en la industria.
+      </p>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="#unete">
+          Únete a la comunidad
+        </a>
+        <a class="btn btn--ghost" href="#comunidad">
+          Conoce Pulso Devs
+        </a>
+      </div>
+    </div>
+    <aside class="invite" aria-label="Abierta a toda Latinoamérica">
+      <Icono nombre="public" clase="invite__icon" />
+      <p class="invite__title">Latinoamérica está invitada.</p>
+      <p class="invite__text">
+        No importa desde qué país nos escribas: si estás empezando en desarrollo,{' '}
+        <strong>¡esta comunidad es para ti!</strong>
+      </p>
+    </aside>
+  </div>
+</section>
+
+<script>
+  import '../scripts/pulso-logo.js';
+</script>

@@ -1,0 +1,61 @@
+---
+import ControlTema from './ControlTema.astro';
+import Icono from './Icono.astro';
+import Marca from './Marca.astro';
+import MenuMovil from './MenuMovil.astro';
+import { comunidad } from '../data/comunidad.js';
+
+/**
+ * Header fijo: marca, navegación principal, control de tema, botón «Únete» y menú móvil.
+ * Los ítems salen de `comunidad.navegacion`. El comportamiento está en `src/scripts/`.
+ *
+ * @typedef {object} Props
+ * @property {string} [prefijo] Prefijo de los enlaces de ancla (`''` en la portada, `'/'` en otras páginas).
+ */
+
+/** @type {Props} */
+const { prefijo = '' } = Astro.props;
+---
+
+<header class="site-header" data-header>
+  <div class="container header-inner">
+    <div class="header-start">
+      <Marca etiqueta={`${comunidad.nombreCorto}, ir al inicio`} href={`${prefijo}#inicio`} />
+    </div>
+
+    <nav class="site-nav" aria-label="Navegación principal">
+      <ul class="site-nav__list">
+        {comunidad.navegacion.map((item) => (
+          <li>
+            <a href={prefijo + item.href}>{item.texto}</a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <div class="header-end">
+      <ControlTema />
+      <a class="btn btn--primary btn--sm header-cta" href={`${prefijo}#unete`}>
+        Únete
+      </a>
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        aria-label="Abrir menú"
+        data-menu-toggle
+      >
+        <Icono nombre="menu" clase="icon--menu" />
+        <Icono nombre="close" clase="icon--close" />
+      </button>
+    </div>
+  </div>
+
+  <MenuMovil prefijo={prefijo} />
+</header>
+
+<script>
+  import '../scripts/encabezado.js';
+  import '../scripts/menu.js';
+</script>

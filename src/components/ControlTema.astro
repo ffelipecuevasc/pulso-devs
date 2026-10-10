@@ -1,0 +1,30 @@
+---
+import Icono from './Icono.astro';
+import { comunidad } from '../data/comunidad.js';
+---
+
+<!--
+  Interruptor de tema (role="switch"). Los valores que usa el script salen de comunidad.js
+  y llegan como atributos data-*; el script está en src/scripts/tema.js.
+-->
+<button
+  class="theme-toggle"
+  type="button"
+  role="switch"
+  aria-checked="false"
+  aria-label="Modo oscuro"
+  data-theme-toggle
+  data-clave-tema={comunidad.claveTema}
+  data-color-claro={comunidad.seo.colorTema}
+  data-color-oscuro={comunidad.seo.colorTemaOscuro}
+>
+  <span class="theme-toggle__track" aria-hidden="true">
+    <Icono nombre="light_mode" clase="theme-toggle__sun" />
+    <Icono nombre="dark_mode" clase="theme-toggle__moon" />
+    <span class="theme-toggle__knob"></span>
+  </span>
+</button>
+
+<script>
+  import '../scripts/tema.js';
+</script>

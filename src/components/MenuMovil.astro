@@ -1,0 +1,28 @@
+---
+import { comunidad } from '../data/comunidad.js';
+
+/**
+ * Panel del menú móvil. Lo abre y cierra `src/scripts/menu.js`.
+ *
+ * @typedef {object} Props
+ * @property {string} [prefijo] Prefijo de los enlaces de ancla (`''` en la portada, `'/'` en otras páginas).
+ */
+
+/** @type {Props} */
+const { prefijo = '' } = Astro.props;
+---
+
+<div class="mobile-menu" id="mobile-menu" data-mobile-menu>
+  <nav class="container" aria-label="Navegación móvil">
+    <ul class="mobile-menu__list">
+      {comunidad.navegacion.map((item) => (
+        <li>
+          <a href={prefijo + item.href}>{item.texto}</a>
+        </li>
+      ))}
+    </ul>
+    <a class="btn btn--primary btn--block" href={`${prefijo}#unete`}>
+      Únete a la comunidad
+    </a>
+  </nav>
+</div>

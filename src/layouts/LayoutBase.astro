@@ -1,12 +1,14 @@
 ---
 import { Font } from 'astro:assets';
 import CabeceraSEO from '../components/CabeceraSEO.astro';
-import { anioActual, comunidad } from '../data/comunidad.js';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { comunidad } from '../data/comunidad.js';
 import '../styles/global.css';
 
 /**
- * Layout único del sitio: documento HTML, cabecera SEO, tema aplicado antes de pintar y
- * pie provisional. El header y el pie definitivos llegan en 01-04.
+ * Layout único del sitio: documento HTML, cabecera SEO, tema aplicado antes de pintar, enlace
+ * de salto, header y pie.
  *
  * Slots: `head` (elementos extra dentro de `<head>`) y el contenido por defecto.
  *
@@ -18,6 +20,9 @@ import '../styles/global.css';
 
 /** @type {Props} */
 const { titulo, descripcion, noindex } = Astro.props;
+
+// En la portada los enlaces de ancla son locales (#talleres); en otras páginas, como la 404, apuntan a la portada.
+const prefijo = Astro.url.pathname === '/' ? '' : '/';
 ---
 
 <!doctype html>
@@ -50,11 +55,11 @@ const { titulo, descripcion, noindex } = Astro.props;
     <slot name="head" />
   </head>
   <body>
+    <a class="skip-link" href="#contenido">
+      Saltar al contenido
+    </a>
+    <Header prefijo={prefijo} />
     <slot />
-    <footer>
-      <p>
-        © {anioActual} {comunidad.nombre}
-      </p>
-    </footer>
+    <Footer prefijo={prefijo} />
   </body>
 </html>
