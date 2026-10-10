@@ -22,8 +22,6 @@ Si estás aprendiendo desarrollo web, este repositorio te sirve para ver cómo s
 | [PNPM](https://pnpm.io) | Gestor de paquetes (instala las dependencias). |
 | [Cloudflare Workers](https://workers.cloudflare.com) | Publica el sitio en internet, conectado a este repositorio de GitHub. |
 
-> El proyecto se está migrando desde HTML, CSS y JavaScript sin compilación hacia Astro y Tailwind. Mientras dure la migración, el sitio original vive en `_prototipo/` y algunas partes de este README pueden adelantarse al código.
-
 ## Cómo ejecutarlo en tu computador
 
 **Requisitos:** Node.js 24 y PNPM 12.
@@ -43,13 +41,20 @@ Abre `http://localhost:4321` en tu navegador.
 | `pnpm build` | Genera la versión final en la carpeta `dist/` |
 | `pnpm preview` | Muestra localmente la versión final |
 
+## Cómo se publica
+
+Astro no necesita un servidor para funcionar: al compilar el proyecto genera el sitio como **archivos estáticos** (HTML, CSS y un poco de JavaScript) dentro de la carpeta `dist/`. Esos archivos, y no el código fuente, son los que ve el público.
+
+**Cloudflare Workers** los sirve desde su red global de servidores, de modo que cada visitante los recibe desde un punto cercano a su ubicación. La publicación la realiza Wrangler, la herramienta de Cloudflare para esa tarea.
+
+Todo el proceso está conectado a este repositorio de GitHub: cada cambio que llega a la rama `main` se compila y se publica solo, sin pasos manuales. Por eso `main` siempre refleja la versión que está en línea.
+
 ## Estructura
 
 ```text
 pulso-devs/
 ├── src/              Código del sitio (páginas, componentes, estilos y datos)
 ├── public/           Archivos que se publican tal cual (favicon, robots.txt)
-├── _prototipo/       Sitio original, solo de referencia durante la migración
 ├── _planificacion/   Documentación del proyecto: épicas, decisiones y bitácoras
 ├── AGENTS.md         Reglas para los agentes de IA que colaboran en el código
 └── DESIGN.md         Sistema de diseño: colores, tipografías y componentes

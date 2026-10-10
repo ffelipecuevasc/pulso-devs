@@ -2,8 +2,8 @@
 
 - **Iteración:** 01-06 · Despliegue en Cloudflare Workers y retiro del prototipo
 - **Responsable:** desarrollador (el agente no toca Cloudflare, AGENTS.md §5)
-- **Estado:** Pendiente (plantilla; completar mientras se avanza)
-- **Fecha de inicio:** _por completar_
+- **Estado:** En curso (compilación y primer despliegue en `workers.dev` correctos; dominio, `www`, cabeceras, 404 y teléfono pendientes)
+- **Fecha de inicio:** 2026-10-10
 
 > **Antes de empezar:** desde que Workers Builds quede conectado, **cada push a `main` publica en producción** (RDA-015). Haz el commit de la fase A, comprueba que `pnpm build` pasa sin errores y recién entonces conecta el repositorio.
 >
@@ -15,12 +15,12 @@
 
 Panel de Cloudflare → **Workers & Pages** → **Create application** → **Import a repository** (Workers Builds) → conectar GitHub y elegir `ffelipecuevasc/pulso-devs`.
 
-- [ ] **Nombre del proyecto (Worker): `pulso-devs`.** Debe coincidir exactamente con `name` de `wrangler.jsonc`. Si no coincide, la compilación falla.
-- [ ] **Production branch:** `main` (es el valor por defecto).
-- [ ] **Root directory:** vacío (la raíz del repositorio).
-- [ ] **Build command:** `pnpm build`
-- [ ] **Deploy command:** `pnpm exec wrangler deploy` (reemplaza el valor por defecto `npx wrangler deploy`; `npx` está prohibido en este proyecto). Workers Builds usa la versión de `wrangler` que está en `package.json` (4.x).
-- [ ] **Preview command / vistas previas:** en **Settings → Build → Branch control**, desmarcar **Enable Preview Builds**. No hay ramas ni vistas previas (RDA-015); así ningún push a otra rama dispara una compilación.
+- [x] **Nombre del proyecto (Worker): `pulso-devs`.** Debe coincidir exactamente con `name` de `wrangler.jsonc`. Si no coincide, la compilación falla. _La compilación terminó bien y la dirección es `pulso-devs.felipe-cuevas.workers.dev`, con el nombre esperado._
+- [ ] **Production branch:** `main` (es el valor por defecto). _Sin confirmar: no consta en lo informado._
+- [ ] **Root directory:** vacío (la raíz del repositorio). _Sin confirmar._
+- [ ] **Build command:** `pnpm build` _(la compilación corrió bien; el comando configurado no está transcrito)._
+- [ ] **Deploy command:** `pnpm exec wrangler deploy` (reemplaza el valor por defecto `npx wrangler deploy`; `npx` está prohibido en este proyecto). Workers Builds usa la versión de `wrangler` que está en `package.json` (4.x). _El despliegue terminó bien, pero el comando configurado y la versión de Wrangler no están transcritos: sin confirmar._
+- [ ] **Preview command / vistas previas:** en **Settings → Build → Branch control**, desmarcar **Enable Preview Builds**. No hay ramas ni vistas previas (RDA-015); así ningún push a otra rama dispara una compilación. _Sin confirmar. Ver el aviso de `preview_urls` más abajo._
 
 Evidencia: _captura o texto de la configuración de Build (sin tokens)._
 
@@ -37,12 +37,12 @@ La documentación de Workers Builds (página «Build image») solo describe esta
 
 La documentación **no** menciona `devEngines` ni el campo `packageManager`, así que no se puede dar por hecho que Workers Builds los respete.
 
-- [ ] En **Settings → Build → Build variables and secrets**, agregar la variable **`PNPM_VERSION` = `12.8.1`** (visible, no es secreta). Es el mismo valor de `devEngines.packageManager.version`: si cambias uno, cambia el otro.
-- [ ] Lanzar una compilación y revisar el registro. Debe mostrar, en este orden: instalación con **pnpm 12.8.1** (no 10.11.1), Node 24.x, `pnpm build` terminando con `Complete!` y el despliegue.
-- [ ] Revisar en el registro que no aparezcan advertencias de scripts de instalación ignorados (`ERR_PNPM_IGNORED_BUILDS`): `esbuild` y `workerd` están permitidos en `allowBuilds`.
-- [ ] Anotar cómo instaló las dependencias Workers Builds (la documentación no indica el comando de instalación; debe detectar `pnpm-lock.yaml`). Si no usa pnpm o falla con el lockfile, **detenerse** y avisar antes de cambiar nada.
+- [ ] En **Settings → Build → Build variables and secrets**, agregar la variable **`PNPM_VERSION` = `12.8.1`** (visible, no es secreta). Es el mismo valor de `devEngines.packageManager.version`: si cambias uno, cambia el otro. _**Pendiente de confirmar por el desarrollador** si la variable se definió. La compilación usó pnpm 12.8.1; con lo informado no se sabe si fue por la variable o porque Workers Builds respetó `devEngines`, así que sigue abierto._
+- [x] Lanzar una compilación y revisar el registro. Debe mostrar, en este orden: instalación con **pnpm 12.8.1** (no 10.11.1), Node 24.x, `pnpm build` terminando con `Complete!` y el despliegue.
+- [ ] Revisar en el registro que no aparezcan advertencias de scripts de instalación ignorados (`ERR_PNPM_IGNORED_BUILDS`): `esbuild` y `workerd` están permitidos en `allowBuilds`. _Sin confirmar: lo informado no dice si aparecieron o no._
+- [x] Anotar cómo instaló las dependencias Workers Builds (la documentación no indica el comando de instalación; debe detectar `pnpm-lock.yaml`). Si no usa pnpm o falla con el lockfile, **detenerse** y avisar antes de cambiar nada. _Instaló con pnpm 12.8.1 y la compilación no falló con el lockfile. El comando exacto de instalación no está transcrito._
 
-Evidencia: _líneas del registro con las versiones de PNPM y Node y el resultado de `pnpm build`._
+Evidencia: ver «Registro de avance» más abajo (versiones, `pnpm build` y despliegue, según lo informado por el desarrollador).
 
 ## Paso 3 · Asociar el dominio y redirigir `www` (tarea 6)
 
@@ -90,6 +90,29 @@ Solo con el sitio publicado y verificado:
 - [ ] Se elimina `_prototipo/` (los logotipos ya están copiados en `src/icons/` desde 01-03). Limpiar sus referencias en `.prettierignore` y en cualquier otro archivo.
 - [ ] `AGENTS.md` y `README.md` sin menciones al prototipo (con aprobación; texto propuesto en la bitácora 01-06).
 - [ ] Actualizar `registro-log.md` y marcar 01-06 como `Terminada`.
+
+---
+
+## Registro de avance (2026-10-10)
+
+Primer despliegue de Workers Builds, informado por el desarrollador a partir del registro de compilación. **Las líneas literales del registro no están transcritas aquí**; lo que sigue resume lo informado, sin citar texto del log.
+
+| Dato | Valor informado |
+| :--- | :-------------- |
+| Compilación y despliegue | Correctos |
+| PNPM usado en la compilación | 12.8.1 (la versión fijada; la imagen trae 10.11.1 por defecto) |
+| Node.js usado | 24.21.0 (resuelto desde `.nvmrc`, que dice `24`) |
+| Archivos subidos | 29 |
+| Dirección publicada | `https://pulso-devs.felipe-cuevas.workers.dev` (responde con el sitio, según el desarrollador) |
+| Avisos | Dos: uno sobre `workers_dev` y otro sobre `preview_urls` |
+
+### Avisos de `workers_dev` y `preview_urls`
+
+El texto exacto de los avisos no está transcrito. Lo más probable es que se deban a que `wrangler.jsonc` no define ninguno de los dos campos (hoy solo tiene `name`, `compatibility_date` y `assets`), pero **eso es una hipótesis**: falta cotejarla con el registro y con la documentación de Wrangler. Son avisos, no errores. **No se modificó `wrangler.jsonc`**: definirlos de forma explícita queda como propuesta en `registro-log.md` §4, a decidir por el desarrollador antes de la fase de dominio. Hay que decidirlo con el criterio de RDA-015 (sin vistas previas) y de si la dirección `workers.dev` debe seguir activa una vez asociado `comunidadpulso.dev`.
+
+### Lo que sigue sin demostrar
+
+Dominio `comunidadpulso.dev`, redirección de `www`, cabeceras de `_headers` (también en la 404), página 404 propia, comportamiento de `index.html` y `404.html`, branch control y vistas previas, y la prueba en el teléfono. Los pasos 3 a 6 y las casillas del paso 5 siguen sin marcar. La respuesta correcta de `workers.dev` no sustituye las pruebas del dominio ni se marca como tal.
 
 ---
 
