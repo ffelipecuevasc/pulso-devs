@@ -66,7 +66,7 @@ El prototipo tiene una identidad visual sólida (tokens `orient`, modo claro/osc
 
 | ID         | Severidad | Hallazgo | Acción recomendada | Estado |
 | :--------- | :-------- | :------- | :----------------- | :----- |
-| AUD-01-019 | Media | El repositorio no tiene `package.json`, lockfile, `LICENSE`, `.claude/settings.json`, `_planificacion/` ni `wrangler.jsonc`. | Andamiaje de la Épica 01 y documentación entregada. | Parcial: `LICENSE`, `.claude/settings.json` y `_planificacion/` ya están (`d60c55e`); `package.json` y `pnpm-lock.yaml` creados en 01-01; falta `wrangler.jsonc` (01-06) |
+| AUD-01-019 | Media | El repositorio no tiene `package.json`, lockfile, `LICENSE`, `.claude/settings.json`, `_planificacion/` ni `wrangler.jsonc`. | Andamiaje de la Épica 01 y documentación entregada. | Parcial: `LICENSE`, `.claude/settings.json` y `_planificacion/` ya están (`d60c55e`); `package.json` y `pnpm-lock.yaml` creados en 01-01; `wrangler.jsonc` creado en 01-06 (fase A; pendiente de comprobar en producción, fase B) |
 | AUD-01-020 | Baja | `pulsodevs.png` y `pulsodevs-small.png` se usan con `alt=""` en el header y el pie (correcto, el enlace tiene `aria-label`), pero el logotipo del hero tiene `alt="Logotipo de Pulso Devs"` junto a un `h1` que ya dice «Pulso Devs»: el lector de pantalla repite el nombre. | Evaluar `alt=""` en el hero si el nombre ya está en el `h1`. | Abierto (04-03) |
 
 ### Hallazgos abiertos por iteración

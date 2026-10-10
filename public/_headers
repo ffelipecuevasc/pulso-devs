@@ -1,0 +1,7 @@
+# Cabeceras de seguridad básicas (iteración 01-06). Workers Static Assets las aplica
+# a los recursos estáticos; no a respuestas generadas por código de un Worker.
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: DENY
+  Content-Security-Policy: frame-ancestors 'none'

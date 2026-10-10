@@ -1,4 +1,6 @@
-# Scripts de instalación permitidos (AGENTS.md §3). Ninguna dependencia actual
-# los necesita: Astro 7 usa Vite 8 y no depende de esbuild. Si PNPM avisa de un
-# build ignorado (por ejemplo sharp, ver iteración 01-04), se declara aquí.
-allowBuilds: {}
+# Scripts de instalación permitidos (AGENTS.md §3). Solo wrangler (iteración 01-06)
+# los necesita: esbuild y workerd descargan o validan su binario al instalarse.
+# Astro 7 usa Vite 8 y no depende de esbuild; sharp no los necesita.
+allowBuilds:
+  esbuild: true
+  workerd: true

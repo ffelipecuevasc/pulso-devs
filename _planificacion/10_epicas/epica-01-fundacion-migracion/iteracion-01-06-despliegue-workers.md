@@ -1,7 +1,7 @@
 # Iteración 01-06 · Despliegue en Cloudflare Workers y retiro del prototipo
 
 - **Épica:** 01 · Fundación y migración a Astro
-- **Estado:** Pendiente
+- **Estado:** En revisión (fase A hecha; fase B pendiente)
 - **Rama:** `main` (RDA-015)
 - **Depende de:** 01-05
 - **RDA relacionadas:** RDA-001, RDA-008, RDA-013

@@ -56,8 +56,6 @@ Los componentes **solo** usan tokens semánticos, nunca la escala directa.
 | `--line-strong` | `rgba(0,84,113,.34)` | `rgba(93,201,255,.32)` | Bordes de botón secundario |
 | `--btn-bg` / `--btn-bg-hover` | `orient-500` / `orient-600` | `orient-300` / `orient-200` | Botón principal |
 | `--btn-ink` | `#FFFFFF` | `orient-950` | Texto del botón principal |
-| `--field-bg` | `#FFFFFF` | `orient-900` | Campos |
-| `--field-border` | `rgba(0,84,113,.38)` | `rgba(93,201,255,.34)` | Borde de campos |
 | `--focus` | `orient-400` | `orient-200` | Anillo de foco |
 | `--chip-bg` | `badge-light` | `orient-900` | Etiquetas |
 | `--danger` / `--danger-bg` | `gold-deep` / dorado 16 % sobre blanco | `gold` / `rgba(248,205,70,.1)` | Error |
@@ -98,12 +96,11 @@ Respaldo: `"Segoe UI", system-ui, -apple-system, sans-serif`. En el prototipo se
 | `--gutter` | `clamp(1.25rem, 4vw, 3rem)` | Margen lateral (respeta `safe-area`) |
 | `--section-y` | `clamp(4.5rem, 10vw, 8rem)` | Relleno vertical de sección |
 | `--header-h` | `4.5rem` | Alto del header |
-| `--radius-field` | `10px` | Campos |
 | `--radius-panel` | `20px` | Paneles y tarjetas |
 | Píldora | `999px` | Botones, chips, enlace de salto |
 | Círculo | `50%` | Avatares, punto de pulso |
 
-**Profundidad:** sin sombras de elevación en tarjetas. La profundidad se logra con bloques de color (`--surface`, `.band`) y líneas de 1 px. Los halos (`box-shadow` de 4–5 px con `--accent` al 22–26 %) se reservan para hover de botón y foco de campos.
+**Profundidad:** sin sombras de elevación en tarjetas. La profundidad se logra con bloques de color (`--surface`, `.band`) y líneas de 1 px. Los halos (`box-shadow` de 4–5 px con `--accent` al 22–26 %) se reservan para hover de botón.
 
 **Curva de movimiento:** `--ease-out: cubic-bezier(.22, .8, .24, 1)`.
 
@@ -135,7 +132,7 @@ Sin anchos rígidos que generen desplazamiento horizontal desde 320 px (`overflo
 | **Sección** (`.section`) | Relleno `--section-y`; variante `--surface` y variante `.band` (oscura). `.band--dots` agrega un patrón de puntos de fondo y lo llevan las dos bandas: Talleres y «Únete». Cabecera con `.section-title` + `.section-lead`. |
 | **Talleres** | Banda oscura con patrón de puntos (`.band--dots`). Datos clave (`.facts`: frecuencia, costo, instructores) y lista de temáticas, cada una con un ícono Material Symbols Light elegido por el desarrollador (sin logotipos de tecnologías, ver §7). Sin fechas ni calendario: «Las próximas fechas se anunciarán pronto». |
 | **Áreas** (`.areas`) | Lista editorial «Lo que nos reúne»: Frontend, Backend, Fullstack e Inteligencia Artificial, con una línea de descripción cada una. |
-| **Pilares** (`.pillar`, `.feature`) | «Lo que encontrarás»: tres pilares (construir, aprender, oportunidades) con ícono Material Symbols Light por ítem, sobre `--surface`. |
+| **Pilares** (`.pillar`, `.feature`) | «Lo que encontrarás»: tres pilares (construir, aprender, crecer) con ícono Material Symbols Light por ítem, sobre `--surface`. |
 | **Visión** | Sección editorial «Esto recién comienza.», con línea de tiempo de iniciativas marcadas como «próximamente». |
 | **Únete** | Banda oscura con patrón de puntos (`.band--dots`), tres pasos numerados (`.steps`) y una tarjeta (`.joincard`) con el logotipo oficial de WhatsApp (`tec-whatsapp-icon.svg`), un texto breve y el botón al grupo de WhatsApp. La tarjeta usa los tokens del modo claro dentro de la banda oscura. Es la única entrada a la comunidad: no hay formulario. |
 | **Footer** | Logotipo, «Pulso Devs», descripción breve, **crédito del fundador** (`.founder-chip`: «Fundador: Felipe Cuevas», con enlace a felipecuevas.dev; es la única mención del fundador en el sitio), navegación, **LinkedIn de la comunidad** (con el logotipo oficial `tec-linkedin.svg`; otras redes, cuando existan), botón para unirse, copyright con año calculado e indicador «Hecha en comunidad, abierta a toda Latinoamérica». Sin sobrecarga. |

@@ -36,7 +36,6 @@
   --font-display: var(--font-lexend);
   --font-body: var(--font-plex-sans);
 
-  --radius-field: 10px;
   --radius-panel: 20px;
   --ease-out: cubic-bezier(0.22, 0.8, 0.24, 1);
 
@@ -65,8 +64,6 @@
     --gold-ink: var(--color-gold-deep);
     --danger: var(--color-gold-deep);
     --danger-bg: color-mix(in srgb, var(--color-gold) 16%, #ffffff);
-    --field-bg: #ffffff;
-    --field-border: rgba(0, 84, 113, 0.38);
     --focus: var(--color-orient-400);
     --chip-bg: var(--color-badge-light);
     --trace: var(--color-orient-300);
@@ -92,8 +89,6 @@
     --gold-ink: var(--color-gold);
     --danger: var(--color-gold);
     --danger-bg: rgba(248, 205, 70, 0.1);
-    --field-bg: var(--color-orient-900);
-    --field-border: rgba(93, 201, 255, 0.34);
     --focus: var(--color-orient-200);
     --chip-bg: var(--color-orient-900);
     --trace: var(--color-orient-300);
