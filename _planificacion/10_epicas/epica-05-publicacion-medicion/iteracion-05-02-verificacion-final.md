@@ -2,7 +2,7 @@
 
 - **Épica:** 05 · Publicación y medición
 - **Estado:** Pendiente
-- **Rama sugerida:** `iteracion/05-02-verificacion-final`
+- **Rama:** `main` (RDA-015)
 - **Depende de:** 05-01
 - **RDA relacionadas:** RDA-008
 - **Hallazgos que cierra:** los que sigan abiertos en `auditoria-tecnica.md`

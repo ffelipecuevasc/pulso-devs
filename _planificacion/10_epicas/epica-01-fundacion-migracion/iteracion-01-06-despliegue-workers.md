@@ -2,7 +2,7 @@
 
 - **Épica:** 01 · Fundación y migración a Astro
 - **Estado:** Pendiente
-- **Rama sugerida:** `iteracion/01-06-despliegue-workers`
+- **Rama:** `main` (RDA-015)
 - **Depende de:** 01-05
 - **RDA relacionadas:** RDA-001, RDA-008, RDA-013
 - **Hallazgos que cierra:** —
@@ -24,8 +24,8 @@ Publicar el sitio migrado en `https://comunidadpulso.dev` con Workers Builds con
 
 5. Conectar el repositorio de GitHub con Workers Builds: comando de compilación `pnpm build` y comando de despliegue con `pnpm exec wrangler …`. Registrar cómo se fija la versión de PNPM (variable de entorno o `devEngines`).
 6. Asociar el dominio `comunidadpulso.dev` al Worker y crear la redirección de `www.comunidadpulso.dev` a `comunidadpulso.dev`.
-7. Comprobar que cada rama genera una vista previa, si está habilitada.
-8. Con el sitio publicado y verificado, aprobar la eliminación de `_prototipo/`.
+7. Confirmar que Workers Builds publica solo desde `main` y que no hay ramas ni vistas previas (RDA-015).
+8. Con el sitio publicado y verificado, aprobar la eliminación de `_prototipo/` (los logotipos ya están copiados en `src/icons/` desde 01-03).
 
 Evidencia de la fase B en `evidencia-01-06-fase-b.md`.
 

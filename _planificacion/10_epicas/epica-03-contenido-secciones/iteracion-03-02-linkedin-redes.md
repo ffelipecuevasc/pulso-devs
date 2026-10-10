@@ -2,20 +2,20 @@
 
 - **Épica:** 03 · Contenido y secciones
 - **Estado:** Pendiente
-- **Rama sugerida:** `iteracion/03-02-linkedin-redes`
-- **Depende de:** 03-01 y el enlace de LinkedIn
+- **Rama:** `main` (RDA-015)
+- **Depende de:** 03-01 y la definición de otras redes
 - **RDA relacionadas:** RDA-007
 - **Hallazgos que cierra:** —
 
 ## Objetivo
 
-Publicar en el pie el enlace al perfil de LinkedIn de la comunidad (y otras redes, si se definen).
+El LinkedIn de la comunidad ya está en el prototipo y llega al sitio migrado en 01-04 por paridad. Esta iteración queda para **otras redes** de la comunidad, si el desarrollador las define; si no hay ninguna al cerrar la Épica 03, se marca como `Descartada`.
 
 ## Tareas
 
-1. Agregar el enlace en `redes` de `src/data/comunidad.js` con su texto («LinkedIn»).
-2. Mostrar la lista de redes en el pie con el estilo de enlace con flecha, abriendo en pestaña nueva con `rel="noopener noreferrer"` y aviso accesible. Sin logotipos de marca: si el desarrollador los quiere, debe entregar los SVG oficiales.
-3. Dejar la URL disponible para el JSON-LD (`sameAs`, en 04-01).
+1. Agregar cada red nueva en `redes` de `src/data/comunidad.js`.
+2. Mostrarla en el pie igual que LinkedIn, abriendo en pestaña nueva con `rel="noopener noreferrer"` y aviso accesible, con su logotipo oficial si está en `src/icons/tec-*.svg`; si no está, pedirlo.
+3. Dejar las URL disponibles para el JSON-LD (`sameAs`, en 04-01).
 
 ## Criterios de aceptación
 
@@ -29,4 +29,4 @@ Publicar en el pie el enlace al perfil de LinkedIn de la comunidad (y otras rede
 
 ## Datos requeridos del desarrollador
 
-- URL del perfil de LinkedIn de la comunidad.
+- URL de cada red adicional (LinkedIn ya está: `https://www.linkedin.com/company/comunidad-pulso-devs/home/`).

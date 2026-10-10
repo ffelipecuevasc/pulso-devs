@@ -37,7 +37,7 @@ Si algo de lo anterior está en conflicto, detente y pregunta.
 - **JavaScript** (ES2022+). Sin TypeScript en el código de la aplicación; `tsconfig.json` existe solo para el editor y `astro check` (TypeScript 6; no actualizar a 7 mientras `astro check` no lo soporte).
 - **Íconos:** `astro-icon` con `@iconify-json/material-symbols-light`.
 - **Tipografía:** Lexend (titulares, navegación, botones) y Figtree para lectura (RDA-004), ambas autoalojadas con la Fonts API de Astro. Figtree entra en la iteración 02-01; mientras tanto el sitio usa IBM Plex Sans por paridad con el prototipo.
-- **Despliegue:** Cloudflare Workers con recursos estáticos (Workers Static Assets), sin adaptador de Astro. Workers Builds conectado al repositorio de GitHub: `main` publica en `https://comunidadpulso.dev` y `www` redirige al dominio sin `www`. La configuración vive en `wrangler.jsonc`. Cualquier lógica de servidor requiere una RDA.
+- **Despliegue:** Cloudflare Workers con recursos estáticos (Workers Static Assets), sin adaptador de Astro. Workers Builds conectado al repositorio de GitHub: `main` publica en `https://comunidadpulso.dev` y `www` redirige al dominio sin `www`; no hay ramas ni vistas previas (RDA-015). La configuración vive en `wrangler.jsonc`. Cualquier lógica de servidor requiere una RDA.
 - **Medición:** Cloudflare Web Analytics y Google Search Console (RDA-010).
 
 > El sitio actual (HTML, CSS y JS sin compilación) es el **prototipo de referencia**. La Épica 01 lo migra a este stack; mientras tanto vive en `_prototipo/` y prevalece como referencia visual y de contenido. Se elimina en la iteración 01-06.
@@ -61,13 +61,13 @@ Astro 7 detecta agentes de IA e inicia `astro dev` en segundo plano. Usa `pnpm a
 **Prohibido (lo hace solo el desarrollador):**
 
 - `git commit`, `git push`, `git merge`, `git pull`, `git rebase`, `git reset`, `git tag` y cualquier operación que reescriba o publique historial.
+- Crear o cambiar de rama (`git branch`, `git checkout`, `git switch`, `git worktree`). **El trabajo se hace solo en `main`, sin ramas ni subramas** (RDA-015).
 - Desplegar (`wrangler deploy`, `pnpm exec wrangler`, `pnpm dlx wrangler`) o modificar la configuración de Cloudflare, DNS, Google Workspace, Google Sheets o WhatsApp.
 - Editar `.claude/`, `.git/`, `.dev.vars` o archivos `.env`.
 - Escribir credenciales, tokens, API keys, IDs privados o claves de servicio en cualquier archivo versionado.
 
 **Requiere consulta previa:**
 
-- Crear o cambiar de rama. Formato: `iteracion/XX-YY-descripcion-corta` (por ejemplo `iteracion/01-02-migracion-astro`).
 - Editar `AGENTS.md`, `DESIGN.md`, `README.md`, `package.json`, `astro.config.mjs`, `wrangler.jsonc` u otros archivos de configuración de la raíz.
 - Instalar, actualizar o eliminar dependencias. Cada dependencia nueva requiere justificar peso, alternativa sin dependencia y, si es estructural, una RDA.
 - Eliminar o mover archivos.
@@ -103,16 +103,16 @@ Astro 7 detecta agentes de IA e inicia `astro dev` en segundo plano. Usa `pnpm a
 ## 8. Flujo de trabajo por iteración
 
 1. Lee el registro y la iteración activa (sección 2).
-2. Si la iteración requiere una rama, propón el nombre y espera aprobación.
+2. Comprueba con `git branch --show-current` que estás en `main`. Si no, detente y avisa. No crees ramas (RDA-015).
 3. Implementa solo lo descrito en los criterios de aceptación. Lo que esté fuera de alcance va como propuesta en `registro-log.md`.
 4. Verifica: `pnpm format`, `pnpm check`, `pnpm build` y revisión en 360 px y escritorio, en modo claro **y** oscuro. Marca un criterio solo si lo mediste; nunca citando el código fuente como evidencia.
 5. Escribe la bitácora en `_planificacion/99_bitacora/` con la plantilla de `_planificacion/README.md`.
 6. Actualiza `registro-log.md` y, si corresponde, `decisiones.md` y `auditoria-tecnica.md`.
-7. Entrega un resumen con los archivos modificados y un mensaje de commit con el formato `Épica N - Iteración NN-NN: descripción`, en una línea de máximo 200 caracteres. El commit lo hace el desarrollador.
+7. Entrega un resumen con los archivos modificados y un mensaje de commit con el formato `Épica N - Iteración NN-NN: descripción`, en una línea de máximo 200 caracteres. El commit y el push a `main` los hace el desarrollador, uno por iteración. Desde que Workers Builds está conectado (01-06), cada push a `main` publica en producción: no entregues una iteración con `pnpm build` fallando.
 
 ## 9. Cuándo detenerse y preguntar
 
 - Falta un dato (enlace, SVG, foto, biografía, credencial, endpoint) que bloquea la tarea.
 - La tarea contradice una RDA, `DESIGN.md` o la visión del producto.
-- Hay que agregar una dependencia, cambiar configuración, desplegar o crear una rama.
+- Hay que agregar una dependencia, cambiar configuración o desplegar.
 - Un cambio empeoraría Lighthouse, la accesibilidad o la seguridad.

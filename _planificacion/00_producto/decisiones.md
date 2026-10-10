@@ -18,6 +18,8 @@ Consolidado de las decisiones técnicas del proyecto. Formato y reglas en `_plan
 | RDA-012 | Licencia MIT para el código, con reserva de marca               | Aceptada  |
 | RDA-013 | El prototipo se conserva en `_prototipo/` hasta lograr paridad  | Aceptada  |
 | RDA-014 | Datos publicables del primer taller                              | Aceptada  |
+| RDA-015 | Trabajo directo en `main`, sin ramas                            | Aceptada  |
+| RDA-016 | Transición de cambio de tema de 1 s (excepción a `DESIGN.md` §8) | Aceptada  |
 
 ---
 
@@ -99,7 +101,7 @@ Consolidado de las decisiones técnicas del proyecto. Formato y reglas en `_plan
 **Contexto:** El dominio `comunidadpulso.dev` ya está en la cuenta de Cloudflare del desarrollador. El desarrollador quiere desplegar por Git y GitHub, y redirigir `www` al dominio principal.
 **Decisión:** Cloudflare Workers con recursos estáticos, conectado al repositorio mediante Workers Builds. `main` publica en `https://comunidadpulso.dev`; las ramas `iteracion/XX-YY-…` generan vistas previas cuando están habilitadas. `www.comunidadpulso.dev` redirige a `comunidadpulso.dev`. La configuración del proyecto vive en `wrangler.jsonc`. Los comandos de compilación y despliegue deben usar PNPM (por ejemplo `pnpm build` y `pnpm exec wrangler deploy`), nunca `npx`.
 **Alternativas consideradas:** Despliegue manual con Wrangler (sin vistas previas ni trazabilidad); Cloudflare Pages (el desarrollador eligió Workers).
-**Consecuencias:** `comunidadpulso.dev` no tiene ningún despliegue previo (confirmado el 2026-10-09): la iteración 01-06 es el primer despliegue. El desarrollador configura Cloudflare (AGENTS §5); el agente solo prepara `wrangler.jsonc` y los scripts. Verificar en la documentación vigente cómo Workers Builds respeta la versión de PNPM y registrarlo en la bitácora. Si se agrega `wrangler` como dependencia de desarrollo, requiere aprobación previa.
+**Consecuencias:** `comunidadpulso.dev` no tiene ningún despliegue previo (confirmado el 2026-10-09): la iteración 01-06 es el primer despliegue. El desarrollador configura Cloudflare (AGENTS §5); el agente solo prepara `wrangler.jsonc` y los scripts. Verificar en la documentación vigente cómo Workers Builds respeta la versión de PNPM y registrarlo en la bitácora. Si se agrega `wrangler` como dependencia de desarrollo, requiere aprobación previa. **Enmendada por RDA-015:** no hay ramas ni vistas previas por rama; solo `main` publica.
 
 ## RDA-009 · El fundador aparece solo en el pie de página
 
@@ -160,3 +162,24 @@ Consolidado de las decisiones técnicas del proyecto. Formato y reglas en `_plan
 **Decisión:** Se pueden publicar: la cifra de **80 asistentes** (confirmada por el desarrollador como real); el **sorteo de 20 licencias de JetBrains** (cada licencia daba acceso al conjunto completo de IDEs de JetBrains; no se llama «WebStorm PRO»); y que el taller incluyó un **despliegue en vivo con GitHub Pages**. **No** se menciona el bootcamp Talento Digital ni al público de egresados: el sitio sigue presentando la comunidad como abierta a toda Latinoamérica.
 **Alternativas consideradas:** No publicar la cifra ni el sorteo (descartado por el desarrollador).
 **Consecuencias:** Los datos se redactan como hechos pasados («Participaron 80 personas»), sin proyectar cifras futuras. La cifra no debe presentarse como total de miembros de la comunidad. Los textos concretos pasan por la aprobación del desarrollador en 03-01. Cualquier otro dato del PDF requiere confirmación nueva.
+
+## RDA-015 · Trabajo directo en `main`, sin ramas
+
+- **Fecha:** 2026-10-10 (decisión del desarrollador)
+- **Estado:** Aceptada
+
+**Contexto:** La documentación inicial preveía una rama por iteración (`iteracion/XX-YY-…`) con vistas previas en Cloudflare. El desarrollador es la única persona del proyecto y todas las iteraciones las implementa Claude Code. `.claude/settings.json` niega además `git checkout` y `git switch` al agente.
+**Decisión:** Todo el trabajo, en todas las épicas, se hace directamente sobre `main`. No se crean ramas ni subramas. Claude Code no hace commit ni push (`AGENTS.md` §5): el desarrollador revisa y hace un commit por iteración, con el formato `Épica N - Iteración NN-NN: descripción`. Enmienda en este punto a RDA-008 (sin vistas previas por rama).
+**Alternativas consideradas:** Una rama por iteración (descartada por el desarrollador: sin colaboradores, el costo supera el beneficio).
+**Consecuencias:** El historial de `main` es lineal. Desde 01-06, con Workers Builds conectado, **cada push a `main` publica en producción**: ninguna iteración se entrega con `pnpm build` fallando, y el commit se revisa antes del push. Se pierde la vista previa antes de publicar; si se echa de menos, se aprueba una RDA nueva.
+
+## RDA-016 · Transición de cambio de tema de 1 s (excepción a `DESIGN.md` §8)
+
+- **Fecha:** 2026-10-10 (decisión del desarrollador)
+- **Estado:** Aceptada
+
+**Contexto:** El desarrollador quiere un efecto en que el tema nuevo se revele como un círculo que crece desde el interruptor, con la duración de su versión original (1 s). `DESIGN.md` §8 mantiene animaciones breves (0,2 a 0,35 s las transiciones).
+**Decisión:** Se implementa con la View Transitions API nativa (`document.startViewTransition`), sin dependencias y sin `<ClientRouter />`. Duración **1 s**, única excepción a `DESIGN.md` §8; el resto del sistema no cambia. Sin la API o con `prefers-reduced-motion: reduce` el cambio es inmediato. Se implementa en la iteración 02-03.
+**Alternativas consideradas:** Cambio inmediato (sin efecto); duración de 0,6 s (descartada por el desarrollador).
+**Consecuencias:** 1 s es un efecto largo: debe ser interrumpible sin errores y no puede bloquear la interacción ni degradar el INP. La API no existe en todos los navegadores (AUD-02-006).
+

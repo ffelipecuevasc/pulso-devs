@@ -2,7 +2,7 @@
 
 - **Épica:** 02 · Sistema de diseño y ajustes estéticos
 - **Estado:** Pendiente
-- **Rama sugerida:** `iteracion/02-01-fuente-lectura`
+- **Rama:** `main` (RDA-015)
 - **Depende de:** 01-06
 - **RDA relacionadas:** RDA-004
 - **Hallazgos que cierra:** —

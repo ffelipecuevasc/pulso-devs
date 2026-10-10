@@ -25,7 +25,7 @@ El prototipo tiene una identidad visual sólida (tokens `orient`, modo claro/osc
 | :--------- | :-------- | :------- | :----------------- | :----- |
 | AUD-01-001 | Media | El pie dice «Comunidad de desarrolladores web en Chile y Latam»; el resto del sitio y la visión hablan de desarrolladores junior de **toda Latinoamérica**. | Alinear la frase con el mensaje principal. | Abierto (03-01) |
 | AUD-01-002 | Media | Los nombres de temáticas no coinciden con lo definido: «Ingeniería de Datos + Tecnología Cloud» mezcla dos temas y omite Machine Learning; «Desarrollo Web + Tecnología Cloud» omite AWS; «Desarrollo Web + IA» omite Claude Code. | Confirmar con el desarrollador los nombres definitivos. | Resuelto por decisión del desarrollador (2026-10-09): los nombres se mantienen tal como están por ahora |
-| AUD-01-003 | Media | Las temáticas de los talleres usan íconos genéricos sin relación con el tema (`forum` para Web + IA, `arrow_outward` para Cloud, `library_books` para Datos) mientras los 9 logotipos oficiales (AWS, Claude, Django, Express, Java, JavaScript, Node.js, Python, Spring) están definidos en el HTML y no se usan. El brief pide logotipos oficiales para tecnologías, no íconos genéricos. | Usar los logotipos oficiales: decisión del desarrollador (2026-10-09), que entrega los SVG en `src/icons/` con el prefijo `tec-`. | Abierto (02-02) |
+| AUD-01-003 | Media | Las temáticas de los talleres usan íconos genéricos sin relación con el tema (`forum` para Web + IA, `arrow_outward` para Cloud, `library_books` para Datos) mientras los 9 logotipos oficiales (AWS, Claude, Django, Express, Java, JavaScript, Node.js, Python, Spring) están definidos en el HTML y no se usan. El brief pide logotipos oficiales para tecnologías, no íconos genéricos. | Usar los logotipos oficiales: decisión del desarrollador (2026-10-09), que entrega los SVG en `src/icons/` con el prefijo `tec-`. | Resuelto por decisión del desarrollador (2026-10-10): los logotipos no van en las temáticas; él eligió íconos Material Symbols Light. Los 29 SVG entregados migran en 01-03 |
 | AUD-01-004 | Media | La línea de tiempo dice «**Hoy**: … un taller en vivo cada mes», y «Talleres gratuitos en vivo / Un taller al mes» está en presente, pero no consta que los talleres ya ocurran; el desarrollador indicó que todo queda como «próximamente». Contradice la regla de no presentar lo futuro como disponible. | Hubo un primer taller, el único hasta ahora (confirmado el 2026-10-09): reformular «Hoy» y la frecuencia para que no sugieran talleres mensuales en marcha, usando los datos del PDF del primer taller autorizados en RDA-014. | Abierto (03-01) |
 
 ### B. Estructura y navegación
@@ -34,7 +34,7 @@ El prototipo tiene una identidad visual sólida (tokens `orient`, modo claro/osc
 | :--------- | :-------- | :------- | :----------------- | :----- |
 | AUD-01-005 | Alta | **Tres enlaces rotos:** `#oportunidades` aparece en el menú de escritorio, el menú móvil y el pie, pero no existe ninguna sección con ese `id` (las secciones son `inicio`, `comunidad`, `encontraras`, `talleres`, `vision` y `unete`). El clic no hace nada y esa entrada nunca se marca como activa. Es resto de la sección «Oportunidades» eliminada. | Retirar el enlace del header, del menú móvil y del pie (decisión del desarrollador, 2026-10-09). | Abierto (01-04) |
 | AUD-01-006 | Baja | La sección `#encontraras` («Lo que encontrarás en Pulso Devs») no tiene entrada en ninguna navegación. | Ninguna: el menú queda con Comunidad, Talleres y Visión, y `#encontraras` sigue sin entrada de menú. | Resuelto por decisión del desarrollador (2026-10-09) |
-| AUD-01-007 | Media | El enlace «Felipe Cuevas» del pie tiene `href="#"` y lo completa JavaScript (`data-founder-website`); sin JavaScript lleva a `#`. Además abre pestaña nueva sin avisarlo. | Escribir el `href` real en el HTML desde `comunidad.js` e indicar la apertura en pestaña nueva. | Abierto (01-04) |
+| AUD-01-007 | Media | El enlace «Felipe Cuevas» del pie tiene `href="#"` y lo completa JavaScript (`data-founder-website`); sin JavaScript lleva a `#`. Además abre pestaña nueva sin avisarlo. | Escribir el `href` real en el HTML desde `comunidad.js` e indicar la apertura en pestaña nueva. | Corregido en el prototipo (`d60c55e`: `href` real y aviso en `aria-label`); se verifica en 01-04 |
 | AUD-01-008 | Media | El enlace del grupo de WhatsApp está escrito en duro en `index.html` (una sola aparición) y no existe en `config.js`; el sitio y los datos de la comunidad no tienen fuente única. | `src/data/comunidad.js` (RDA-007). | Abierto (01-02) |
 | AUD-01-009 | Media | La tarjeta de bienvenida y el enlace del fundador llevan clases de Tailwind (`flex`, `bg-white dark:bg-slate-900`, `text-gray-*`, `rounded-3xl`, `hover:text-blue-500`, `bg-green-50`…) que no tienen efecto porque Tailwind no se carga. Usan colores fuera de la paleta (`gray`, `slate`, `green`, `blue`) y un `dark:` que no funcionaría con `data-theme`. | Reemplazar por los tokens y componentes de `DESIGN.md` (RDA-002). | Abierto (01-03 y 01-05) |
 | AUD-01-010 | Baja | Código muerto de secciones eliminadas: 30 selectores de `styles.css` sin uso en el HTML ni en JS (formulario: `form`, `field`, `select`, `spinner`…; fundador: `founder__*`; oportunidades: `opp-wall`, `opportunities__*`; `welcome__kicker`, `welcome__note`, `welcome__title`; uno es la utilidad `.sr-only`, que conviene conservar). En `ui.js`, `initConfigDriven` aún maneja foto, LinkedIn y web del fundador que ya no existen; `config.js` conserva `FOUNDER.photoUrl` y `FOUNDER.linkedin`. | No migrar el código muerto; portar solo lo que se usa. | Abierto (01-03 y 01-05) |
@@ -66,7 +66,7 @@ El prototipo tiene una identidad visual sólida (tokens `orient`, modo claro/osc
 
 | ID         | Severidad | Hallazgo | Acción recomendada | Estado |
 | :--------- | :-------- | :------- | :----------------- | :----- |
-| AUD-01-019 | Media | El repositorio no tiene `package.json`, lockfile, `LICENSE`, `.claude/settings.json`, `_planificacion/` ni `wrangler.jsonc`. | Andamiaje de la Épica 01 y documentación entregada. | Abierto (01-01) |
+| AUD-01-019 | Media | El repositorio no tiene `package.json`, lockfile, `LICENSE`, `.claude/settings.json`, `_planificacion/` ni `wrangler.jsonc`. | Andamiaje de la Épica 01 y documentación entregada. | Parcial: `LICENSE`, `.claude/settings.json` y `_planificacion/` ya están (`d60c55e`); faltan `package.json`, lockfile y `wrangler.jsonc` (01-01 y 01-06) |
 | AUD-01-020 | Baja | `pulsodevs.png` y `pulsodevs-small.png` se usan con `alt=""` en el header y el pie (correcto, el enlace tiene `aria-label`), pero el logotipo del hero tiene `alt="Logotipo de Pulso Devs"` junto a un `h1` que ya dice «Pulso Devs»: el lector de pantalla repite el nombre. | Evaluar `alt=""` en el hero si el nombre ya está en el `h1`. | Abierto (04-03) |
 
 ### Hallazgos abiertos por iteración
@@ -78,8 +78,35 @@ El prototipo tiene una identidad visual sólida (tokens `orient`, modo claro/osc
 | 01-03 | AUD-01-009 y AUD-01-010 (parte), AUD-01-012, AUD-01-013 |
 | 01-04 | AUD-01-005, AUD-01-007, AUD-01-014 (parte) |
 | 01-05 | AUD-01-009 y AUD-01-010 (parte) |
-| 02-02 | AUD-01-003 |
 | 03-01 | AUD-01-001, AUD-01-004 |
 | 04-01 | AUD-01-016 y AUD-01-017 (parte), AUD-01-018 |
 | 04-02 | AUD-01-014 (parte) |
 | 04-03 | AUD-01-015, AUD-01-020 |
+
+---
+
+## Auditoría 02 · Prototipo en `d60c55e` y transición de tema
+
+- **Fecha:** 2026-10-10
+- **Auditor:** Claude (asistente de planificación)
+- **Alcance:** cambios del prototipo desde la Auditoría 01 (commit `d60c55e`: `.band--dots`, `.joincard`, `.founder-chip`, LinkedIn de la comunidad, íconos de temáticas, `assets/icons/`).
+- **Método:** revisión estática y conteo de símbolos con un script. No se ejecutó Lighthouse ni se probó en un teléfono real.
+
+| ID         | Severidad | Hallazgo | Acción recomendada | Estado |
+| :--------- | :-------- | :------- | :----------------- | :----- |
+| AUD-02-001 | Baja | El logotipo de LinkedIn del pie (símbolo `logo-linkedin` del sprite) y el de WhatsApp de `.joincard` (SVG en línea) duplican los oficiales entregados en `assets/icons/` (`LogosLinkedIn.svg`, `LogosWhatsappIcon.svg`). | Usar `tec-linkedin.svg` y `tec-whatsapp-icon.svg` en la migración. | Abierto (01-04 y 01-05) |
+| AUD-02-002 | Media | El sprite define 37 símbolos y 15 no se usan (6 íconos: `check_circle`, `error`, `forum`, `keyboard_arrow_down`, `progress_activity`, `smart_toy`; 9 logotipos). `index.html` pesa 74.193 B. Reemplaza el conteo de AUD-01-013. | `astro-icon`, solo los usados. | Abierto (01-03) |
+| AUD-02-003 | Media | Los 6 íconos de las temáticas de talleres, elegidos por el desarrollador, están como SVG en línea sin nombre; para `astro-icon` hace falta su nombre en Material Symbols Light. | Identificarlos comparando el `path` con `@iconify-json/material-symbols-light`; preguntar si alguno no coincide. | Abierto (01-03) |
+| AUD-02-005 | Baja | Varios logotipos entregados traen `id` internos (Google 19, Gemini 8, y uno en Astro, JetBrains, Node.js, Python, Tailwind CSS y WhatsApp); si dos se inyectan en la misma página pueden chocar. | Comprobar en 01-03 cómo los trata `astro-icon`. | Abierto (01-03) |
+| AUD-02-006 | Baja | La transición de cambio de tema (iteración 02-03) usará la View Transitions API, no disponible en todos los navegadores. | Cambio inmediato sin la API y con `prefers-reduced-motion`; probar en Safari, Firefox y un teléfono real. | Abierto (02-03, 04-03 y 05-02) |
+| AUD-02-007 | Media | `.claude/settings.json` niega `git checkout` y `git switch`, y `AGENTS.md` trataba la creación de ramas como «consulta previa». | Se trabaja solo en `main`: no hacen falta ramas. | Resuelto en RDA-015 |
+| AUD-02-008 | Baja | Los enlaces a `#oportunidades` siguen en el menú de escritorio y el móvil (ya no en el pie). | Sin cambios a AUD-01-005: se retiran en 01-04. | Abierto (01-04) |
+
+### Hallazgos abiertos por iteración (Auditoría 02)
+
+| Iteración | Hallazgos |
+| :-------- | :-------- |
+| 01-03 | AUD-02-002, AUD-02-003, AUD-02-005 |
+| 01-04 | AUD-02-001 (parte), AUD-02-008 |
+| 01-05 | AUD-02-001 (parte) |
+| 02-03, 04-03 y 05-02 | AUD-02-006 | Baja | La transición de cambio de tema (iteración 02-03) usará la View Transitions API, no disponible en todos los navegadores. | Cambio inmediato sin la API y con `prefers-reduced-motion`; probar en Safari, Firefox y un teléfono real. | Abierto (02-03, 04-03 y 05-02) |

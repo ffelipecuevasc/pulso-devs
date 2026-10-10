@@ -2,7 +2,7 @@
 
 - **Épica:** 04 · SEO, rendimiento y accesibilidad
 - **Estado:** Pendiente
-- **Rama sugerida:** `iteracion/04-03-accesibilidad`
+- **Rama:** `main` (RDA-015)
 - **Depende de:** 04-02
 - **RDA relacionadas:** —
 - **Hallazgos que cierra:** AUD-01-015, AUD-01-020

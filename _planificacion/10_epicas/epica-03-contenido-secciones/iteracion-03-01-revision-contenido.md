@@ -2,7 +2,7 @@
 
 - **Épica:** 03 · Contenido y secciones
 - **Estado:** Pendiente
-- **Rama sugerida:** `iteracion/03-01-revision-contenido`
+- **Rama:** `main` (RDA-015)
 - **Depende de:** 01-06
 - **RDA relacionadas:** RDA-007, RDA-014
 - **Hallazgos que cierra:** AUD-01-001, AUD-01-004

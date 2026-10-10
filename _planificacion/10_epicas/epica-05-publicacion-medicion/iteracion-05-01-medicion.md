@@ -2,7 +2,7 @@
 
 - **Épica:** 05 · Publicación y medición
 - **Estado:** Pendiente
-- **Rama sugerida:** `iteracion/05-01-medicion`
+- **Rama:** `main` (RDA-015)
 - **Depende de:** 04-03
 - **RDA relacionadas:** RDA-010
 - **Hallazgos que cierra:** —

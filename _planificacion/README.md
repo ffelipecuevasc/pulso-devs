@@ -54,16 +54,16 @@ Un archivo por iteración ejecutada, **escrito por el agente al terminar la iter
 - **Estados:** `Pendiente`, `En curso`, `Bloqueada`, `En revisión`, `Terminada`, `Descartada`.
 - **Fechas:** formato ISO `AAAA-MM-DD`.
 - **Idioma:** español de Chile en toda la documentación.
-- **Ramas:** `iteracion/XX-YY-descripcion-corta`. Su creación requiere aprobación del desarrollador. Cada rama genera una vista previa en Cloudflare cuando Workers Builds la tiene habilitada.
+- **Ramas:** no se usan. Todo el trabajo va directo en `main` (RDA-015).
 - **Commits:** `Épica N - Iteración NN-NN: descripción`, en una línea de máximo 200 caracteres. Los hace el desarrollador.
 
 ## 4. Ciclo de una iteración
 
-1. El desarrollador marca la iteración como `En curso` en `registro-log.md` (o pide al agente que lo haga).
+1. El desarrollador pide al agente la iteración; el agente la marca como `En curso` en `registro-log.md`.
 2. El agente lee `AGENTS.md`, el registro, la iteración y las RDA relacionadas.
 3. El agente implementa, verifica y escribe la bitácora.
 4. El agente deja la iteración en `En revisión` y propone el mensaje de commit.
-5. El desarrollador revisa, hace commit y push, y marca la iteración como `Terminada`.
+5. El desarrollador revisa, hace commit y push a `main`, y marca la iteración como `Terminada`.
 
 ## 5. Plantillas
 
@@ -74,7 +74,7 @@ Un archivo por iteración ejecutada, **escrito por el agente al terminar la iter
 
 - **Épica:** XX · Nombre
 - **Estado:** Pendiente
-- **Rama sugerida:** iteracion/XX-YY-nombre
+- **Rama:** `main` (RDA-015)
 - **Depende de:** XX-YY
 - **RDA relacionadas:** RDA-XXX
 - **Hallazgos que cierra:** AUD-XX-XXX
@@ -102,7 +102,7 @@ Una o dos frases.
 
 - **Fecha:** AAAA-MM-DD
 - **Agente:** Claude Code (modelo)
-- **Rama:** …
+- **Rama:** main
 - **Estado final:** En revisión | Bloqueada
 
 ## Resumen
