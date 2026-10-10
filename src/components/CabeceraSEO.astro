@@ -1,0 +1,52 @@
+---
+import { comunidad } from '../data/comunidad.js';
+import imagenSocial from '../assets/img/pulsodevs-original.png';
+import favicon from '../assets/img/pulsodevs-small.png';
+
+/**
+ * Metadatos de la página: título, descripción, canonical, Open Graph y Twitter Card.
+ * Todas las URL son absolutas y salen de `site` (astro.config.mjs). El JSON-LD llega en 04-01.
+ *
+ * @typedef {object} Props
+ * @property {string} [titulo] Título de la página. Por defecto, el de la portada.
+ * @property {string} [descripcion] Descripción de la página. Por defecto, la de la portada.
+ * @property {boolean} [noindex] Si es `true`, no se indexa y no se declara `canonical` (p. ej. la 404).
+ */
+
+/** @type {Props} */
+const {
+  titulo = comunidad.seo.titulo,
+  descripcion = comunidad.seo.descripcion,
+  noindex = false,
+} = Astro.props;
+
+const sitio = Astro.site ?? new URL(comunidad.url);
+const urlCanonica = new URL(Astro.url.pathname, sitio).href;
+const urlImagen = new URL(imagenSocial.src, sitio).href;
+---
+
+<title>{titulo}</title>
+<meta name="description" content={descripcion} />
+<meta name="theme-color" content={comunidad.seo.colorTema} />
+<meta name="color-scheme" content="light dark" />
+{noindex && <meta name="robots" content="noindex" />}
+{!noindex && <link rel="canonical" href={urlCanonica} />}
+
+<meta property="og:type" content="website" />
+<meta property="og:locale" content={comunidad.localeOg} />
+<meta property="og:site_name" content={comunidad.nombre} />
+<meta property="og:title" content={noindex ? titulo : comunidad.nombre} />
+<meta property="og:description" content={noindex ? descripcion : comunidad.seo.descripcionOg} />
+{!noindex && <meta property="og:url" content={urlCanonica} />}
+<meta property="og:image" content={urlImagen} />
+<meta property="og:image:alt" content={comunidad.seo.textoAltImagen} />
+<meta property="og:image:width" content={String(imagenSocial.width)} />
+<meta property="og:image:height" content={String(imagenSocial.height)} />
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content={noindex ? titulo : comunidad.nombre} />
+<meta name="twitter:description" content={noindex ? descripcion : comunidad.seo.descripcionOg} />
+<meta name="twitter:image" content={urlImagen} />
+<meta name="twitter:image:alt" content={comunidad.seo.textoAltImagen} />
+
+<link rel="icon" type="image/png" href={favicon.src} />

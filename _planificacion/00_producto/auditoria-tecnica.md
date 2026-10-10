@@ -35,7 +35,7 @@ El prototipo tiene una identidad visual sólida (tokens `orient`, modo claro/osc
 | AUD-01-005 | Alta | **Tres enlaces rotos:** `#oportunidades` aparece en el menú de escritorio, el menú móvil y el pie, pero no existe ninguna sección con ese `id` (las secciones son `inicio`, `comunidad`, `encontraras`, `talleres`, `vision` y `unete`). El clic no hace nada y esa entrada nunca se marca como activa. Es resto de la sección «Oportunidades» eliminada. | Retirar el enlace del header, del menú móvil y del pie (decisión del desarrollador, 2026-10-09). | Abierto (01-04) |
 | AUD-01-006 | Baja | La sección `#encontraras` («Lo que encontrarás en Pulso Devs») no tiene entrada en ninguna navegación. | Ninguna: el menú queda con Comunidad, Talleres y Visión, y `#encontraras` sigue sin entrada de menú. | Resuelto por decisión del desarrollador (2026-10-09) |
 | AUD-01-007 | Media | El enlace «Felipe Cuevas» del pie tiene `href="#"` y lo completa JavaScript (`data-founder-website`); sin JavaScript lleva a `#`. Además abre pestaña nueva sin avisarlo. | Escribir el `href` real en el HTML desde `comunidad.js` e indicar la apertura en pestaña nueva. | Corregido en el prototipo (`d60c55e`: `href` real y aviso en `aria-label`); se verifica en 01-04 |
-| AUD-01-008 | Media | El enlace del grupo de WhatsApp está escrito en duro en `index.html` (una sola aparición) y no existe en `config.js`; el sitio y los datos de la comunidad no tienen fuente única. | `src/data/comunidad.js` (RDA-007). | Abierto (01-02) |
+| AUD-01-008 | Media | El enlace del grupo de WhatsApp está escrito en duro en `index.html` (una sola aparición) y no existe en `config.js`; el sitio y los datos de la comunidad no tienen fuente única. | `src/data/comunidad.js` (RDA-007). | Resuelto en 01-02 |
 | AUD-01-009 | Media | La tarjeta de bienvenida y el enlace del fundador llevan clases de Tailwind (`flex`, `bg-white dark:bg-slate-900`, `text-gray-*`, `rounded-3xl`, `hover:text-blue-500`, `bg-green-50`…) que no tienen efecto porque Tailwind no se carga. Usan colores fuera de la paleta (`gray`, `slate`, `green`, `blue`) y un `dark:` que no funcionaría con `data-theme`. | Reemplazar por los tokens y componentes de `DESIGN.md` (RDA-002). | Abierto (01-03 y 01-05) |
 | AUD-01-010 | Baja | Código muerto de secciones eliminadas: 30 selectores de `styles.css` sin uso en el HTML ni en JS (formulario: `form`, `field`, `select`, `spinner`…; fundador: `founder__*`; oportunidades: `opp-wall`, `opportunities__*`; `welcome__kicker`, `welcome__note`, `welcome__title`; uno es la utilidad `.sr-only`, que conviene conservar). En `ui.js`, `initConfigDriven` aún maneja foto, LinkedIn y web del fundador que ya no existen; `config.js` conserva `FOUNDER.photoUrl` y `FOUNDER.linkedin`. | No migrar el código muerto; portar solo lo que se usa. | Abierto (01-03 y 01-05) |
 | AUD-01-011 | Baja | `.gitignore` obsoleto: habla de `scripts/stage-site.mjs`, de Cloudflare Pages y de `_site/`, que no existen; faltan `dist/`, `.astro/`, `.wrangler/`, `.env*` y `.dev.vars`. | Actualizarlo en el andamiaje. | Resuelto en 01-01 |
@@ -58,8 +58,8 @@ El prototipo tiene una identidad visual sólida (tokens `orient`, modo claro/osc
 
 | ID         | Severidad | Hallazgo | Acción recomendada | Estado |
 | :--------- | :-------- | :------- | :----------------- | :----- |
-| AUD-01-016 | Alta | `og:url` vale `[SITE_URL]` (marcador sin reemplazar) y `og:image` usa una ruta relativa (`assets/img/pulsodevs-original.png`); Open Graph exige URL absolutas, así que las vistas previas en WhatsApp y LinkedIn fallarán. | `site` en `astro.config.mjs` y URLs absolutas generadas en compilación. | Abierto (01-02 y 04-01) |
-| AUD-01-017 | Media | Faltan `canonical`, datos estructurados (JSON-LD de `Organization`), `robots.txt`, sitemap y `og:image:alt`; `twitter:card` es `summary` sin imagen propia. | `CabeceraSEO`, `@astrojs/sitemap` y JSON-LD. | Abierto (01-02 y 04-01) |
+| AUD-01-016 | Alta | `og:url` vale `[SITE_URL]` (marcador sin reemplazar) y `og:image` usa una ruta relativa (`assets/img/pulsodevs-original.png`); Open Graph exige URL absolutas, así que las vistas previas en WhatsApp y LinkedIn fallarán. | `site` en `astro.config.mjs` y URLs absolutas generadas en compilación. | Resuelto en 01-02 (la imagen de vista previa propia sigue en AUD-01-014, 04-02) |
+| AUD-01-017 | Media | Faltan `canonical`, datos estructurados (JSON-LD de `Organization`), `robots.txt`, sitemap y `og:image:alt`; `twitter:card` es `summary` sin imagen propia. | `CabeceraSEO`, `@astrojs/sitemap` y JSON-LD. | Parcial: sitemap (01-01), `canonical`, `og:image:alt` y `CabeceraSEO` (01-02); faltan JSON-LD, `robots.txt` y `twitter:card` con imagen propia (04-01) |
 | AUD-01-018 | Baja | El favicon es solo un PNG de 128 px (`pulsodevs-small.png`); sin `apple-touch-icon` ni tamaños 32 y 192. | Conjunto de íconos derivado del logotipo oficial, sin deformarlo. | Abierto (04-01) |
 
 ### F. Repositorio y documentación
@@ -74,7 +74,7 @@ El prototipo tiene una identidad visual sólida (tokens `orient`, modo claro/osc
 | Iteración | Hallazgos |
 | :-------- | :-------- |
 | 01-01 | AUD-01-011, AUD-01-019 |
-| 01-02 | AUD-01-008, AUD-01-016 y AUD-01-017 (parte) |
+| 01-02 | AUD-01-008, AUD-01-016 y AUD-01-017 (parte). Cerrados en 01-02 (AUD-01-017 parcial) |
 | 01-03 | AUD-01-009 y AUD-01-010 (parte), AUD-01-012, AUD-01-013 |
 | 01-04 | AUD-01-005, AUD-01-007, AUD-01-014 (parte) |
 | 01-05 | AUD-01-009 y AUD-01-010 (parte) |
@@ -97,16 +97,16 @@ El prototipo tiene una identidad visual sólida (tokens `orient`, modo claro/osc
 | AUD-02-001 | Baja | El logotipo de LinkedIn del pie (símbolo `logo-linkedin` del sprite) y el de WhatsApp de `.joincard` (SVG en línea) duplican los oficiales entregados en `assets/icons/` (`LogosLinkedIn.svg`, `LogosWhatsappIcon.svg`). | Usar `tec-linkedin.svg` y `tec-whatsapp-icon.svg` en la migración. | Abierto (01-04 y 01-05) |
 | AUD-02-002 | Media | El sprite define 37 símbolos y 15 no se usan (6 íconos: `check_circle`, `error`, `forum`, `keyboard_arrow_down`, `progress_activity`, `smart_toy`; 9 logotipos). `index.html` pesa 74.193 B. Reemplaza el conteo de AUD-01-013. | `astro-icon`, solo los usados. | Abierto (01-03) |
 | AUD-02-003 | Media | Los 6 íconos de las temáticas de talleres, elegidos por el desarrollador, están como SVG en línea sin nombre; para `astro-icon` hace falta su nombre en Material Symbols Light. | Identificarlos comparando el `path` con `@iconify-json/material-symbols-light`; preguntar si alguno no coincide. | Abierto (01-03) |
-| AUD-02-005 | Baja | Varios logotipos entregados traen `id` internos (Google 19, Gemini 8, y uno en Astro, JetBrains, Node.js, Python, Tailwind CSS y WhatsApp); si dos se inyectan en la misma página pueden chocar. | Comprobar en 01-03 cómo los trata `astro-icon`. | Abierto (01-03) |
-| AUD-02-006 | Baja | La transición de cambio de tema (iteración 02-03) usará la View Transitions API, no disponible en todos los navegadores. | Cambio inmediato sin la API y con `prefers-reduced-motion`; probar en Safari, Firefox y un teléfono real. | Abierto (02-03, 04-03 y 05-02) |
-| AUD-02-007 | Media | `.claude/settings.json` niega `git checkout` y `git switch`, y `AGENTS.md` trataba la creación de ramas como «consulta previa». | Se trabaja solo en `main`: no hacen falta ramas. | Resuelto en RDA-015 |
-| AUD-02-008 | Baja | Los enlaces a `#oportunidades` siguen en el menú de escritorio y el móvil (ya no en el pie). | Sin cambios a AUD-01-005: se retiran en 01-04. | Abierto (01-04) |
+| AUD-02-004 | Baja | Varios logotipos entregados traen `id` internos (Google 19, Gemini 8, y uno en Astro, JetBrains, Node.js, Python, Tailwind CSS y WhatsApp); si dos se inyectan en la misma página pueden chocar. | Comprobar en 01-03 cómo los trata `astro-icon`. | Abierto (01-03) |
+| AUD-02-005 | Baja | La transición de cambio de tema (iteración 02-03) usará la View Transitions API, no disponible en todos los navegadores. | Cambio inmediato sin la API y con `prefers-reduced-motion`; probar en Safari, Firefox y un teléfono real. | Abierto (02-03, 04-03 y 05-02) |
+| AUD-02-006 | Media | `.claude/settings.json` niega `git checkout` y `git switch`, y `AGENTS.md` trataba la creación de ramas como «consulta previa». | Se trabaja solo en `main`: no hacen falta ramas. | Resuelto en RDA-015 |
+| AUD-02-007 | Baja | Los enlaces a `#oportunidades` siguen en el menú de escritorio y el móvil (ya no en el pie). | Sin cambios a AUD-01-005: se retiran en 01-04. | Abierto (01-04) |
 
 ### Hallazgos abiertos por iteración (Auditoría 02)
 
 | Iteración | Hallazgos |
 | :-------- | :-------- |
-| 01-03 | AUD-02-002, AUD-02-003, AUD-02-005 |
-| 01-04 | AUD-02-001 (parte), AUD-02-008 |
+| 01-03 | AUD-02-002, AUD-02-003, AUD-02-004 |
+| 01-04 | AUD-02-001 (parte), AUD-02-007 |
 | 01-05 | AUD-02-001 (parte) |
-| 02-03, 04-03 y 05-02 | AUD-02-006 | Baja | La transición de cambio de tema (iteración 02-03) usará la View Transitions API, no disponible en todos los navegadores. | Cambio inmediato sin la API y con `prefers-reduced-motion`; probar en Safari, Firefox y un teléfono real. | Abierto (02-03, 04-03 y 05-02) |
+| 02-03, 04-03 y 05-02 | AUD-02-005 |

@@ -3,7 +3,7 @@
 **Fuente única de verdad del trabajo pendiente.** Si discrepa con `_planificacion/README.md` o con cualquier otro documento de planificación, prevalece este archivo.
 
 - **Última actualización:** 2026-10-10
-- **Iteración activa:** 01-01 (andamiaje), en revisión desde 2026-10-10. La siguiente es 01-02, cuando el desarrollador haga commit y lo pida.
+- **Iteración activa:** 01-02 (arquitectura base), en revisión desde 2026-10-10. 01-01 quedó entregada y con commit `10fc2c8`.
 - **Prototipo de referencia:** commit `d60c55e`. La transición de cambio de tema **no** existe en el prototipo: se implementa directamente en Astro en 02-03.
 - **Próximo hito:** hitos 1 y 2: sitio migrado a Astro 7 y Tailwind 4 compilado localmente, desplegado por primera vez en `https://comunidadpulso.dev` con Workers Builds (iteración 01-06).
 - **Alcance del sitio:** una sola página (One Page) con secciones ancladas (RDA-011).
@@ -17,8 +17,8 @@
 
 | Iteración | Nombre                                                       | Épica | Estado    | Depende de | Bitácora |
 | :-------- | :----------------------------------------------------------- | :---- | :-------- | :--------- | :------- |
-| 01-01     | Andamiaje del proyecto                                       | 01    | En revisión | —        | [bitacora-01-01-2026-10-10](../99_bitacora/bitacora-01-01-2026-10-10.md) |
-| 01-02     | Arquitectura base, layout y datos de la comunidad            | 01    | Pendiente | 01-01      | — |
+| 01-01     | Andamiaje del proyecto                                       | 01    | Terminada | —          | [bitacora-01-01-2026-10-10](../99_bitacora/bitacora-01-01-2026-10-10.md) |
+| 01-02     | Arquitectura base, layout y datos de la comunidad            | 01    | En revisión | 01-01    | [bitacora-01-02-2026-10-10](../99_bitacora/bitacora-01-02-2026-10-10.md) |
 | 01-03     | Tailwind local, fuentes autoalojadas e íconos                | 01    | Pendiente | 01-02      | — |
 | 01-04     | Header, tema, hero y pie de página                           | 01    | Pendiente | 01-03      | — |
 | 01-05     | Secciones de contenido                                       | 01    | Pendiente | 01-04      | — |
@@ -44,7 +44,7 @@ Bloquean contenido o diseño. Mientras falten, se usa `PENDIENTE_DATO` en `src/d
 
 | Dato o decisión | Hallazgo | Necesario para | Estado |
 | :-------------- | :------- | :------------- | :----- |
-| Enlace al grupo de WhatsApp | AUD-01-008 | 01-02 | Confirmado (2026-10-09; se carga en 01-02) |
+| Enlace al grupo de WhatsApp | AUD-01-008 | 01-02 | Confirmado (2026-10-09); cargado en `src/data/comunidad.js` en 01-02 |
 | Enlace del fundador (https://felipecuevas.dev) | AUD-01-007 | 01-02 y 01-04 | Confirmado |
 | Fuente de lectura definitiva | RDA-004 | 02-01 | Confirmado: Figtree (2026-10-09) |
 | Estado del sitio en producción | RDA-008 | 01-06 | Confirmado: `comunidadpulso.dev` no tiene despliegue previo; 01-06 es el primer despliegue |
@@ -86,3 +86,5 @@ Ideas detectadas durante el trabajo que no forman parte de lo planificado.
 | 2026-10-10 | Decisiones del desarrollador: (1) todo el trabajo va en `main`, sin ramas (RDA-015); (2) Claude Code implementa todas las iteraciones, incluida la 01-01; (3) la transición de cambio de tema se implementa en Astro como iteración 02-03, con duración de 1 s como única excepción a `DESIGN.md` §8 (RDA-016). Se quitan de la Épica 01 las referencias a ramas y a la transición. |
 | 2026-10-10 | Iteración 01-01 implementada por Claude Code en `main` y dejada `En revisión`: proyecto Astro 7 con Tailwind 4, PNPM 12.8.1, Prettier y TypeScript 6; prototipo movido a `_prototipo/`; `.gitignore` actualizado. Pendiente del desarrollador: revisar, hacer commit y push. |
 | 2026-10-10 | El desarrollador aprueba publicar los 80 asistentes, el sorteo de 20 licencias de JetBrains y el despliegue en vivo con GitHub Pages; no se menciona el bootcamp (RDA-014). 03-01 queda sin datos pendientes. |
+| 2026-10-10 | Iteración 01-01 con commit `10fc2c8` (Terminada). Decisiones del desarrollador sobre sus pendientes: PNPM se mantiene en 12.8.1; `.prettierignore` conserva `AGENTS.md`, `DESIGN.md`, `README.md` y `LICENSE`; estilo de Prettier aceptado; los 37 renombrados quedan en el índice. Se corrigen tres errores de documentación (doble punto en 01-01 y numeración de la Auditoría 02, que pasa a AUD-02-001 a AUD-02-007). |
+| 2026-10-10 | Iteración 01-02 implementada por Claude Code en `main` y dejada `En revisión`: `src/data/comunidad.js`, `LayoutBase`, `CabeceraSEO`, `404`, portada con secciones ancladas, año del pie calculado al compilar e integración que falla ante `PENDIENTE_DATO`. Pendiente del desarrollador: revisar, hacer commit y push. |

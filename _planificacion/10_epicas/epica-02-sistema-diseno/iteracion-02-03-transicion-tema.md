@@ -6,7 +6,7 @@
 - **Depende de:** 01-06 (el control de tema ya está migrado y el sitio, desplegado)
 - **RDA relacionadas:** RDA-003, RDA-016
 - **Hallazgos que cierra:** —
-- **Hallazgos que abre:** AUD-02-006 (compatibilidad)
+- **Hallazgos que abre:** AUD-02-005 (compatibilidad)
 
 ## Objetivo
 
@@ -44,7 +44,7 @@ Idea del desarrollador (versión original, con máscara SVG de círculo y `mask-
 - [ ] Sin desbordes horizontales durante la transición ni al terminar.
 - [ ] El INP del clic en el interruptor es menor que 200 ms (medido) y el CLS no cambia.
 - [ ] `DESIGN.md` §6 y §8 coinciden con lo implementado.
-- [ ] Bitácora 02-03 creada. Safari, Firefox y teléfono real quedan anotados como no verificados hasta que el desarrollador los pruebe (AUD-02-006).
+- [ ] Bitácora 02-03 creada. Safari, Firefox y teléfono real quedan anotados como no verificados hasta que el desarrollador los pruebe (AUD-02-005).
 
 ## Fuera de alcance
 

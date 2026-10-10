@@ -1,0 +1,22 @@
+---
+import LayoutBase from '../layouts/LayoutBase.astro';
+import { comunidad } from '../data/comunidad.js';
+---
+
+<LayoutBase titulo={`Página no encontrada · ${comunidad.nombre}`} noindex>
+  <main id="contenido">
+    <h1>Esta página no existe</h1>
+    <p>
+      No encontramos lo que buscabas. Vuelve al inicio o entra al grupo de WhatsApp de la comunidad.
+    </p>
+    <p>
+      <a href="/">Volver al inicio</a>
+    </p>
+    <p>
+      <a href={comunidad.whatsapp} target="_blank" rel="noopener noreferrer">
+        Unirme al grupo de WhatsApp
+      </a>
+    </p>
+    <p>Se abrirá WhatsApp en una pestaña nueva.</p>
+  </main>
+</LayoutBase>

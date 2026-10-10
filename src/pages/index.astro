@@ -1,18 +1,31 @@
 ---
-import '../styles/global.css';
+import LayoutBase from '../layouts/LayoutBase.astro';
 ---
 
-<!doctype html>
-<html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Comunidad Pulso Devs</title>
-  </head>
-  <body>
-    <main>
-      <h1>Comunidad Pulso Devs</h1>
-      <p>Andamiaje del proyecto (iteración 01-01).</p>
-    </main>
-  </body>
-</html>
+<LayoutBase>
+  <main id="contenido">
+    <section id="inicio" aria-labelledby="hero-title">
+      <h1 id="hero-title">Comunidad Pulso Devs</h1>
+    </section>
+
+    <section id="comunidad" aria-labelledby="about-title">
+      <h2 id="about-title">Un lugar para no aprender en solitario.</h2>
+    </section>
+
+    <section id="encontraras" aria-labelledby="offer-title">
+      <h2 id="offer-title">Lo que encontrarás en Pulso Devs</h2>
+    </section>
+
+    <section id="talleres" aria-labelledby="workshops-title">
+      <h2 id="workshops-title">Talleres gratuitos en vivo</h2>
+    </section>
+
+    <section id="vision" aria-labelledby="vision-title">
+      <h2 id="vision-title">Esto recién comienza.</h2>
+    </section>
+
+    <section id="unete" aria-labelledby="join-title">
+      <h2 id="join-title">¿Quieres formar parte?</h2>
+    </section>
+  </main>
+</LayoutBase>

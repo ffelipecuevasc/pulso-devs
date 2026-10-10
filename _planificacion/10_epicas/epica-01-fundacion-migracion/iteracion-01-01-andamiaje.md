@@ -13,7 +13,7 @@ Crear el proyecto Astro 7 en el repositorio existente, con el stack definido y l
 
 ## Tareas
 
-1. Mover `index.html` y `assets/` (incluidas `assets/icons/`, con los 29 logotipos oficiales) a `_prototipo/` (RDA-013).. El prototipo de referencia es el del commit `d60c55e`.
+1. Mover `index.html` y `assets/` (incluidas `assets/icons/`, con los 29 logotipos oficiales) a `_prototipo/` (RDA-013). El prototipo de referencia es el del commit `d60c55e`.
 2. `pnpm init`; fijar PNPM 12.8.1 en `devEngines.packageManager` (`onFail: download`); definir `type: module`, `engines`, `license: MIT` y los scripts de `AGENTS.md` §4. No usar el campo `packageManager` ni Corepack.
 3. Instalar `astro`, `tailwindcss`, `@tailwindcss/vite`, `@astrojs/sitemap`, `astro-icon`, `@iconify-json/material-symbols-light` y, como dependencias de desarrollo, `prettier`, `prettier-plugin-astro`, `prettier-plugin-tailwindcss`, `@astrojs/check` y `typescript@6` (no 7: `astro check` aún no lo soporta). Verificar la compatibilidad de `astro-icon` con Astro 7.
 4. Declarar en `pnpm-workspace.yaml` (`allowBuilds`) los scripts de instalación necesarios (por ejemplo `esbuild`).

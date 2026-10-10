@@ -181,5 +181,5 @@ Consolidado de las decisiones técnicas del proyecto. Formato y reglas en `_plan
 **Contexto:** El desarrollador quiere un efecto en que el tema nuevo se revele como un círculo que crece desde el interruptor, con la duración de su versión original (1 s). `DESIGN.md` §8 mantiene animaciones breves (0,2 a 0,35 s las transiciones).
 **Decisión:** Se implementa con la View Transitions API nativa (`document.startViewTransition`), sin dependencias y sin `<ClientRouter />`. Duración **1 s**, única excepción a `DESIGN.md` §8; el resto del sistema no cambia. Sin la API o con `prefers-reduced-motion: reduce` el cambio es inmediato. Se implementa en la iteración 02-03.
 **Alternativas consideradas:** Cambio inmediato (sin efecto); duración de 0,6 s (descartada por el desarrollador).
-**Consecuencias:** 1 s es un efecto largo: debe ser interrumpible sin errores y no puede bloquear la interacción ni degradar el INP. La API no existe en todos los navegadores (AUD-02-006).
+**Consecuencias:** 1 s es un efecto largo: debe ser interrumpible sin errores y no puede bloquear la interacción ni degradar el INP. La API no existe en todos los navegadores (AUD-02-005).
 

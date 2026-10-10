@@ -1,0 +1,54 @@
+---
+import CabeceraSEO from '../components/CabeceraSEO.astro';
+import { anioActual, comunidad } from '../data/comunidad.js';
+import '../styles/global.css';
+
+/**
+ * Layout único del sitio: documento HTML, cabecera SEO, tema aplicado antes de pintar y
+ * pie provisional. El header y el pie definitivos llegan en 01-04.
+ *
+ * Slots: `head` (elementos extra dentro de `<head>`) y el contenido por defecto.
+ *
+ * @typedef {object} Props
+ * @property {string} [titulo] Título de la página.
+ * @property {string} [descripcion] Descripción de la página.
+ * @property {boolean} [noindex] Si es `true`, la página no se indexa (p. ej. la 404).
+ */
+
+/** @type {Props} */
+const { titulo, descripcion, noindex } = Astro.props;
+---
+
+<!doctype html>
+<html lang={comunidad.idioma} data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <CabeceraSEO titulo={titulo} descripcion={descripcion} noindex={noindex} />
+
+    <!-- Aplica el tema antes de pintar para evitar el parpadeo. Es el único script en línea del <head>. -->
+    <script is:inline define:vars={{ claveTema: comunidad.claveTema }}>
+      (function () {
+        var tema = 'light';
+        try {
+          var guardado = localStorage.getItem(claveTema);
+          if (guardado === 'light' || guardado === 'dark') tema = guardado;
+          else if (window.matchMedia('(prefers-color-scheme: dark)').matches) tema = 'dark';
+        } catch (e) {
+          if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)
+            tema = 'dark';
+        }
+        document.documentElement.setAttribute('data-theme', tema);
+      })();
+    </script>
+    <slot name="head" />
+  </head>
+  <body>
+    <slot />
+    <footer>
+      <p>
+        © {anioActual} {comunidad.nombre}
+      </p>
+    </footer>
+  </body>
+</html>
