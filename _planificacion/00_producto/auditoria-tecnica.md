@@ -38,7 +38,7 @@ El prototipo tiene una identidad visual sólida (tokens `orient`, modo claro/osc
 | AUD-01-008 | Media | El enlace del grupo de WhatsApp está escrito en duro en `index.html` (una sola aparición) y no existe en `config.js`; el sitio y los datos de la comunidad no tienen fuente única. | `src/data/comunidad.js` (RDA-007). | Abierto (01-02) |
 | AUD-01-009 | Media | La tarjeta de bienvenida y el enlace del fundador llevan clases de Tailwind (`flex`, `bg-white dark:bg-slate-900`, `text-gray-*`, `rounded-3xl`, `hover:text-blue-500`, `bg-green-50`…) que no tienen efecto porque Tailwind no se carga. Usan colores fuera de la paleta (`gray`, `slate`, `green`, `blue`) y un `dark:` que no funcionaría con `data-theme`. | Reemplazar por los tokens y componentes de `DESIGN.md` (RDA-002). | Abierto (01-03 y 01-05) |
 | AUD-01-010 | Baja | Código muerto de secciones eliminadas: 30 selectores de `styles.css` sin uso en el HTML ni en JS (formulario: `form`, `field`, `select`, `spinner`…; fundador: `founder__*`; oportunidades: `opp-wall`, `opportunities__*`; `welcome__kicker`, `welcome__note`, `welcome__title`; uno es la utilidad `.sr-only`, que conviene conservar). En `ui.js`, `initConfigDriven` aún maneja foto, LinkedIn y web del fundador que ya no existen; `config.js` conserva `FOUNDER.photoUrl` y `FOUNDER.linkedin`. | No migrar el código muerto; portar solo lo que se usa. | Abierto (01-03 y 01-05) |
-| AUD-01-011 | Baja | `.gitignore` obsoleto: habla de `scripts/stage-site.mjs`, de Cloudflare Pages y de `_site/`, que no existen; faltan `dist/`, `.astro/`, `.wrangler/`, `.env*` y `.dev.vars`. | Actualizarlo en el andamiaje. | Abierto (01-01) |
+| AUD-01-011 | Baja | `.gitignore` obsoleto: habla de `scripts/stage-site.mjs`, de Cloudflare Pages y de `_site/`, que no existen; faltan `dist/`, `.astro/`, `.wrangler/`, `.env*` y `.dev.vars`. | Actualizarlo en el andamiaje. | Resuelto en 01-01 |
 
 ### C. Rendimiento
 
@@ -66,7 +66,7 @@ El prototipo tiene una identidad visual sólida (tokens `orient`, modo claro/osc
 
 | ID         | Severidad | Hallazgo | Acción recomendada | Estado |
 | :--------- | :-------- | :------- | :----------------- | :----- |
-| AUD-01-019 | Media | El repositorio no tiene `package.json`, lockfile, `LICENSE`, `.claude/settings.json`, `_planificacion/` ni `wrangler.jsonc`. | Andamiaje de la Épica 01 y documentación entregada. | Parcial: `LICENSE`, `.claude/settings.json` y `_planificacion/` ya están (`d60c55e`); faltan `package.json`, lockfile y `wrangler.jsonc` (01-01 y 01-06) |
+| AUD-01-019 | Media | El repositorio no tiene `package.json`, lockfile, `LICENSE`, `.claude/settings.json`, `_planificacion/` ni `wrangler.jsonc`. | Andamiaje de la Épica 01 y documentación entregada. | Parcial: `LICENSE`, `.claude/settings.json` y `_planificacion/` ya están (`d60c55e`); `package.json` y `pnpm-lock.yaml` creados en 01-01; falta `wrangler.jsonc` (01-06) |
 | AUD-01-020 | Baja | `pulsodevs.png` y `pulsodevs-small.png` se usan con `alt=""` en el header y el pie (correcto, el enlace tiene `aria-label`), pero el logotipo del hero tiene `alt="Logotipo de Pulso Devs"` junto a un `h1` que ya dice «Pulso Devs»: el lector de pantalla repite el nombre. | Evaluar `alt=""` en el hero si el nombre ya está en el `h1`. | Abierto (04-03) |
 
 ### Hallazgos abiertos por iteración

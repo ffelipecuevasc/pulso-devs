@@ -1,0 +1,12 @@
+_prototipo/
+_planificacion/
+dist/
+.astro/
+.wrangler/
+node_modules/
+pnpm-lock.yaml
+AGENTS.md
+DESIGN.md
+README.md
+LICENSE
+.idea/

@@ -1,0 +1,5 @@
+@import 'tailwindcss';
+
+/* Andamiaje inicial (iteración 01-01). Los tokens de DESIGN.md entran en @theme en 01-03. */
+@source not '../../_prototipo';
+@source not '../../_planificacion';

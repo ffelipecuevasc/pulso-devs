@@ -3,7 +3,7 @@
 **Fuente única de verdad del trabajo pendiente.** Si discrepa con `_planificacion/README.md` o con cualquier otro documento de planificación, prevalece este archivo.
 
 - **Última actualización:** 2026-10-10
-- **Iteración activa:** ninguna. La primera es 01-01 (andamiaje).
+- **Iteración activa:** 01-01 (andamiaje), en revisión desde 2026-10-10. La siguiente es 01-02, cuando el desarrollador haga commit y lo pida.
 - **Prototipo de referencia:** commit `d60c55e`. La transición de cambio de tema **no** existe en el prototipo: se implementa directamente en Astro en 02-03.
 - **Próximo hito:** hitos 1 y 2: sitio migrado a Astro 7 y Tailwind 4 compilado localmente, desplegado por primera vez en `https://comunidadpulso.dev` con Workers Builds (iteración 01-06).
 - **Alcance del sitio:** una sola página (One Page) con secciones ancladas (RDA-011).
@@ -17,7 +17,7 @@
 
 | Iteración | Nombre                                                       | Épica | Estado    | Depende de | Bitácora |
 | :-------- | :----------------------------------------------------------- | :---- | :-------- | :--------- | :------- |
-| 01-01     | Andamiaje del proyecto                                       | 01    | Pendiente | —          | — |
+| 01-01     | Andamiaje del proyecto                                       | 01    | En revisión | —        | [bitacora-01-01-2026-10-10](../99_bitacora/bitacora-01-01-2026-10-10.md) |
 | 01-02     | Arquitectura base, layout y datos de la comunidad            | 01    | Pendiente | 01-01      | — |
 | 01-03     | Tailwind local, fuentes autoalojadas e íconos                | 01    | Pendiente | 01-02      | — |
 | 01-04     | Header, tema, hero y pie de página                           | 01    | Pendiente | 01-03      | — |
@@ -84,4 +84,5 @@ Ideas detectadas durante el trabajo que no forman parte de lo planificado.
 | 2026-10-10 | Llega el PDF del primer taller (el único hasta ahora). Se registra en 03-01 con los datos verificables y tres puntos que el desarrollador debe aprobar antes de publicar: cifra de asistentes, público objetivo y sorteo de licencias. |
 | 2026-10-10 | Auditoría 02 del prototipo en `d60c55e`. Logotipos: 29 SVG recibidos, no van en talleres (AUD-01-003 resuelto); LinkedIn de la comunidad recibido. Épica 01 revisada: paridad incluye `.joincard`, `.band--dots`, `.founder-chip` y LinkedIn; 02-02 y 03-02 ajustadas. |
 | 2026-10-10 | Decisiones del desarrollador: (1) todo el trabajo va en `main`, sin ramas (RDA-015); (2) Claude Code implementa todas las iteraciones, incluida la 01-01; (3) la transición de cambio de tema se implementa en Astro como iteración 02-03, con duración de 1 s como única excepción a `DESIGN.md` §8 (RDA-016). Se quitan de la Épica 01 las referencias a ramas y a la transición. |
+| 2026-10-10 | Iteración 01-01 implementada por Claude Code en `main` y dejada `En revisión`: proyecto Astro 7 con Tailwind 4, PNPM 12.8.1, Prettier y TypeScript 6; prototipo movido a `_prototipo/`; `.gitignore` actualizado. Pendiente del desarrollador: revisar, hacer commit y push. |
 | 2026-10-10 | El desarrollador aprueba publicar los 80 asistentes, el sorteo de 20 licencias de JetBrains y el despliegue en vivo con GitHub Pages; no se menciona el bootcamp (RDA-014). 03-01 queda sin datos pendientes. |
