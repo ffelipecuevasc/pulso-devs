@@ -75,7 +75,7 @@ Todo texto cumple WCAG 2.2 AA (4,5:1; 3:1 para texto grande y componentes). Comb
 | Rol | Familia | Pesos | Uso |
 | :-- | :-- | :-- | :-- |
 | Display | **Lexend** | 300, 400, 500, 600, 700 | Títulos, hero, navegación, botones, estadísticas, marca |
-| Lectura | **IBM Plex Sans** | 400, 500, 600, 400 itálica | Párrafos, descripciones, formularios, texto secundario |
+| Lectura | **Figtree** (definitiva) | 400, 500, 600 y 400 itálica, a confirmar según uso | Párrafos, descripciones, texto secundario. Entra en la iteración 02-01 (RDA-004); hasta entonces el sitio usa **IBM Plex Sans** (400, 500, 600, 400 itálica) por paridad con el prototipo |
 
 Respaldo: `"Segoe UI", system-ui, -apple-system, sans-serif`. En el prototipo se cargan desde Google Fonts; tras la migración se **autoalojan** (Fonts API de Astro) con `font-display: swap`.
 
@@ -127,24 +127,24 @@ Sin anchos rígidos que generen desplazamiento horizontal desde 320 px (`overflo
 
 | Componente | Descripción y reglas |
 | :-- | :-- |
-| **Header** | `sticky`, fondo `--bg`, borde inferior `--line` solo al desplazarse (`data-scrolled`). Composición en tres zonas: **izquierda** control de tema; **centro** navegación; **derecha** acciones (unirse). Logotipo + «Pulso Devs» como marca. Bajo 1100 px, botón de menú (`menu`) que abre un panel con animación `menu-in` de .25 s y bloquea el desplazamiento (`body.is-locked`). |
-| **Control de tema** | Botón con ícono `light_mode` / `dark_mode`, `aria-label` descriptivo, alterna `data-theme` en `<html>` y persiste en `localStorage` (`pulsodevs-theme`). |
+| **Header** | `sticky`, fondo `--bg`, borde inferior `--line` solo al desplazarse (`data-scrolled`). Composición en tres zonas: **izquierda** logotipo + «Pulso Devs»; **centro** navegación de tres enlaces: Comunidad, Talleres y Visión (desde 1100 px); **derecha** control de tema, botón «Únete» y botón de menú (bajo 1100 px). El menú móvil es un panel con animación `menu-in` de .25 s, atrapa el foco, se cierra con Esc y bloquea el desplazamiento (`body.is-locked`). |
+| **Control de tema** | Interruptor (`role="switch"`, `aria-checked`) con pista, íconos `light_mode` / `dark_mode` y perilla. Alterna `data-theme` en `<html>`, actualiza `theme-color` y persiste en `localStorage` (`pulsodevs-theme`); sin preferencia guardada sigue al sistema. |
 | **Hero** | `h1` compuesto por antetítulo «Comunidad» con punto que late + wordmark «Pulso Devs». Debajo, el trazo de pulso que se dibuja (`trace-wipe`, 1,5 s) y termina en el logotipo, que aparece (`logo-in`) y emite un anillo (`ring`). Mensaje para desarrolladores junior de Latinoamérica y botón principal para unirse. |
 | **Botón** (`.btn`) | Píldora, alto mínimo 50 px (40 px en `--sm`, solo en contextos no táctiles principales), Lexend 500. Variantes: `--primary` (relleno + halo en hover), `--ghost` (borde `--line-strong`, en hover borde y texto `--primary`), `--block` (ancho completo). Desplazamiento de 1 px al presionar. Deshabilitado: opacidad .55. |
 | **Enlace con flecha** (`.link-arrow`) | Lexend 500, color `--primary`, subrayado de 1,5 px al hover; el ícono se desplaza 2 px en diagonal. |
 | **Sección** (`.section`) | Relleno `--section-y`; variante `--surface` y variante `.band` (oscura). Cabecera con `.section-title` + `.section-lead`. |
-| **Talleres** | Banda oscura. Lista de temáticas con su logotipo oficial; sin fechas ni calendario mientras no existan. |
+| **Talleres** | Banda oscura. Datos clave (`.facts`: frecuencia, costo, instructores) y lista de temáticas, cada una con un ícono. Hoy los íconos son genéricos (ver AUD-01-003). Sin fechas ni calendario: «Las próximas fechas se anunciarán pronto». |
+| **Áreas** (`.areas`) | Lista editorial «Lo que nos reúne»: Frontend, Backend, Fullstack e Inteligencia Artificial, con una línea de descripción cada una. |
+| **Pilares** (`.pillar`, `.feature`) | «Lo que encontrarás»: tres pilares (construir, aprender, oportunidades) con ícono Material Symbols Light por ítem, sobre `--surface`. |
 | **Visión** | Sección editorial «Esto recién comienza.», con línea de tiempo de iniciativas marcadas como «próximamente». |
-| **Fundador** | Panel `--radius-panel`; foto oficial o, si falta, monograma. Enlaces a LinkedIn y sitio personal. Solo datos respaldados por el perfil PDF. |
-| **Únete** | Banda oscura con pasos numerados (`.steps`) y panel de bienvenida con botón al grupo de WhatsApp. El anillo de pulso (`welcome__pulse`) se oculta con movimiento reducido. |
-| **Formulario** (cuando se reincorpore) | `label` visible por campo, borde `--field-border`, radio `--radius-field`, halo de foco `--accent` 26 %, error en `--danger` con fondo `--danger-bg` y halo dorado. Estados en `data-state`: inicial, `submitting` (spinner), éxito y error. |
-| **Footer** | Logotipo, «Pulso Devs», descripción breve, navegación, redes (cuando existan), botón para unirse, copyright e indicador «Comunidad latinoamericana». Sin sobrecarga. |
+| **Únete** | Banda oscura con tres pasos numerados (`.steps`) y una tarjeta (`.welcome`) con el logotipo de WhatsApp en SVG, un texto breve y el botón al grupo de WhatsApp. Es la única entrada a la comunidad: no hay formulario. El anillo de pulso (`welcome__pulse`) se oculta con movimiento reducido. |
+| **Footer** | Logotipo, «Pulso Devs», descripción breve, **crédito del fundador** («Fundador: Felipe Cuevas», con enlace a felipecuevas.dev; es la única mención del fundador en el sitio), navegación, redes (cuando existan), botón para unirse, copyright con año calculado e indicador «Hecha en comunidad, abierta a toda Latinoamérica». Sin sobrecarga. |
 | **Enlace de salto** | «Saltar al contenido», píldora con colores del botón principal, aparece al recibir foco. |
 
 ## 7. Iconografía y logotipos
 
-- **Íconos de interfaz:** solo **Material Symbols Light** (peso 300, licencia Apache-2.0), como SVG en línea con `fill: currentColor`, tamaño base 24 px (20 px en botones, 18 px en enlaces) y `aria-hidden="true"`. Íconos en uso: `light_mode`, `dark_mode`, `menu`, `close`, `person`, `diversity_3`, `deployed_code`, `progress_activity`, `error`, entre otros.
-- **Logotipos de tecnologías:** SVG oficiales entregados en `logos.txt` (colección SVG Logos, de Gil Barbara): Python, Java, JavaScript, Node.js, Spring, Express, AWS, Claude y otros. Se usan **con sus colores originales**, sin modificar. Si falta uno, se pide; no se inventa ni se reemplaza por un ícono genérico.
+- **Íconos de interfaz:** solo **Material Symbols Light** (peso 300, licencia Apache-2.0), como SVG en línea con `fill: currentColor`, tamaño base 24 px (20 px en botones, 18 px en enlaces) y `aria-hidden="true"`. Íconos en uso hoy: `light_mode`, `dark_mode`, `menu`, `close`, `public`, `groups`, `person`, `school`, `work`, `badge`, `campaign`, `calendar_month`, `schedule`, `volunteer_activism`, `workspace_premium`, `cast_for_education`, `library_books`, `deployed_code`, `diversity_3`, `forum`, `smart_toy`, `arrow_outward`. Hay además cuatro definidos sin uso (`check_circle`, `error`, `keyboard_arrow_down`, `progress_activity`) que se eliminan en la migración.
+- **Logotipos de tecnologías:** SVG oficiales entregados en `logos.txt` (colección SVG Logos, de Gil Barbara): AWS, Claude, Django, Express, Java, JavaScript, Node.js, Python y Spring. **Hoy están definidos en `index.html` pero no se usan** (las temáticas de talleres llevan íconos genéricos); se usarán en las temáticas de talleres (decisión del desarrollador). Los SVG los entrega él y se guardan en `src/icons/` con el prefijo `tec-` (por ejemplo `tec-aws.svg`); iteración 02-02, AUD-01-003. Se usan **con sus colores originales**, sin modificar. Si falta uno, se pide; no se inventa ni se reemplaza por un ícono genérico.
 - **Logotipo de Pulso Devs:** `pulsodevs.png` (480 px, fondo transparente), `pulsodevs-small.png` (128 px: header, footer y favicon) y `pulsodevs-original.png` (vista previa al compartir). No se redibuja, recorta, recolorea ni deforma.
 - **Sin emojis** como íconos de interfaz.
 
@@ -156,7 +156,6 @@ Sin anchos rígidos que generen desplazamiento horizontal desde 320 px (`overflo
 | `trace-wipe` (pulso que se dibuja) | 1,5 s, una vez | Hero |
 | `logo-in` + `ring` | .7 s + 1,6 s, una vez | Logotipo del hero |
 | `menu-in` | .25 s | Menú móvil |
-| `spin` | .9 s, en bucle | Estado «enviando» |
 | Transiciones de color | .2–.35 s | Cambio de tema, hover |
 
 Con `prefers-reduced-motion: reduce` todas las animaciones y transiciones se reducen a .001 ms, se desactiva el desplazamiento suave y se ocultan los anillos y el latido.
@@ -171,4 +170,4 @@ Con `prefers-reduced-motion: reduce` todas las animaciones y transiciones se red
 
 ## 10. Traslado a Tailwind CSS 4
 
-En la migración, la paleta y las escalas de este documento se declaran en `src/styles/global.css` dentro de `@theme` (por ejemplo `--color-orient-500`, `--font-display`, `--radius-panel`), y los tokens semánticos de la §2.2 como variables CSS que cambian según `[data-theme]`. Tailwind se configura con una variante `dark` basada en `[data-theme="dark"]` (`@custom-variant`), no en la preferencia del sistema. El prototipo actual mezcla algunas clases de Tailwind sin cargarlo (tarjeta de bienvenida, con grises `gray-*` y `slate-*` fuera de la paleta): esas clases se reemplazan por tokens de este documento.
+En la migración, la paleta y las escalas de este documento se declaran en `src/styles/global.css` dentro de `@theme` (por ejemplo `--color-orient-500`, `--font-display`, `--radius-panel`), y los tokens semánticos de la §2.2 como variables CSS que cambian según `[data-theme]`. Tailwind se configura con una variante `dark` basada en `[data-theme="dark"]` (`@custom-variant`), no en la preferencia del sistema. El prototipo actual mezcla algunas clases de Tailwind sin cargarlo (tarjeta de bienvenida y enlace del fundador, con `gray-*`, `slate-*`, `green-*` y `blue-*` fuera de la paleta): hoy no tienen efecto porque Tailwind no se carga, y se reemplazan por tokens de este documento (AUD-01-009).

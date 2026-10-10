@@ -12,7 +12,9 @@ Instrucciones de trabajo para cualquier agente de IA (Claude Code, Antigravity u
 - **Fundador y desarrollador responsable:** Felipe Cuevas (https://felipecuevas.dev).
 - **Dominio:** `comunidadpulso.dev`.
 - **Repositorio:** `ffelipecuevasc/pulso-devs` (público).
-- **Objetivo:** presentar la comunidad, transmitir confianza y llevar a nuevos desarrolladores junior a unirse (hoy, mediante el grupo de WhatsApp).
+- **Objetivo:** presentar la comunidad, transmitir confianza y llevar a nuevos desarrolladores junior a unirse.
+- **Entrada a la comunidad:** únicamente el enlace directo al grupo de WhatsApp. No hay formulario, registro ni backend (RDA-006).
+- **Alcance:** sitio de **una sola página** (One Page) con secciones ancladas, más la 404 (RDA-011). No crees páginas nuevas ni navegación multipágina: es una épica futura en evaluación (Épica 06).
 - **Principio rector:** «Pulso Devs debe sentirse como una comunidad tecnológica que está comenzando a crecer, no como una empresa que intenta parecer grande.»
 - **Abierta a toda Latinoamérica.** Nació con exalumnos del fundador, pero **nunca** se presenta como exclusiva para ellos.
 
@@ -33,9 +35,12 @@ Si algo de lo anterior está en conflicto, detente y pregunta.
 - **PNPM 12** (12.8.1), fijado en `devEngines.packageManager` de `package.json` (`onFail: download`). Sin Corepack ni campo `packageManager`. Los scripts de instalación permitidos se declaran en `pnpm-workspace.yaml` (`allowBuilds`). **PNPM es obligatorio y no transable:** nunca `npm` ni `yarn`, tampoco `npx` (usa `pnpm dlx` o `pnpm exec`).
 - **Tailwind CSS 4** compilado localmente con `@tailwindcss/vite`. Los tokens viven en `src/styles/global.css` dentro de `@theme`. No existe `tailwind.config.js` y no debe crearse. **Prohibido** el CDN de Tailwind.
 - **JavaScript** (ES2022+). Sin TypeScript en el código de la aplicación; `tsconfig.json` existe solo para el editor y `astro check` (TypeScript 6; no actualizar a 7 mientras `astro check` no lo soporte).
-- **Hosting:** Cloudflare Workers con recursos estáticos (Workers Static Assets), dominio `comunidadpulso.dev`. La configuración vive en `wrangler.jsonc`. Cualquier lógica de servidor (por ejemplo, un endpoint de registro) requiere una RDA.
+- **Íconos:** `astro-icon` con `@iconify-json/material-symbols-light`.
+- **Tipografía:** Lexend (titulares, navegación, botones) y Figtree para lectura (RDA-004), ambas autoalojadas con la Fonts API de Astro. Figtree entra en la iteración 02-01; mientras tanto el sitio usa IBM Plex Sans por paridad con el prototipo.
+- **Despliegue:** Cloudflare Workers con recursos estáticos (Workers Static Assets), sin adaptador de Astro. Workers Builds conectado al repositorio de GitHub: `main` publica en `https://comunidadpulso.dev` y `www` redirige al dominio sin `www`. La configuración vive en `wrangler.jsonc`. Cualquier lógica de servidor requiere una RDA.
+- **Medición:** Cloudflare Web Analytics y Google Search Console (RDA-010).
 
-> El sitio actual (HTML, CSS y JS sin compilación) es el **prototipo de referencia**. La Épica 01 lo migra a este stack; mientras tanto, prevalece el código existente como referencia visual y de contenido.
+> El sitio actual (HTML, CSS y JS sin compilación) es el **prototipo de referencia**. La Épica 01 lo migra a este stack; mientras tanto vive en `_prototipo/` y prevalece como referencia visual y de contenido. Se elimina en la iteración 01-06.
 
 ## 4. Comandos
 
@@ -71,22 +76,23 @@ Astro 7 detecta agentes de IA e inicia `astro dev` en segundo plano. Usa `pnpm a
 
 ## 6. Reglas de contenido
 
-1. Texto visible en **español neutro latinoamericano**, trato de **tú**, cercano y simple, sin lenguaje corporativo frío ni anglicismos innecesarios (los nombres de tecnologías se escriben como en su marca oficial). `lang="es"` en el HTML.
-2. **No inventes datos.** Cargos, certificaciones, empresas, años, cifras, logros o biografía del fundador salen solo de `Profile - Felipe Cuevas.pdf` o de lo que el desarrollador entregue por escrito.
+1. Texto visible en **español neutro latinoamericano**, trato de **tú**, cercano y simple, sin lenguaje corporativo frío ni anglicismos innecesarios (los nombres de tecnologías se escriben como en su marca oficial). `lang="es"` en el HTML. La documentación (`_planificacion/`, bitácoras y commits) se redacta en español de Chile.
+2. **No inventes datos.** Cargos, certificaciones, empresas, años, cifras, logros o menciones de personas salen solo de lo que el desarrollador entregue por escrito.
 3. **No presentes lo futuro como disponible.** Usa «próximamente», «estamos creciendo» o «nuevas iniciativas en camino». No afirmes que existe un calendario de talleres, cifras de miembros ni alianzas con empresas (Oracle, Google u otras) sin confirmación.
 4. Si falta un dato, usa un marcador explícito `PENDIENTE_DATO` en `src/data/comunidad.js` y regístralo en `registro-log.md`. Nunca publiques un enlace o cifra de relleno que parezca real.
 5. Los valores configurables (enlace de WhatsApp, redes, endpoint de registro, URL del sitio) viven **solo** en `src/data/`. Ningún componente los escribe en duro.
 6. Las mayúsculas del diseño se aplican con CSS, no escribiendo el texto en mayúsculas.
+7. **El fundador aparece solo en el pie de página**, con un enlace a https://felipecuevas.dev (RDA-009). No hay sección, foto ni biografía del fundador.
 
 ## 7. Reglas técnicas
 
 1. **HTML semántico:** `header`, `nav`, `main`, `section` con `aria-labelledby`, `article`, `footer`. Un solo `h1` por página. Jerarquía de encabezados sin saltos.
 2. **Cero JavaScript por defecto.** Primero HTML y CSS; luego `<script>` nativo de Astro. El único script en línea permitido en `<head>` es el que aplica el tema antes de pintar (evita el parpadeo). React u otro framework solo con una RDA aprobada.
-3. **Sin recursos de terceros en tiempo de ejecución:** nada de Tailwind CDN, Google Fonts remotas ni fuentes de íconos. Fuentes autoalojadas; íconos y logotipos como SVG en línea; imágenes locales en `src/assets/` procesadas con `<Image />` o `<Picture />`. Cualquier excepción exige una RDA.
-4. **Íconos:** exclusivamente **Material Symbols Light** como SVG. Logotipos de tecnologías: solo los SVG oficiales ya entregados al proyecto (`logos.txt`, colección SVG Logos). Si falta uno, **pide el SVG**; no lo inventes ni lo sustituyas por un ícono genérico. Sin emojis como íconos.
+3. **Sin recursos de terceros en tiempo de ejecución:** nada de Tailwind CDN, Google Fonts remotas ni fuentes de íconos. Fuentes autoalojadas; íconos y logotipos como SVG en línea; imágenes locales en `src/assets/` procesadas con `<Image />` o `<Picture />`. Cualquier excepción exige una RDA. **Excepción prevista, sujeta a su RDA aceptada (RDA-010):** el script de Cloudflare Web Analytics.
+4. **Íconos:** exclusivamente **Material Symbols Light**, como SVG en línea con `astro-icon` y `@iconify-json/material-symbols-light`. Logotipos de tecnologías: solo los SVG oficiales que entrega el desarrollador, guardados en `src/icons/` con el prefijo `tec-` (por ejemplo `tec-aws.svg`) y mostrados con sus colores originales. Si falta uno, **pide el SVG**; no lo inventes ni lo sustituyas por un ícono genérico. Sin emojis como íconos.
 5. **Logotipo:** usa siempre el archivo oficial `pulsodevs.png` y sus derivados. No lo redibujes, recortes, recolorees ni deformes.
 6. **Modo claro y oscuro:** ambos obligatorios, diseñados por separado (no una inversión). Preferencia persistida en `localStorage` con la clave `pulsodevs-theme`, con respaldo en `prefers-color-scheme`.
-7. **Seguridad del registro:** los datos de formularios viajan a un endpoint seguro (Apps Script o Worker); nunca se exponen secretos en el navegador. Si hace falta un ID o credencial no entregada, usa un marcador y detente.
+7. **Sin formularios ni datos personales:** el sitio no recoge datos de nadie; la entrada es el enlace de WhatsApp. Cualquier formulario, endpoint o backend exige una RDA. Nunca se exponen secretos en el navegador; si hace falta una credencial o un ID no entregado, usa un marcador y detente.
 8. **Accesibilidad:** WCAG 2.2 AA, foco visible de 3 px, objetivos táctiles de al menos 44 × 44 px, navegación completa con teclado, `prefers-reduced-motion` respetado, textos alternativos descriptivos, `label` real en cada campo.
 9. **Responsive mobile-first:** sin desplazamiento horizontal desde 320 px. Revisar header, hero, menú, formularios y footer en 360, 768, 1280 y 1536 px.
 10. **Rendimiento:** meta de 95–100 en Lighthouse móvil en las cuatro categorías; LCP < 2,5 s, CLS < 0,05, INP < 200 ms.
