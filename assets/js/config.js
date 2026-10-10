@@ -17,7 +17,12 @@
       photoUrl: '' // Vacío = monograma
     },
 
-    /** Redes sociales de la comunidad */
+    /** Redes de la comunidad */
+    COMMUNITY: {
+      linkedin: 'https://www.linkedin.com/company/comunidad-pulso-devs/home/'
+    },
+
+    /** Otras redes sociales (reservado) */
     SOCIAL_LINKS: []
   };
 

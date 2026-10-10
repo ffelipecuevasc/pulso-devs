@@ -126,6 +126,9 @@
     var web = document.querySelector('[data-founder-website]');
     if (web) web.href = cfg.FOUNDER.website;
 
+    var inCom = document.querySelector('[data-community-linkedin]');
+    if (inCom && cfg.COMMUNITY && !cfg.isPlaceholder(cfg.COMMUNITY.linkedin)) inCom.href = cfg.COMMUNITY.linkedin;
+
     // Redes sociales de la comunidad
     var social = document.querySelector('[data-social-list]');
     var links = (cfg.SOCIAL_LINKS || []).filter(function (s) { return s && !cfg.isPlaceholder(s.url); });
