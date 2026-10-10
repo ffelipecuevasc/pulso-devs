@@ -1,0 +1,52 @@
+---
+import Icono from './Icono.astro';
+import { comunidad } from '../data/comunidad.js';
+
+/**
+ * Sección «Talleres» (`#talleres`): banda oscura con patrón de puntos, datos clave y temáticas.
+ * Cada temática lleva el ícono Material Symbols Light que eligió el desarrollador; no se usan
+ * logotipos de tecnologías aquí (AUD-01-003). Sin fechas ni calendario.
+ */
+const seccion = comunidad.secciones.talleres;
+---
+
+<section class="section band band--dots workshops" id="talleres" aria-labelledby="workshops-title">
+  <div class="contenedor workshops__grid">
+    <div class="workshops__intro">
+      <h2 class="section-title" id="workshops-title">
+        {seccion.titulo}
+      </h2>
+      <p class="section-lead">{seccion.bajada}</p>
+
+      <dl class="facts">
+        {seccion.datos.map((dato) => (
+          <div class="facts__row">
+            <dt>
+              <Icono nombre={dato.icono} />
+              {dato.etiqueta}
+            </dt>
+            <dd>{dato.valor}</dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+
+    <div class="topics">
+      <h3 class="topics__title">{seccion.tituloTematicas}</h3>
+      <ul class="topics__list">
+        {comunidad.tematicas.map((tematica) => (
+          <li class="topic">
+            <span class="topic__name">{tematica.nombre}</span>
+            <span class="topic__tech">
+              <Icono nombre={tematica.icono} />
+            </span>
+          </li>
+        ))}
+      </ul>
+      <p class="topics__note">
+        <Icono nombre={seccion.nota.icono} />
+        {seccion.nota.texto}
+      </p>
+    </div>
+  </div>
+</section>

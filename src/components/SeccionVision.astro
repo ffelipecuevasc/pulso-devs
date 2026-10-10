@@ -1,0 +1,37 @@
+---
+import { comunidad } from '../data/comunidad.js';
+
+/**
+ * Sección «Visión» (`#vision`): «Esto recién comienza», con la línea de tiempo (hoy y lo que
+ * viene) y el lema. Los textos salen de `src/data/comunidad.js`.
+ */
+const seccion = comunidad.secciones.vision;
+---
+
+<section class="section vision" id="vision" aria-labelledby="vision-title">
+  <div class="contenedor">
+    <h2 class="vision__title" id="vision-title">
+      {seccion.titulo}
+    </h2>
+    <p class="section-lead">{seccion.bajada}</p>
+
+    <div class="timeline">
+      <div class="timeline__now">
+        <span class="timeline__node" aria-hidden="true"></span>
+        <h3 class="timeline__label">{seccion.hoy.etiqueta}</h3>
+        <p>{seccion.hoy.texto}</p>
+      </div>
+      <div class="timeline__next">
+        <span class="timeline__arrow" aria-hidden="true"></span>
+        <h3 class="timeline__label">{seccion.proximo.etiqueta}</h3>
+        <ul class="next-list">
+          {seccion.proximo.items.map((item) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    <p class="vision__motto">{seccion.lema}</p>
+  </div>
+</section>

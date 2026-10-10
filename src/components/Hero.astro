@@ -15,17 +15,17 @@ const [antes, despues] = comunidad.eslogan.split('pulso');
 ---
 
 <section class="hero" id="inicio" aria-labelledby="hero-title">
-  <div class="container">
+  <div class="contenedor">
     <h1 class="hero__title" id="hero-title">
       <span class="hero__kicker">
         <span class="beat" aria-hidden="true"></span>Comunidad
-      </span>
+      </span>{' '}
       <span class="hero__wordmark">{comunidad.nombreCorto}</span>
     </h1>
   </div>
 
   <div class="hero__trace">
-    <div class="container hero__trace-row">
+    <div class="contenedor hero__trace-row">
       <span class="trace-line trace-line--in" aria-hidden="true"></span>
       <svg
         class="trace-spike"
@@ -53,7 +53,7 @@ const [antes, despues] = comunidad.eslogan.split('pulso');
     </div>
   </div>
 
-  <div class="container hero__body">
+  <div class="contenedor hero__body">
     <div class="hero__copy">
       <p class="hero__lead">
         {antes}

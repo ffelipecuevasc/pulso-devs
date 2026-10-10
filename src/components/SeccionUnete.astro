@@ -1,0 +1,60 @@
+---
+import { Icon } from 'astro-icon/components';
+import Icono from './Icono.astro';
+import { comunidad } from '../data/comunidad.js';
+
+/**
+ * Sección «Únete» (`#unete`): banda oscura con patrón de puntos, tres pasos y la tarjeta de
+ * invitación al grupo de WhatsApp. Es la única entrada a la comunidad: no hay formulario
+ * (RDA-006). El enlace sale de `comunidad.whatsapp`; la tarjeta usa los tokens claros del sistema.
+ */
+const seccion = comunidad.secciones.unete;
+---
+
+<section class="section band band--dots join" id="unete" aria-labelledby="join-title">
+  <div class="contenedor join__grid">
+    <div class="join__intro">
+      <h2 class="join__title" id="join-title">
+        {seccion.titulo}
+      </h2>
+      <p class="section-lead">{seccion.bajada}</p>
+      <ol class="steps">
+        {seccion.pasos.map((paso, i) => (
+          <li>
+            <span class="steps__n" aria-hidden="true">
+              {i + 1}
+            </span>
+            {paso}
+          </li>
+        ))}
+      </ol>
+    </div>
+
+    <div class="join__panel" data-join-panel>
+      <div class="joincard is-visible" role="group" aria-labelledby="welcome-title">
+        <div class="joincard__head">
+          <span class="joincard__mark" aria-hidden="true">
+            <Icon name="tec-whatsapp-icon" class="joincard__wa" focusable="false" />
+          </span>
+          <p class="joincard__kicker">{seccion.tarjeta.antetitulo}</p>
+        </div>
+
+        <h3 class="joincard__title" id="welcome-title">
+          {seccion.tarjeta.titulo}
+        </h3>
+        <p class="joincard__text">{seccion.tarjeta.texto}</p>
+
+        <a
+          class="btn btn--primary btn--block"
+          href={comunidad.whatsapp}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {seccion.tarjeta.boton}
+          <Icono nombre="arrow_outward" />
+        </a>
+        <p class="joincard__note">{seccion.tarjeta.nota}</p>
+      </div>
+    </div>
+  </div>
+</section>

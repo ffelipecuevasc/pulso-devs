@@ -1,0 +1,40 @@
+---
+import Icono from './Icono.astro';
+import { comunidad } from '../data/comunidad.js';
+
+/**
+ * Sección «Lo que encontrarás» (`#encontraras`): tres pilares (construir, aprender y crecer) con
+ * un ícono por ítem. Los textos salen de `src/data/comunidad.js`. No tiene entrada en el menú.
+ */
+const seccion = comunidad.secciones.encontraras;
+---
+
+<section class="section section--surface offer" id="encontraras" aria-labelledby="offer-title">
+  <div class="contenedor">
+    <div class="section-head">
+      <h2 class="section-title" id="offer-title">
+        {seccion.titulo}
+      </h2>
+      <p class="section-lead">{seccion.bajada}</p>
+    </div>
+
+    <div class="offer__grid">
+      {seccion.pilares.map((pilar) => (
+        <div class:list={['pillar', { 'pillar--grow': pilar.compacto }]}>
+          <h3 class="pillar__title">{pilar.titulo}</h3>
+          <ul class:list={['pillar__list', { 'pillar__list--compact': pilar.compacto }]}>
+            {pilar.items.map((item) => (
+              <li class="feature">
+                <Icono nombre={item.icono} clase="feature__icon" />
+                <div>
+                  <h4 class="feature__title">{item.titulo}</h4>
+                  <p>{item.texto}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

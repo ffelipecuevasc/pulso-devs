@@ -90,6 +90,164 @@ export const comunidad = {
     { nombre: 'Desarrollo Web + Tecnología Cloud', icono: 'rocket_launch' },
     { nombre: 'Aplicaciones con Agentes de IA', icono: 'robot_2' },
   ],
+
+  /**
+   * Textos de las secciones de la portada, idénticos a los del prototipo (los ajustes de texto
+   * van en la iteración 03-01). `fuerte` es el fragmento que se destaca con <strong>; `resto`
+   * sigue a continuación. Los `icono` son nombres de src/data/iconos.js.
+   */
+  secciones: {
+    comunidad: {
+      titulo: 'Un lugar para no aprender en solitario.',
+      declaracion: {
+        fuerte: 'Pulso Devs',
+        resto:
+          ' es una comunidad tecnológica de desarrolladores web: personas que están dando sus primeros pasos en la industria y que les gusta avanzar en compañía.',
+      },
+      apertura: {
+        fuerte: 'No somos un grupo cerrado.',
+        resto:
+          ' La puerta está abierta para cualquier desarrollador web de Latinoamérica que quiera aprender, colaborar y crecer con otros.',
+      },
+      tituloAreas: 'Lo que nos reúne',
+    },
+
+    encontraras: {
+      titulo: 'Lo que encontrarás en Pulso Devs',
+      bajada:
+        'Tres cosas que se refuerzan entre sí: construir proyectos reales, aprender con otros y estar cerca de las oportunidades.',
+      pilares: [
+        {
+          titulo: 'Construir',
+          items: [
+            {
+              icono: 'deployed_code',
+              titulo: 'Apoyo para tus proyectos web',
+              texto:
+                'Comparte lo que estás construyendo, pide feedback y destraba lo que te tiene detenido.',
+            },
+            {
+              icono: 'diversity_3',
+              titulo: 'Comunidad',
+              texto:
+                'Devs en la misma etapa que tú, con quienes compartir dudas, avances y experiencias.',
+            },
+          ],
+        },
+        {
+          titulo: 'Aprender',
+          items: [
+            {
+              icono: 'cast_for_education',
+              titulo: 'Talleres gratuitos en vivo',
+              texto:
+                'Sesiones prácticas sobre desarrollo web, datos, cloud e inteligencia artificial.',
+            },
+            {
+              icono: 'library_books',
+              titulo: 'Recursos de aprendizaje',
+              texto: 'Material seleccionado para seguir avanzando entre un taller y otro.',
+            },
+          ],
+        },
+        {
+          titulo: 'Crecer',
+          compacto: true,
+          items: [
+            {
+              icono: 'school',
+              titulo: 'Becas',
+              texto: 'Programas de estudio a los que puedes postular.',
+            },
+            {
+              icono: 'workspace_premium',
+              titulo: 'Certificaciones',
+              texto: 'Opciones oficiales, gratuitas o con descuento.',
+            },
+            {
+              icono: 'work',
+              titulo: 'Oportunidades laborales',
+              texto: 'Ofertas pensadas para perfiles junior.',
+            },
+            {
+              icono: 'badge',
+              titulo: 'Prácticas y pasantías',
+              texto: 'Tu primera experiencia en un equipo real.',
+            },
+            {
+              icono: 'campaign',
+              titulo: 'Noticias tecnológicas',
+              texto: 'Lo que pasa en la industria, sin tener que buscarlo solo.',
+            },
+          ],
+        },
+      ],
+    },
+
+    talleres: {
+      titulo: 'Talleres gratuitos en vivo',
+      bajada:
+        'Aproximadamente una vez al mes nos juntamos en vivo para aprender haciendo, con espacio para preguntas y sin costo.',
+      datos: [
+        {
+          icono: 'calendar_month',
+          etiqueta: 'Frecuencia',
+          valor: 'Un taller al mes, aproximadamente',
+        },
+        { icono: 'volunteer_activism', etiqueta: 'Costo', valor: 'Gratuito' },
+        { icono: 'person', etiqueta: 'Instructores', valor: 'Desarrolladores Web Senior' },
+        { icono: 'groups', etiqueta: 'Más adelante', valor: 'Nuevos instructores de IA y más' },
+      ],
+      tituloTematicas: 'Temáticas',
+      nota: {
+        icono: 'schedule',
+        texto: 'Las próximas fechas se anunciarán pronto dentro de la comunidad.',
+      },
+    },
+
+    vision: {
+      titulo: 'Esto recién comienza.',
+      bajada:
+        'Pulso Devs es una comunidad nueva y no queremos parecer más grande de lo que es. Queremos crecer bien, junto a quienes se sumen desde el principio.',
+      hoy: {
+        etiqueta: 'Hoy',
+        texto:
+          'Una comunidad en marcha, un taller en vivo cada mes y un grupo donde compartir oportunidades.',
+      },
+      proximo: {
+        etiqueta: 'Lo que viene',
+        items: [
+          'Más talleres',
+          'Más instructores',
+          'Más recursos',
+          'Más oportunidades',
+          'Más miembros',
+          'Más colaboración',
+          'Más conexiones profesionales',
+        ],
+      },
+      lema: 'Construimos nuestro futuro tecnológico juntos.',
+    },
+
+    unete: {
+      titulo: '¿Quieres formar parte?',
+      bajada:
+        'Pulso Devs está abierta a desarrolladores junior de toda Latinoamérica. Puedes unirte directamente a nuestro grupo de WhatsApp sin necesidad de registros previos.',
+      pasos: [
+        'Haz clic en el enlace de invitación.',
+        'Únete de forma totalmente gratuita.',
+        'Sin necesidad de entregar datos personales.',
+      ],
+      tarjeta: {
+        antetitulo: 'Grupo oficial de WhatsApp',
+        titulo: 'Acceso directo a la comunidad',
+        texto:
+          'Conecta, aprende y colabora con otros desarrolladores. Entra a nuestro grupo oficial y entérate de próximos talleres y oportunidades.',
+        boton: 'Unirme al grupo de WhatsApp',
+        nota: 'Se abrirá WhatsApp en una pestaña nueva.',
+      },
+    },
+  },
 };
 
 /** Año del pie de página, calculado al compilar (no en el navegador). */

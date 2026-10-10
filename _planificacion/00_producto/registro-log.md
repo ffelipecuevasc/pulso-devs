@@ -3,7 +3,7 @@
 **Fuente única de verdad del trabajo pendiente.** Si discrepa con `_planificacion/README.md` o con cualquier otro documento de planificación, prevalece este archivo.
 
 - **Última actualización:** 2026-10-10
-- **Iteración activa:** 01-04 (header, tema, hero y pie), en revisión desde 2026-10-10. 01-03 quedó entregada y con commit `33fa8ec`.
+- **Iteración activa:** 01-05 (secciones de contenido), en revisión desde 2026-10-10. 01-04 quedó entregada y con commit `c5aaa46`.
 - **Prototipo de referencia:** commit `d60c55e`. La transición de cambio de tema **no** existe en el prototipo: se implementa directamente en Astro en 02-03.
 - **Próximo hito:** hitos 1 y 2: sitio migrado a Astro 7 y Tailwind 4 compilado localmente, desplegado por primera vez en `https://comunidadpulso.dev` con Workers Builds (iteración 01-06).
 - **Alcance del sitio:** una sola página (One Page) con secciones ancladas (RDA-011).
@@ -20,8 +20,8 @@
 | 01-01     | Andamiaje del proyecto                                       | 01    | Terminada | —          | [bitacora-01-01-2026-10-10](../99_bitacora/bitacora-01-01-2026-10-10.md) |
 | 01-02     | Arquitectura base, layout y datos de la comunidad            | 01    | Terminada | 01-01      | [bitacora-01-02-2026-10-10](../99_bitacora/bitacora-01-02-2026-10-10.md) |
 | 01-03     | Tailwind local, fuentes autoalojadas e íconos                | 01    | Terminada | 01-02      | [bitacora-01-03-2026-10-10](../99_bitacora/bitacora-01-03-2026-10-10.md) |
-| 01-04     | Header, tema, hero y pie de página                           | 01    | En revisión | 01-03    | [bitacora-01-04-2026-10-10](../99_bitacora/bitacora-01-04-2026-10-10.md) |
-| 01-05     | Secciones de contenido                                       | 01    | Pendiente | 01-04      | — |
+| 01-04     | Header, tema, hero y pie de página                           | 01    | Terminada | 01-03      | [bitacora-01-04-2026-10-10](../99_bitacora/bitacora-01-04-2026-10-10.md) |
+| 01-05     | Secciones de contenido                                       | 01    | En revisión | 01-04    | [bitacora-01-05-2026-10-10](../99_bitacora/bitacora-01-05-2026-10-10.md) |
 | 01-06     | Despliegue en Cloudflare Workers y retiro del prototipo      | 01    | Pendiente | 01-05      | — |
 | 02-01     | Fuente de lectura definitiva (Figtree)                       | 02    | Pendiente | 01-06      | — |
 | 02-02     | Ajustes estéticos y visuales                                 | 02    | Pendiente | 02-01 y la lista de ajustes | — |
@@ -73,8 +73,8 @@ Ideas detectadas durante el trabajo que no forman parte de lo planificado.
 | :-------- | :----- | :---- |
 | Medir clics en el botón del grupo de WhatsApp (el desarrollador lo evaluará «quizás en el futuro») | Respuesta del desarrollador | 2026-10-09 |
 | Navegación multipágina (Épica 06, en evaluación) | Respuesta del desarrollador | 2026-10-09 |
-| Revisar el resto de `DESIGN.md` frente a lo migrado: §7 aún dice que los logotipos de tecnologías «se usarán en las temáticas de talleres» (decisión revertida el 2026-10-10), §6 describe la tarjeta de «Únete» como `.welcome` (hoy `.joincard`) y los anchos de §5 incluyen un formulario que ya no existe (requiere aprobación; `DESIGN.md` §7 solo se corrigió en los nombres de íconos y el peso) | Bitácora 01-04 | 2026-10-10 |
-| Sumar a `DESIGN.md` `.joincard`, `.band--dots`, `.founder-chip`, LinkedIn en el pie y la lista real de íconos y logotipos (requiere aprobación) | Auditoría 02 | 2026-10-10 |
+| Actualizar RDA-004 (no se edita sin aprobación): en `Decisión`, agregar que Lexend y Figtree se guardan en el repositorio y se sirven con el proveedor local de la Fonts API de Astro, de modo que `pnpm build` no necesite internet; en `Consecuencias`, anotar la licencia de redistribución de cada fuente. Se haría con la iteración 02-01 | Decisión del desarrollador (2026-10-10) | 2026-10-10 |
+| `DESIGN.md` §5, §6 y §7 se actualizaron al cerrar 01-05 (aprobado). Quedan desfasados, sin tocar: los tokens y radios de campos (§2.2 `--field-bg` y `--field-border`, §4 `--radius-field`) y la mención de «foco de campos» en §4, porque ya no hay formularios; y en §6 la fila «Pilares», que dice «construir, aprender, oportunidades» cuando el tercero se llama «Crecer» | Bitácora 01-05 | 2026-10-10 |
 
 ## 5. Historial de cambios del registro
 
@@ -91,3 +91,5 @@ Ideas detectadas durante el trabajo que no forman parte de lo planificado.
 | 2026-10-10 | Iteración 01-02 implementada por Claude Code en `main` y dejada `En revisión`: `src/data/comunidad.js`, `LayoutBase`, `CabeceraSEO`, `404`, portada con secciones ancladas, año del pie calculado al compilar e integración que falla ante `PENDIENTE_DATO`. Pendiente del desarrollador: revisar, hacer commit y push. |
 | 2026-10-10 | Iteración 01-02 con commit `17ed29e` (Terminada). Iteración 01-03 implementada por Claude Code en `main` y dejada `En revisión`: tokens y componentes comunes en Tailwind 4, fuentes autoalojadas (Lexend e IBM Plex Sans) con la Fonts API de Astro, `Icono.astro` con `astro-icon` y 29 logotipos `tec-*.svg` idénticos a los originales. Los 6 íconos de temáticas coinciden exactamente con Material Symbols Light. Queda por decidir el grosor de los íconos del sprite (§3). |
 | 2026-10-10 | Iteración 01-03 con commit `33fa8ec` (Terminada). Decisiones del desarrollador: se dejan los íconos Material Symbols Light (peso 300) y se acepta la diferencia de trazo con el prototipo; se quita la cursiva de IBM Plex Sans; se aprueba corregir `DESIGN.md` §7 (nombres de íconos y mención del peso) y verificar en 01-04 y 01-05 los tokens y `container` sin uso. Iteración 01-04 implementada por Claude Code en `main` y dejada `En revisión`: header, control de tema, menú móvil, hero y pie con paridad medida (sin «Oportunidades»); `sharp` agregado como dependencia (aprobada de antemano para `MissingSharp`). |
+| 2026-10-10 | Iteración 01-04 con commit `c5aaa46` (Terminada). Decisión del desarrollador: las fuentes se guardarán dentro del repositorio en la iteración 02-01, solo Lexend y Figtree (IBM Plex Sans no), y se servirán con el proveedor local de la Fonts API para que `pnpm build` no necesite internet. Se agregan la tarea 6 y su criterio de aceptación en `iteracion-02-01-fuente-secundaria.md`; se propone (sin editarla) una actualización de RDA-004. Aprobada además la actualización de `DESIGN.md` §5, §6 y §7 al cerrar 01-05, y la revisión de los tamaños por defecto de `h2`, `h3` y `h4` y de la regla `container` en 01-05. Los PNG de respaldo del hero quedan para 04-02. |
+| 2026-10-10 | Iteración 01-04 con commit `c5aaa46` (Terminada). Iteración 01-05 implementada por Claude Code en `main` y dejada `En revisión`: las cinco secciones restantes como componentes, con los textos en `comunidad.js`, paridad medida (alto de página, secciones, contenedores y 23 encabezados idénticos; texto idéntico salvo «Oportunidades»). La clase `container` pasa a `contenedor` para no depender del orden del CSS. `DESIGN.md` §5, §6 y §7 actualizados (aprobado). |

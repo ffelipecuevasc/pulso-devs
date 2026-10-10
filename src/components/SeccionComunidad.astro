@@ -1,0 +1,39 @@
+---
+import { comunidad } from '../data/comunidad.js';
+
+/**
+ * Sección «Quiénes somos» (`#comunidad`): quiénes son, la apertura a toda Latinoamérica y las
+ * áreas que reúnen a la comunidad. Los textos salen de `src/data/comunidad.js`.
+ */
+const { comunidad: seccion } = comunidad.secciones;
+---
+
+<section class="section about" id="comunidad" aria-labelledby="about-title">
+  <div class="contenedor about__grid">
+    <div class="about__intro">
+      <h2 class="section-title" id="about-title">
+        {seccion.titulo}
+      </h2>
+      <p class="about__statement">
+        <strong>{seccion.declaracion.fuerte}</strong>
+        {seccion.declaracion.resto}
+      </p>
+      <p>
+        <strong>{seccion.apertura.fuerte}</strong>
+        {seccion.apertura.resto}
+      </p>
+    </div>
+
+    <div class="areas">
+      <h3 class="areas__title">{seccion.tituloAreas}</h3>
+      <ul class="areas__list">
+        {comunidad.areas.map((area) => (
+          <li class="area">
+            <span class="area__name">{area.nombre}</span>
+            <span class="area__desc">{area.descripcion}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>
