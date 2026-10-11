@@ -1508,7 +1508,6 @@
     color: var(--ink);
     border: 1px solid var(--line);
     border-top: 4px solid var(--accent);
-    box-shadow: 0 28px 60px -28px rgba(0, 19, 29, 0.75);
   }
 
   /* Tarjeta de invitación al grupo de WhatsApp */
