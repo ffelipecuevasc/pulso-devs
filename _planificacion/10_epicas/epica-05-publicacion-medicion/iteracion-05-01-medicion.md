@@ -23,6 +23,7 @@ Empezar a medir visitas y visibilidad, sabiendo cuánto cuesta en rendimiento.
 
 4. Activar Cloudflare Web Analytics y volver a medir Lighthouse móvil y escritorio (mediana de tres).
 5. Verificar la propiedad de `comunidadpulso.dev` en Google Search Console (por DNS), enviar `sitemap-index.xml` y solicitar la inspección de las páginas principales.
+6. Definir la política `Content-Security-Policy` completa en `public/_headers` (hoy solo `frame-ancestors 'none'`): debe permitir el script en línea del tema y, si se acepta RDA-010, el de Cloudflare Web Analytics. Se propone el texto exacto y se aplica solo con aprobación del desarrollador (decisión del 2026-10-11; antes figuraba como «04-01 o 05-01»).
 
 ## Criterios de aceptación
 
