@@ -125,7 +125,7 @@ Sin anchos rígidos que generen desplazamiento horizontal desde 320 px (`overflo
 | Componente | Descripción y reglas |
 | :-- | :-- |
 | **Header** | `sticky`, fondo `--bg`, borde inferior `--line` solo al desplazarse (`data-scrolled`). Composición en tres zonas: **izquierda** logotipo + «Pulso Devs»; **centro** navegación de tres enlaces: Comunidad, Talleres y Visión (desde 1100 px); **derecha** control de tema, botón «Únete» y botón de menú (bajo 1100 px). El menú móvil es un panel con animación `menu-in` de .25 s, atrapa el foco, se cierra con Esc y bloquea el desplazamiento (`body.is-locked`). |
-| **Control de tema** | Interruptor (`role="switch"`, `aria-checked`) con pista, íconos `light_mode` / `dark_mode` y perilla. Alterna `data-theme` en `<html>`, actualiza `theme-color` y persiste en `localStorage` (`pulsodevs-theme`); sin preferencia guardada sigue al sistema. Su cambio se animará con la transición de §8 (iteración 02-03). |
+| **Control de tema** | Interruptor (`role="switch"`, `aria-checked`) con pista, íconos `light_mode` / `dark_mode` y perilla. Alterna `data-theme` en `<html>`, actualiza `theme-color` y persiste en `localStorage` (`pulsodevs-theme`); sin preferencia guardada sigue al sistema. Al pulsarlo, el tema nuevo se revela como un círculo que crece desde el interruptor (View Transitions API nativa, 1 s, ver §8). Sin la API, con `prefers-reduced-motion: reduce` o por un cambio de la preferencia del sistema, el cambio es inmediato. Mientras dura el efecto la página no recibe clics del mouse (limitación de la API); con teclado se puede volver a activar el interruptor. |
 | **Hero** | `h1` compuesto por antetítulo «Comunidad» con punto que late + wordmark «Pulso Devs». Debajo, el trazo de pulso que se dibuja (`trace-wipe`, 1,5 s) y termina en el logotipo, que aparece (`logo-in`) y emite un anillo (`ring`). Mensaje para desarrolladores junior de Latinoamérica y botón principal para unirse. |
 | **Botón** (`.btn`) | Píldora, alto mínimo 50 px (40 px en `--sm`, solo en contextos no táctiles principales), Lexend 500. Variantes: `--primary` (relleno + halo en hover), `--ghost` (borde `--line-strong`, en hover borde y texto `--primary`), `--block` (ancho completo). Desplazamiento de 1 px al presionar. Deshabilitado: opacidad .55. |
 | **Enlace con flecha** (`.link-arrow`) | Lexend 500, color `--primary`, subrayado de 1,5 px al hover; el ícono se desplaza 2 px en diagonal. |
@@ -155,11 +155,11 @@ Sin anchos rígidos que generen desplazamiento horizontal desde 320 px (`overflo
 | `logo-in` + `ring` | .7 s + 1,6 s, una vez | Logotipo del hero |
 | `menu-in` | .25 s | Menú móvil |
 | Transiciones de color | .2–.35 s | Cambio de tema, hover |
-| `theme-reveal` (círculo que crece desde el interruptor, **excepción RDA-016**) | **1 s**, una vez por clic | Cambio de tema por el interruptor. Aún no implementada: llega en la iteración 02-03 |
+| `theme-reveal` (círculo que crece desde el interruptor, **excepción RDA-016**) | **1 s**, una vez por clic | Cambio de tema por el interruptor: `clip-path` circular desde el centro del interruptor hasta la esquina más lejana, con `--ease-out`. |
 
 Con `prefers-reduced-motion: reduce` todas las animaciones y transiciones se reducen a .001 ms, se desactiva el desplazamiento suave y se ocultan los anillos y el latido.
 
-**Excepción aprobada (RDA-016):** la transición de cambio de tema dura **1 s**, más que las transiciones de color de esta tabla. Es la única excepción: cualquier otra animación sigue las duraciones de arriba. Usa la View Transitions API nativa; sin soporte o con `prefers-reduced-motion: reduce` el cambio es inmediato.
+**Excepción aprobada (RDA-016):** la transición de cambio de tema dura **1 s**, más que las transiciones de color de esta tabla. Es la única excepción: cualquier otra animación sigue las duraciones de arriba. Usa la View Transitions API nativa; sin soporte o con `prefers-reduced-motion: reduce` el cambio es inmediato. Mientras dura el efecto, las transiciones de color se desactivan (`.is-theme-switching`) para que el tema nuevo no se vea a medio cambiar.
 
 ## 9. Accesibilidad visual
 

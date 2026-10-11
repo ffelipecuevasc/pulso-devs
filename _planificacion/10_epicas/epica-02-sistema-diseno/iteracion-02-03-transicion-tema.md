@@ -2,7 +2,7 @@
 
 - **Épica:** 02 · Sistema de diseño y ajustes estéticos
 - **Orden de ejecución:** 2.º de la épica (decisión del desarrollador, 2026-10-10)
-- **Estado:** Pendiente
+- **Estado:** En revisión (pendiente el commit del desarrollador y la decisión sobre el criterio de desbordes a 1280 px)
 - **Rama:** `main` (RDA-015)
 - **Depende de:** 01-06 (el control de tema ya está migrado y el sitio, desplegado). Se ejecuta después de 02-01 para medir con la fuente definitiva.
 - **RDA relacionadas:** RDA-003, RDA-016
@@ -35,17 +35,17 @@ Idea del desarrollador (versión original, con máscara SVG de círculo y `mask-
 
 ## Criterios de aceptación
 
-- [ ] A 360 y 1280 px, en ambos sentidos (claro a oscuro y oscuro a claro), una captura a ~300 ms muestra el círculo creciendo desde el interruptor, y a 1,2 s el tema nuevo está completo.
-- [ ] La transición dura 1 s (medido con `getAnimations()` o con una grabación o traza equivalente, sin agregar dependencias; Playwright no está aprobado, se usa Chrome por protocolo como en las mediciones anteriores).
-- [ ] Con `prefers-reduced-motion: reduce` el cambio es inmediato y `startViewTransition` no se llama.
-- [ ] Con `startViewTransition` eliminado (prueba sin soporte), el cambio es inmediato y sin errores en la consola.
-- [ ] Un doble clic rápido deja un estado consistente (`data-theme`, `aria-checked`, `localStorage` y `theme-color` coinciden) y sin errores.
-- [ ] Al terminar, `<html>` no conserva la clase `is-theme-switching`.
-- [ ] Sin parpadeo inicial: la recarga mantiene el tema guardado.
-- [ ] Sin desbordes horizontales durante la transición ni al terminar.
-- [ ] El INP del clic en el interruptor es menor que 200 ms (medido) y el CLS no cambia.
-- [ ] `DESIGN.md` §6 y §8 coinciden con lo implementado.
-- [ ] Bitácora 02-03 creada. Safari, Firefox y teléfono real quedan anotados como no verificados hasta que el desarrollador los pruebe (AUD-02-005).
+- [x] A 360 y 1280 px, en ambos sentidos (claro a oscuro y oscuro a claro), una captura a ~300 ms muestra el círculo creciendo desde el interruptor, y a 1,2 s el tema nuevo está completo. _El fotograma de 300 ms es el de la animación pausada en 300 ms con `getAnimations()`; las capturas en tiempo real cubren ~266–530 ms por la latencia de la captura._
+- [x] La transición dura 1 s (medido con `getAnimations()`: 1000 ms, y de `ready` a `finished`: 1.022–1.027 ms; sin agregar dependencias, con Chrome por protocolo).
+- [x] Con `prefers-reduced-motion: reduce` el cambio es inmediato y `startViewTransition` no se llama (medido: 0 llamadas).
+- [x] Con `startViewTransition` eliminado (prueba sin soporte), el cambio es inmediato y sin errores en la consola.
+- [x] Un doble clic rápido deja un estado consistente (`data-theme`, `aria-checked`, `localStorage` y `theme-color` coinciden) y sin errores. _Con el mouse, el segundo clic se pierde porque la página no recibe clics mientras dura el efecto (ver la bitácora, hallazgo 1)._
+- [x] Al terminar, `<html>` no conserva la clase `is-theme-switching`.
+- [x] Sin parpadeo inicial: la recarga mantiene el tema guardado.
+- [ ] Sin desbordes horizontales durante la transición ni al terminar. _360 px: 0 px; al terminar, 0 px en ambos tamaños. A 1280 px con barra de desplazamiento clásica, `scrollWidth` supera a `clientWidth` en 15 px mientras dura la transición (sin barra horizontal visible ni desplazamiento con la rueda). Decisión pendiente del desarrollador._
+- [x] El INP del clic en el interruptor es menor que 200 ms (medido: 32–64 ms) y el CLS no cambia (0 antes y después del clic).
+- [x] `DESIGN.md` §6 y §8 coinciden con lo implementado.
+- [x] Bitácora 02-03 creada. Safari, Firefox y teléfono real quedan anotados como no verificados hasta que el desarrollador los pruebe (AUD-02-005).
 
 ## Fuera de alcance
 

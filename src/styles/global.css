@@ -1619,10 +1619,43 @@
   }
 }
 
+/* ---------- 13. Transición de cambio de tema (02-03, RDA-016) ---------- */
+/* El script de src/scripts/tema.js define --vt-x, --vt-y y --vt-r (centro del interruptor y radio hasta
+   la esquina más lejana) y agrega .is-theme-switching mientras dura la View Transition. */
+.is-theme-switching,
+.is-theme-switching *,
+.is-theme-switching *::before,
+.is-theme-switching *::after {
+  transition: none !important;
+}
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+::view-transition-old(root) {
+  z-index: 0;
+}
+::view-transition-new(root) {
+  z-index: 1;
+  animation: theme-reveal 1s var(--ease-out) both;
+}
+@keyframes theme-reveal {
+  from {
+    clip-path: circle(0 at var(--vt-x, 50%) var(--vt-y, 50%));
+  }
+  to {
+    clip-path: circle(var(--vt-r, 150vmax) at var(--vt-x, 50%) var(--vt-y, 50%));
+  }
+}
+
 /* ---------- 10. Movimiento reducido (DESIGN.md §8) ---------- */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+  ::view-transition-new(root) {
+    animation: none;
   }
   *,
   *::before,
