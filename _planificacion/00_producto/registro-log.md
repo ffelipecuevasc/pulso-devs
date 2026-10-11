@@ -3,9 +3,9 @@
 **Fuente única de verdad del trabajo pendiente.** Si discrepa con `_planificacion/README.md` o con cualquier otro documento de planificación, prevalece este archivo.
 
 - **Última actualización:** 2026-10-11
-- **Iteración activa:** **03-01** (Épica 03), `En revisión` desde el 2026-10-11 (bitácora 03-01), hasta que el desarrollador la marque `Terminada`. Siguiente: **03-02**, a la espera de que el desarrollador diga si hay otras redes de la comunidad. La Épica 02 quedó Terminada el 2026-10-11 y la Épica 01 el 2026-10-10.
+- **Iteración activa:** ninguna en curso. **03-01** está `En revisión` (bitácora 03-01) hasta que el desarrollador la marque `Terminada`; **03-02** quedó `Descartada` el 2026-10-11 (no hay otras redes). Los criterios de término de la **Épica 03** se cumplen (§5), pero la épica no se marca `Terminada` sin su confirmación. La Épica 02 quedó Terminada el 2026-10-11 y la Épica 01 el 2026-10-10.
 - **Prototipo de referencia:** commit `d60c55e`. La transición de cambio de tema **no** existe en el prototipo: se implementa directamente en Astro en 02-03.
-- **Próximo hito:** hitos 1, 2 y 3 cumplidos (sitio migrado a Astro 7 y Tailwind 4, desplegado en `https://comunidadpulso.dev` con Workers Builds y ajustes estéticos de la Épica 02). Sigue la Épica 03 (03-01 `En revisión`, luego 03-02). El hito 4 (navegación multipágina, Épica 06) se evalúa después.
+- **Próximo hito:** hitos 1, 2 y 3 cumplidos (sitio migrado a Astro 7 y Tailwind 4, desplegado en `https://comunidadpulso.dev` con Workers Builds y ajustes estéticos de la Épica 02). La Épica 03 (contenido) espera la confirmación del desarrollador para cerrarse; después sigue la Épica 04 (SEO, rendimiento y accesibilidad). El hito 4 (navegación multipágina, Épica 06) se evalúa después.
 - **Alcance del sitio:** una sola página (One Page) con secciones ancladas (RDA-011).
 - **Hitos del desarrollador:** (1) Astro, (2) Tailwind local, (3) ajustes estéticos y visuales; (4) la navegación multipágina se evalúa después del despliegue (Épica 06, en evaluación).
 - **Flujo de trabajo vigente (RDA-015):** sin ramas; todo se implementa y se registra directamente en `main`. Claude Code no hace commit ni push: lo hace el desarrollador, uno por iteración. Desde 01-06, cada push a `main` publica en producción.
@@ -28,7 +28,7 @@
 | 02-03     | Transición de cambio de tema                                 | 02    | Terminada (2026-10-11) | 01-06 (recomendado: después de 02-01) | [bitacora-02-03-2026-10-10](../99_bitacora/bitacora-02-03-2026-10-10.md) |
 | 02-05     | Quitar la sombra de la tarjeta de «Únete»                    | 02    | Terminada (2026-10-11) | 02-02 y la auditoría de `DESIGN.md` (D2) | [bitacora-02-05-2026-10-11](../99_bitacora/bitacora-02-05-2026-10-11.md) · [bitacora-02-04-2026-10-11 (auditoría de DESIGN.md)](../99_bitacora/bitacora-02-04-2026-10-11.md) |
 | 03-01     | Revisión de contenido y coherencia                           | 03    | En revisión | 01-06 y Épica 02 terminada | [bitacora-03-01-2026-10-11](../99_bitacora/bitacora-03-01-2026-10-11.md) |
-| 03-02     | Otras redes de la comunidad (LinkedIn ya migra en 01-04)     | 03    | Pendiente | 03-01 y la definición de otras redes | — |
+| 03-02     | Otras redes de la comunidad (LinkedIn ya migra en 01-04)     | 03    | Descartada (2026-10-11) | 03-01 y la definición de otras redes | [bitacora-03-02-2026-10-11](../99_bitacora/bitacora-03-02-2026-10-11.md) |
 | 04-01     | SEO técnico y datos estructurados                            | 04    | Pendiente | 03-01      | — |
 | 04-02     | Rendimiento e imágenes                                       | 04    | Pendiente | 04-01      | — |
 | 04-03     | Accesibilidad y verificación cruzada                         | 04    | Pendiente | 04-02      | — |
@@ -57,7 +57,7 @@ Bloquean contenido o diseño. Mientras falten, se usa `PENDIENTE_DATO` en `src/d
 | PDF con la información del primer taller (el único hasta ahora) | AUD-01-004 | 03-01 | Recibido el 2026-10-10 (Luma: «Del Vibe Coding a la Ingeniería Web», 3 de octubre de 2026). Datos publicables aprobados el 2026-10-10 (RDA-014). Publicación trasladada a la página de eventos de la Épica 06 (enmienda a RDA-014, 2026-10-11); en la Épica 03 solo se publica «octubre de 2026». El PDF no se guarda en el repositorio. |
 | Enlace del perfil de LinkedIn de la comunidad | — | 01-02 y 01-04 | Recibido: `https://www.linkedin.com/company/comunidad-pulso-devs/home/` (en `config.js` del prototipo) |
 | Lista de ajustes estéticos y visuales (hito 3) | — | 02-02 | Entregada el 2026-10-11, con **dos ajustes** (temáticas de talleres en móvil y botón de WhatsApp de la 404 a 360 px); copiada a `iteracion-02-02-ajustes-esteticos.md` y aprobada por el desarrollador (OK del 2026-10-11); implementada en 02-02. El desarrollador no tiene más observaciones de diseño móvil |
-| Redes sociales de la comunidad distintas de LinkedIn | — | 03-02 | Sin definir |
+| Redes sociales de la comunidad distintas de LinkedIn | — | 03-02 | Confirmado (2026-10-11, `AskUserQuestion`): **no hay otras redes**; 03-02 Descartada |
 
 ## 3. Decisiones por tomar
 
@@ -139,7 +139,20 @@ Criterios de término de `definicion-epica-02.md` (medido = lo medí; confirmado
 - Ningún criterio se marcó por la declaración del teléfono real; lo que el desarrollador no dijo que probó queda sin verificar.
 - Propuesta pendiente para la próxima edición de `DESIGN.md`: el anillo del nodo de la línea de tiempo (§4).
 
-**Siguiente (2026-10-11):** 03-01 está `En revisión` (la marca `Terminada` la pone el desarrollador); después viene 03-02, según las otras redes que el desarrollador entregue.
+**Siguiente (2026-10-11):** la confirmación del desarrollador para marcar 03-01 y la Épica 03 como `Terminada`. Después, la Épica 04 (04-01), cuando el desarrollador lo indique.
+
+**Épica 03 · Contenido y secciones: criterios cumplidos, En revisión** (03-01 `En revisión`; 03-02 `Descartada`; no se marca `Terminada` sin confirmación del desarrollador). Con la lectura aprobada el 2026-10-11, los textos en presente sobre talleres y oportunidades se mantienen por decisión del desarrollador y están registrados en la bitácora 03-01.
+
+Criterios de término de `definicion-epica-03.md` (detalle en `bitacora-03-02-2026-10-11`):
+
+| Criterio | Estado |
+| :------- | :----- |
+| AUD-01-001 y AUD-01-004 cerrados con evidencia | **Cumple** (resueltos en 03-01) |
+| Textos cambiados aprobados y conformes con `AGENTS.md` §6 | **Cumple, con excepciones registradas** (cuatro cambios aprobados; textos en presente mantenidos por decisión del desarrollador) |
+| Del primer evento, solo que ocurrió, con mes y año | **Medido** (8 términos prohibidos en 0 en `dist/`; «octubre» una sola vez) |
+| `DESIGN.md` §6 coincide con el sitio en Talleres | **Medido** (cuatro datos clave y la nota nueva) |
+| 03-02 `Terminada` o `Descartada` | **Descartada** (decisión del desarrollador: no hay otras redes) |
+| Sin `PENDIENTE_DATO` publicado | **Medido** (0 en `dist/`) |
 
 ## 6. Historial de cambios del registro
 
@@ -176,3 +189,4 @@ Criterios de término de `definicion-epica-02.md` (medido = lo medí; confirmado
 | 2026-10-11 | **Cierre definitivo de la Épica 02 (solo documentación).** Decisiones del desarrollador: (1) 02-05 pasa a `Terminada` (registro §1, archivo de la iteración y bitácora); la bitácora 02-00 (Paso 0), que seguía `En revisión`, también pasa a `Terminada`; (2) el anillo del nodo de la línea de tiempo no se agrega ahora a `DESIGN.md`: propuesta en §4 («agregar a `DESIGN.md` en la próxima edición del documento»), y la observación de la bitácora 02-04 remite a esa fila; (3) **declaración del desarrollador, no medición:** probó el sitio en un Samsung Galaxy A52+ con Chrome y Firefox (transición de cambio de tema, botón de WhatsApp de la 404, temáticas de Talleres y el sitio en general) y «todo funciona perfectamente»; no indicó qué probó en cada navegador ni si tocó durante la transición. AUD-02-005 y AUD-02-008 pasan a **Parcial** y siguen abiertos (Safari y Firefox pendientes en 04-03 y 05-02); no se marcó ningún criterio por la declaración. (4) Coherencia final revisada; erratas corregidas: el estado de 02-05 y de 02-00; la fila de §4 de las observaciones de diseño móvil (tachada, resuelta en 02-02); «Hallazgos que abre» de 02-02 (AUD-02-009) y de 02-03 (AUD-02-008); la etiqueta del enlace de 02-05 en §1. Épica 02 y 02-01, 02-02, 02-03 y 02-05 `Terminada`; AUD-02-005 y 008 parciales, AUD-02-009 y 010 abiertos; D1 a 04-03 (AUD-02-010) y datos clave de Talleres a 03-01. «Iteración activa» y «Próximo hito» apuntan a 03-01, sin iniciarla. |
 | 2026-10-11 | **Paso 0 de la Épica 03 (solo documentación; 03-01 no iniciada).** Decisión del desarrollador: los datos de RDA-014 se conservan, pero su publicación se traslada a la página de eventos de la Épica 06; en la Épica 03 el sitio solo dice que hubo un primer taller en octubre de 2026. Sincronizados: `decisiones.md` (enmienda a RDA-014 y estado «Aceptada (enmendada 2026-10-11)»), `auditoria-tecnica.md` (acción de AUD-01-004), §2 de este registro (fila del PDF del primer taller), `definicion-epica-06.md` (punto 5: página de eventos) y la columna «Depende de» de 03-01 en §1 («01-06 y Épica 02 terminada»). `vision-producto.md` no se toca (decisión del desarrollador: no contradice). |
 | 2026-10-11 | **Iteración 03-01 implementada por Claude Code en `main` y dejada `En revisión`.** Cuatro textos cambiados en `comunidad.js` (tres del encargo y «feedback» por «retroalimentación», aprobado con `AskUserQuestion`): «Hoy» de Visión, bajada y nota de Talleres (el primer taller, solo «octubre de 2026»). Resto de los textos sin cambio por decisión del desarrollador; «Recursos de aprendizaje» consultado y sin cambio. `DESIGN.md` §6 (Talleres y Visión) con el texto aprobado. AUD-01-001 y AUD-01-004 resueltos con evidencia. Medido sobre `pnpm build` y `pnpm preview` con Chrome 154: 12 de 12 combinaciones sin desborde (portada y 404, claro y oscuro, 320, 360 y 1280 px), 0 coincidencias de los 8 términos prohibidos y de `PENDIENTE_DATO` en `dist/`, «Chile» y «Latam» en 0 como texto. Un criterio sin marcar: «ningún texto presenta lo futuro como disponible», por los textos que el desarrollador mantuvo en presente. Resueltas en §4 las propuestas de Talleres (tres frente a cuatro) y del anillo del nodo. |
+| 2026-10-11 | **Iteración 03-02 `Descartada` y criterio de 03-01 reformulado (solo documentación).** Decisiones del desarrollador: (1) no hay otras redes de la comunidad, así que 03-02 queda `Descartada` (registro §1 y §2, archivo de la iteración, `definicion-epica-03.md` y bitácora 03-02), sin cambios en el pie; (2) el criterio de 03-01 «Ningún texto presenta lo futuro como disponible…» se reformuló con el texto exacto que aprobó y se marcó `[x]` tras comprobarlo con el inventario y con búsquedas en `dist/` (la redacción original está en la bitácora 03-01; corrige la fila anterior de §6, que lo dejaba sin marcar). Criterio de término de la Épica 03 verificado con esa misma lectura (§5): los seis criterios se cumplen. 03-01 sigue `En revisión` y la Épica 03 no se marca `Terminada` sin su confirmación. |

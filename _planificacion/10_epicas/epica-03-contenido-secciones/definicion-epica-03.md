@@ -1,6 +1,6 @@
 # Épica 03 · Contenido y secciones
 
-- **Estado:** Pendiente
+- **Estado:** En revisión (03-01 `En revisión`, 03-02 `Descartada`; la marca `Terminada` la pone el desarrollador)
 - **Objetivo:** que todo el texto del sitio sea coherente con la visión (comunidad abierta a toda Latinoamérica, que está empezando a crecer) y no afirme nada que no exista.
 - **Última revisión:** 2026-10-11, con las decisiones del desarrollador al cerrar la Épica 02
 
@@ -24,7 +24,7 @@
 | Iteración | Nombre                             | Estado    | Depende de                           |
 | :-------- | :--------------------------------- | :-------- | :----------------------------------- |
 | 03-01     | Revisión de contenido y coherencia | En revisión | 01-06 y Épica 02 terminada           |
-| 03-02     | Otras redes de la comunidad        | Pendiente | 03-01 y la definición de otras redes |
+| 03-02     | Otras redes de la comunidad        | Descartada | 03-01 y la definición de otras redes |
 
 **Orden de ejecución:** 03-01 y después 03-02. Si al cerrar 03-01 el desarrollador no tiene otras redes que agregar, 03-02 se marca `Descartada`.
 

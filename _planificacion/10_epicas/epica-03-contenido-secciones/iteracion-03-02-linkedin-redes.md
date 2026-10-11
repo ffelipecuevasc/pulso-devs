@@ -1,7 +1,7 @@
 # Iteración 03-02 · Otras redes de la comunidad
 
 - **Épica:** 03 · Contenido y secciones
-- **Estado:** Pendiente
+- **Estado:** Descartada (2026-10-11): el desarrollador confirmó que no hay otras redes de la comunidad
 - **Rama:** `main` (RDA-015)
 - **Depende de:** 03-01 y la definición de otras redes
 - **RDA relacionadas:** RDA-007
@@ -26,10 +26,10 @@ Al cerrar 03-01, pregunta al desarrollador con `AskUserQuestion` si hay otras re
 
 ## Criterios de aceptación
 
-- [ ] Si hay redes nuevas: cada enlace del pie abre en pestaña nueva con `rel="noopener noreferrer"` y aviso accesible, y su `href` coincide con la URL entregada por el desarrollador (medido en el HTML compilado).
-- [ ] Si hay redes nuevas: sin desbordes horizontales a 320, 360 y 1280 px, en claro y oscuro.
-- [ ] Si no hay redes nuevas: la iteración queda `Descartada` y no se agrega ninguna lista vacía al pie.
-- [ ] Bitácora 03-02 creada (también si queda `Descartada`, con el motivo y la decisión del desarrollador).
+- [ ] _(No aplica: no hay redes nuevas.)_ Si hay redes nuevas: cada enlace del pie abre en pestaña nueva con `rel="noopener noreferrer"` y aviso accesible, y su `href` coincide con la URL entregada por el desarrollador (medido en el HTML compilado).
+- [ ] _(No aplica: no hay redes nuevas.)_ Si hay redes nuevas: sin desbordes horizontales a 320, 360 y 1280 px, en claro y oscuro.
+- [x] Si no hay redes nuevas: la iteración queda `Descartada` y no se agrega ninguna lista vacía al pie. Medido en `dist/index.html`: el pie tiene un solo enlace de red (`social-link`, LinkedIn) y los únicos `href` externos del sitio son WhatsApp, felipecuevas.dev y LinkedIn; `src/` no cambió en esta iteración.
+- [x] Bitácora 03-02 creada ([bitacora-03-02-2026-10-11](../../99_bitacora/bitacora-03-02-2026-10-11.md)) (también si queda `Descartada`, con el motivo y la decisión del desarrollador).
 
 ## Fuera de alcance
 
