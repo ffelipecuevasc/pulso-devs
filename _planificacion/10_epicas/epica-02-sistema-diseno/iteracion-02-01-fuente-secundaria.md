@@ -2,7 +2,7 @@
 
 - **Épica:** 02 · Sistema de diseño y ajustes estéticos
 - **Orden de ejecución:** 1.º de la épica (decisión del desarrollador, 2026-10-10)
-- **Estado:** Pendiente
+- **Estado:** En revisión (cerrada; pendiente el commit del desarrollador)
 - **Rama:** `main` (RDA-015)
 - **Depende de:** 01-06
 - **RDA relacionadas:** RDA-004
@@ -25,13 +25,13 @@ Reemplazar IBM Plex Sans por **Figtree** (elegida por el desarrollador el 2026-1
 
 ## Criterios de aceptación
 
-- [ ] La fuente se sirve desde el propio dominio y no queda ninguna referencia a IBM Plex Sans en `src/`, `public/`, `DESIGN.md`, `AGENTS.md`, `README.md` ni en la configuración (medido con búsqueda; `_planificacion/` es histórico y queda fuera).
-- [ ] Solo se descargan los pesos usados.
-- [ ] Sin desplazamiento de diseño visible al cargar (CLS medido).
-- [ ] Legibilidad revisada en 360 px y escritorio, en modo claro y oscuro.
-- [ ] Lexend y Figtree están guardadas dentro del repo (con la licencia de redistribución comprobada y anotada en la bitácora), se sirven con el proveedor local de la Fonts API y `pnpm build` termina sin errores ni advertencias **sin acceso a internet** (medido, por ejemplo con la red desconectada y sin caché de fuentes).
-- [ ] `DESIGN.md` §3, `AGENTS.md` §3 (aprobado) y RDA-004 actualizados.
-- [ ] Bitácora 02-01 creada.
+- [x] La fuente se sirve desde el propio dominio (medido: sí) y no queda ninguna referencia a IBM Plex Sans en `src/`, `public/`, `DESIGN.md`, `AGENTS.md`, `README.md` ni en la configuración (medido con búsqueda; `_planificacion/` es histórico y queda fuera). _Búsqueda repetida tras la edición de `AGENTS.md` por el desarrollador: 0 coincidencias._
+- [x] Cada fuente se sirve como un solo archivo variable latino, sin cursivas ni otros subconjuntos (medido: 2 archivos `.woff2` en `dist/_astro/fonts/`, 20.156 B y 39.680 B). _Reformulado el 2026-10-10 por decisión del desarrollador: el criterio original, «Solo se descargan los pesos usados», no aplica a archivos variables._
+- [x] Sin desplazamiento de diseño visible al cargar (CLS medido: 0,0000 a 360 y 1280 px, en claro y oscuro).
+- [x] Legibilidad revisada en 360 px y escritorio, en modo claro y oscuro (capturas de Chrome por protocolo: 8 vistas × 4 escenarios; ver la bitácora).
+- [x] Lexend y Figtree están guardadas dentro del repo (con la licencia de redistribución comprobada y anotada en la bitácora), se sirven con el proveedor local de la Fonts API y `pnpm build` termina sin errores ni advertencias **sin acceso a internet** (medido con la red bloqueada solo para ese comando y el caché de fuentes vaciado; exit 0).
+- [x] `DESIGN.md` §3, `AGENTS.md` §3 (editado por el desarrollador) y RDA-004 actualizados.
+- [x] Bitácora 02-01 creada.
 
 ## Fuera de alcance
 

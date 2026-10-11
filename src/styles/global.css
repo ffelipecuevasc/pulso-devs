@@ -34,7 +34,7 @@
 
   /* Familias: las define la Fonts API de Astro (astro.config.mjs) con sus respaldos. */
   --font-display: var(--font-lexend);
-  --font-body: var(--font-plex-sans);
+  --font-body: var(--font-figtree);
 
   --radius-panel: 20px;
   --ease-out: cubic-bezier(0.22, 0.8, 0.24, 1);
@@ -939,6 +939,12 @@
     margin-top: 0.4rem;
     color: var(--ink-2);
     font-size: 1rem;
+  }
+  /* Negrita de la fuente de lectura en 600 (con Figtree variable el 700 por defecto se vería más grueso). */
+  .hero__sub strong,
+  .invite__text strong,
+  .about__intro > p:last-child strong {
+    font-weight: 600;
   }
 
   @media (max-width: 26em) {

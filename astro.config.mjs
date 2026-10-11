@@ -18,27 +18,41 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
-  // Fuentes autoalojadas (RDA-004): Astro las descarga al compilar y las sirve desde el propio dominio.
+  // Fuentes autoalojadas (RDA-004): los archivos variables (.woff2 latinos, sin cursivas) están en
+  // src/assets/fonts/ junto con su licencia, y Astro los sirve desde el propio dominio con el
+  // proveedor local, sin red al compilar.
   fonts: [
     {
-      provider: fontProviders.google(),
+      provider: fontProviders.local(),
       name: 'Lexend',
       cssVariable: '--font-lexend',
-      weights: [300, 400, 500, 600, 700],
-      styles: ['normal'],
-      subsets: ['latin'],
-      display: 'swap',
       fallbacks: ['Segoe UI', 'system-ui', '-apple-system', 'sans-serif'],
+      options: {
+        variants: [
+          {
+            weight: '100 900',
+            style: 'normal',
+            display: 'swap',
+            src: ['./src/assets/fonts/lexend/lexend-latin-wght-normal.woff2'],
+          },
+        ],
+      },
     },
     {
-      provider: fontProviders.google(),
-      name: 'IBM Plex Sans',
-      cssVariable: '--font-plex-sans',
-      weights: [400, 500, 600],
-      styles: ['normal'],
-      subsets: ['latin'],
-      display: 'swap',
+      provider: fontProviders.local(),
+      name: 'Figtree',
+      cssVariable: '--font-figtree',
       fallbacks: ['Segoe UI', 'system-ui', '-apple-system', 'sans-serif'],
+      options: {
+        variants: [
+          {
+            weight: '300 900',
+            style: 'normal',
+            display: 'swap',
+            src: ['./src/assets/fonts/figtree/figtree-latin-wght-normal.woff2'],
+          },
+        ],
+      },
     },
   ],
 });

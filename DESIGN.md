@@ -72,10 +72,10 @@ Todo texto cumple WCAG 2.2 AA (4,5:1; 3:1 para texto grande y componentes). Comb
 
 | Rol | Familia | Pesos | Uso |
 | :-- | :-- | :-- | :-- |
-| Display | **Lexend** | 300, 400, 500, 600, 700 | Títulos, hero, navegación, botones, estadísticas, marca |
-| Lectura | **Figtree** (definitiva) | 400, 500, 600 y 400 itálica, a confirmar según uso | Párrafos, descripciones, texto secundario. Entra en la iteración 02-01 (RDA-004); hasta entonces el sitio usa **IBM Plex Sans** (400, 500, 600, 400 itálica) |
+| Display | **Lexend** | Variable (100–900). En uso: 300, 400, 500, 600 y 700 | Títulos, hero, navegación, botones, estadísticas, marca |
+| Lectura | **Figtree** | Variable (300–900). En uso: 400 y 600 | Párrafos, descripciones, texto secundario (RDA-004) |
 
-Respaldo: `"Segoe UI", system-ui, -apple-system, sans-serif`. Se **autoalojan** (Fonts API de Astro) con `font-display: swap`; no se cargan desde Google Fonts.
+Respaldo: `"Segoe UI", system-ui, -apple-system, sans-serif`. Las dos son **fuentes variables**: un solo archivo `.woff2` latino por familia, sin cursivas (el sitio no usa cursiva). Los archivos y su licencia (OFL 1.1) están en el repositorio (`src/assets/fonts/`) y se sirven desde el propio dominio con el proveedor local de la Fonts API de Astro y `font-display: swap`. No se cargan desde Google Fonts ni se descargan al compilar.
 
 ### 3.1 Escala
 

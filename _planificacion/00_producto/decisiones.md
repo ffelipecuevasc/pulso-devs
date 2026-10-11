@@ -57,11 +57,12 @@ Consolidado de las decisiones técnicas del proyecto. Formato y reglas en `_plan
 
 - **Fecha:** 2026-10-09
 - **Estado:** Aceptada
+- **Actualizada:** 2026-10-10 (iteración 02-01)
 
 **Contexto:** El prototipo carga Lexend e IBM Plex Sans desde Google Fonts (AUD-01-013), una dependencia de terceros que bloquea el renderizado. Lexend es la tipografía principal obligatoria de la marca. El desarrollador pidió recomendaciones de una fuente de lectura elegante y minimalista en lugar de IBM Plex Sans y eligió **Figtree** el 2026-10-09 (entre Figtree, Instrument Sans, DM Sans y Public Sans).
-**Decisión:** Autoalojar las fuentes con la Fonts API de Astro (`fonts` en `astro.config.mjs`), con subconjunto latino, `font-display: swap` y precarga solo de los pesos críticos. Lexend se mantiene para titulares, navegación, botones y marca. **La fuente de lectura definitiva es Figtree.** Durante la Épica 01 se mantiene IBM Plex Sans para lograr paridad con el prototipo; el cambio a Figtree se hace en la iteración 02-01 y actualiza `DESIGN.md` §3.
-**Alternativas consideradas:** Google Fonts remotas (descartado por AGENTS §7.3); paquetes `@fontsource` (válidos, más configuración manual).
-**Consecuencias:** Sin peticiones a terceros para tipografía. Verificar la sintaxis vigente de la Fonts API en la documentación de Astro al implementar.
+**Decisión:** Lexend y Figtree se guardan en el repositorio como archivos variables `.woff2` latinos (`src/assets/fonts/`, con el archivo de licencia de cada una) y se sirven con el proveedor local de la Fonts API de Astro (`fontProviders.local()`), con `font-display: swap` y precarga de los dos archivos. Así `pnpm build` no necesita internet. Lexend se mantiene para titulares, navegación, botones y marca. **La fuente de lectura es Figtree**, que reemplaza a IBM Plex Sans (se retira y no se guarda). Sin cursivas: el sitio no las usa. Actualiza `DESIGN.md` §3.
+**Alternativas consideradas:** Google Fonts remotas (descartado por AGENTS §7.3); el proveedor de Google de la Fonts API, usado en 01-03 a 01-06 (descarga en cada build y exige red); `@fontsource-variable` como dependencia permanente (descartado: solo se instalan de paso para copiar los archivos y luego se desinstalan).
+**Consecuencias:** Sin peticiones a terceros ni red en el build. Licencia de redistribución de cada fuente comprobada y anotada (nombre y copyright en la bitácora 02-01); el archivo de licencia viaja junto a los `.woff2`. Actualizar una fuente es un paso manual.
 
 ## RDA-005 · Íconos con `astro-icon` y Material Symbols Light
 

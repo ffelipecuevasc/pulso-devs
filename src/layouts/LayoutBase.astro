@@ -47,10 +47,11 @@ const prefijo = Astro.url.pathname === '/' ? '' : '/';
         document.documentElement.setAttribute('data-theme', tema);
       })();
     </script>
-    <!-- Fuentes autoalojadas (RDA-004). Cada familia es un archivo variable (todos los pesos comparten
-         archivo), así que se precarga solo el estilo normal y no las cursivas, que el sitio no usa. -->
-    <Font cssVariable="--font-lexend" preload={[{ style: 'normal', subset: 'latin' }]} />
-    <Font cssVariable="--font-plex-sans" preload={[{ style: 'normal', subset: 'latin' }]} />
+    <!-- Fuentes autoalojadas (RDA-004). Cada familia es un único archivo variable normal (el sitio no usa
+         cursivas), así que se precargan los dos. El proveedor local no informa el subconjunto de cada
+         archivo, por eso el filtro de precarga no lo incluye. -->
+    <Font cssVariable="--font-lexend" preload={[{ style: 'normal' }]} />
+    <Font cssVariable="--font-figtree" preload={[{ style: 'normal' }]} />
 
     <slot name="head" />
   </head>
