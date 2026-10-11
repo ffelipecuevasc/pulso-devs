@@ -36,7 +36,7 @@ Si algo de lo anterior está en conflicto, detente y pregunta.
 - **Tailwind CSS 4** compilado localmente con `@tailwindcss/vite`. Los tokens viven en `src/styles/global.css` dentro de `@theme`. No existe `tailwind.config.js` y no debe crearse. **Prohibido** el CDN de Tailwind.
 - **JavaScript** (ES2022+). Sin TypeScript en el código de la aplicación; `tsconfig.json` existe solo para el editor y `astro check` (TypeScript 6; no actualizar a 7 mientras `astro check` no lo soporte).
 - **Íconos:** `astro-icon` con `@iconify-json/material-symbols-light`.
-- **Tipografía:** Lexend (titulares, navegación, botones) y Figtree para lectura (RDA-004), ambas autoalojadas con la Fonts API de Astro. Figtree entra en la iteración 02-01; mientras tanto el sitio usa IBM Plex Sans por paridad con el prototipo.
+- **Tipografía:** Lexend (titulares, navegación, botones) y Figtree para lectura (RDA-004), ambas autoalojadas con la Fonts API de Astro. Figtree entra en la iteración 02-01; mientras tanto el sitio usa IBM Plex Sans.
 - **Despliegue:** Cloudflare Workers con recursos estáticos (Workers Static Assets), sin adaptador de Astro. Workers Builds conectado al repositorio de GitHub: `main` publica en `https://comunidadpulso.dev` y `www` redirige al dominio sin `www`; no hay ramas ni vistas previas (RDA-015). La configuración vive en `wrangler.jsonc`. Cualquier lógica de servidor requiere una RDA.
 - **Medición:** Cloudflare Web Analytics y Google Search Console (RDA-010).
 

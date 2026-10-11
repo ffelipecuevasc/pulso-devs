@@ -8,12 +8,12 @@
  *
  * El set nombra con el sufijo `-outline` la variante de contorno; el nombre sin sufijo es la
  * rellena, salvo en los íconos que solo tienen una forma (flechas, menú, cerrar, etc.).
- * Los de temáticas de talleres coinciden exactamente con el `path` del prototipo (AUD-02-003).
+ * Los de temáticas de talleres coinciden exactamente con el `path` del sitio original (AUD-02-003).
  *
  * @type {Record<string, string>}
  */
 export const iconos = {
-  // Interfaz (sprite del prototipo)
+  // Interfaz (sprite del sitio original)
   arrow_outward: 'arrow-outward',
   badge: 'badge-outline',
   calendar_month: 'calendar-month-outline',

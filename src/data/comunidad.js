@@ -9,7 +9,7 @@
  * `_planificacion/00_producto/registro-log.md`. La compilación de producción falla
  * mientras quede el marcador en algún archivo publicado (src/integraciones/).
  *
- * Los textos son idénticos a los del prototipo en `_prototipo/` (commit d60c55e).
+ * Los textos son idénticos a los del sitio original (commit d60c55e del historial de Git).
  */
 
 export const comunidad = {
@@ -79,7 +79,7 @@ export const comunidad = {
   ],
 
   /**
-   * Temáticas de los talleres (sección #talleres), en el orden del prototipo.
+   * Temáticas de los talleres (sección #talleres), en el orden del sitio original.
    * `icono` es un nombre de src/data/iconos.js (los elegió el desarrollador; AUD-02-003).
    */
   tematicas: [
@@ -92,7 +92,7 @@ export const comunidad = {
   ],
 
   /**
-   * Textos de las secciones de la portada, idénticos a los del prototipo (los ajustes de texto
+   * Textos de las secciones de la portada, idénticos a los del sitio original (los ajustes de texto
    * van en la iteración 03-01). `fuerte` es el fragmento que se destaca con <strong>; `resto`
    * sigue a continuación. Los `icono` son nombres de src/data/iconos.js.
    */

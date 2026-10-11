@@ -2,7 +2,7 @@
 
 - **Iteración:** 01-06 · Despliegue en Cloudflare Workers y retiro del prototipo
 - **Responsable:** desarrollador (el agente no toca Cloudflare, AGENTS.md §5)
-- **Estado:** Fase B completada, a la espera del push que publica los cambios de cierre (404 con estilos y `workers.dev` apagado) y de su verificación posterior
+- **Estado:** Fase B completada y verificada en producción tras el push de cierre (2026-10-11 00:21 UTC (tarde del 2026-10-10 en Chile)); queda que el desarrollador marque 01-06 como Terminada
 - **Fecha de inicio:** 2026-10-10
 - **Fecha de cierre de la evidencia:** 2026-10-10
 
@@ -70,7 +70,7 @@ Cabeceras de `public/_headers`, presentes en la respuesta de `/` **y** en la del
 
 - [x] `https://comunidadpulso.dev/` responde **`200`** por HTTPS y sirve el sitio migrado.
 - [x] `https://www.comunidadpulso.dev/` responde **`301`** con `location: https://comunidadpulso.dev/`.
-- [x] Una ruta inexistente responde **`404`** y sirve la página 404 propia (la versión desplegada hoy es la de 01-02, sin estilos; la versión con estilos se verifica después del push).
+- [x] Una ruta inexistente responde **`404`** y sirve la página 404 propia (medido con el despliegue anterior, sin estilos; la versión con estilos se midió tras el push, ver «Verificación posterior al push»).
 - [x] Las cuatro cabeceras de `public/_headers` llegan en la respuesta de `/`.
 - [x] **Las mismas cuatro cabeceras llegan también en la respuesta 404.** La duda de la documentación queda resuelta: `_headers` sí se aplica a la 404 estática.
 - [x] `/index.html` y `/404.html` con `html_handling: auto-trailing-slash`: ambos responden `307` a `/` y a `/404`, respectivamente.
@@ -82,12 +82,21 @@ Cabeceras de `public/_headers`, presentes en la respuesta de `/` **y** en la del
 - [x] Antes de borrar: ninguna referencia a `_prototipo/` leía archivos desde `src/`, `astro.config.mjs`, `package.json` ni `public/` (solo había comentarios en `src/` y la entrada `exclude` de `tsconfig.json`). Los 29 `tec-*.svg` y los 3 PNG de `src/assets/img/` son idénticos (SHA-256) a los originales del prototipo.
 - [x] `_prototipo/` eliminada con `git rm -r` (el árbol de trabajo ya no la tiene; la eliminación queda en el commit del desarrollador). Quitada la referencia en `.prettierignore` y en `tsconfig.json`.
 - [x] `README.md` sin menciones al prototipo (búsqueda con `grep -i prototipo`: 0 coincidencias).
-- [ ] `AGENTS.md` sin menciones al prototipo. Se eliminó la nota de §3, pero queda una: §3, «Tipografía», «mientras tanto el sitio usa IBM Plex Sans por paridad con el prototipo». No estaba en la aprobación (que decía «solo la nota de §3»); se propone en `registro-log.md` §4.
+- [x] `AGENTS.md` sin menciones al prototipo. _Quedaba una en §3 «Tipografía»; se reescribió con aprobación el 2026-10-10 y `grep -i prototipo` sobre `AGENTS.md`, `DESIGN.md`, `README.md` y `src/` da 0 coincidencias._
 - [ ] Marcar 01-06 como `Terminada`: lo hace el desarrollador tras su commit y la verificación posterior al push.
 
 ---
 
-## Cambios de cierre pendientes de publicar (se miden después del push)
+## Verificación posterior al push (2026-10-11 00:21 UTC (tarde del 2026-10-10 en Chile))
+
+Solo lectura, con `curl`:
+
+- [x] `GET https://comunidadpulso.dev/ruta-que-no-existe` responde `404`; el HTML trae `.pagina-404`, `.pagina-404__acciones` y `.pagina-404__nota`, y enlaza `/_astro/LayoutBase.DF2RJESO.css`, que responde `200 text/css` y contiene esas reglas.
+- [x] `https://comunidadpulso.dev/` sigue respondiendo `200`.
+- [x] `https://pulso-devs.felipe-cuevas.workers.dev/` **dejó de servir el sitio**: `404 Not Found`, `text/plain`, cuerpo `error code: 1042`.
+- No medido: captura visual de la 404 en producción (se midió el HTML y el CSS publicados; la verificación visual fue sobre `dist/404.html` antes del push).
+
+## Cambios de cierre (medidos localmente antes del push)
 
 Estos cambios están en el árbol de trabajo y no en producción:
 

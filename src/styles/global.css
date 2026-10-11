@@ -2,7 +2,7 @@
  * Comunidad Pulso Devs · estilos globales (DESIGN.md §2 a §4 y §10, RDA-002).
  *
  * Tailwind 4 compilado localmente. El escaneo de clases se limita a `src/` (la ruta de
- * `source()` es relativa a este archivo). Los componentes propios del prototipo se mantienen
+ * `source()` es relativa a este archivo). Los componentes propios del sitio se mantienen
  * como capas de componentes; las utilidades de Tailwind siempre pueden sobrescribirlos.
  *
  * Aquí viven: tokens, base, tipografía compartida, botones, secciones y bandas, el contenedor,
@@ -139,7 +139,7 @@
     max-width: 100%;
   }
 
-  /* Tailwind quita el subrayado y el prototipo lo conserva en los enlaces sin clase. */
+  /* Tailwind quita el subrayado y el sitio lo conserva en los enlaces sin clase. */
   a {
     text-decoration-line: underline;
     text-decoration-thickness: 1px;
@@ -163,7 +163,7 @@
 }
 
 @layer components {
-  /* Contenedor del prototipo. Se llama `contenedor` y no `container` para no compartir nombre con la
+  /* Contenedor del sitio. Se llama `contenedor` y no `container` para no compartir nombre con la
      utilidad de Tailwind (que emite sus propios ancho máximo por breakpoint): así el ancho no
      depende del orden en que se emita el CSS. */
   .contenedor {
@@ -686,7 +686,7 @@
   }
 
   .hero__title {
-    /* El prototipo conserva el tamaño por defecto del h1 (2em); el preflight de Tailwind lo pone en inherit. */
+    /* El sitio conserva el tamaño por defecto del h1 (2em); el preflight de Tailwind lo pone en inherit. */
     font-size: 2em;
     font-family: var(--font-display);
     font-weight: 600;

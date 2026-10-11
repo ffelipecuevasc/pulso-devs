@@ -37,7 +37,7 @@ Evidencia de la fase B en `evidencia-01-06-fase-b.md`.
 - [x] El registro de compilación en Cloudflare usa PNPM y la versión fijada, sin errores. _`PNPM_VERSION`: sin confirmar._
 - [x] Las cabeceras de `_headers` llegan en la respuesta (`curl -I`). _En `/` y en la 404._
 - [x] El desarrollador confirma el sitio en un teléfono real, en claro y oscuro. _Con observaciones de diseño móvil por entregar (02-02)._
-- [ ] `_prototipo/` eliminado, y `AGENTS.md` y `README.md` sin menciones al prototipo (con aprobación). _Carpeta eliminada y README limpio; `AGENTS.md` conserva una mención en §3 «Tipografía» (propuesta en `registro-log.md` §4)._
+- [x] `_prototipo/` eliminado, y `AGENTS.md` y `README.md` sin menciones al prototipo (con aprobación). _Medido con búsqueda el 2026-10-10: 0 menciones en `AGENTS.md`, `DESIGN.md`, `README.md` ni `src/`._
 
 ## Fuera de alcance
 
