@@ -2,7 +2,7 @@
 
 - **Épica:** 02 · Sistema de diseño y ajustes estéticos
 - **Orden de ejecución:** 2.º de la épica (decisión del desarrollador, 2026-10-10)
-- **Estado:** En revisión (criterio de desbordes reformulado y medido el 2026-10-11; Safari, Firefox, táctil y teléfono real sin verificar; el desarrollador la marca Terminada)
+- **Estado:** Terminada (2026-10-11). Quedan abiertos AUD-02-005 y AUD-02-008: Safari, Firefox, táctil y teléfono real sin verificar
 - **Rama:** `main` (RDA-015)
 - **Depende de:** 01-06 (el control de tema ya está migrado y el sitio, desplegado). Se ejecuta después de 02-01 para medir con la fuente definitiva.
 - **RDA relacionadas:** RDA-003, RDA-016
