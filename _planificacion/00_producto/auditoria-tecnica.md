@@ -101,6 +101,7 @@ El prototipo tiene una identidad visual sólida (tokens `orient`, modo claro/osc
 | AUD-02-005 | Baja | La transición de cambio de tema (iteración 02-03) usará la View Transitions API, no disponible en todos los navegadores. | Cambio inmediato sin la API y con `prefers-reduced-motion`; probar en Safari, Firefox y un teléfono real. | Abierto (02-03, 04-03 y 05-02). En 02-03 se midió solo en Chrome 154 (headless, Windows): con la API, sin la API eliminada y con movimiento reducido. **Safari, Firefox y teléfono real: no verificados** (los prueba el desarrollador) |
 | AUD-02-006 | Media | `.claude/settings.json` niega `git checkout` y `git switch`, y `AGENTS.md` trataba la creación de ramas como «consulta previa». | Se trabaja solo en `main`: no hacen falta ramas. | Resuelto en RDA-015 |
 | AUD-02-007 | Baja | Los enlaces a `#oportunidades` siguen en el menú de escritorio y el móvil (ya no en el pie). | Sin cambios a AUD-01-005: se retiran en 01-04. | Resuelto en 01-04 (ver AUD-01-005) |
+| AUD-02-008 | Media | Durante ~1,05 s de la transición de cambio de tema (02-03) el clic del mouse no llega a la página: Chrome entrega los eventos del mouse al `<html>` (`document.elementFromPoint` devuelve `HTML.is-theme-switching` sobre el interruptor y sobre el botón «Únete») y `pointer-events: none` en `::view-transition` no lo cambia. El estado queda coherente (un doble clic cuenta una vez); el teclado y `.click()` sí llegan. Choca con la consecuencia de RDA-016 («no puede bloquear la interacción»). Medido solo con el mouse en Chrome 154 (headless, Windows); táctil (teléfono), Safari y Firefox: **no verificados**. | Que el desarrollador lo pruebe en un teléfono real, Safari y Firefox. Mientras tanto se acepta como limitación conocida (decisión del desarrollador, 2026-10-10), ya descrita en `DESIGN.md` §6; sin cambios en RDA-016 ni en la duración de 1 s. | Abierto (04-03 y 05-02, junto con AUD-02-005) |
 
 ### Hallazgos abiertos por iteración (Auditoría 02)
 
@@ -109,4 +110,4 @@ El prototipo tiene una identidad visual sólida (tokens `orient`, modo claro/osc
 | 01-03 | AUD-02-002, AUD-02-003, AUD-02-004 |
 | 01-04 | AUD-02-001 (parte), AUD-02-007 |
 | 01-05 | AUD-02-001 (parte) |
-| 02-03, 04-03 y 05-02 | AUD-02-005 |
+| 02-03, 04-03 y 05-02 | AUD-02-005, AUD-02-008 |
