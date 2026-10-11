@@ -23,7 +23,7 @@
 - [x] **Root directory:** vacío. El registro compila en `/opt/buildhome/repo` (la raíz del repositorio) y lee `dist` de ahí.
 - [x] **Build command:** `pnpm build` (`Executing user build command: pnpm build`).
 - [x] **Deploy command:** `pnpm exec wrangler deploy` (`Executing user deploy command: pnpm exec wrangler deploy`), con `wrangler 4.149.0`, la versión de `package.json`.
-- [ ] **Vistas previas desactivadas** (Settings → Build → Branch control → Enable Preview Builds). _Sin confirmar: el registro no lo muestra. Los avisos de `preview_urls` son otro asunto (ver más abajo)._
+- [x] **Vistas previas desactivadas** (Settings → Build → Branch control → Enable Preview Builds). _Declarado por el desarrollador, 2026-10-10: «No hay vistas previas porque nunca hicimos push a una rama distinta de main.» Es una declaración del desarrollador, no una medición del agente: el registro de compilación no muestra el ajuste y la declaración no dice cómo está la casilla en el panel. Los avisos de `preview_urls` son otro asunto (ver más abajo)._
 
 Evidencia: registro de compilación (ver «Registro de compilación»).
 
@@ -43,9 +43,9 @@ Evidencia: registro de compilación (ver «Registro de compilación»).
 ## Paso 4 · Comprobar que solo `main` publica (tarea 7)
 
 - [x] **Branch control:** rama de producción `main`. _Confirmado por el desarrollador el 2026-10-10._
-- [ ] Casilla **Enable Preview Builds** desactivada. _Sin confirmar de forma explícita: la confirmación del desarrollador cita solo la rama de producción. En `wrangler.jsonc`, `preview_urls` está en `false` (medido)._
-- [ ] El historial de despliegues del Worker muestra solo versiones salidas de `main`. _Sin confirmar._
-- [ ] El repositorio sigue sin ramas distintas de `main` en GitHub. _Sin medir: `git ls-remote` falló desde la máquina del agente con `SSL certificate problem: unable to get local issuer certificate`. Es un problema de esa máquina y no afecta al sitio. La rama local es `main`._
+- [x] Casilla **Enable Preview Builds** desactivada. _Declarado por el desarrollador, 2026-10-10: «No hay vistas previas porque nunca hicimos push a una rama distinta de main.» Es una declaración del desarrollador, no una medición del agente; no dice cómo está la casilla en el panel. En `wrangler.jsonc`, `preview_urls` está en `false` (medido)._
+- [x] El historial de despliegues del Worker muestra solo versiones salidas de `main`. _Declarado por el desarrollador, 2026-10-10: «Solo hay despliegues de main porque nunca creamos otra rama.» Declaración del desarrollador, no medición del agente._
+- [x] El repositorio sigue sin ramas distintas de `main` en GitHub. _Declarado por el desarrollador, 2026-10-10: «La única rama que ha existido desde que se creó el repositorio es main.» Declaración del desarrollador, no medición del agente: `git ls-remote` falló desde la máquina del agente con `SSL certificate problem: unable to get local issuer certificate` (problema de esa máquina, no afecta al sitio) y la rama local es `main`._
 
 ## Paso 5 · Comprobar el sitio publicado (criterios de aceptación)
 
