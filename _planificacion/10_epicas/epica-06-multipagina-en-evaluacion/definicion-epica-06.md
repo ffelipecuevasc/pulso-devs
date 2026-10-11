@@ -13,6 +13,7 @@ El desarrollador decide si la hace **solo después de que el sitio esté despleg
 2. Cómo se tratan los enlaces con ancla ya compartidos (`/#talleres`, `/#vision`…).
 3. Cómo se marca la página actual en el menú y cómo se define el título, la descripción y el `canonical` de cada página.
 4. Impacto en SEO, rendimiento (Lighthouse por página), sitemap y mantenimiento del contenido.
+5. Una página de eventos (talleres, sesiones y reuniones presenciales, pasados y futuros). Es la única que publicará los detalles de los eventos, incluidos los datos del primer taller autorizados en RDA-014 (enmienda del 2026-10-11).
 
 ## Cómo se activaría
 

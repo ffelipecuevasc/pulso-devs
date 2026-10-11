@@ -17,7 +17,7 @@ Consolidado de las decisiones técnicas del proyecto. Formato y reglas en `_plan
 | RDA-011 | Sitio de una sola página (One Page) por ahora                   | Aceptada  |
 | RDA-012 | Licencia MIT para el código, con reserva de marca               | Aceptada  |
 | RDA-013 | El prototipo se conserva en `_prototipo/` hasta lograr paridad  | Aceptada  |
-| RDA-014 | Datos publicables del primer taller                              | Aceptada  |
+| RDA-014 | Datos publicables del primer taller                              | Aceptada (enmendada 2026-10-11) |
 | RDA-015 | Trabajo directo en `main`, sin ramas                            | Aceptada  |
 | RDA-016 | Transición de cambio de tema de 1 s (excepción a `DESIGN.md` §8) | Aceptada  |
 
@@ -163,6 +163,8 @@ Consolidado de las decisiones técnicas del proyecto. Formato y reglas en `_plan
 **Decisión:** Se pueden publicar: la cifra de **80 asistentes** (confirmada por el desarrollador como real); el **sorteo de 20 licencias de JetBrains** (cada licencia daba acceso al conjunto completo de IDEs de JetBrains; no se llama «WebStorm PRO»); y que el taller incluyó un **despliegue en vivo con GitHub Pages**. **No** se menciona el bootcamp Talento Digital ni al público de egresados: el sitio sigue presentando la comunidad como abierta a toda Latinoamérica.
 **Alternativas consideradas:** No publicar la cifra ni el sorteo (descartado por el desarrollador).
 **Consecuencias:** Los datos se redactan como hechos pasados («Participaron 80 personas»), sin proyectar cifras futuras. La cifra no debe presentarse como total de miembros de la comunidad. Los textos concretos pasan por la aprobación del desarrollador en 03-01. Cualquier otro dato del PDF requiere confirmación nueva.
+
+> **Enmienda (2026-10-11, decisión del desarrollador):** los datos autorizados se conservan, pero su publicación se traslada a la página de eventos de la Épica 06. En la Épica 03 el sitio solo dice que hubo un primer taller en octubre de 2026. La frase «Los textos concretos pasan por la aprobación del desarrollador en 03-01» queda reemplazada por esta enmienda.
 
 ## RDA-015 · Trabajo directo en `main`, sin ramas
 
