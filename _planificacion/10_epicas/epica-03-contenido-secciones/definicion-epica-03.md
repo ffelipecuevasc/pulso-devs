@@ -23,7 +23,7 @@
 
 | Iteración | Nombre                             | Estado    | Depende de                           |
 | :-------- | :--------------------------------- | :-------- | :----------------------------------- |
-| 03-01     | Revisión de contenido y coherencia | Pendiente | 01-06 y Épica 02 terminada           |
+| 03-01     | Revisión de contenido y coherencia | En revisión | 01-06 y Épica 02 terminada           |
 | 03-02     | Otras redes de la comunidad        | Pendiente | 03-01 y la definición de otras redes |
 
 **Orden de ejecución:** 03-01 y después 03-02. Si al cerrar 03-01 el desarrollador no tiene otras redes que agregar, 03-02 se marca `Descartada`.

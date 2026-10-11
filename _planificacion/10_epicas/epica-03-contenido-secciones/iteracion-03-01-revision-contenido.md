@@ -1,7 +1,7 @@
 # Iteración 03-01 · Revisión de contenido y coherencia
 
 - **Épica:** 03 · Contenido y secciones
-- **Estado:** Pendiente
+- **Estado:** En revisión
 - **Rama:** `main` (RDA-015)
 - **Depende de:** 01-06 y la Épica 02 terminada
 - **RDA relacionadas:** RDA-007, RDA-009, RDA-011, RDA-014
@@ -45,16 +45,16 @@ Alinear los textos del sitio con la visión del producto y con lo que realmente 
 
 ## Criterios de aceptación
 
-- [ ] AUD-01-001 cerrado con evidencia: ningún texto del sitio presenta a Chile como ámbito de la comunidad (búsqueda en `src/` y en `dist/`).
-- [ ] La bitácora trae la tabla del inventario de textos: cada texto visible revisado, la regla de `AGENTS.md` §6 aplicada y la decisión (sin cambio, o antes y después).
-- [ ] Todo lo dicho sobre el primer taller se limita a «hubo uno, en octubre de 2026». Una búsqueda en el texto visible de `dist/` no encuentra «Vibe Coding», «asistentes», «JetBrains», «GitHub Pages», «Luma», «Meet», «Talento Digital» ni «WebStorm».
-- [ ] Ningún texto presenta lo futuro como disponible ni afirma alianzas, cifras de miembros o calendario (comprobado con la tabla del inventario).
-- [ ] Los textos cambiados figuran en la bitácora (antes y después) y el desarrollador los aprobó.
-- [ ] Sin desbordes horizontales a 320, 360 y 1280 px, en claro y oscuro, tras los cambios de texto (medido sobre `pnpm build`).
-- [ ] `DESIGN.md` §6 coincide con el sitio en Talleres, o la diferencia queda registrada con la decisión del desarrollador.
-- [ ] No queda `PENDIENTE_DATO` publicado (el build lo comprueba y se busca en `dist/`).
-- [ ] La decisión sobre RDA-014 está registrada en `decisiones.md` con aprobación.
-- [ ] Bitácora 03-01 creada.
+- [x] AUD-01-001 cerrado con evidencia: ningún texto del sitio presenta a Chile como ámbito de la comunidad (búsqueda en `src/` y en `dist/`).
+- [x] La bitácora trae la tabla del inventario de textos: cada texto visible revisado, la regla de `AGENTS.md` §6 aplicada y la decisión (sin cambio, o antes y después).
+- [x] Todo lo dicho sobre el primer taller se limita a «hubo uno, en octubre de 2026». Una búsqueda en el texto visible de `dist/` no encuentra «Vibe Coding», «asistentes», «JetBrains», «GitHub Pages», «Luma», «Meet», «Talento Digital» ni «WebStorm».
+- [ ] Ningún texto presenta lo futuro como disponible ni afirma alianzas, cifras de miembros o calendario (comprobado con la tabla del inventario). **No marcado:** por decisión del desarrollador (2026-10-11) se mantienen textos en presente («Un taller al mes», «Talleres gratuitos en vivo», pilar «Crecer», «Material seleccionado»); no hay alianzas, cifras ni calendario. Detalle en la bitácora.
+- [x] Los textos cambiados figuran en la bitácora (antes y después) y el desarrollador los aprobó.
+- [x] Sin desbordes horizontales a 320, 360 y 1280 px, en claro y oscuro, tras los cambios de texto (medido sobre `pnpm build`).
+- [x] `DESIGN.md` §6 coincide con el sitio en Talleres, o la diferencia queda registrada con la decisión del desarrollador.
+- [x] No queda `PENDIENTE_DATO` publicado (el build lo comprueba y se busca en `dist/`).
+- [x] La decisión sobre RDA-014 está registrada en `decisiones.md` con aprobación.
+- [x] Bitácora 03-01 creada ([bitacora-03-01-2026-10-11](../../99_bitacora/bitacora-03-01-2026-10-11.md)).
 
 ## Fuera de alcance
 

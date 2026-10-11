@@ -124,7 +124,7 @@ export const comunidad = {
               icono: 'deployed_code',
               titulo: 'Apoyo para tus proyectos web',
               texto:
-                'Comparte lo que estás construyendo, pide feedback y destraba lo que te tiene detenido.',
+                'Comparte lo que estás construyendo, pide retroalimentación y destraba lo que te tiene detenido.',
             },
             {
               icono: 'diversity_3',
@@ -187,7 +187,7 @@ export const comunidad = {
     talleres: {
       titulo: 'Talleres gratuitos en vivo',
       bajada:
-        'Aproximadamente una vez al mes nos juntamos en vivo para aprender haciendo, con espacio para preguntas y sin costo.',
+        'Queremos juntarnos en vivo aproximadamente una vez al mes para aprender haciendo, con espacio para preguntas y sin costo.',
       datos: [
         {
           icono: 'calendar_month',
@@ -201,7 +201,8 @@ export const comunidad = {
       tituloTematicas: 'Temáticas',
       nota: {
         icono: 'schedule',
-        texto: 'Las próximas fechas se anunciarán pronto dentro de la comunidad.',
+        texto:
+          'En octubre de 2026 hicimos nuestro primer taller en vivo. Las próximas fechas se anunciarán pronto dentro de la comunidad.',
       },
     },
 
@@ -211,8 +212,7 @@ export const comunidad = {
         'Pulso Devs es una comunidad nueva y no queremos parecer más grande de lo que es. Queremos crecer bien, junto a quienes se sumen desde el principio.',
       hoy: {
         etiqueta: 'Hoy',
-        texto:
-          'Una comunidad en marcha, un taller en vivo cada mes y un grupo donde compartir oportunidades.',
+        texto: 'Una comunidad en marcha y un grupo donde compartir dudas, avances y oportunidades.',
       },
       proximo: {
         etiqueta: 'Lo que viene',
