@@ -40,8 +40,6 @@ Si algo de lo anterior está en conflicto, detente y pregunta.
 - **Despliegue:** Cloudflare Workers con recursos estáticos (Workers Static Assets), sin adaptador de Astro. Workers Builds conectado al repositorio de GitHub: `main` publica en `https://comunidadpulso.dev` y `www` redirige al dominio sin `www`; no hay ramas ni vistas previas (RDA-015). La configuración vive en `wrangler.jsonc`. Cualquier lógica de servidor requiere una RDA.
 - **Medición:** Cloudflare Web Analytics y Google Search Console (RDA-010).
 
-> El sitio actual (HTML, CSS y JS sin compilación) es el **prototipo de referencia**. La Épica 01 lo migra a este stack; mientras tanto vive en `_prototipo/` y prevalece como referencia visual y de contenido. Se elimina en la iteración 01-06.
-
 ## 4. Comandos
 
 ```bash

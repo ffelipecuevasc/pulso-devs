@@ -1,22 +1,36 @@
 ---
+import Icono from '../components/Icono.astro';
 import LayoutBase from '../layouts/LayoutBase.astro';
 import { comunidad } from '../data/comunidad.js';
 ---
 
 <LayoutBase titulo={`Página no encontrada · ${comunidad.nombre}`} noindex>
-  <main id="contenido">
-    <h1>Esta página no existe</h1>
-    <p>
-      No encontramos lo que buscabas. Vuelve al inicio o entra al grupo de WhatsApp de la comunidad.
-    </p>
-    <p>
-      <a href="/">Volver al inicio</a>
-    </p>
-    <p>
-      <a href={comunidad.whatsapp} target="_blank" rel="noopener noreferrer">
-        Unirme al grupo de WhatsApp
-      </a>
-    </p>
-    <p>Se abrirá WhatsApp en una pestaña nueva.</p>
+  <main id="contenido" class="pagina-404">
+    <section class="section" aria-labelledby="titulo-404">
+      <div class="contenedor">
+        <h1 class="section-title" id="titulo-404">
+          Esta página no existe
+        </h1>
+        <p class="section-lead">
+          No encontramos lo que buscabas. Vuelve al inicio o entra al grupo de WhatsApp de la
+          comunidad.
+        </p>
+        <div class="pagina-404__acciones">
+          <a class="btn btn--primary" href="/">
+            Volver al inicio
+          </a>
+          <a
+            class="btn btn--ghost"
+            href={comunidad.whatsapp}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Unirme al grupo de WhatsApp
+            <Icono nombre="arrow_outward" />
+          </a>
+        </div>
+        <p class="pagina-404__nota">Se abrirá WhatsApp en una pestaña nueva.</p>
+      </div>
+    </section>
   </main>
 </LayoutBase>
