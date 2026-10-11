@@ -2,7 +2,7 @@
 
 - **Épica:** 02 · Sistema de diseño y ajustes estéticos
 - **Orden de ejecución:** 2.º de la épica (decisión del desarrollador, 2026-10-10)
-- **Estado:** En revisión (pendiente el commit del desarrollador y la decisión sobre el criterio de desbordes a 1280 px)
+- **Estado:** En revisión (criterio de desbordes reformulado y medido el 2026-10-11; Safari, Firefox, táctil y teléfono real sin verificar; el desarrollador la marca Terminada)
 - **Rama:** `main` (RDA-015)
 - **Depende de:** 01-06 (el control de tema ya está migrado y el sitio, desplegado). Se ejecuta después de 02-01 para medir con la fuente definitiva.
 - **RDA relacionadas:** RDA-003, RDA-016
@@ -42,7 +42,7 @@ Idea del desarrollador (versión original, con máscara SVG de círculo y `mask-
 - [x] Un doble clic rápido deja un estado consistente (`data-theme`, `aria-checked`, `localStorage` y `theme-color` coinciden) y sin errores. _Con el mouse, el segundo clic se pierde porque la página no recibe clics mientras dura el efecto (ver la bitácora, hallazgo 1)._
 - [x] Al terminar, `<html>` no conserva la clase `is-theme-switching`.
 - [x] Sin parpadeo inicial: la recarga mantiene el tema guardado.
-- [ ] Sin desbordes horizontales durante la transición ni al terminar. _360 px: 0 px; al terminar, 0 px en ambos tamaños. A 1280 px con barra de desplazamiento clásica, `scrollWidth` supera a `clientWidth` en 15 px mientras dura la transición (sin barra horizontal visible ni desplazamiento con la rueda). Decisión pendiente del desarrollador._
+- [x] Durante y después de la transición no aparece barra de desplazamiento horizontal ni el visitante puede desplazar la página en horizontal (rueda o teclado), y la diferencia entre `scrollWidth` y `clientWidth` es menor o igual al ancho de la barra vertical del sistema. _Criterio **reformulado por decisión del desarrollador (2026-10-11)**; el original era «Sin desbordes horizontales durante la transición ni al terminar» y la medición inicial dio 15 px a 1280 px (ver la bitácora). Medido en Chrome 154 a 1280 px, claro y oscuro: (a) barra vertical (`innerWidth − clientWidth`) = 15 px, igual a la diferencia vista; la diferencia `scrollWidth − clientWidth` fue como máximo 15 px durante la transición (63 a 64 cuadros) y 0 px al terminar; (b) barra horizontal visible: 0 px en todos los cuadros; (c) rueda horizontal, Shift+rueda y flecha derecha (×3) dejan `scrollX` en 0, durante y después. **Táctil, Safari, Firefox y teléfono real: no verificados** (AUD-02-005 y AUD-02-008)._
 - [x] El INP del clic en el interruptor es menor que 200 ms (medido: 32–64 ms) y el CLS no cambia (0 antes y después del clic).
 - [x] `DESIGN.md` §6 y §8 coinciden con lo implementado.
 - [x] Bitácora 02-03 creada. Safari, Firefox y teléfono real quedan anotados como no verificados hasta que el desarrollador los pruebe (AUD-02-005).

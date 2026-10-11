@@ -1278,7 +1278,7 @@
 
   .topic {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     align-items: center;
     justify-content: space-between;
     gap: 0.75rem 1.5rem;
@@ -1289,6 +1289,8 @@
     border-bottom: 1px solid var(--line);
   }
   .topic__name {
+    flex: 1 1 auto;
+    min-width: 0;
     font-family: var(--font-display);
     font-weight: 500;
     font-size: clamp(1.125rem, 1.9vw, 1.4rem);
@@ -1303,6 +1305,7 @@
     transform: translateX(4px);
   }
   .topic__tech {
+    flex: none;
     display: flex;
     flex-wrap: wrap;
     gap: 0.4rem;
@@ -1615,6 +1618,11 @@
     .pagina-404__acciones .btn {
       width: 100%;
       white-space: normal;
+    }
+    /* A 360 px el texto de WhatsApp, el ícono y el hueco ocupan 268,6 px y con el relleno de 1,6 rem
+       quedaban 266,8 px: se reduce el relleno lateral para que el texto quepa en una línea (02-02). */
+    .pagina-404__acciones .btn--ghost {
+      padding-inline: 1.25rem;
     }
   }
 }
