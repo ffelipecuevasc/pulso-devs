@@ -476,23 +476,42 @@
     white-space: nowrap;
   }
 
-  /* Control de tema */
+  /* Control de tema.
+     Un solo juego de medidas (custom properties del componente) define la pista, la perilla y los
+     íconos: la perilla queda con el mismo margen en los cuatro lados y cada ícono centrado sobre
+     el punto donde se detiene. El botón gana relleno transparente hasta 44 px de alto (área táctil)
+     sin cambiar el tamaño ni la posición del dibujo. */
   .theme-toggle {
+    --tt-ancho: 3.5rem;
+    --tt-alto: 2rem;
+    --tt-borde: 1px;
+    --tt-perilla: 1.5rem;
+    --tt-icono: 1rem;
+    --tt-margen: 3px;
+    --tt-area: 2.75rem;
+    --tt-recorrido: calc(
+      var(--tt-ancho) - 2 * var(--tt-borde) - var(--tt-perilla) - 2 * var(--tt-margen)
+    );
     flex: none;
-    padding: 0;
+    padding: calc((var(--tt-area) - var(--tt-alto)) / 2) 0;
     border: 0;
     background: none;
     border-radius: 999px;
   }
+  /* El anillo de foco rodea el dibujo, no el área táctil invisible. */
+  .theme-toggle:focus-visible {
+    outline: none;
+  }
+  .theme-toggle:focus-visible .theme-toggle__track {
+    outline: 3px solid var(--focus);
+    outline-offset: 3px;
+  }
   .theme-toggle__track {
     position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 3.5rem;
-    height: 2rem;
-    padding: 0 0.3rem;
-    border: 1.5px solid var(--line-strong);
+    display: block;
+    width: var(--tt-ancho);
+    height: var(--tt-alto);
+    border: var(--tt-borde) solid var(--line-strong);
     border-radius: 999px;
     background: var(--surface);
     color: var(--muted);
@@ -504,18 +523,23 @@
     border-color: var(--primary);
   }
   .theme-toggle__track .icon {
-    width: 1rem;
-    height: 1rem;
-    position: relative;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin-block: auto;
+    width: var(--tt-icono);
+    height: var(--tt-icono);
     z-index: 1;
     transition: color 0.3s ease;
   }
   .theme-toggle__knob {
     position: absolute;
-    top: 2px;
-    left: 2px;
-    width: 1.5rem;
-    height: 1.5rem;
+    top: 0;
+    bottom: 0;
+    left: var(--tt-margen);
+    margin-block: auto;
+    width: var(--tt-perilla);
+    height: var(--tt-perilla);
     border-radius: 50%;
     background: var(--btn-bg);
     transition:
@@ -523,10 +547,14 @@
       background-color 0.35s ease;
   }
   .theme-toggle__sun {
+    left: calc(var(--tt-margen) + (var(--tt-perilla) - var(--tt-icono)) / 2);
     color: var(--btn-ink);
   }
+  .theme-toggle__moon {
+    left: calc(var(--tt-margen) + var(--tt-recorrido) + (var(--tt-perilla) - var(--tt-icono)) / 2);
+  }
   [data-theme='dark'] .theme-toggle__knob {
-    transform: translateX(1.5rem);
+    transform: translateX(var(--tt-recorrido));
   }
   [data-theme='dark'] .theme-toggle__sun {
     color: var(--muted);

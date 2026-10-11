@@ -1,7 +1,7 @@
 # Iteración 04-00 · Pulido del interruptor de tema
 
 - **Épica:** 04 · SEO, rendimiento y accesibilidad
-- **Estado:** Pendiente
+- **Estado:** En revisión
 - **Rama:** `main` (RDA-015)
 - **Depende de:** Épica 03 terminada
 - **RDA relacionadas:** RDA-016 (la transición de 1 s no cambia)
@@ -39,16 +39,16 @@ Estas cifras salen del código y se confirman midiendo al empezar (tarea 1).
 
 ## Criterios de aceptación
 
-- [ ] La perilla tiene el mismo margen (±0,5 px) en los cuatro lados, en modo claro y oscuro, medido a 1×, 2× y 3×.
-- [ ] El centro de cada ícono coincide con el centro de la perilla en su posición (±0,5 px), medido igual.
-- [ ] El `<button>` mide al menos 44 × 44 px a 360 y 1280 px; la pista sigue en 56 × 32 px.
-- [ ] El alto del header no cambia, o el cambio quedó medido y aprobado por el desarrollador.
-- [ ] El centro del efecto de cambio de tema sigue en el centro visual del interruptor (medido con `--vt-x` y `--vt-y`).
-- [ ] Sin desbordes horizontales a 320, 360 y 1280 px, en claro y oscuro.
-- [ ] Capturas de antes y después a 1× (1280 px) y 360 px, en claro y oscuro, revisadas.
+- [x] La perilla tiene el mismo margen (±0,5 px) en los cuatro lados, en modo claro y oscuro, medido a 1×, 2× y 3×.
+- [x] El centro de cada ícono coincide con el centro de la perilla en su posición (±0,5 px), medido igual.
+- [x] El `<button>` mide al menos 44 × 44 px a 360 y 1280 px; la pista sigue en 56 × 32 px.
+- [x] El alto del header no cambia, o el cambio quedó medido y aprobado por el desarrollador.
+- [x] El centro del efecto de cambio de tema sigue en el centro visual del interruptor (medido con `--vt-x` y `--vt-y`).
+- [x] Sin desbordes horizontales a 320, 360 y 1280 px, en claro y oscuro.
+- [x] Capturas de antes y después a 1× (1280 px) y 360 px, en claro y oscuro, revisadas.
 - [ ] Revisión visual en el computador del desarrollador (declarado por el desarrollador).
-- [ ] `pnpm format:check`, `pnpm check` y `pnpm build` sin errores; `package.json` y `pnpm-lock.yaml` sin cambios.
-- [ ] Bitácora 04-00 creada.
+- [x] `pnpm format:check`, `pnpm check` y `pnpm build` sin errores; `package.json` y `pnpm-lock.yaml` sin cambios.
+- [x] Bitácora 04-00 creada.
 
 ## Fuera de alcance
 
