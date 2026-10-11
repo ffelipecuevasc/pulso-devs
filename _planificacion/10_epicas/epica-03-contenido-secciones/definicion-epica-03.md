@@ -1,8 +1,8 @@
 # Épica 03 · Contenido y secciones
 
-- **Estado:** En revisión (03-01 `En revisión`, 03-02 `Descartada`; la marca `Terminada` la pone el desarrollador)
+- **Estado:** Terminada (2026-10-11). 03-01 `Terminada`; 03-02 `Descartada` (el desarrollador confirmó que no hay otras redes de la comunidad)
 - **Objetivo:** que todo el texto del sitio sea coherente con la visión (comunidad abierta a toda Latinoamérica, que está empezando a crecer) y no afirme nada que no exista.
-- **Última revisión:** 2026-10-11, con las decisiones del desarrollador al cerrar la Épica 02
+- **Última revisión:** 2026-10-11, con el cierre de la épica por decisión del desarrollador
 
 ## Decisiones del desarrollador (2026-10-11)
 
@@ -23,10 +23,12 @@
 
 | Iteración | Nombre                             | Estado    | Depende de                           |
 | :-------- | :--------------------------------- | :-------- | :----------------------------------- |
-| 03-01     | Revisión de contenido y coherencia | En revisión | 01-06 y Épica 02 terminada           |
-| 03-02     | Otras redes de la comunidad        | Descartada | 03-01 y la definición de otras redes |
+| 03-01     | Revisión de contenido y coherencia | Terminada (2026-10-11) | 01-06 y Épica 02 terminada           |
+| 03-02     | Otras redes de la comunidad        | Descartada (2026-10-11) | 03-01 y la definición de otras redes |
 
 **Orden de ejecución:** 03-01 y después 03-02. Si al cerrar 03-01 el desarrollador no tiene otras redes que agregar, 03-02 se marca `Descartada`.
+
+**Nota:** 03-02 quedó `Descartada` el 2026-10-11: el desarrollador confirmó que no hay otras redes de la comunidad además de LinkedIn (bitácora 03-02). No se agregó nada al pie.
 
 ## Fuera de alcance
 

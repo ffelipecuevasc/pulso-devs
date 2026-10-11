@@ -1,7 +1,7 @@
 # Iteración 03-01 · Revisión de contenido y coherencia
 
 - **Épica:** 03 · Contenido y secciones
-- **Estado:** En revisión
+- **Estado:** Terminada (2026-10-11)
 - **Rama:** `main` (RDA-015)
 - **Depende de:** 01-06 y la Épica 02 terminada
 - **RDA relacionadas:** RDA-007, RDA-009, RDA-011, RDA-014
