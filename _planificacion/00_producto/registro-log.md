@@ -3,7 +3,7 @@
 **Fuente única de verdad del trabajo pendiente.** Si discrepa con `_planificacion/README.md` o con cualquier otro documento de planificación, prevalece este archivo.
 
 - **Última actualización:** 2026-10-10
-- **Iteración activa:** 01-06 (despliegue en Cloudflare Workers), en revisión desde 2026-10-10 con las **fases A y B completadas**. El sitio está publicado en `https://comunidadpulso.dev`. El cierre (404 con estilos, `workers.dev` apagado y `_prototipo/` eliminado) ya está en `main` y se verificó en producción; falta solo que el desarrollador marque 01-06 como Terminada. La Épica 02 sigue en el orden 02-01, 02-03, 02-02 y no empieza hasta que el desarrollador lo indique. 01-05 quedó entregada y con commit `2955e56`.
+- **Iteración activa:** ninguna. La Épica 01 quedó **terminada** el 2026-10-10 (01-06 Terminada). La siguiente es la 02-01 (orden de la Épica 02: 02-01, 02-03, 02-02); no empieza hasta que el desarrollador escriba «continúa con 02-01».
 - **Prototipo de referencia:** commit `d60c55e`. La transición de cambio de tema **no** existe en el prototipo: se implementa directamente en Astro en 02-03.
 - **Próximo hito:** hitos 1 y 2 cumplidos en producción (sitio migrado a Astro 7 y Tailwind 4, desplegado en `https://comunidadpulso.dev` con Workers Builds). Sigue el hito 3: ajustes estéticos y visuales (Épica 02).
 - **Alcance del sitio:** una sola página (One Page) con secciones ancladas (RDA-011).
@@ -22,7 +22,7 @@
 | 01-03     | Tailwind local, fuentes autoalojadas e íconos                | 01    | Terminada | 01-02      | [bitacora-01-03-2026-10-10](../99_bitacora/bitacora-01-03-2026-10-10.md) |
 | 01-04     | Header, tema, hero y pie de página                           | 01    | Terminada | 01-03      | [bitacora-01-04-2026-10-10](../99_bitacora/bitacora-01-04-2026-10-10.md) |
 | 01-05     | Secciones de contenido                                       | 01    | Terminada | 01-04    | [bitacora-01-05-2026-10-10](../99_bitacora/bitacora-01-05-2026-10-10.md) |
-| 01-06     | Despliegue en Cloudflare Workers y retiro del prototipo      | 01    | En revisión (fases A y B hechas; falta el push de cierre y su verificación) | 01-05 | [bitacora-01-06-2026-10-10](../99_bitacora/bitacora-01-06-2026-10-10.md) · [evidencia fase B](../10_epicas/epica-01-fundacion-migracion/evidencia-01-06-fase-b.md) |
+| 01-06     | Despliegue en Cloudflare Workers y retiro del prototipo      | 01    | Terminada (2026-10-10) | 01-05 | [bitacora-01-06-2026-10-10](../99_bitacora/bitacora-01-06-2026-10-10.md) · [evidencia fase B](../10_epicas/epica-01-fundacion-migracion/evidencia-01-06-fase-b.md) |
 | 02-01     | Fuente de lectura definitiva (Figtree)                       | 02    | Pendiente | 01-06      | — |
 | 02-02     | Ajustes estéticos y visuales                                 | 02    | Pendiente | 02-01 y la lista de ajustes | — |
 | 02-03     | Transición de cambio de tema                                 | 02    | Pendiente | 01-06      | — |
@@ -85,19 +85,29 @@ Ideas detectadas durante el trabajo que no forman parte de lo planificado.
 | Ajuste del botón «Unirme al grupo de WhatsApp» de la 404 a 360 px: el texto se parte en dos líneas. Pasa a la lista de ajustes de 02-02 | Decisión del desarrollador | 2026-10-10 |
 | Política `Content-Security-Policy` completa (hoy solo `frame-ancestors 'none'`). Tendría que permitir el script en línea del tema y, si se acepta RDA-010, el de Cloudflare Web Analytics; se evalúa en 04-01 o 05-01 | Bitácora 01-06 | 2026-10-10 |
 
-## 5. Estado de la Épica 01 y siguiente paso
+## 5. Épica 01 cerrada y siguiente paso
 
-Criterios de término de `definicion-epica-01.md`, tras el cierre de 01-06 (medido = lo medí o consta en el registro de Cloudflare; no medido = falta o depende del push):
+**Épica 01 · Fundación y migración a Astro: Terminada el 2026-10-10** (iteraciones 01-01 a 01-06, todas Terminadas). El sitio migrado a Astro 7 y Tailwind 4 está publicado en `https://comunidadpulso.dev` con Workers Builds conectado a `main`.
+
+Criterios de término de `definicion-epica-01.md` (medido = lo medí o consta en el registro de Cloudflare; confirmado = lo confirmó el desarrollador):
 
 | Criterio | Estado |
 | :------- | :----- |
-| `pnpm build` genera `dist/` sin errores ni advertencias | **Medido** (2026-10-10, tras los cambios de cierre: 0 coincidencias de `warn`/`error` en la salida; Cloudflare también compiló sin errores) |
-| Sitio equivalente al prototipo en aspecto y contenido, en 360 px y en escritorio, claro y oscuro | **Medido en 01-04 y 01-05** con el prototipo disponible (alto de página, secciones, contenedores y encabezados). No se puede repetir: el prototipo ya no está. El desarrollador lo confirmó en un teléfono real, con observaciones de diseño móvil por entregar (§4) |
-| Sin recursos de terceros en la carga | **Medido** (2026-10-10): `dist/` sin Google Fonts, `gstatic` ni CDN; los únicos enlaces externos son WhatsApp, LinkedIn y felipecuevas.dev |
-| `https://comunidadpulso.dev` sirve el sitio y `www` redirige | **Medido** (`200` y `301` con `Location: https://comunidadpulso.dev/`) |
-| `_prototipo/` eliminado | **Medido** (2026-10-10): la carpeta ya no está en `main` y una búsqueda no encuentra menciones al prototipo en `AGENTS.md`, `DESIGN.md`, `README.md` ni `src/` (quedan solo en `_planificacion/`, histórico) |
+| `pnpm build` genera `dist/` sin errores ni advertencias | **Medido** (0 coincidencias de `warn`/`error`; Cloudflare también compiló sin errores) |
+| Sitio equivalente al prototipo en aspecto y contenido, en 360 px y en escritorio, claro y oscuro | **Medido en 01-04 y 01-05**, cuando el prototipo estaba disponible (no se puede repetir). **Confirmado** por el desarrollador en un teléfono real, claro y oscuro, con observaciones de diseño móvil por entregar (§4, 02-02) |
+| Sin recursos de terceros en la carga | **Medido**: `dist/` sin Google Fonts, `gstatic` ni CDN; los únicos enlaces externos son WhatsApp, LinkedIn y felipecuevas.dev |
+| `https://comunidadpulso.dev` sirve el sitio y `www` redirige | **Medido** (`200`; `301` con `Location: https://comunidadpulso.dev/`) |
+| `_prototipo/` eliminado | **Medido**: la carpeta no está en `main` y no hay menciones en `AGENTS.md`, `DESIGN.md`, `README.md` ni `src/` |
 
-Medidos tras el push (2026-10-11 00:21 UTC (tarde del 2026-10-10 en Chile)): la 404 con estilos en producción (`404`, `.pagina-404` y el CSS enlazado) y el apagado de `workers.dev` (responde `404` con `error code: 1042`; ya no sirve el sitio). **No medidos** (sin confirmar por el desarrollador): Branch control y `PNPM_VERSION` en Cloudflare.
+También medido en producción: la 404 con estilos (`404`, `.pagina-404` y su CSS), las cuatro cabeceras de `_headers` en `/` y en la 404 y el apagado de `workers.dev` (`error code: 1042`).
+
+**Pendientes de Cloudflare, resueltos:** la rama de producción es `main` (Branch control) y la variable `PNPM_VERSION` vale `12.8.1`; ambos **confirmados por el desarrollador** en el panel el 2026-10-10.
+
+**Abiertos tras el cierre (ninguno afecta al sitio):**
+
+- Las ramas de GitHub no se pudieron medir: `git ls-remote` falla por el certificado SSL de la máquina del agente.
+- La casilla *Enable Preview Builds* de Branch control no se confirmó de forma explícita (en `wrangler.jsonc`, `preview_urls` ya está en `false`).
+- Las observaciones de diseño móvil y el ajuste del botón de WhatsApp de la 404 a 360 px van a la lista de 02-02 (§4).
 
 **Siguiente iteración (decidido por el desarrollador, 2026-10-10):** el orden de la Épica 02 es **02-01** (Figtree), **02-03** (transición de tema) y **02-02** (ajustes estéticos y visuales, que incluye las observaciones de diseño móvil y el ajuste del botón de WhatsApp de la 404 a 360 px). Motivo: 02-01 cambia la fuente de lectura y con ella las medidas de todo el sitio, así que va antes de ajustar el diseño; 02-03 es pequeña e independiente; 02-02 espera la lista del desarrollador. No se empieza 02-01 hasta que el desarrollador lo indique.
 
@@ -122,3 +132,4 @@ Medidos tras el push (2026-10-11 00:21 UTC (tarde del 2026-10-10 en Chile)): la 
 | 2026-10-10 | Iteración 01-06, fase B, avance: el desarrollador conectó Workers Builds y el primer despliegue fue correcto (pnpm 12.8.1, Node 24.21.0, 29 archivos subidos) en `https://pulso-devs.felipe-cuevas.workers.dev`, con dos avisos sobre `workers_dev` y `preview_urls`. Se registra en `evidencia-01-06-fase-b.md` solo lo informado; dominio, `www`, `_headers`, 404 y teléfono siguen sin medir, y `PNPM_VERSION` queda pendiente de confirmar por el desarrollador. README aprobado y editado: sin menciones al prototipo y con la sección «Cómo se publica». 01-06 sigue `En revisión` con la fase B pendiente; `_prototipo/` no se elimina. |
 | 2026-10-10 | Cierre de 01-06 (fase B completada; la iteración sigue `En revisión`). Decisiones del desarrollador: (A) la 404 recibe estilos con los componentes existentes y una fila nueva en `DESIGN.md` §6; (B) `workers_dev` y `preview_urls` en `false` en `wrangler.jsonc`; (C) se elimina `_prototipo/` y su nota en `AGENTS.md` §3; (D) evidencia completada con el registro de compilación y con mediciones de solo lectura contra producción (`200`, `301`, 404 propia y las cuatro cabeceras en `/` y en la 404); teléfono confirmado por el desarrollador. Se registran las propuestas de §4 (observaciones de diseño móvil, menciones restantes al prototipo, comentarios de `src/` y texto del README) y el estado de la Épica 01 en §5. Pendiente del desarrollador: commit y push (publica la 404 y apaga `workers.dev`), verificación posterior y pasar 01-06 a Terminada. |
 | 2026-10-10 | Verificación posterior al push de 01-06 y limpieza de menciones al prototipo. Producción (2026-10-11 00:21 UTC (tarde del 2026-10-10 en Chile), solo lectura): la 404 de `comunidadpulso.dev` responde `404` y sirve la página con estilos; `pulso-devs.felipe-cuevas.workers.dev` dejó de servir el sitio (`404`, `error code: 1042`). Con aprobación del desarrollador se reescribieron las menciones al prototipo en `AGENTS.md` §3, `DESIGN.md` (introducción, §3, §7 y §10), los comentarios de `src/` y la línea de `public/` del `README.md`, sin cambiar reglas, valores ni código. Decisiones: el orden de la Épica 02 queda 02-01, 02-03, 02-02, y el ajuste del botón de WhatsApp de la 404 a 360 px pasa a la lista de 02-02. 01-06 sigue `En revisión` hasta que el desarrollador la marque Terminada. |
+| 2026-10-10 | **Cierre de la Épica 01.** El desarrollador confirma en el panel de Cloudflare que la rama de producción es `main` (Branch control) y que `PNPM_VERSION` es `12.8.1`; se cierran esos pendientes. 01-06 pasa a `Terminada` (registro, archivo de la iteración y evidencia) y con ella la Épica 01. Quedan abiertos, sin afectar al sitio: las ramas de GitHub sin medir (certificado SSL de la máquina del agente) y la casilla *Enable Preview Builds*, sin confirmar de forma explícita. Solo se tocó documentación de `_planificacion/`. Siguiente: 02-01, a la espera de que el desarrollador lo indique. |

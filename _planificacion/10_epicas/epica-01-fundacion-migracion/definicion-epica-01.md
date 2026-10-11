@@ -1,6 +1,6 @@
 # Épica 01 · Fundación y migración a Astro
 
-- **Estado:** Pendiente
+- **Estado:** Terminada (2026-10-10)
 - **Hitos del desarrollador:** 1 (Astro) y 2 (Tailwind con compilación local)
 - **Objetivo:** dejar el sitio actual migrado, sin cambios visibles, a un proyecto Astro 7 con Tailwind CSS 4 compilado localmente, PNPM y Node.js, desplegado en `https://comunidadpulso.dev` mediante Cloudflare Workers.
 

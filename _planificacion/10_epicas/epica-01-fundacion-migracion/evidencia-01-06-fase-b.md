@@ -2,7 +2,7 @@
 
 - **Iteración:** 01-06 · Despliegue en Cloudflare Workers y retiro del prototipo
 - **Responsable:** desarrollador (el agente no toca Cloudflare, AGENTS.md §5)
-- **Estado:** Fase B completada y verificada en producción tras el push de cierre (2026-10-11 00:21 UTC (tarde del 2026-10-10 en Chile)); queda que el desarrollador marque 01-06 como Terminada
+- **Estado:** Terminada (2026-10-10). Fase B completada, verificada en producción tras el push de cierre y con los pendientes de Cloudflare confirmados por el desarrollador
 - **Fecha de inicio:** 2026-10-10
 - **Fecha de cierre de la evidencia:** 2026-10-10
 
@@ -19,7 +19,7 @@
 ## Paso 1 · Crear el Worker y conectar el repositorio (tarea 5)
 
 - [x] **Nombre del proyecto (Worker): `pulso-devs`.** El registro muestra `Uploaded pulso-devs` y la dirección `https://pulso-devs.felipe-cuevas.workers.dev`.
-- [ ] **Production branch:** `main`. _Sin confirmar: el registro no muestra la rama._
+- [x] **Production branch:** `main` (es el valor por defecto). _Branch control revisado y confirmado por el desarrollador en el panel de Cloudflare el 2026-10-10: la rama de producción es `main`._
 - [x] **Root directory:** vacío. El registro compila en `/opt/buildhome/repo` (la raíz del repositorio) y lee `dist` de ahí.
 - [x] **Build command:** `pnpm build` (`Executing user build command: pnpm build`).
 - [x] **Deploy command:** `pnpm exec wrangler deploy` (`Executing user deploy command: pnpm exec wrangler deploy`), con `wrangler 4.149.0`, la versión de `package.json`.
@@ -29,7 +29,7 @@ Evidencia: registro de compilación (ver «Registro de compilación»).
 
 ## Paso 2 · Fijar las versiones de PNPM y Node en Workers Builds (tarea 5)
 
-- [ ] **`PNPM_VERSION` = `12.8.1`** en las variables de compilación. **Sin confirmar:** el desarrollador no confirmó si la definió. El registro dice `Detected the following tools from environment: pnpm@12.8.1, nodejs@24.21.0`, pero no indica si pnpm 12.8.1 vino de la variable o de `devEngines`.
+- [x] **`PNPM_VERSION` = `12.8.1`** en las variables de compilación. _Confirmado por el desarrollador en el panel de Cloudflare el 2026-10-10: la variable existe y vale `12.8.1`. Es coherente con el registro, que instaló pnpm 12.8.1 (`Detected the following tools from environment: pnpm@12.8.1, nodejs@24.21.0`)._
 - [x] Compilación revisada: instala con **pnpm 12.8.1** (`Downloading the pnpm 12.8.1 binary`, `Done in 8.1s using pnpm v12.8.1`), **Node 24.21.0** (`Installing nodejs 24.21.0`), `pnpm build` termina con `[build] Complete!` y el despliegue con `Success: Deploy command completed`.
 - [x] Sin advertencias de scripts de instalación ignorados: el registro no muestra `ERR_PNPM_IGNORED_BUILDS` y ejecuta los `postinstall` de `esbuild` y `workerd`, ambos con `Done`.
 - [x] Cómo instaló las dependencias Workers Builds: `pnpm install --frozen-lockfile`, con verificación del lockfile (`Lockfile passes supply-chain policies (460 entries)`). No falló con el lockfile.
@@ -42,9 +42,10 @@ Evidencia: registro de compilación (ver «Registro de compilación»).
 
 ## Paso 4 · Comprobar que solo `main` publica (tarea 7)
 
-- [ ] **Branch control:** rama de producción `main` y vistas previas desactivadas. _Sin confirmar._
+- [x] **Branch control:** rama de producción `main`. _Confirmado por el desarrollador el 2026-10-10._
+- [ ] Casilla **Enable Preview Builds** desactivada. _Sin confirmar de forma explícita: la confirmación del desarrollador cita solo la rama de producción. En `wrangler.jsonc`, `preview_urls` está en `false` (medido)._
 - [ ] El historial de despliegues del Worker muestra solo versiones salidas de `main`. _Sin confirmar._
-- [ ] El repositorio sigue sin ramas distintas de `main` en GitHub. _Sin medir: `git ls-remote` falló desde esta máquina con `SSL certificate problem: unable to get local issuer certificate`. La rama local es `main`._
+- [ ] El repositorio sigue sin ramas distintas de `main` en GitHub. _Sin medir: `git ls-remote` falló desde la máquina del agente con `SSL certificate problem: unable to get local issuer certificate`. Es un problema de esa máquina y no afecta al sitio. La rama local es `main`._
 
 ## Paso 5 · Comprobar el sitio publicado (criterios de aceptación)
 
@@ -70,7 +71,7 @@ Cabeceras de `public/_headers`, presentes en la respuesta de `/` **y** en la del
 
 - [x] `https://comunidadpulso.dev/` responde **`200`** por HTTPS y sirve el sitio migrado.
 - [x] `https://www.comunidadpulso.dev/` responde **`301`** con `location: https://comunidadpulso.dev/`.
-- [x] Una ruta inexistente responde **`404`** y sirve la página 404 propia (medido con el despliegue anterior, sin estilos; la versión con estilos se midió tras el push, ver «Verificación posterior al push»).
+- [x] Una ruta inexistente responde **`404`** y sirve la página 404 propia (la versión con estilos se midió tras el push, ver «Verificación posterior al push»).
 - [x] Las cuatro cabeceras de `public/_headers` llegan en la respuesta de `/`.
 - [x] **Las mismas cuatro cabeceras llegan también en la respuesta 404.** La duda de la documentación queda resuelta: `_headers` sí se aplica a la 404 estática.
 - [x] `/index.html` y `/404.html` con `html_handling: auto-trailing-slash`: ambos responden `307` a `/` y a `/404`, respectivamente.
@@ -83,7 +84,7 @@ Cabeceras de `public/_headers`, presentes en la respuesta de `/` **y** en la del
 - [x] `_prototipo/` eliminada con `git rm -r` (el árbol de trabajo ya no la tiene; la eliminación queda en el commit del desarrollador). Quitada la referencia en `.prettierignore` y en `tsconfig.json`.
 - [x] `README.md` sin menciones al prototipo (búsqueda con `grep -i prototipo`: 0 coincidencias).
 - [x] `AGENTS.md` sin menciones al prototipo. _Quedaba una en §3 «Tipografía»; se reescribió con aprobación el 2026-10-10 y `grep -i prototipo` sobre `AGENTS.md`, `DESIGN.md`, `README.md` y `src/` da 0 coincidencias._
-- [ ] Marcar 01-06 como `Terminada`: lo hace el desarrollador tras su commit y la verificación posterior al push.
+- [x] 01-06 marcada como `Terminada` el 2026-10-10 (tras el commit, la verificación posterior al push y la confirmación de Cloudflare).
 
 ---
 
@@ -146,9 +147,9 @@ Queda confirmada la causa: `wrangler.jsonc` no definía ninguno de los dos campo
 
 ## Resultado
 
-- **Estado final:** fase B completada. Sitio publicado en `https://comunidadpulso.dev` (200), `www` redirige (301), 404 propia con las cuatro cabeceras de seguridad, teléfono confirmado por el desarrollador. Quedan sin confirmar: rama de producción y vistas previas en Branch control, `PNPM_VERSION`, la mención restante de `AGENTS.md` y, tras el push, la 404 con estilos en producción y el apagado de `workers.dev`.
-- **Fecha de término:** pendiente de la verificación posterior al push (la fija el desarrollador).
+- **Estado final:** terminada. Sitio publicado en `https://comunidadpulso.dev` (200), `www` redirige (301), 404 propia con estilos y con las cuatro cabeceras de seguridad, `workers.dev` apagado, teléfono confirmado por el desarrollador, `_prototipo/` eliminado, rama de producción `main` y `PNPM_VERSION` = `12.8.1` confirmados por el desarrollador. Abiertos, sin afectar al sitio: ramas de GitHub sin medir (certificado SSL de esa máquina) y la casilla Enable Preview Builds sin confirmar de forma explícita.
+- **Fecha de término:** 2026-10-10
 - **Problemas encontrados y cómo se resolvieron:**
-  - La 404 desplegada era HTML plano sin estilos (vacío de planificación, el prototipo no tenía 404): corregida con el diseño sobrio de `.pagina-404`, pendiente de publicar.
-  - `workers.dev` y las vistas previas quedaron activas por defecto: declarados en `false`, pendiente de publicar.
+  - La 404 desplegada era HTML plano sin estilos (vacío de planificación, el prototipo no tenía 404): corregida con el diseño sobrio de `.pagina-404` y publicada (medida en producción).
+  - `workers.dev` y las vistas previas quedaron activas por defecto: declarados en `false` y publicados; `workers.dev` dejó de servir el sitio.
   - `git ls-remote` falla desde esta máquina por el certificado SSL (`unable to get local issuer certificate`); no afecta al sitio.

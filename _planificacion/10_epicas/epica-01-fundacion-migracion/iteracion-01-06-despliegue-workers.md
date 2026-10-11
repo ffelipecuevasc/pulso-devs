@@ -1,7 +1,7 @@
 # Iteración 01-06 · Despliegue en Cloudflare Workers y retiro del prototipo
 
 - **Épica:** 01 · Fundación y migración a Astro
-- **Estado:** En revisión (fases A y B hechas; falta el push de cierre y su verificación posterior)
+- **Estado:** Terminada (2026-10-10)
 - **Rama:** `main` (RDA-015)
 - **Depende de:** 01-05
 - **RDA relacionadas:** RDA-001, RDA-008, RDA-013
@@ -34,7 +34,7 @@ Evidencia de la fase B en `evidencia-01-06-fase-b.md`.
 - [x] `https://comunidadpulso.dev` responde `200` y sirve el sitio migrado por HTTPS.
 - [x] `https://www.comunidadpulso.dev` redirige (`301`) a `https://comunidadpulso.dev`.
 - [x] Una ruta inexistente muestra la página 404 propia. _Medido con el despliegue actual; la versión con estilos se verifica tras el push._
-- [x] El registro de compilación en Cloudflare usa PNPM y la versión fijada, sin errores. _`PNPM_VERSION`: sin confirmar._
+- [x] El registro de compilación en Cloudflare usa PNPM y la versión fijada, sin errores. _`PNPM_VERSION` = `12.8.1`, confirmado por el desarrollador en el panel de Cloudflare el 2026-10-10._
 - [x] Las cabeceras de `_headers` llegan en la respuesta (`curl -I`). _En `/` y en la 404._
 - [x] El desarrollador confirma el sitio en un teléfono real, en claro y oscuro. _Con observaciones de diseño móvil por entregar (02-02)._
 - [x] `_prototipo/` eliminado, y `AGENTS.md` y `README.md` sin menciones al prototipo (con aprobación). _Medido con búsqueda el 2026-10-10: 0 menciones en `AGENTS.md`, `DESIGN.md`, `README.md` ni `src/`._
