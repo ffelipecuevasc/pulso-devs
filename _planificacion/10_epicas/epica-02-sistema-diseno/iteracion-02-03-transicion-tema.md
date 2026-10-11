@@ -1,9 +1,10 @@
 # Iteración 02-03 · Transición de cambio de tema
 
 - **Épica:** 02 · Sistema de diseño y ajustes estéticos
+- **Orden de ejecución:** 2.º de la épica (decisión del desarrollador, 2026-10-10)
 - **Estado:** Pendiente
 - **Rama:** `main` (RDA-015)
-- **Depende de:** 01-06 (el control de tema ya está migrado y el sitio, desplegado)
+- **Depende de:** 01-06 (el control de tema ya está migrado y el sitio, desplegado). Se ejecuta después de 02-01 para medir con la fuente definitiva.
 - **RDA relacionadas:** RDA-003, RDA-016
 - **Hallazgos que cierra:** —
 - **Hallazgos que abre:** AUD-02-005 (compatibilidad)
@@ -35,7 +36,7 @@ Idea del desarrollador (versión original, con máscara SVG de círculo y `mask-
 ## Criterios de aceptación
 
 - [ ] A 360 y 1280 px, en ambos sentidos (claro a oscuro y oscuro a claro), una captura a ~300 ms muestra el círculo creciendo desde el interruptor, y a 1,2 s el tema nuevo está completo.
-- [ ] La transición dura 1 s (medido con `getAnimations()` o con la grabación de Playwright).
+- [ ] La transición dura 1 s (medido con `getAnimations()` o con una grabación o traza equivalente, sin agregar dependencias; Playwright no está aprobado, se usa Chrome por protocolo como en las mediciones anteriores).
 - [ ] Con `prefers-reduced-motion: reduce` el cambio es inmediato y `startViewTransition` no se llama.
 - [ ] Con `startViewTransition` eliminado (prueba sin soporte), el cambio es inmediato y sin errores en la consola.
 - [ ] Un doble clic rápido deja un estado consistente (`data-theme`, `aria-checked`, `localStorage` y `theme-color` coinciden) y sin errores.

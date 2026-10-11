@@ -12,13 +12,15 @@
 4. Transición de cambio de tema con un círculo que crece desde el interruptor, de 1 s (RDA-016, iteración 02-03).
 5. Mantener `DESIGN.md` alineado con lo implementado, con aprobación del desarrollador.
 
-## Iteraciones
+## Iteraciones y orden de ejecución
 
-| Iteración | Nombre                       |
-| :-------- | :--------------------------- |
-| 02-01     | Fuente de lectura definitiva |
-| 02-02     | Ajustes estéticos y visuales |
-| 02-03     | Transición de cambio de tema |
+El orden de ejecución lo decidió el desarrollador el 2026-10-10: primero la fuente (cambia las medidas de todo el sitio), luego la transición de tema y al final los ajustes estéticos. El número de cada iteración no cambia.
+
+| Orden | Iteración | Nombre                       | Depende de                          |
+| :---- | :-------- | :--------------------------- | :---------------------------------- |
+| 1     | 02-01     | Fuente de lectura definitiva | 01-06                               |
+| 2     | 02-03     | Transición de cambio de tema | 01-06 (recomendado: después de 02-01) |
+| 3     | 02-02     | Ajustes estéticos y visuales | 02-01, 02-03 y la lista de ajustes  |
 
 ## Fuera de alcance
 
