@@ -58,7 +58,7 @@ El prototipo tiene una identidad visual sólida (tokens `orient`, modo claro/osc
 
 | ID         | Severidad | Hallazgo | Acción recomendada | Estado |
 | :--------- | :-------- | :------- | :----------------- | :----- |
-| AUD-01-016 | Alta | `og:url` vale `[SITE_URL]` (marcador sin reemplazar) y `og:image` usa una ruta relativa (`assets/img/pulsodevs-original.png`); Open Graph exige URL absolutas, así que las vistas previas en WhatsApp y LinkedIn fallarán. | `site` en `astro.config.mjs` y URLs absolutas generadas en compilación. | Resuelto en 01-02 (la imagen de vista previa propia sigue en AUD-01-014, 04-02) |
+| AUD-01-016 | Alta | `og:url` vale `[SITE_URL]` (marcador sin reemplazar) y `og:image` usa una ruta relativa (`assets/img/pulsodevs-original.png`); Open Graph exige URL absolutas, así que las vistas previas en WhatsApp y LinkedIn fallarán. | `site` en `astro.config.mjs` y URLs absolutas generadas en compilación. | Resuelto en 01-02 (la imagen de vista previa propia sigue en AUD-01-014, 04-01) |
 | AUD-01-017 | Media | Faltan `canonical`, datos estructurados (JSON-LD de `Organization`), `robots.txt`, sitemap y `og:image:alt`; `twitter:card` es `summary` sin imagen propia. | `CabeceraSEO`, `@astrojs/sitemap` y JSON-LD. | Parcial: sitemap (01-01), `canonical`, `og:image:alt` y `CabeceraSEO` (01-02); faltan JSON-LD, `robots.txt` y `twitter:card` con imagen propia (04-01) |
 | AUD-01-018 | Baja | El favicon es solo un PNG de 128 px (`pulsodevs-small.png`); sin `apple-touch-icon` ni tamaños 32 y 192. | Conjunto de íconos derivado del logotipo oficial, sin deformarlo. | Abierto (04-01) |
 
@@ -79,8 +79,8 @@ El prototipo tiene una identidad visual sólida (tokens `orient`, modo claro/osc
 | 01-04 | AUD-01-005, AUD-01-007, AUD-01-014 (parte) |
 | 01-05 | AUD-01-009 y AUD-01-010 (parte) |
 | 03-01 | AUD-01-001, AUD-01-004 |
-| 04-01 | AUD-01-016 y AUD-01-017 (parte), AUD-01-018 |
-| 04-02 | AUD-01-014 (parte) |
+| 04-01 | AUD-01-014 (parte: imagen de vista previa), AUD-01-016 y AUD-01-017 (parte), AUD-01-018 |
+| 04-02 | — (AUD-01-014 se cierra en 04-01; aquí se mide su efecto) |
 | 04-03 | AUD-01-015, AUD-01-020 |
 
 ---
@@ -113,4 +113,5 @@ El prototipo tiene una identidad visual sólida (tokens `orient`, modo claro/osc
 | 01-04 | AUD-02-001 (parte), AUD-02-007 |
 | 01-05 | AUD-02-001 (parte) |
 | 02-03, 04-03 y 05-02 | AUD-02-005 (parcial), AUD-02-008 (parcial) |
-| 04-03 | AUD-02-009, AUD-02-010 |
+| 04-00 | AUD-02-010 (parte: interruptor de tema) |
+| 04-03 | AUD-02-009, AUD-02-010 (el resto, tras 04-00) |

@@ -135,12 +135,12 @@ Criterios de término de `definicion-epica-02.md` (medido = lo medí; confirmado
 - AUD-02-005 (**Parcial**): transición de tema. Teléfono real **declarado por el desarrollador, 2026-10-11** (Samsung Galaxy A52+, Chrome y Firefox): probó la transición y «todo funciona perfectamente»; no es una medición y no indicó qué probó en cada navegador. Siguen pendientes Safari y Firefox (04-03 y 05-02).
 - AUD-02-008 (**Parcial**): los clics del mouse no llegan a la página durante ~1,05 s de la transición. Misma declaración del teléfono real; **no dijo** si tocó durante el efecto, así que ese punto sigue sin verificar. Siguen pendientes Safari y Firefox (04-03 y 05-02).
 - AUD-02-009 (Media): borde `--line-strong` de los botones secundarios a 1,82:1 y 2,08:1 frente a 3:1; se corrige en 04-03 con el valor aprobado por el desarrollador.
-- AUD-02-010 (Media): objetivos táctiles menores de 44 × 44 px (marca, interruptor de tema, «Únete» del header y enlaces del menú); se corrige en 04-03.
+- AUD-02-010 (Media): objetivos táctiles menores de 44 × 44 px (marca, interruptor de tema, «Únete» del header y enlaces del menú); el interruptor de tema se corrige en 04-00 y el resto, en 04-03.
 - ~~`DESIGN.md` §6 «Talleres»: tres datos clave frente a cuatro (propuesta para 03-01, §4).~~ Resuelto en 03-01 (2026-10-11).
 - Ningún criterio se marcó por la declaración del teléfono real; lo que el desarrollador no dijo que probó queda sin verificar.
 - Propuesta pendiente para la próxima edición de `DESIGN.md`: el anillo del nodo de la línea de tiempo (§4).
 
-**Siguiente (decidido por el desarrollador, 2026-10-11):** la Épica 04 (04-01), que **no se ha iniciado**; empieza cuando el desarrollador lo indique.
+**Siguiente (decidido por el desarrollador, 2026-10-11):** la Épica 04 (04-00), que **no se ha iniciado**; empieza cuando el desarrollador lo indique.
 
 **Épica 03 · Contenido y secciones: Terminada el 2026-10-11** (03-01 `Terminada`; 03-02 `Descartada`; el desarrollador confirmó el cierre el 2026-10-11). Con la lectura aprobada el 2026-10-11, los textos en presente sobre talleres y oportunidades se mantienen por decisión del desarrollador y están registrados en la bitácora 03-01.
 
