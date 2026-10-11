@@ -2,12 +2,12 @@
 
 - **Épica:** 02 · Sistema de diseño y ajustes estéticos
 - **Orden de ejecución:** 2.º de la épica (decisión del desarrollador, 2026-10-10)
-- **Estado:** Terminada (2026-10-11). Quedan abiertos AUD-02-005 y AUD-02-008: Safari, Firefox, táctil y teléfono real sin verificar
+- **Estado:** Terminada (2026-10-11). Quedan abiertos, en parcial, AUD-02-005 y AUD-02-008: Safari y Firefox sin verificar (teléfono real declarado por el desarrollador, no medido)
 - **Rama:** `main` (RDA-015)
 - **Depende de:** 01-06 (el control de tema ya está migrado y el sitio, desplegado). Se ejecuta después de 02-01 para medir con la fuente definitiva.
 - **RDA relacionadas:** RDA-003, RDA-016
 - **Hallazgos que cierra:** —
-- **Hallazgos que abre:** AUD-02-005 (compatibilidad)
+- **Hallazgos que abre:** AUD-02-005 (compatibilidad) y AUD-02-008 (clics del mouse bloqueados durante la transición)
 
 ## Objetivo
 
@@ -45,7 +45,7 @@ Idea del desarrollador (versión original, con máscara SVG de círculo y `mask-
 - [x] Durante y después de la transición no aparece barra de desplazamiento horizontal ni el visitante puede desplazar la página en horizontal (rueda o teclado), y la diferencia entre `scrollWidth` y `clientWidth` es menor o igual al ancho de la barra vertical del sistema. _Criterio **reformulado por decisión del desarrollador (2026-10-11)**; el original era «Sin desbordes horizontales durante la transición ni al terminar» y la medición inicial dio 15 px a 1280 px (ver la bitácora). Medido en Chrome 154 a 1280 px, claro y oscuro: (a) barra vertical (`innerWidth − clientWidth`) = 15 px, igual a la diferencia vista; la diferencia `scrollWidth − clientWidth` fue como máximo 15 px durante la transición (63 a 64 cuadros) y 0 px al terminar; (b) barra horizontal visible: 0 px en todos los cuadros; (c) rueda horizontal, Shift+rueda y flecha derecha (×3) dejan `scrollX` en 0, durante y después. **Táctil, Safari, Firefox y teléfono real: no verificados** (AUD-02-005 y AUD-02-008)._
 - [x] El INP del clic en el interruptor es menor que 200 ms (medido: 32–64 ms) y el CLS no cambia (0 antes y después del clic).
 - [x] `DESIGN.md` §6 y §8 coinciden con lo implementado.
-- [x] Bitácora 02-03 creada. Safari, Firefox y teléfono real quedan anotados como no verificados hasta que el desarrollador los pruebe (AUD-02-005).
+- [x] Bitácora 02-03 creada. Safari y Firefox quedan anotados como no verificados (AUD-02-005 y AUD-02-008, parciales). Teléfono real: declarado por el desarrollador el 2026-10-11 (Samsung Galaxy A52+, Chrome y Firefox), no medido.
 
 ## Fuera de alcance
 

@@ -7,6 +7,7 @@
 - **Depende de:** 02-01, 02-03 y la lista de ajustes
 - **RDA relacionadas:** —
 - **Hallazgos que cierra:** —
+- **Hallazgos que abre:** AUD-02-009 (contraste del borde de los botones secundarios, medido en esta iteración; no lo introdujo)
 
 ## Objetivo
 

@@ -2,7 +2,7 @@
 
 - **Épica:** 02 · Sistema de diseño y ajustes estéticos
 - **Orden de ejecución:** 4.º de la épica (agregada por el desarrollador el 2026-10-11, tras la auditoría de `DESIGN.md`)
-- **Estado:** En revisión (implementada y medida el 2026-10-11; pendiente el commit del desarrollador)
+- **Estado:** Terminada (2026-10-11)
 - **Rama:** `main` (RDA-015)
 - **Depende de:** 02-02 y la auditoría de `DESIGN.md` (bitácora 02-04, diferencia D2)
 - **RDA relacionadas:** —
