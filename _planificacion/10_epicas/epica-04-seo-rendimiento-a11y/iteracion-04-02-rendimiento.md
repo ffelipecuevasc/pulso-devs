@@ -1,7 +1,7 @@
 # Iteración 04-02 · Rendimiento e imágenes
 
 - **Épica:** 04 · SEO, rendimiento y accesibilidad
-- **Estado:** En curso
+- **Estado:** En revisión
 - **Rama:** `main` (RDA-015)
 - **Depende de:** 04-01
 - **RDA relacionadas:** RDA-001, RDA-003, RDA-004
@@ -23,13 +23,32 @@ Llevar la portada a 95–100 en Lighthouse móvil con LCP, CLS e INP dentro de l
 
 ## Criterios de aceptación
 
-- [ ] Lighthouse móvil, mediana de tres: 95 o más en las cuatro categorías, en la portada.
-- [ ] LCP < 2,5 s, CLS < 0,05 e INP < 200 ms (INP medido con una interacción real, por ejemplo el interruptor de tema).
+- [x] Rendimiento móvil de 95 o más, mediana de cinco corridas alternadas.
+- [x] LCP < 2,5 s, CLS < 0,05 e INP < 200 ms (INP medido con una interacción real, por ejemplo el interruptor de tema).
 - [x] Sin peticiones a terceros en la carga del build; en producción, Cloudflare agrega 1 petición (Web Analytics automático, static.cloudflareinsights.com, no está en el repositorio ni en dist/) y su decisión queda en 05-01 (RDA-010).
 - [ ] Decisión sobre los PNG de respaldo del hero y sobre `Cache-Control` registrada (aplicada y medida, o descartada).
-- [ ] Antes y después registrados en la bitácora, con el presupuesto de la primera vista.
-- [ ] Sin desbordes a 320, 360 y 1280 px, claro y oscuro; `package.json` y `pnpm-lock.yaml` sin dependencias nuevas.
-- [ ] Bitácora 04-02 creada.
+- [x] Antes y después registrados en la bitácora, con el presupuesto de la primera vista.
+- [x] Sin desbordes a 320, 360 y 1280 px, claro y oscuro; `package.json` y `pnpm-lock.yaml` sin dependencias nuevas.
+- [x] Bitácora 04-02 creada.
+- [ ] Efecto de `Cache-Control` de `/_astro/*` medido en producción, solo con lectura, después del push del desarrollador. Decidido y aplicado en 04-02 (`public/_headers`); hasta entonces sin medir. Se marca cuando el desarrollador lo declare o se mida.
+- [ ] Revisión visual del hero (capturas antes y después) por el desarrollador. Se marca cuando el desarrollador lo declare.
+
+## Resultado y presupuesto de la primera vista (04-02)
+
+Medido en el build (`pnpm build` y `pnpm preview`), móvil, Lighthouse 13.5.0, mediana de cinco corridas alternadas con las de escritorio. Detalle y antes/después en `bitacora-04-02-2026-10-12.md`.
+
+| Tipo | Medido (transferido) | Límite aprobado |
+| :-- | --: | --: |
+| Total de la primera vista | 93.270 B | ≤ 105.000 B |
+| HTML | 15.851 B | ≤ 18.000 B |
+| CSS | 8.050 B | ≤ 9.000 B |
+| JavaScript | 0 archivos; 3.714 B en línea sin comprimir | 0 archivos y ≤ 5.000 B en línea sin comprimir |
+| Fuentes | 60.476 B en 2 archivos | ≤ 64.000 B en 2 archivos |
+| Imágenes | 6.733 B | ≤ 8.000 B |
+| Peticiones | 7 | ≤ 8 |
+| Peticiones a terceros (build) | 0 | 0 |
+
+Se suman los límites que ya existían: LCP < 2,5 s, CLS < 0,05 e INP < 200 ms. Son límites con ~10 % de holgura sobre lo medido, para detectar regresiones; los aprobó el desarrollador (`AskUserQuestion`, 2026-10-12) y los ajusta cuando quiera.
 
 ## Fuera de alcance
 
