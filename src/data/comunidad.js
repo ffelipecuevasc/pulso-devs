@@ -30,6 +30,8 @@ export const comunidad = {
     descripcionOg:
       'Una comunidad para desarrolladores junior que quieren aprender, construir y crecer juntos. Abierta a toda Latinoamérica.',
     textoAltImagen: 'Logotipo y nombre de Pulso Devs',
+    /** Texto alternativo del logotipo del hero, que es solo el símbolo (sin el nombre). */
+    textoAltLogotipo: 'Logotipo de Pulso Devs',
     colorTema: '#FFFFFF',
     colorTemaOscuro: '#00131D',
   },

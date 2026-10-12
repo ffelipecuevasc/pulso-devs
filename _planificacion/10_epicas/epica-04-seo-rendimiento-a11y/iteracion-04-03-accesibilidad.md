@@ -1,7 +1,7 @@
 # Iteración 04-03 · Accesibilidad y verificación cruzada
 
 - **Épica:** 04 · SEO, rendimiento y accesibilidad
-- **Estado:** Pendiente
+- **Estado:** En revisión (fase A entregada el 2026-10-12; fase B pendiente del desarrollador)
 - **Rama:** `main` (RDA-015)
 - **Depende de:** 04-02
 - **RDA relacionadas:** RDA-016
@@ -29,15 +29,15 @@ Verificar con mediciones y dispositivos reales lo que hasta ahora solo se revis�
 
 ## Criterios de aceptación
 
-- [ ] Todo texto cumple WCAG 2.2 AA (4,5:1 o 3:1 según el tamaño), medido en ambos modos.
-- [ ] Los bordes de componentes con `--line-strong` cumplen 3:1 en ambos modos, con el valor aprobado y `DESIGN.md` §2.2 actualizado (AUD-02-009).
-- [ ] Todos los objetivos interactivos miden al menos 44 × 44 px a 360 y 1280 px (AUD-02-010).
-- [ ] Sin desplazamiento horizontal a 320 px ni pérdida de contenido al 400 % de zoom.
-- [ ] El sitio se recorre completo con teclado (medido) y con lector de pantalla (fase B, declarado por el desarrollador).
-- [ ] AUD-01-020 resuelto con la decisión del desarrollador.
-- [ ] AUD-02-005 y AUD-02-008 actualizados con los resultados de la fase B.
-- [ ] Accesibilidad 100 en Lighthouse (mediana de tres, móvil).
-- [ ] `evidencia-04-03-fase-b.md` completa y bitácora 04-03 creada.
+- [ ] Todo texto cumple WCAG 2.2 AA (4,5:1 o 3:1 según el tamaño), medido en ambos modos. **Sin marcar:** medido, 0 de 532 mediciones bajo AA contra el fondo de las bandas y 0 de 116 en hover, pero con los píxeles reales del patrón de puntos de Talleres el texto `--muted` baja hasta 3,31:1 en el 0,02 a 1,7 % de sus píxeles (decisión del desarrollador: solo anotarlo; falta que decida si el criterio se reformula). Detalle en la bitácora.
+- [x] Los bordes de componentes con `--line-strong` cumplen 3:1 en ambos modos, con el valor aprobado (claro `.65`, oscuro `.50`) y `DESIGN.md` §2.2 actualizado (AUD-02-009). Medido: mínimo 3,32:1 en los dos modos.
+- [x] Todos los objetivos interactivos miden al menos 44 × 44 px a 360 y 1280 px (AUD-02-010). Medido a 320, 360, 560, 768, 1100 y 1280 px, claro y oscuro, portada y 404, y con el menú móvil abierto.
+- [x] Sin desplazamiento horizontal a 320 px ni pérdida de contenido al 400 % de zoom. Medido: 0 px de desborde a 320, 360, 640 y 1280 px; ningún elemento se extiende fuera del viewport; el recorrido por teclado a 320 × 225 px (400 %) no deja el foco bajo el header.
+- [ ] El sitio se recorre completo con teclado (medido) y con lector de pantalla (fase B, declarado por el desarrollador). **Sin marcar:** el teclado está medido; falta el lector de pantalla (fase B).
+- [x] AUD-01-020 resuelto con la decisión del desarrollador (se mantiene el alt «Logotipo de Pulso Devs» en el hero, con un campo propio de `comunidad.js`).
+- [ ] AUD-02-005 y AUD-02-008 actualizados con los resultados de la fase B. **Sin marcar:** fase B.
+- [x] Accesibilidad 100 en Lighthouse (mediana de tres, móvil). Medido: 100 en las tres corridas móviles y en las tres de escritorio, portada y 404, claro y oscuro (24 de 24 corridas, ninguna auditoría fallida). El modo oscuro de Lighthouse se forzó con una bandera de Chrome y no se verificó dentro de la herramienta.
+- [ ] `evidencia-04-03-fase-b.md` completa y bitácora 04-03 creada. **Sin marcar:** la bitácora está creada y la evidencia es una plantilla con la tabla vacía; falta la fase B.
 
 ## Fuera de alcance
 
