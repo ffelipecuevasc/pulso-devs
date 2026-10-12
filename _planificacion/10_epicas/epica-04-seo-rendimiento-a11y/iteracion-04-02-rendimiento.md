@@ -19,6 +19,7 @@ Llevar la portada a 95–100 en Lighthouse móvil con LCP, CLS e INP dentro de l
 4. **JavaScript de cliente y CSS generado:** quitar lo que no se use, sin cambiar el comportamiento.
 5. **Caché:** proponer la cabecera `Cache-Control: public, max-age=31536000, immutable` para `/_astro/*` en `public/_headers` (pendiente de `registro-log.md` §4) y medir su efecto en una segunda visita. Se aplica solo con aprobación.
 6. Documentar el presupuesto resultante: peso de la primera vista por tipo (HTML, CSS, JS, fuentes e imágenes).
+7. Eliminar `src/assets/img/pulsodevs-original.png`, que ya no se usa desde 04-01, y comprobar que no queden referencias.
 
 ## Criterios de aceptación
 

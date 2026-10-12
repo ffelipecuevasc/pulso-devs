@@ -2,9 +2,10 @@
 
 - **Iteración:** 04-01 · SEO técnico y datos estructurados
 - **Responsable:** desarrollador (el agente no hace push ni prueba en redes)
-- **Estado:** Pendiente (se completa después del push de la fase A)
+- **Estado:** Completada (2026-10-12)
+- **Fecha de los resultados:** 2026-10-12
 
-**Cómo leer la tabla.** El agente anota cada resultado recién cuando el desarrollador lo entrega. Los criterios de la fase B de `iteracion-04-01-seo-tecnico.md` no se marcan antes.
+**Cómo leer la tabla.** Todos los resultados son **declarados por el desarrollador** el 2026-10-12, con capturas revisadas por el desarrollador y su asistente. No son mediciones del agente: el agente no vio las capturas ni hizo peticiones a producción.
 
 ## Pasos
 
@@ -19,11 +20,12 @@
 
 ## Resultados
 
-| Paso | Comprobación | Resultado | Evidencia | Fecha |
-| :--- | :----------- | :-------- | :-------- | :---- |
-| 2 | `robots.txt` responde `200` con el texto esperado | | | |
-| 3 | `sitemap-index.xml` responde `200` | | | |
-| 4 | JSON-LD válido en Schema.org | | | |
-| 5 | Prueba de resultados enriquecidos de Google | | | |
-| 6 | Vista previa en WhatsApp | | | |
-| 7 | Vista previa en LinkedIn | | | |
+| N.º | Comprobación | Resultado | Evidencia | Fecha |
+| :-- | :----------- | :-------- | :-------- | :---- |
+| 1 | `https://comunidadpulso.dev/robots.txt` | Responde y muestra exactamente «User-agent: *», «Allow: /» y «Sitemap: https://comunidadpulso.dev/sitemap-index.xml» | Captura; capturas revisadas por el desarrollador y su asistente | 2026-10-12 |
+| 2 | `https://comunidadpulso.dev/sitemap-index.xml` | Responde; contiene un único `<sitemap>` con `https://comunidadpulso.dev/sitemap-0.xml` | Captura; capturas revisadas por el desarrollador y su asistente | 2026-10-12 |
+| 3 | `validator.schema.org` sobre `https://comunidadpulso.dev/` | Un solo elemento, «Organization», con **0 errores y 0 advertencias**. Campos mostrados: `@type` Organization, `name` «Comunidad Pulso Devs», `url` `https://comunidadpulso.dev/`, `logo` `https://comunidadpulso.dev/icono-192.png`, `description` (la de `seo.descripcion`) y `sameAs` con el LinkedIn de la comunidad (`https://www.linkedin.com/company/comunidad-pulso-devs/home/`) | Captura; capturas revisadas por el desarrollador y su asistente | 2026-10-12 |
+| 4 | Prueba de resultados enriquecidos de Google sobre `https://comunidadpulso.dev/` | «Rastreado correctamente el 12 oct 2026, 0:11:07» y el mensaje «No se ha detectado ningún elemento». **Interpretación aprobada por el desarrollador:** no es un fallo; esa herramienta solo muestra tipos que generan resultados visuales especiales en Google y `Organization` no es uno de ellos. **No es una validación de Google del JSON-LD:** solo indica que Google rastreó la página sin errores | Captura; capturas revisadas por el desarrollador y su asistente | 2026-10-12 |
+| 5 | Vista previa en WhatsApp | Tarjeta grande con la imagen nueva (fondo oscuro, logotipo y «Pulso Devs»), título «Comunidad Pulso Devs», descripción «Una comunidad para desarrolladores junior que quieren aprender, construir y crecer juntos. Abierta a toda» y dominio `comunidadpulso.dev`. Se ve bien. **Observación:** en la pantalla del desarrollador la descripción se corta antes de «Latinoamérica»; el desarrollador decidió no ajustar `seo.descripcionOg` | Captura; capturas revisadas por el desarrollador y su asistente | 2026-10-12 |
+| 6 | Vista previa en LinkedIn | Vista previa del **compositor de publicaciones** (no una publicación ya publicada): tarjeta compacta con la imagen nueva en miniatura, el título «Comunidad Pulso Devs» y el dominio `comunidadpulso.dev`. Se ve bien. No se comprobó cómo se ve una publicación ya publicada | Captura; capturas revisadas por el desarrollador y su asistente | 2026-10-12 |
+| 7 | Ícono de la pestaña | Observado en una captura: en las capturas de `robots.txt` y del sitemap, la pestaña del navegador muestra el logotipo nuevo. **No se probó** el `apple-touch-icon` en un iPhone ni el ícono de 192 px en un teléfono | Captura; capturas revisadas por el desarrollador y su asistente | 2026-10-12 |

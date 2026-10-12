@@ -1,7 +1,7 @@
 # Iteración 04-01 · SEO técnico y datos estructurados
 
 - **Épica:** 04 · SEO, rendimiento y accesibilidad
-- **Estado:** En revisión (fase A terminada el 2026-10-12; fase B, del desarrollador, pendiente)
+- **Estado:** Terminada (2026-10-12)
 - **Rama:** `main` (RDA-015)
 - **Depende de:** 04-00
 - **RDA relacionadas:** RDA-007, RDA-009, RDA-011
@@ -30,15 +30,15 @@ Completar la información que Google y las redes necesitan para entender y mostr
 - [x] La portada de `dist/` tiene título, descripción y `canonical` absolutos; la 404 tiene `noindex` y no está en el sitemap.
 - [x] Open Graph y Twitter Card completos, con URL absolutas y la imagen nueva (`og:image:width` 1200 y `og:image:height` 630), medido en el HTML compilado.
 - [x] La imagen de vista previa pesa menos de 100 KB y fue aprobada por el desarrollador. _Medido: 25.676 B; composición A aprobada con `AskUserQuestion`._
-- [ ] El JSON-LD valida en Schema.org y en la prueba de resultados enriquecidos (evidencia del desarrollador).
-- [ ] La vista previa al compartir en WhatsApp y LinkedIn se ve bien (captura del desarrollador).
-- [ ] `robots.txt` y `sitemap-index.xml` responden `200` en producción tras el push (verificación de solo lectura).
+- [x] El JSON-LD valida en Schema.org (0 errores y 0 advertencias) y Google rastrea la página sin errores; la prueba de resultados enriquecidos no detecta elementos porque Organization no es un tipo que esa herramienta muestre (evidencia del desarrollador). _Criterio reformulado por decisión del desarrollador (2026-10-12); la redacción original está en la bitácora 04-01. Declarado por el desarrollador, 2026-10-12 (evidencia de la fase B, puntos 3 y 4)._
+- [x] La vista previa al compartir en WhatsApp y LinkedIn se ve bien (captura del desarrollador). _Declarado por el desarrollador, 2026-10-12 (puntos 5 y 6): en WhatsApp la descripción se corta antes de «Latinoamérica» en su pantalla; en LinkedIn es la vista previa del compositor, no una publicación ya publicada._
+- [x] `robots.txt` y `sitemap-index.xml` responden `200` en producción tras el push (verificación de solo lectura). _Declarado por el desarrollador, 2026-10-12 (puntos 1 y 2): ambos responden y muestran el contenido esperado en el navegador; el agente no midió el código de estado._
 - [x] Los íconos de 32, 192 y 180 px y el favicon existen en `dist/` y están enlazados en el `<head>`.
 - [x] SEO 100 en Lighthouse (mediana de tres, móvil). _Medido en `pnpm preview`: 100, 100 y 100._
 - [x] Sin desbordes a 320, 360 y 1280 px, claro y oscuro; `pnpm check` y `pnpm build` sin errores; sin `PENDIENTE_DATO`.
 - [x] Bitácora 04-01 creada.
 
-Los tres criterios sin marcar son de la fase B: se marcan cuando el desarrollador entregue sus resultados (`evidencia-04-01-fase-b.md`).
+Los tres criterios de la fase B se marcaron el 2026-10-12 con los resultados declarados por el desarrollador (`evidencia-04-01-fase-b.md`); no son mediciones del agente.
 
 ## Fuera de alcance
 

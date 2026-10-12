@@ -22,7 +22,7 @@
 | Iteración | Nombre                               | Estado    | Depende de          |
 | :-------- | :----------------------------------- | :-------- | :------------------ |
 | 04-00     | Pulido del interruptor de tema       | Terminada (2026-10-12) | Épica 03 terminada  |
-| 04-01     | SEO técnico y datos estructurados    | En revisión | 04-00               |
+| 04-01     | SEO técnico y datos estructurados    | Terminada (2026-10-12) | 04-00               |
 | 04-02     | Rendimiento e imágenes               | Pendiente | 04-01               |
 | 04-03     | Accesibilidad y verificación cruzada | Pendiente | 04-02               |
 
