@@ -53,7 +53,7 @@ Se suman los límites que ya existían: LCP < 2,5 s, CLS < 0,05 e INP < 200 ms. 
 ## Fuera de alcance
 
 - Cambios de diseño para ganar puntos de Lighthouse sin aprobación.
-- Política `Content-Security-Policy` (05-01).
+- Política `Content-Security-Policy` (05-02).
 
 ## Datos requeridos del desarrollador
 

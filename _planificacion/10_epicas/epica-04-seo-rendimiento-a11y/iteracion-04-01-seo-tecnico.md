@@ -14,7 +14,7 @@ Completar la información que Google y las redes necesitan para entender y mostr
 ## Decisiones del desarrollador (2026-10-11)
 
 1. La imagen de vista previa de 1200 × 630 px se hace en esta iteración (antes figuraba en 04-02 según AUD-01-014).
-2. La política `Content-Security-Policy` completa **no** va aquí: pasa a 05-01.
+2. La política `Content-Security-Policy` completa **no** va aquí: pasa a 05-02.
 3. LinkedIn es la única red de la comunidad (03-02 `Descartada`).
 
 ## Tareas
@@ -43,7 +43,7 @@ Los tres criterios de la fase B se marcaron el 2026-10-12 con los resultados dec
 ## Fuera de alcance
 
 - Campañas, backlinks y posicionamiento por palabras clave.
-- Política `Content-Security-Policy` completa (05-01).
+- Política `Content-Security-Policy` completa (05-02).
 - Search Console y Web Analytics (05-01).
 
 ## Datos requeridos del desarrollador
