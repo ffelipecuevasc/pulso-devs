@@ -1,7 +1,7 @@
 # Iteración 04-00 · Pulido del interruptor de tema
 
 - **Épica:** 04 · SEO, rendimiento y accesibilidad
-- **Estado:** En revisión
+- **Estado:** Terminada (2026-10-12)
 - **Rama:** `main` (RDA-015)
 - **Depende de:** Épica 03 terminada
 - **RDA relacionadas:** RDA-016 (la transición de 1 s no cambia)
@@ -11,16 +11,16 @@
 
 Que el interruptor de tema se vea centrado al píxel en escritorio y tenga un área táctil de al menos 44 × 44 px, sin cambiar su forma de píldora ni su aspecto.
 
-## Contexto (diagnóstico del 2026-10-11, leído en el código)
+## Contexto (diagnóstico del 2026-10-11, corregido con las cifras medidas)
 
-El desarrollador observó en su computador (1 píxel físico por píxel CSS) que la perilla y los íconos no están alineados; en su teléfono (Galaxy A52+, unos 2,6 píxeles físicos por píxel CSS) el defecto casi no se nota. Causa en `src/styles/global.css` (`.theme-toggle__*`):
+El desarrollador observó en su computador (1 píxel físico por píxel CSS) que la perilla y los íconos no están alineados; en su teléfono (Galaxy A52+, unos 2,6 píxeles físicos por píxel CSS) el defecto casi no se nota. Causa en `src/styles/global.css` (`.theme-toggle__*`), con las cifras **medidas** al empezar la iteración (el diagnóstico original, leído en el código, está en la bitácora 04-00):
 
-- La pista mide 56 × 32 px con un borde de **1,5 px**: el interior queda en 53 × 29 px.
-- La perilla (24 px) está a `top: 2px` y `left: 2px`: queda a 2 px arriba y 3 px abajo y, en modo oscuro (`translateX(1.5rem)`), a 3 px de la derecha frente a 2 px de la izquierda.
-- Los íconos se ubican con `padding: 0 .3rem` y `justify-content: space-between`, no según la perilla: el centro del sol queda 1,2 px corrido y el de la luna 2,2 px.
+- La pista mide 56 × 32 px con un borde que la hoja declara de 1,5 px y que Chrome calcula en **1 px**: el interior queda en 54 × 30 px.
+- La perilla (24 px) está a `top: 2px` y `left: 2px`: queda a 2 px arriba y **4 px** abajo y, en modo oscuro (`translateX(1.5rem)`), a **4 px** de la derecha frente a 2 px de la izquierda.
+- Los íconos se ubican con `padding: 0 .3rem` y `justify-content: space-between`, no según la perilla: el centro del sol queda **1,2 px** corrido a la izquierda y el de la luna **3,2 px** corrido a la derecha, y ambos **1 px** más abajo que el centro de la perilla.
 - El interruptor mide 56 × 32 px, bajo los 44 × 44 px de `DESIGN.md` §9 (AUD-02-010).
 
-Estas cifras salen del código y se confirman midiendo al empezar (tarea 1).
+Estas cifras se midieron al empezar (tarea 1) y reemplazan a las del diagnóstico original, que salían del código.
 
 ## Decisiones del desarrollador (2026-10-11)
 
@@ -46,7 +46,7 @@ Estas cifras salen del código y se confirman midiendo al empezar (tarea 1).
 - [x] El centro del efecto de cambio de tema sigue en el centro visual del interruptor (medido con `--vt-x` y `--vt-y`).
 - [x] Sin desbordes horizontales a 320, 360 y 1280 px, en claro y oscuro.
 - [x] Capturas de antes y después a 1× (1280 px) y 360 px, en claro y oscuro, revisadas.
-- [ ] Revisión visual en el computador del desarrollador (declarado por el desarrollador).
+- [x] Revisión visual en el computador del desarrollador (declarado por el desarrollador, 2026-10-12; no es una medición).
 - [x] `pnpm format:check`, `pnpm check` y `pnpm build` sin errores; `package.json` y `pnpm-lock.yaml` sin cambios.
 - [x] Bitácora 04-00 creada.
 
