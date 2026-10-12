@@ -29,7 +29,7 @@ Verificar con mediciones y dispositivos reales lo que hasta ahora solo se revis�
 
 ## Criterios de aceptación
 
-- [ ] Todo texto cumple WCAG 2.2 AA (4,5:1 o 3:1 según el tamaño), medido en ambos modos. **Sin marcar:** medido, 0 de 532 mediciones bajo AA contra el fondo de las bandas y 0 de 116 en hover, pero con los píxeles reales del patrón de puntos de Talleres el texto `--muted` baja hasta 3,31:1 en el 0,02 a 1,7 % de sus píxeles (decisión del desarrollador: solo anotarlo; falta que decida si el criterio se reformula). Detalle en la bitácora.
+- [x] Todo texto cumple WCAG 2.2 AA (4,5:1 o 3:1 según el tamaño), medido en ambos modos contra el color de fondo real de cada sección y de cada banda (los extremos de su degradado). El patrón de puntos decorativo de las bandas no se cuenta; su efecto medido sobre el texto de Talleres queda en la bitácora 04-03. *(Criterio reformulado con el texto aprobado por el desarrollador el 2026-10-12; la redacción original y la medición están en la bitácora 04-03. Medido: 0 de 532 mediciones en reposo y 0 de 116 en hover bajo AA.)*
 - [x] Los bordes de componentes con `--line-strong` cumplen 3:1 en ambos modos, con el valor aprobado (claro `.65`, oscuro `.50`) y `DESIGN.md` §2.2 actualizado (AUD-02-009). Medido: mínimo 3,32:1 en los dos modos.
 - [x] Todos los objetivos interactivos miden al menos 44 × 44 px a 360 y 1280 px (AUD-02-010). Medido a 320, 360, 560, 768, 1100 y 1280 px, claro y oscuro, portada y 404, y con el menú móvil abierto.
 - [x] Sin desplazamiento horizontal a 320 px ni pérdida de contenido al 400 % de zoom. Medido: 0 px de desborde a 320, 360, 640 y 1280 px; ningún elemento se extiende fuera del viewport; el recorrido por teclado a 320 × 225 px (400 %) no deja el foco bajo el header.
