@@ -1,7 +1,7 @@
 # Iteración 04-02 · Rendimiento e imágenes
 
 - **Épica:** 04 · SEO, rendimiento y accesibilidad
-- **Estado:** Pendiente
+- **Estado:** En curso
 - **Rama:** `main` (RDA-015)
 - **Depende de:** 04-01
 - **RDA relacionadas:** RDA-001, RDA-003, RDA-004

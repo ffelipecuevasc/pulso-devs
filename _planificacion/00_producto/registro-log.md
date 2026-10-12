@@ -3,7 +3,7 @@
 **Fuente única de verdad del trabajo pendiente.** Si discrepa con `_planificacion/README.md` o con cualquier otro documento de planificación, prevalece este archivo.
 
 - **Última actualización:** 2026-10-12
-- **Iteración activa:** ninguna. **04-01 quedó `Terminada` el 2026-10-12.** Siguiente: **04-02**, no iniciada, a la espera de que el desarrollador lo indique. La Épica 04 está `En curso`. **04-00 quedó `Terminada` el 2026-10-12.** **La Épica 03 quedó Terminada el 2026-10-11** (criterios en §5): 03-01 `Terminada` y 03-02 `Descartada` (no hay otras redes). La Épica 02 quedó Terminada el 2026-10-11 y la Épica 01 el 2026-10-10.
+- **Iteración activa:** **04-02** (Rendimiento e imágenes), `En curso` desde el 2026-10-12. **04-01 quedó `Terminada` el 2026-10-12.** La Épica 04 está `En curso`. **04-00 quedó `Terminada` el 2026-10-12.** **La Épica 03 quedó Terminada el 2026-10-11** (criterios en §5): 03-01 `Terminada` y 03-02 `Descartada` (no hay otras redes). La Épica 02 quedó Terminada el 2026-10-11 y la Épica 01 el 2026-10-10.
 - **Prototipo de referencia:** commit `d60c55e`. La transición de cambio de tema **no** existe en el prototipo: se implementa directamente en Astro en 02-03.
 - **Próximo hito:** hitos 1, 2 y 3 cumplidos (sitio migrado a Astro 7 y Tailwind 4, desplegado en `https://comunidadpulso.dev` con Workers Builds y ajustes estéticos de la Épica 02) y contenido revisado (Épica 03). Sigue la Épica 04 (SEO, rendimiento y accesibilidad), `En curso`, que sigue con la iteración **04-02** (04-00 y 04-01 quedaron `Terminada`), a la espera de que el desarrollador lo indique. El hito 4 (navegación multipágina, Épica 06) se evalúa después.
 - **Alcance del sitio:** una sola página (One Page) con secciones ancladas (RDA-011).
@@ -31,7 +31,7 @@
 | 03-02     | Otras redes de la comunidad (LinkedIn ya migra en 01-04)     | 03    | Descartada (2026-10-11) | 03-01 y la definición de otras redes | [bitacora-03-02-2026-10-11](../99_bitacora/bitacora-03-02-2026-10-11.md) |
 | 04-00     | Pulido del interruptor de tema                               | 04    | Terminada (2026-10-12) | Épica 03 terminada | [bitacora-04-00-2026-10-11](../99_bitacora/bitacora-04-00-2026-10-11.md) |
 | 04-01     | SEO técnico y datos estructurados                            | 04    | Terminada (2026-10-12) | 04-00      | [bitacora-04-01-2026-10-12](../99_bitacora/bitacora-04-01-2026-10-12.md) · [evidencia fase B](../10_epicas/epica-04-seo-rendimiento-a11y/evidencia-04-01-fase-b.md) |
-| 04-02     | Rendimiento e imágenes                                       | 04    | Pendiente | 04-01      | — |
+| 04-02     | Rendimiento e imágenes                                       | 04    | En curso  | 04-01      | — |
 | 04-03     | Accesibilidad y verificación cruzada                         | 04    | Pendiente | 04-02      | — |
 | 05-01     | Medición: Cloudflare Web Analytics y Search Console          | 05    | Pendiente | 04-03      | — |
 | 05-02     | Verificación final en producción                             | 05    | Pendiente | 05-01      | — |

@@ -23,7 +23,7 @@
 | :-------- | :----------------------------------- | :-------- | :------------------ |
 | 04-00     | Pulido del interruptor de tema       | Terminada (2026-10-12) | Épica 03 terminada  |
 | 04-01     | SEO técnico y datos estructurados    | Terminada (2026-10-12) | 04-00               |
-| 04-02     | Rendimiento e imágenes               | Pendiente | 04-01               |
+| 04-02     | Rendimiento e imágenes               | En curso  | 04-01               |
 | 04-03     | Accesibilidad y verificación cruzada | Pendiente | 04-02               |
 
 **Orden de ejecución:** 04-00, 04-01, 04-02 y 04-03, con parada al final de cada una. 04-03 tiene fase A (agente) y fase B (desarrollador).
