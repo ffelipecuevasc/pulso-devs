@@ -1,6 +1,6 @@
 # Épica 04 · SEO, rendimiento y accesibilidad
 
-- **Estado:** Pendiente
+- **Estado:** En curso
 - **Objetivo:** que el sitio se pueda encontrar, cargue rápido y sea usable por cualquier persona.
 - **Última revisión:** 2026-10-11, al cerrar la Épica 03
 
