@@ -1,28 +1,48 @@
 # Épica 05 · Publicación y medición
 
 - **Estado:** Pendiente
-- **Objetivo:** medir las visitas y la visibilidad en Google, y verificar el sitio completo en producción.
+- **Depende de:** Épica 04 terminada
+- **Objetivo:** decidir con mediciones si se mantiene Cloudflare Web Analytics, medir la visibilidad en Google, endurecer la seguridad con una política `Content-Security-Policy` y verificar el sitio completo en `https://comunidadpulso.dev`.
+
+## Contexto (desde la Épica 04)
+
+- Cloudflare Web Analytics **ya está activo en producción**: Cloudflare inyecta el script en el borde. El build local no tiene terceros. Está registrado en `registro-log.md` §4 y RDA-010 sigue «Propuesta».
+- La política `Content-Security-Policy` hoy es solo `frame-ancestors 'none'` en `public/_headers`. Se completa en esta épica (decisión del desarrollador, 2026-10-11).
+- Los hallazgos AUD-02-005 y AUD-02-008 (transición de tema y clics durante el efecto) quedaron «Parcial: verificados en Chrome y Firefox; falta Safari».
 
 ## Alcance
 
-1. Cloudflare Web Analytics, con su efecto medido (RDA-010).
-2. Google Search Console: propiedad verificada, sitemap enviado y páginas indexadas.
-3. Verificación final del sitio en `https://comunidadpulso.dev`.
+1. Cloudflare Web Analytics: decidir RDA-010 comparando la producción con y sin el script (05-01).
+2. Google Search Console: propiedad verificada, sitemap enviado y estado de indexación registrado (05-01).
+3. Política `Content-Security-Policy` completa, probada primero en modo solo informe y luego aplicada (05-02).
+4. Verificación final del sitio en producción y cierre del ciclo inicial (05-03).
 
 ## Iteraciones
 
-| Iteración | Nombre                                                 |
-| :-------- | :----------------------------------------------------- |
-| 05-01     | Medición: Cloudflare Web Analytics y Search Console    |
-| 05-02     | Verificación final en producción                       |
+| Iteración | Nombre                                               | Depende de |
+| :-------- | :--------------------------------------------------- | :--------- |
+| 05-01     | Medición: Cloudflare Web Analytics y Search Console  | 04-03      |
+| 05-02     | Política Content-Security-Policy                     | 05-01      |
+| 05-03     | Verificación final en producción                     | 05-02      |
+
+## Decisiones del desarrollador (2026-10-12)
+
+- La CSP tiene iteración propia, porque puede romper el sitio y depende de la decisión sobre RDA-010.
+- El costo de Web Analytics se mide comparando la producción **con y sin** el script (el desarrollador desactiva y reactiva la inyección automática en el panel de Cloudflare).
+- **Safari, iPhone y VoiceOver: riesgo aceptado.** No hay equipo Apple. Los hallazgos que dependen de ellos se cierran en 05-03 como «no verificado, riesgo aceptado por el desarrollador», con fecha.
+- La indexación en Google se **registra con fecha** y no se exige para cerrar la épica. Si pasan 14 días desde el envío del sitemap sin indexar, se abre un seguimiento aparte.
+- Las mediciones de Lighthouse usan la **mediana de cinco corridas alternadas** (decisión de 04-02).
 
 ## Fuera de alcance
 
 - Medir clics en el botón de WhatsApp (requiere una RDA nueva).
 - Google Ads, Google Analytics y Google Tag Manager.
+- Nuevas funciones: entran como épicas o iteraciones nuevas.
 
 ## Criterio de término
 
-- RDA-010 aceptada o descartada con mediciones.
-- Search Console con la propiedad verificada y el sitemap procesado.
+- RDA-010 «Aceptada» o «Descartada», con mediciones con y sin el script.
+- Search Console con la propiedad verificada, el sitemap procesado y el estado de indexación registrado con fecha.
+- Política `Content-Security-Policy` aplicada, sin violaciones en consola y con Lighthouse sin regresiones.
 - El sitio en producción cumple los criterios de la Épica 04.
+- Sin hallazgos abiertos de severidad Alta; los que no se pudieron verificar quedan como «riesgo aceptado» con fecha.
