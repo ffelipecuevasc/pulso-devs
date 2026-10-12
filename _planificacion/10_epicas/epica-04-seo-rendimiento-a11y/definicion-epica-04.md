@@ -1,8 +1,8 @@
 # Épica 04 · SEO, rendimiento y accesibilidad
 
-- **Estado:** En curso
+- **Estado:** Terminada (2026-10-12)
 - **Objetivo:** que el sitio se pueda encontrar, cargue rápido y sea usable por cualquier persona.
-- **Última revisión:** 2026-10-11, al cerrar la Épica 03
+- **Última revisión:** 2026-10-12, al cerrar la Épica 04
 
 ## Decisiones del desarrollador (2026-10-11)
 
@@ -24,7 +24,7 @@
 | 04-00     | Pulido del interruptor de tema       | Terminada (2026-10-12) | Épica 03 terminada  |
 | 04-01     | SEO técnico y datos estructurados    | Terminada (2026-10-12) | 04-00               |
 | 04-02     | Rendimiento e imágenes               | Terminada (2026-10-12) | 04-01  |
-| 04-03     | Accesibilidad y verificación cruzada | En revisión (fase A entregada 2026-10-12; fase B pendiente) | 04-02               |
+| 04-03     | Accesibilidad y verificación cruzada | Terminada (2026-10-12) | 04-02               |
 
 **Orden de ejecución:** 04-00, 04-01, 04-02 y 04-03, con parada al final de cada una. 04-03 tiene fase A (agente) y fase B (desarrollador).
 
