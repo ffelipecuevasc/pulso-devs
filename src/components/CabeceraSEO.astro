@@ -1,11 +1,12 @@
 ---
 import { comunidad } from '../data/comunidad.js';
-import imagenSocial from '../assets/img/pulsodevs-original.png';
-import favicon from '../assets/img/pulsodevs-small.png';
+import imagenSocial from '../assets/img/pulsodevs-vista-previa.png';
 
 /**
- * Metadatos de la página: título, descripción, canonical, Open Graph y Twitter Card.
- * Todas las URL son absolutas y salen de `site` (astro.config.mjs). El JSON-LD llega en 04-01.
+ * Metadatos de la página: título, descripción, canonical, Open Graph, Twitter Card, íconos y,
+ * solo en la portada, el JSON-LD de `Organization`. Todas las URL de metadatos son absolutas y
+ * salen de `site` (astro.config.mjs). Los íconos son archivos de `public/` derivados del
+ * logotipo oficial.
  *
  * @typedef {object} Props
  * @property {string} [titulo] Título de la página. Por defecto, el de la portada.
@@ -23,6 +24,20 @@ const {
 const sitio = Astro.site ?? new URL(comunidad.url);
 const urlCanonica = new URL(Astro.url.pathname, sitio).href;
 const urlImagen = new URL(imagenSocial.src, sitio).href;
+
+// Datos estructurados de la portada: solo valores de comunidad.js, sin el fundador (RDA-009).
+const organizacion =
+  Astro.url.pathname === '/'
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'Organization',
+        name: comunidad.nombre,
+        url: new URL('/', sitio).href,
+        logo: new URL('/icono-192.png', sitio).href,
+        description: comunidad.seo.descripcion,
+        sameAs: [comunidad.redes.linkedin],
+      }
+    : null;
 ---
 
 <title>{titulo}</title>
@@ -43,10 +58,21 @@ const urlImagen = new URL(imagenSocial.src, sitio).href;
 <meta property="og:image:width" content={String(imagenSocial.width)} />
 <meta property="og:image:height" content={String(imagenSocial.height)} />
 
-<meta name="twitter:card" content="summary" />
+<meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={noindex ? titulo : comunidad.nombre} />
 <meta name="twitter:description" content={noindex ? descripcion : comunidad.seo.descripcionOg} />
 <meta name="twitter:image" content={urlImagen} />
 <meta name="twitter:image:alt" content={comunidad.seo.textoAltImagen} />
 
-<link rel="icon" type="image/png" href={favicon.src} />
+<link rel="icon" href="/favicon.ico" sizes="32x32" />
+<link rel="icon" type="image/png" sizes="32x32" href="/icono-32.png" />
+<link rel="icon" type="image/png" sizes="192x192" href="/icono-192.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+{organizacion && (
+  <script
+    is:inline
+    type="application/ld+json"
+    set:html={JSON.stringify(organizacion).replace(/</g, '\\u003c')}
+  />
+)}

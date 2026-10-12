@@ -54,7 +54,7 @@ Todo el proceso está conectado a este repositorio de GitHub: cada cambio que ll
 ```text
 pulso-devs/
 ├── src/              Código del sitio (páginas, componentes, estilos y datos)
-├── public/           Archivos que se publican tal cual (hoy, solo `_headers`)
+├── public/           Archivos que se publican tal cual (`_headers`, `robots.txt` y los íconos del sitio)
 ├── _planificacion/   Documentación del proyecto: épicas, decisiones y bitácoras
 ├── AGENTS.md         Reglas para los agentes de IA que colaboran en el código
 └── DESIGN.md         Sistema de diseño: colores, tipografías y componentes

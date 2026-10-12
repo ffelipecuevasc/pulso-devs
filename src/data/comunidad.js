@@ -29,7 +29,7 @@ export const comunidad = {
       'Pulso Devs es una comunidad latinoamericana para desarrolladores junior de frontend, backend, fullstack e ingeniería de IA. Talleres gratuitos en vivo, apoyo para tus proyectos y oportunidades para crecer.',
     descripcionOg:
       'Una comunidad para desarrolladores junior que quieren aprender, construir y crecer juntos. Abierta a toda Latinoamérica.',
-    textoAltImagen: 'Logotipo de Pulso Devs',
+    textoAltImagen: 'Logotipo y nombre de Pulso Devs',
     colorTema: '#FFFFFF',
     colorTemaOscuro: '#00131D',
   },

@@ -1,7 +1,7 @@
 # Iteración 04-01 · SEO técnico y datos estructurados
 
 - **Épica:** 04 · SEO, rendimiento y accesibilidad
-- **Estado:** Pendiente
+- **Estado:** En revisión (fase A terminada el 2026-10-12; fase B, del desarrollador, pendiente)
 - **Rama:** `main` (RDA-015)
 - **Depende de:** 04-00
 - **RDA relacionadas:** RDA-007, RDA-009, RDA-011
@@ -27,16 +27,18 @@ Completar la información que Google y las redes necesitan para entender y mostr
 
 ## Criterios de aceptación
 
-- [ ] La portada de `dist/` tiene título, descripción y `canonical` absolutos; la 404 tiene `noindex` y no está en el sitemap.
-- [ ] Open Graph y Twitter Card completos, con URL absolutas y la imagen nueva (`og:image:width` 1200 y `og:image:height` 630), medido en el HTML compilado.
-- [ ] La imagen de vista previa pesa menos de 100 KB y fue aprobada por el desarrollador.
+- [x] La portada de `dist/` tiene título, descripción y `canonical` absolutos; la 404 tiene `noindex` y no está en el sitemap.
+- [x] Open Graph y Twitter Card completos, con URL absolutas y la imagen nueva (`og:image:width` 1200 y `og:image:height` 630), medido en el HTML compilado.
+- [x] La imagen de vista previa pesa menos de 100 KB y fue aprobada por el desarrollador. _Medido: 25.676 B; composición A aprobada con `AskUserQuestion`._
 - [ ] El JSON-LD valida en Schema.org y en la prueba de resultados enriquecidos (evidencia del desarrollador).
 - [ ] La vista previa al compartir en WhatsApp y LinkedIn se ve bien (captura del desarrollador).
 - [ ] `robots.txt` y `sitemap-index.xml` responden `200` en producción tras el push (verificación de solo lectura).
-- [ ] Los íconos de 32, 192 y 180 px y el favicon existen en `dist/` y están enlazados en el `<head>`.
-- [ ] SEO 100 en Lighthouse (mediana de tres, móvil).
-- [ ] Sin desbordes a 320, 360 y 1280 px, claro y oscuro; `pnpm check` y `pnpm build` sin errores; sin `PENDIENTE_DATO`.
-- [ ] Bitácora 04-01 creada.
+- [x] Los íconos de 32, 192 y 180 px y el favicon existen en `dist/` y están enlazados en el `<head>`.
+- [x] SEO 100 en Lighthouse (mediana de tres, móvil). _Medido en `pnpm preview`: 100, 100 y 100._
+- [x] Sin desbordes a 320, 360 y 1280 px, claro y oscuro; `pnpm check` y `pnpm build` sin errores; sin `PENDIENTE_DATO`.
+- [x] Bitácora 04-01 creada.
+
+Los tres criterios sin marcar son de la fase B: se marcan cuando el desarrollador entregue sus resultados (`evidencia-04-01-fase-b.md`).
 
 ## Fuera de alcance
 

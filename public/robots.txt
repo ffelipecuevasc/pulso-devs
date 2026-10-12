@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://comunidadpulso.dev/sitemap-index.xml
