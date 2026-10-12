@@ -25,7 +25,7 @@ Llevar la portada a 95–100 en Lighthouse móvil con LCP, CLS e INP dentro de l
 
 - [ ] Lighthouse móvil, mediana de tres: 95 o más en las cuatro categorías, en la portada.
 - [ ] LCP < 2,5 s, CLS < 0,05 e INP < 200 ms (INP medido con una interacción real, por ejemplo el interruptor de tema).
-- [ ] Sin peticiones a terceros en la carga.
+- [x] Sin peticiones a terceros en la carga del build; en producción, Cloudflare agrega 1 petición (Web Analytics automático, static.cloudflareinsights.com, no está en el repositorio ni en dist/) y su decisión queda en 05-01 (RDA-010).
 - [ ] Decisión sobre los PNG de respaldo del hero y sobre `Cache-Control` registrada (aplicada y medida, o descartada).
 - [ ] Antes y después registrados en la bitácora, con el presupuesto de la primera vista.
 - [ ] Sin desbordes a 320, 360 y 1280 px, claro y oscuro; `package.json` y `pnpm-lock.yaml` sin dependencias nuevas.

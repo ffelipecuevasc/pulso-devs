@@ -45,7 +45,8 @@ const [antes, despues] = comunidad.eslogan.split('pulso');
           height={logo.height}
           widths={[200, 400]}
           sizes="clamp(5rem, 15vw, 12.5rem)"
-          formats={['avif', 'webp']}
+          formats={['avif']}
+          fallbackFormat="webp"
           priority
         />
       </span>

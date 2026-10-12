@@ -5,7 +5,7 @@
 - **Rama:** `main` (RDA-015)
 - **Depende de:** 04-02
 - **RDA relacionadas:** RDA-016
-- **Hallazgos que cierra:** AUD-01-015, AUD-01-020, AUD-02-009, AUD-02-010 (el resto, tras 04-00). Actualiza AUD-02-005 y AUD-02-008 (siguen abiertos hasta 05-02 si falta algún navegador).
+- **Hallazgos que cierra:** AUD-01-015, AUD-01-020, AUD-02-009, AUD-02-010 (el resto, tras 04-00), AUD-02-011. Actualiza AUD-02-005 y AUD-02-008 (siguen abiertos hasta 05-02 si falta algún navegador).
 
 ## Objetivo
 
