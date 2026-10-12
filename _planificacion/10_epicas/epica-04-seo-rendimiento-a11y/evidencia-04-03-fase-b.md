@@ -133,7 +133,7 @@ Equipo y versión de Chrome: Samsung Galaxy A52 / Chrome 154. Android: declarado
 ## Qué cierra cada resultado
 
 - **Bloques A y B** (AUD-01-015, AUD-01-020, AUD-02-011): completan el criterio de lector de pantalla de 04-03. Si todo pasa, AUD-01-015 deja de ser parcial.
-- **C1, C2, D1, D2 y D8** (AUD-02-005 y AUD-02-008): actualizan el estado de esos dos hallazgos. Siguen abiertos hasta 05-02 si falta algún navegador (por ejemplo Safari).
+- **C1, C2, D1, D2 y D8** (AUD-02-005 y AUD-02-008): actualizan el estado de esos dos hallazgos. Siguen abiertos hasta 05-03 (riesgo aceptado por el desarrollador, 2026-10-12) si falta algún navegador (por ejemplo Safari).
 - **C1.6, C2.6, D3 a D6** (AUD-02-009 y AUD-02-010): revisión visual y táctil de los cambios de la fase A; no son criterios de aceptación.
 
 ## Resultados declarados por el desarrollador
@@ -149,4 +149,4 @@ Equipo y versión de Chrome: Samsung Galaxy A52 / Chrome 154. Android: declarado
     - La verificación táctil y la respuesta a tipografía máxima en móvil cumplen con los criterios de accesibilidad sin desbordamientos de pantalla.
     - Las comprobaciones dependientes de Safari/WebKit en entorno Apple (C2 y D8) quedan declaradas como `No probado` para su seguimiento posterior.
 
-**Nota del agente (2026-10-12).** Los resultados de las tablas y esta sección son los que entregó el desarrollador, incorporados tal cual como **declarados por el desarrollador** el 2026-10-12; el agente no repitió ninguna de estas pruebas. Correcciones del desarrollador aplicadas después de entregarlos: las versiones de los encabezados de los bloques A, B, C1 y D (Chrome 154, Firefox 155, NVDA 2026.2 / 2026.3 y TalkBack 16; Windows 11, Galaxy A52 y Android 14 sin corregir, «Android: declarado sin cambios») y la observación de C1.1 (el cambio de tema en Firefox es el círculo que crece, igual que en Chrome). Safari (C2.1 a C2.6) y iPhone (D8) quedan **No probado**, por falta de equipo Apple; se trasladan a 05-02. Decisión de cierre del desarrollador: cerrar 04-03 y dejar Safari para 05-02.
+**Nota del agente (2026-10-12).** Los resultados de las tablas y esta sección son los que entregó el desarrollador, incorporados tal cual como **declarados por el desarrollador** el 2026-10-12; el agente no repitió ninguna de estas pruebas. Correcciones del desarrollador aplicadas después de entregarlos: las versiones de los encabezados de los bloques A, B, C1 y D (Chrome 154, Firefox 155, NVDA 2026.2 / 2026.3 y TalkBack 16; Windows 11, Galaxy A52 y Android 14 sin corregir, «Android: declarado sin cambios») y la observación de C1.1 (el cambio de tema en Firefox es el círculo que crece, igual que en Chrome). Safari (C2.1 a C2.6) y iPhone (D8) quedan **No probado**, por falta de equipo Apple; se trasladan a 05-03, riesgo aceptado por el desarrollador (2026-10-12). Decisión de cierre del desarrollador: cerrar 04-03 y dejar Safari para 05-03, riesgo aceptado por el desarrollador (2026-10-12).

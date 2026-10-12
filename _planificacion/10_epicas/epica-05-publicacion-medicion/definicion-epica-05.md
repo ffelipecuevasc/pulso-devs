@@ -29,7 +29,7 @@
 
 - La CSP tiene iteración propia, porque puede romper el sitio y depende de la decisión sobre RDA-010.
 - El costo de Web Analytics se mide comparando la producción **con y sin** el script (el desarrollador desactiva y reactiva la inyección automática en el panel de Cloudflare).
-- **Safari, iPhone y VoiceOver: riesgo aceptado.** No hay equipo Apple. Los hallazgos que dependen de ellos se cierran en 05-03 como «no verificado, riesgo aceptado por el desarrollador», con fecha.
+- **Safari, iPhone, VoiceOver, Narrador de Windows y `apple-touch-icon`: riesgo aceptado.** No hay equipo Apple. Los hallazgos que dependen de ellos se cierran en 05-03 como «no verificado, riesgo aceptado por el desarrollador», con fecha.
 - La indexación en Google se **registra con fecha** y no se exige para cerrar la épica. Si pasan 14 días desde el envío del sitemap sin indexar, se abre un seguimiento aparte.
 - Las mediciones de Lighthouse usan la **mediana de cinco corridas alternadas** (decisión de 04-02).
 

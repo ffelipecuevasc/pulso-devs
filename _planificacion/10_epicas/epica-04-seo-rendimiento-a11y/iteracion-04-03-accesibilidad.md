@@ -5,7 +5,7 @@
 - **Rama:** `main` (RDA-015)
 - **Depende de:** 04-02
 - **RDA relacionadas:** RDA-016
-- **Hallazgos que cierra:** AUD-01-015, AUD-01-020, AUD-02-009, AUD-02-010 (el resto, tras 04-00), AUD-02-011. Actualiza AUD-02-005 y AUD-02-008 (siguen abiertos hasta 05-02 si falta algún navegador).
+- **Hallazgos que cierra:** AUD-01-015, AUD-01-020, AUD-02-009, AUD-02-010 (el resto, tras 04-00), AUD-02-011. Actualiza AUD-02-005 y AUD-02-008 (siguen abiertos hasta 05-03 si falta algún navegador; riesgo aceptado por el desarrollador, 2026-10-12).
 
 ## Objetivo
 
@@ -35,8 +35,8 @@ Verificar con mediciones y dispositivos reales lo que hasta ahora solo se revis�
 - [x] Sin desplazamiento horizontal a 320 px ni pérdida de contenido al 400 % de zoom. Medido: 0 px de desborde a 320, 360, 640 y 1280 px; ningún elemento se extiende fuera del viewport; el recorrido por teclado a 320 × 225 px (400 %) no deja el foco bajo el header.
 - [x] El sitio se recorre completo con teclado (**medido** en la fase A: 8 combinaciones, menú móvil, 200 % y 400 %) y con lector de pantalla (fase B, **declarado por el desarrollador**, 2026-10-12): TalkBack 16 en el Galaxy A52 (A1 a A8 y A11) y NVDA 2026.2 / 2026.3 (B1 a B5 y B7 a B9), todas «Pasa»; teclado y menú móvil en Firefox 155 (C1.4 y C1.7) también «Pasa».
 - [x] AUD-01-020 resuelto con la decisión del desarrollador (se mantiene el alt «Logotipo de Pulso Devs» en el hero, con un campo propio de `comunidad.js`). Verificado con lector de pantalla, **declarado por el desarrollador** (2026-10-12): TalkBack (A2) y NVDA (B6) lo leen una sola vez.
-- [x] AUD-02-005 y AUD-02-008 actualizados con los resultados de la fase B (**declarados por el desarrollador**, 2026-10-12): verificados en Chrome y Firefox 155 y en el Galaxy A52 con Chrome 154; en AUD-02-008, en Firefox el clic dentro del segundo siguiente sí llega (C1.3) y en Chrome de escritorio se pierde ~1 s. Siguen **Parciales** (falta Safari) y se trasladan a 05-02.
-- [ ] Safari y VoiceOver (C2.1 a C2.6 y D8, AUD-02-005 y AUD-02-008): **pendiente, 05-02.** No está entre los criterios de aceptación de 04-03; queda sin marcar por decisión del desarrollador, que cierra 04-03 sin Safari.
+- [x] AUD-02-005 y AUD-02-008 actualizados con los resultados de la fase B (**declarados por el desarrollador**, 2026-10-12): verificados en Chrome y Firefox 155 y en el Galaxy A52 con Chrome 154; en AUD-02-008, en Firefox el clic dentro del segundo siguiente sí llega (C1.3) y en Chrome de escritorio se pierde ~1 s. Siguen **Parciales** (falta Safari) y se trasladan a 05-03, riesgo aceptado por el desarrollador (2026-10-12).
+- [ ] Safari y VoiceOver (C2.1 a C2.6 y D8, AUD-02-005 y AUD-02-008): **pendiente, 05-03, riesgo aceptado por el desarrollador (2026-10-12).** No está entre los criterios de aceptación de 04-03; queda sin marcar por decisión del desarrollador, que cierra 04-03 sin Safari.
 - [x] Accesibilidad 100 en Lighthouse (mediana de tres, móvil). Medido: 100 en las tres corridas móviles y en las tres de escritorio, portada y 404, claro y oscuro (24 de 24 corridas, ninguna auditoría fallida). El modo oscuro de Lighthouse se forzó con una bandera de Chrome y no se verificó dentro de la herramienta.
 - [x] `evidencia-04-03-fase-b.md` completa y bitácora 04-03 creada. La evidencia tiene todas las filas resueltas por el desarrollador (2026-10-12): 35 «Pasa» y 7 «No probado» (Safari C2.1 a C2.6 y iPhone D8, por falta de equipo Apple).
 
