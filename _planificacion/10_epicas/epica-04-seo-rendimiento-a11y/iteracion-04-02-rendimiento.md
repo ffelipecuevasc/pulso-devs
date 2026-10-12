@@ -1,7 +1,7 @@
 # Iteración 04-02 · Rendimiento e imágenes
 
 - **Épica:** 04 · SEO, rendimiento y accesibilidad
-- **Estado:** En revisión
+- **Estado:** Terminada (2026-10-12)
 - **Rama:** `main` (RDA-015)
 - **Depende de:** 04-01
 - **RDA relacionadas:** RDA-001, RDA-003, RDA-004
@@ -26,12 +26,12 @@ Llevar la portada a 95–100 en Lighthouse móvil con LCP, CLS e INP dentro de l
 - [x] Rendimiento móvil de 95 o más, mediana de cinco corridas alternadas.
 - [x] LCP < 2,5 s, CLS < 0,05 e INP < 200 ms (INP medido con una interacción real, por ejemplo el interruptor de tema).
 - [x] Sin peticiones a terceros en la carga del build; en producción, Cloudflare agrega 1 petición (Web Analytics automático, static.cloudflareinsights.com, no está en el repositorio ni en dist/) y su decisión queda en 05-01 (RDA-010).
-- [ ] Decisión sobre los PNG de respaldo del hero y sobre `Cache-Control` registrada (aplicada y medida, o descartada).
+- [x] Decisión sobre los PNG de respaldo del hero y sobre `Cache-Control` registrada (aplicada y medida, o descartada). PNG: opción B, medida en el build. `Cache-Control`: aplicada y medida en producción (2026-10-12, ver el criterio siguiente).
 - [x] Antes y después registrados en la bitácora, con el presupuesto de la primera vista.
 - [x] Sin desbordes a 320, 360 y 1280 px, claro y oscuro; `package.json` y `pnpm-lock.yaml` sin dependencias nuevas.
 - [x] Bitácora 04-02 creada.
-- [ ] Efecto de `Cache-Control` de `/_astro/*` medido en producción, solo con lectura, después del push del desarrollador. Decidido y aplicado en 04-02 (`public/_headers`); hasta entonces sin medir. Se marca cuando el desarrollador lo declare o se mida.
-- [ ] Revisión visual del hero (capturas antes y después) por el desarrollador. Se marca cuando el desarrollador lo declare.
+- [x] Efecto de `Cache-Control` de `/_astro/*` medido en producción, solo con lectura, después del push del desarrollador. Medido el 2026-10-12: los 21 archivos de `/_astro/` que referencia el HTML responden `public, max-age=31536000, immutable`; `/` y la 404 conservan `public, max-age=0, must-revalidate`; en la segunda carga (caché tibia) llegan de red 2 de 8 peticiones y 17.129 B frente a 9 de 9 y 106.563 B en la primera (incluye el script de Cloudflare). Detalle en la bitácora.
+- [x] Revisión visual del hero (capturas antes y después) por el desarrollador. **Declarado por el desarrollador** (2026-10-12); no es una medición del agente.
 
 ## Resultado y presupuesto de la primera vista (04-02)
 
