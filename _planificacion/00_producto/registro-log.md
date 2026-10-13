@@ -165,7 +165,7 @@ Criterios de término de `definicion-epica-04.md` (medido = lo medí; declarado 
 | :------- | :----- |
 | Lighthouse móvil entre 95 y 100 en las cuatro categorías, portada | **Medido** (04-02 y 04-03): Rendimiento 97 (mediana de cinco corridas, criterio reformulado en 04-02), Accesibilidad 100, Prácticas recomendadas 100 y SEO 100 |
 | LCP < 2,5 s, CLS < 0,05 e INP < 200 ms | **Medido** en 04-02 (1.674 ms, 0 y 48 a 64 ms) |
-| AUD-01-014, 015, 016, 017 (salvo lo asignado a 05-01), 018 y 020, y AUD-02-009 y 010, cerrados con evidencia | **Cumple** (04-01 y 04-03; AUD-01-015 con TalkBack y NVDA **declarados**) |
+| AUD-01-014, 015, 016, 017, 018 y 020, y AUD-02-009 y 010, cerrados con evidencia | **Cumple** (04-01 y 04-03; AUD-01-015 con TalkBack y NVDA **declarados**) |
 | AUD-02-005 y AUD-02-008 con estado actualizado | **Parciales**: verificados en Chrome y Firefox; **falta Safari**, abiertos hasta 05-03, riesgo aceptado por el desarrollador (2026-10-12) |
 | Sin hallazgos de severidad Alta abiertos | **Cumple** (AUD-01-005, 012 y 016 resueltos) |
 
