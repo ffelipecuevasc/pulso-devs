@@ -13,7 +13,7 @@ Consolidado de las decisiones técnicas del proyecto. Formato y reglas en `_plan
 | RDA-007 | Fuente única de datos de la comunidad en `src/data/comunidad.js` | Aceptada |
 | RDA-008 | Despliegue con Workers Builds desde GitHub en `comunidadpulso.dev` | Aceptada |
 | RDA-009 | El fundador aparece solo en el pie de página                    | Aceptada  |
-| RDA-010 | Medición con Cloudflare Web Analytics y Search Console          | Propuesta |
+| RDA-010 | Medición con Cloudflare Web Analytics y Search Console          | Aceptada  |
 | RDA-011 | Sitio de una sola página (One Page) por ahora                   | Aceptada  |
 | RDA-012 | Licencia MIT para el código, con reserva de marca               | Aceptada  |
 | RDA-013 | El prototipo se conserva en `_prototipo/` hasta lograr paridad  | Aceptada  |
@@ -116,8 +116,8 @@ Consolidado de las decisiones técnicas del proyecto. Formato y reglas en `_plan
 
 ## RDA-010 · Medición con Cloudflare Web Analytics y Search Console
 
-- **Fecha:** 2026-10-09
-- **Estado:** Propuesta (se acepta con la medición de la iteración 05-01)
+- **Fecha:** 2026-10-13 (decisión del desarrollador; propuesta el 2026-10-09)
+- **Estado:** Aceptada
 
 **Contexto:** El desarrollador quiere medir visitas con Cloudflare Web Analytics y Google Search Console, y quizá más adelante los clics al grupo de WhatsApp. Web Analytics carga un script de Cloudflare en tiempo de ejecución, lo que choca con AGENTS §7.3 (sin recursos de terceros).
 **Decisión propuesta:** Activar Cloudflare Web Analytics y medir su efecto en Lighthouse y en el JavaScript propio antes de aceptarlo. Search Console no agrega código al sitio (verificación por DNS). No se mide el clic en WhatsApp hasta que exista una RDA nueva. Si la medición lo permite, la excepción de AGENTS §7.3 se escribe al aceptar esta RDA.

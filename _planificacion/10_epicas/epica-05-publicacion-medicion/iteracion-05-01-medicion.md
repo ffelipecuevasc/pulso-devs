@@ -29,7 +29,7 @@ El desarrollador decidió (2026-10-13) mantener Cloudflare Web Analytics activo 
 1. Verificar en la documentación vigente de Cloudflare cómo funciona la inyección automática de Web Analytics en un Worker con recursos estáticos (condiciones de inyección, el script y la petición `/cdn-cgi/rum`) y qué orígenes habría que permitir en una CSP. No asumir; citar la fuente en la bitácora.
 2. Medir la producción **con** el script (línea base de esta iteración): Lighthouse móvil y escritorio, LCP, CLS, INP, peso y peticiones de la primera vista, y bytes de JavaScript propio y de Cloudflare por separado.
 3. Preparar `evidencia-05-01-fase-b.md` para el desarrollador, con los pasos de Search Console.
-4. Proponer el texto de la excepción para `AGENTS.md` §7.3 si RDA-010 se acepta (requiere aprobación). Si se descarta, proponer el texto que deja la regla coherente.
+4. Proponer el texto de la excepción para `AGENTS.md` §7.3 si RDA-010 se acepta (requiere aprobación).
 
 **Fase B (desarrollador, con el agente midiendo):**
 
@@ -41,10 +41,10 @@ La política `Content-Security-Policy` se trabaja en la iteración 05-02.
 
 ## Criterios de aceptación
 
-- [ ] Mediciones de la producción con el script, en cinco corridas alternadas, móvil y escritorio, con INP.
-- [ ] Con Web Analytics activo, Lighthouse móvil sigue en 95 o más en las cuatro categorías (mediana de cinco), LCP < 2,5 s, CLS < 0,05 e INP < 200 ms; si no, se vuelve a evaluar (tarea 5).
+- [x] Mediciones de la producción con el script, en cinco corridas alternadas, móvil y escritorio, con INP.
+- [x] Con Web Analytics activo, Lighthouse móvil sigue en 95 o más en las cuatro categorías (mediana de cinco), LCP < 2,5 s, CLS < 0,05 e INP < 200 ms; si no, se vuelve a evaluar (tarea 5).
 - [x] El JavaScript propio del sitio no aumenta; el de Cloudflare se informa por separado. _Declarado por el desarrollador (2026-10-13): la diferencia de +2 B en el script del tema (3.714 B a 3.716 B) se considera menor y no es atribuible a Web Analytics (el build local da 3.716 B con y sin el script de Cloudflare). Causa no investigada._
-- [ ] RDA-010 «Aceptada» por decisión del desarrollador (2026-10-13, sujeta a la medición con script), y `AGENTS.md` §7.3 y `registro-log.md` §4 coherentes con la decisión.
+- [x] RDA-010 «Aceptada» por decisión del desarrollador (2026-10-13), y `AGENTS.md` §7.3 y `registro-log.md` §4 coherentes con la decisión.
 - [ ] Search Console con la propiedad verificada y el sitemap en estado «Correcto».
 - [ ] Estado de indexación de la portada registrado con fecha.
 - [ ] `evidencia-05-01-fase-b.md` completada por el desarrollador.

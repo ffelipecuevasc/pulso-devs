@@ -109,7 +109,7 @@ La indexación **se registra con fecha** y no se exige para cerrar la épica (de
 
 ## Parte 3 · Cierre de RDA-010
 
-RDA-010 sigue «Propuesta» en `decisiones.md`. El 2026-10-13 el desarrollador decidió mantener Web Analytics activo (**declarado por el desarrollador**). Se pasa a «Aceptada» cuando se confirme que la medición de la producción **con** el script cumple los umbrales de la iteración. La medición está en la bitácora 05-01 (`bitacora-05-01-ajuste-2026-10-13.md`) y en `evidencia-05-01-fase-a-datos.json`.
+RDA-010 quedó «Aceptada» en `decisiones.md` el 2026-10-13. El desarrollador decidió mantener Web Analytics activo (**declarado por el desarrollador**) y la medición de la producción **con** el script cumple los umbrales de la iteración. La medición está en la bitácora 05-01 (`bitacora-05-01-ajuste-2026-10-13.md`) y en `evidencia-05-01-fase-a-datos.json`.
 
 Umbrales y lo medido por el agente (2026-10-13, producción con el script, mediana de cinco corridas alternadas):
 
@@ -119,13 +119,13 @@ Umbrales y lo medido por el agente (2026-10-13, producción con el script, media
 | LCP < 2,5 s | 1.799 ms | Sí |
 | CLS < 0,05 | 0 | Sí |
 | INP < 200 ms | 32 a 48 ms (máximo 128 ms con CPU 4×) | Sí |
-| El JavaScript propio no aumenta | 3.716 B (3.714 B en 04-02: +2 B) | A confirmar por ti: el build local de hoy da los mismos 3.716 B y los cuatro scripts son idénticos con y sin el de Cloudflare, así que el aumento no viene de Web Analytics. La causa exacta no se determinó (ver bitácora) |
+| El JavaScript propio no aumenta | 3.716 B (3.714 B en 04-02: +2 B) | Sí, por declaración del desarrollador (2026-10-13; ver la anotación de abajo): el build local de hoy da los mismos 3.716 B y los cuatro scripts son idénticos con y sin el de Cloudflare, así que el aumento no viene de Web Analytics. La causa no se investigó |
 
 | Campo | Anotación |
 | :---- | :-------- |
 | Fecha en que confirmas los umbrales | |
 | ¿Aceptas el aumento de 2 B de JavaScript propio, que no viene de Web Analytics? | Declarado por el desarrollador (2026-10-13): la diferencia de +2 B en el script del tema (3.714 B a 3.716 B) se considera menor y no es atribuible a Web Analytics (el build local da 3.716 B con y sin el script de Cloudflare). Causa no investigada. |
-| Estado de RDA-010 que se registra (Aceptada u otra) | |
+| Estado de RDA-010 que se registra | Aceptada (2026-10-13) |
 | Quién actualiza `decisiones.md`, `registro-log.md` §4 y `AGENTS.md` §7.3 (el agente, con tu aprobación del texto propuesto en la bitácora) | |
 | Observaciones | |
 
@@ -142,6 +142,6 @@ Umbrales y lo medido por el agente (2026-10-13, producción con el script, media
 
 ## Criterios de aceptación que cubre esta evidencia
 
-- [ ] RDA-010 «Aceptada» y `AGENTS.md` §7.3 y `registro-log.md` §4 coherentes con la decisión.
+- [x] RDA-010 «Aceptada» y `AGENTS.md` §7.3 y `registro-log.md` §4 coherentes con la decisión.
 - [ ] Search Console con la propiedad verificada y el sitemap en estado «Correcto».
 - [ ] Estado de indexación de la portada registrado con fecha.
