@@ -120,9 +120,9 @@ Consolidado de las decisiones técnicas del proyecto. Formato y reglas en `_plan
 - **Estado:** Aceptada
 
 **Contexto:** El desarrollador quiere medir visitas con Cloudflare Web Analytics y Google Search Console, y quizá más adelante los clics al grupo de WhatsApp. Web Analytics carga un script de Cloudflare en tiempo de ejecución, lo que choca con AGENTS §7.3 (sin recursos de terceros).
-**Decisión propuesta:** Activar Cloudflare Web Analytics y medir su efecto en Lighthouse y en el JavaScript propio antes de aceptarlo. Search Console no agrega código al sitio (verificación por DNS). No se mide el clic en WhatsApp hasta que exista una RDA nueva. Si la medición lo permite, la excepción de AGENTS §7.3 se escribe al aceptar esta RDA.
+**Decisión:** Activar Cloudflare Web Analytics y medir su efecto en Lighthouse y en el JavaScript propio antes de aceptarlo. Search Console no agrega código al sitio (verificación por DNS). No se mide el clic en WhatsApp hasta que exista una RDA nueva. Si la medición lo permite, la excepción de AGENTS §7.3 se escribe al aceptar esta RDA.
 **Alternativas consideradas:** No medir visitas (se pierde información); Google Analytics o Tag Manager (más peso y consentimiento; no pedidos).
-**Consecuencias:** Verificar en la documentación vigente de Cloudflare si en un Worker con recursos estáticos Web Analytics se activa desde el panel o requiere pegar el script con su token en el layout (en ese caso el token es público, pero la decisión de dónde guardarlo va en `comunidad.js`).
+**Consecuencias:** Verificado en la documentación vigente de Cloudflare (consultada el 2026-10-13; fuente en `99_bitacora/bitacora-05-01-ajuste-2026-10-13.md`) si en un Worker con recursos estáticos Web Analytics se activa desde el panel o requiere pegar el script con su token en el layout (en ese caso el token es público, pero la decisión de dónde guardarlo va en `comunidad.js`).
 
 ## RDA-011 · Sitio de una sola página (One Page) por ahora
 
