@@ -1,9 +1,9 @@
 # Iteración 05-02 · Política Content-Security-Policy
 
 - **Épica:** 05 · Publicación y medición
-- **Estado:** Pendiente
+- **Estado:** En curso (fase A completada, 2026-10-13; fase B iniciada)
 - **Rama:** `main` (RDA-015)
-- **Depende de:** 05-01 (RDA-010 ya está aceptada, 2026-10-13: 05-02 puede avanzar mientras 05-01 espera el estado «Correcto» del sitemap; decisión del desarrollador)
+- **Depende de:** 05-01 (terminada el 2026-10-13; RDA-010 aceptada, por lo que se permite el script de Cloudflare)
 - **RDA relacionadas:** RDA-010
 - **Hallazgos que cierra:** el de la política `Content-Security-Policy` en `auditoria-tecnica.md`, si existe (el agente lo confirma y lo enlaza)
 

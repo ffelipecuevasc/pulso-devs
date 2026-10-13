@@ -5,6 +5,7 @@
   Referrer-Policy: strict-origin-when-cross-origin
   X-Frame-Options: DENY
   Content-Security-Policy: frame-ancestors 'none'
+  Content-Security-Policy-Report-Only: default-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; script-src 'sha256-h/2vF1aGIpynrKup+U0y4UdjUccVza7jUMeVEMLLbl0=' 'sha256-851aDHlfSJm2ydIXYm/xjb9zqg+shmbIx5mxnUhebE0=' 'sha256-HKhVVZuR4nQlaNFrH3ZgfmRaAdVXfgd/JHMp0yls/Ug=' 'sha256-4n2jxXVJdkQWX3vxghpJGru3u8tRbr4YjeB/aLeD/l8=' https://static.cloudflareinsights.com; style-src 'self' 'sha256-efEqBBTmDx23cBukE2XkM2PKDzUd+1rZ8FL0uQQQgsM=' 'sha256-yY2AedDjJ6Wcw74TL9jTKsyjFy0AkGKpgxGoGssDOdQ='; img-src 'self'; font-src 'self'; connect-src 'self'
 
 /_astro/*
   Cache-Control: public, max-age=31536000, immutable

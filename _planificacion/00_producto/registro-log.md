@@ -34,7 +34,7 @@
 | 04-02     | Rendimiento e imágenes                                       | 04    | Terminada (2026-10-12) | 04-01    | [bitacora-04-02-2026-10-12](../99_bitacora/bitacora-04-02-2026-10-12.md) |
 | 04-03     | Accesibilidad y verificación cruzada                         | 04    | Terminada (2026-10-12) | 04-02      | [bitacora-04-03-2026-10-12](../99_bitacora/bitacora-04-03-2026-10-12.md) · [evidencia fase B](../10_epicas/epica-04-seo-rendimiento-a11y/evidencia-04-03-fase-b.md) |
 | 05-01     | Medición: Cloudflare Web Analytics y Search Console          | 05    | Terminada (2026-10-13) | 04-03      | [bitacora-05-01-2026-10-13](../99_bitacora/bitacora-05-01-2026-10-13.md) · [bitacora-05-01-ajuste-2026-10-13](../99_bitacora/bitacora-05-01-ajuste-2026-10-13.md) · [bitacora-05-01-fase-b-2026-10-13](../99_bitacora/bitacora-05-01-fase-b-2026-10-13.md) · [evidencia fase B](../10_epicas/epica-05-publicacion-medicion/evidencia-05-01-fase-b.md) |
-| 05-02     | Política Content-Security-Policy                             | 05    | Pendiente | 05-01      | — |
+| 05-02     | Política Content-Security-Policy                             | 05    | En curso | 05-01      | — |
 | 05-03     | Verificación final en producción                             | 05    | Pendiente | 05-02      | — |
 
 Claude Code implementa todas las iteraciones, incluida la 01-01, directamente en `main` (RDA-015).

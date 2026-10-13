@@ -6,6 +6,7 @@ import icon from 'astro-icon';
 import { comunidad } from './src/data/comunidad.js';
 import { iconos } from './src/data/iconos.js';
 import bloquearPendientes from './src/integraciones/bloquearPendientes.js';
+import verificarCsp from './src/integraciones/verificarCsp.js';
 
 // https://astro.build/config
 export default defineConfig({
@@ -14,6 +15,7 @@ export default defineConfig({
     sitemap(),
     icon({ include: { 'material-symbols-light': Object.values(iconos) } }),
     bloquearPendientes(),
+    verificarCsp(),
   ],
   vite: {
     plugins: [tailwindcss()],

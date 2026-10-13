@@ -13,7 +13,7 @@
 - Un push a `main` publica en producción. Antes de cada push el agente deja `pnpm format`, `pnpm check` y `pnpm build` sin errores.
 - El agente solo hace peticiones de solo lectura a producción (`GET` y `HEAD`). No envía `POST` a `/cdn-cgi/rum`.
 - `'unsafe-inline'` no entra en `script-src` en ningún texto. Si algo lo exigiera, se detiene el trabajo y se consulta.
-- **Método aprobado (declarado por el desarrollador, 2026-10-13): método C.** Hashes fijos en `public/_headers` más una integración propia que hace fallar `pnpm build` si no coinciden con `dist/`. Los textos (a) y (b) no cambiaron tras revisar las directivas heredadas de `default-src 'none'` (ver `bitacora-05-02-ajuste-2026-10-13.md`); siguen pendientes de tu aprobación.
+- **Método aprobado (declarado por el desarrollador, 2026-10-13): método C.** Hashes fijos en `public/_headers` más una integración propia que hace fallar `pnpm build` si no coinciden con `dist/`. Los textos (a) y (b) no cambiaron tras revisar las directivas heredadas de `default-src 'none'` (ver `bitacora-05-02-ajuste-2026-10-13.md`); el texto (a) y el método quedaron aprobados el 2026-10-13 (ver la parte 1); el texto (b) sigue pendiente de tu aprobación.
 - Los hashes y el texto exacto de la política están en la bitácora, sección «Texto propuesto». Si el HTML cambia antes del despliegue, los hashes se recalculan y el texto se vuelve a aprobar.
 
 ---
@@ -53,6 +53,8 @@
 
 | Campo | Anotación |
 | :---- | :-------- |
+| Frase de aprobación del método y fecha | «Aprobado el método (CSP)» · 2026-10-13 (declarado por el desarrollador) |
+| Frase de aprobación del texto y fecha | «Aprobado el texto (CSP informe)» · 2026-10-13 (declarado por el desarrollador) |
 | Fecha y hora del push | |
 | Hash del commit | |
 | Hora en que `curl -I` ya muestra `content-security-policy-report-only` | |

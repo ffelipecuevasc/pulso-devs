@@ -1,6 +1,6 @@
 # Épica 05 · Publicación y medición
 
-- **Estado:** Pendiente
+- **Estado:** En curso
 - **Depende de:** Épica 04 terminada
 - **Objetivo:** decidir con mediciones si se mantiene Cloudflare Web Analytics, medir la visibilidad en Google, endurecer la seguridad con una política `Content-Security-Policy` y verificar el sitio completo en `https://comunidadpulso.dev`.
 
@@ -22,7 +22,7 @@
 | Iteración | Nombre                                               | Depende de |
 | :-------- | :--------------------------------------------------- | :--------- |
 | 05-01     | Medición: Cloudflare Web Analytics y Search Console  | 04-03      |
-| 05-02     | Política Content-Security-Policy                     | 05-01 (puede avanzar en paralelo: RDA-010 ya aceptada, 2026-10-13) |
+| 05-02     | Política Content-Security-Policy                     | 05-01 (terminada, 2026-10-13) |
 | 05-03     | Verificación final en producción                     | 05-02      |
 
 ## Decisiones del desarrollador (2026-10-12)
