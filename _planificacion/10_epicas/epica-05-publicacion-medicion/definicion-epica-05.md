@@ -12,7 +12,7 @@
 
 ## Alcance
 
-1. Cloudflare Web Analytics: decidir RDA-010 comparando la producción con y sin el script (05-01).
+1. Cloudflare Web Analytics: se mantiene activo por decisión del desarrollador (2026-10-13); RDA-010 se acepta si la medición de la producción con el script no muestra regresiones (05-01).
 2. Google Search Console: propiedad verificada, sitemap enviado y estado de indexación registrado (05-01).
 3. Política `Content-Security-Policy` completa, probada primero en modo solo informe y luego aplicada (05-02).
 4. Verificación final del sitio en producción y cierre del ciclo inicial (05-03).
@@ -28,7 +28,7 @@
 ## Decisiones del desarrollador (2026-10-12)
 
 - La CSP tiene iteración propia, porque puede romper el sitio y depende de la decisión sobre RDA-010.
-- El costo de Web Analytics se mide comparando la producción **con y sin** el script (el desarrollador desactiva y reactiva la inyección automática en el panel de Cloudflare).
+- Web Analytics se **mantiene activo** (decisión del desarrollador, 2026-10-13): no se desactiva la inyección en el panel de Cloudflare ni se mide la producción sin el script. El costo se informa con lo medido en 04-02 (build local vs producción) y se mide la producción con el script para confirmar que no hay regresiones.
 - **Safari, iPhone, VoiceOver, Narrador de Windows y `apple-touch-icon`: riesgo aceptado.** No hay equipo Apple. Los hallazgos que dependen de ellos se cierran en 05-03 como «no verificado, riesgo aceptado por el desarrollador», con fecha.
 - La indexación en Google se **registra con fecha** y no se exige para cerrar la épica. Si pasan 14 días desde el envío del sitemap sin indexar, se abre un seguimiento aparte.
 - Las mediciones de Lighthouse usan la **mediana de cinco corridas alternadas** (decisión de 04-02).
@@ -41,7 +41,7 @@
 
 ## Criterio de término
 
-- RDA-010 «Aceptada» o «Descartada», con mediciones con y sin el script.
+- RDA-010 «Aceptada» por decisión del desarrollador (2026-10-13), con mediciones de la producción con el script que confirmen que no hay regresiones.
 - Search Console con la propiedad verificada, el sitemap procesado y el estado de indexación registrado con fecha.
 - Política `Content-Security-Policy` aplicada, sin violaciones en consola y con Lighthouse sin regresiones.
 - El sitio en producción cumple los criterios de la Épica 04.

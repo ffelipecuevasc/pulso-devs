@@ -20,37 +20,28 @@ Decidir con mediciones si Cloudflare Web Analytics se mantiene, y empezar a medi
 
 ## Decisión de método (2026-10-12)
 
-El costo se mide **en producción, con y sin el script**:
-
-1. El agente mide la producción tal como está (con script).
-2. El desarrollador desactiva la inyección automática en el panel de Cloudflare.
-3. El agente mide la producción sin script (y comprueba que ya no aparece, pidiendo la portada con `Accept: text/html`).
-4. Si el resultado justifica mantenerlo, el desarrollador lo reactiva y el agente mide de nuevo.
-
-Todas las mediciones usan **cinco corridas alternadas** (móvil y escritorio) más INP por protocolo, como en 04-02.
+El desarrollador decidió (2026-10-13) mantener Cloudflare Web Analytics activo y no desactivar la inyección en el panel. No se mide la producción sin el script. El costo se informa con lo medido en 04-02 (build local vs producción) y se mide la producción con el script para confirmar que no hay regresiones. Todas las mediciones usan cinco corridas alternadas (móvil y escritorio) más INP por protocolo, como en 04-02.
 
 ## Tareas
 
 **Fase A (agente):**
 
-1. Verificar en la documentación vigente de Cloudflare cómo se activa y desactiva Web Analytics en un Worker con recursos estáticos, y qué retraso tiene el cambio. No asumir; citar la fuente en la bitácora.
+1. Verificar en la documentación vigente de Cloudflare cómo funciona la inyección automática de Web Analytics en un Worker con recursos estáticos (condiciones de inyección, el script y la petición `/cdn-cgi/rum`) y qué orígenes habría que permitir en una CSP. No asumir; citar la fuente en la bitácora.
 2. Medir la producción **con** el script (línea base de esta iteración): Lighthouse móvil y escritorio, LCP, CLS, INP, peso y peticiones de la primera vista, y bytes de JavaScript propio y de Cloudflare por separado.
-3. Preparar `evidencia-05-01-fase-b.md` para el desarrollador, con los pasos del panel de Cloudflare y de Search Console.
+3. Preparar `evidencia-05-01-fase-b.md` para el desarrollador, con los pasos de Search Console.
 4. Proponer el texto de la excepción para `AGENTS.md` §7.3 si RDA-010 se acepta (requiere aprobación). Si se descarta, proponer el texto que deja la regla coherente.
 
 **Fase B (desarrollador, con el agente midiendo):**
 
-5. Desactivar la inyección automática de Web Analytics en el panel de Cloudflare y avisar.
-6. El agente mide la producción **sin** el script y entrega la tabla comparativa.
-7. Decisión de RDA-010 (con la tabla): mantener (reactivar y volver a medir) o descartar (queda desactivado).
-8. Verificar la propiedad de `comunidadpulso.dev` en Google Search Console (por DNS), enviar `sitemap-index.xml` y solicitar la inspección de las páginas principales.
-9. Registrar el estado de indexación con fecha. Si pasan 14 días desde el envío sin indexar, abrir un seguimiento aparte.
+5. Decisión de RDA-010: Aceptada por decisión del desarrollador (2026-10-13), si la medición con el script cumple los umbrales; si no los cumple, se vuelve a evaluar.
+6. Verificar la propiedad de `comunidadpulso.dev` en Google Search Console (por DNS), enviar `sitemap-index.xml` y solicitar la inspección de las páginas principales.
+7. Registrar el estado de indexación con fecha. Si pasan 14 días desde el envío sin indexar, abrir un seguimiento aparte.
 
 La política `Content-Security-Policy` se trabaja en la iteración 05-02.
 
 ## Criterios de aceptación
 
-- [ ] Mediciones de la producción con y sin el script, en cinco corridas alternadas, móvil y escritorio, con INP.
+- [ ] Mediciones de la producción con el script, en cinco corridas alternadas, móvil y escritorio, con INP.
 - [ ] Con Web Analytics activo, Lighthouse móvil sigue en 95 o más en las cuatro categorías (mediana de cinco), LCP < 2,5 s, CLS < 0,05 e INP < 200 ms; si no, se desactiva y RDA-010 queda «Descartada».
 - [ ] El JavaScript propio del sitio no aumenta; el de Cloudflare se informa por separado.
 - [ ] RDA-010 «Aceptada» o «Descartada», y `AGENTS.md` §7.3 y `registro-log.md` §4 coherentes con la decisión.
@@ -66,5 +57,4 @@ La política `Content-Security-Policy` se trabaja en la iteración 05-02.
 
 ## Datos requeridos del desarrollador
 
-- Acceso a Cloudflare (activar o desactivar Web Analytics) y a Search Console. Solo él opera esas cuentas.
-- Aviso al desactivar y al reactivar la inyección, para que el agente mida en el momento correcto.
+- Acceso a Cloudflare (registro DNS) y a Search Console. Solo él opera esas cuentas.
