@@ -148,21 +148,23 @@ Solo se pasa a esta parte si la parte 2 no tiene violaciones, o si las violacion
 | Campo | Anotación |
 | :---- | :-------- |
 | Frase de aprobación y fecha | «Aprobado el texto (CSP aplicada)» · 2026-10-13 (declarado por el desarrollador) |
-| Fecha y hora del push | |
-| Hash del commit | |
-| Minutos entre el push y la cabecera visible | |
-| `content-security-policy` ya trae la política completa y no existe `content-security-policy-report-only` | Sí / No |
+| Fecha y hora del push | 2026-10-13, 17:10 (declarado por el desarrollador) |
+| Hash del commit | `e5995fc` (leído de `git log` local) |
+| Minutos entre el push y la cabecera visible | 3,8 como máximo (cota superior, no medición exacta): la primera consulta fue a las 17:13:48 (reloj de esta máquina) y la política aplicada ya estaba. El reloj de esta máquina va **64,5 s adelantado** respecto del `Date` de Cloudflare (medido en 4 respuestas: −64,2 a −64,8 s), así que según la hora del servidor la consulta fue a las 17:12:44 (2,7 min). No se conoce la desviación del reloj del desarrollador |
+| `content-security-policy` ya trae la política completa y no existe `content-security-policy-report-only` | Sí. En `/`, la 404, el CSS y la fuente: `content-security-policy` idéntica carácter por carácter a la de `public/_headers` (524 caracteres), sin `content-security-policy-report-only`; `Cache-Control` y las otras tres cabeceras sin cambios |
 
 Se repiten **todas** las pruebas de la parte 2 con la política aplicada. Ahora una violación es un recurso bloqueado de verdad (`security/error`).
 
 | Bloque | Resultado | Violaciones | Notas |
 | :----- | :-------- | :---------- | :---- |
-| P1 a P5 (portada) | | | |
-| N1 a N3 (404) | | | |
-| M1 y M2 (menú) | | | |
-| T1 a T6 (tema, transición y recarga) | | | |
-| W1 a W4 (Web Analytics) | | | |
-| Cabeceras de `/`, 404, CSS y fuente | | | |
+| P1 a P5 (portada) | OK | 0 | Chrome 155.0.8059.40. Sin violaciones ni mensajes en consola. Tema aplicado en el primer `<body>`; 0 px de desborde (1280 y 360 px, claro y oscuro); el anillo del logotipo se emite (`false` → `true`); `aria-current` cambia en `#comunidad`, `#talleres` y `#vision` |
+| N1 a N3 (404) | OK | 0 | Solo el aviso de red 404 de la propia página (1280 y 360 px, claro y oscuro) |
+| M1 y M2 (menú) | OK | 0 | `aria-expanded` `false` → `true` → `false`; el enlace «Comunidad» lleva a `#comunidad` y cierra el menú; igual en la 404 |
+| T1 a T6 (tema, transición y recarga) | OK | 0 | Claro ↔ oscuro y guardado en `localStorage`; la transición existe (2 animaciones de vista, 250 ms y 1000 ms) y `style.setProperty` (`--vt-x` = `1086.5px`) **no queda bloqueado**; doble clic sin errores (el segundo clic cae dentro de la transición, AUD-02-008); tema guardado se mantiene tras recargar portada y 404, sin parpadeo; con `reduced-motion` el cambio es inmediato. **La revisión visual de la animación queda pendiente del desarrollador** |
+| W1 a W4 (Web Analytics) | OK | 0 | El script de Cloudflare carga (`200`, con `integrity`). El `POST` a `https://comunidadpulso.dev/cdn-cgi/rum?` (mismo origen) responde `204` y sale durante la carga; sin otra petición al ocultar la página. **`connect-src 'self'` basta.** Solo hay dos orígenes en las 9 peticiones: `comunidadpulso.dev` y `static.cloudflareinsights.com`; 0 peticiones fallidas ni bloqueadas |
+| Cabeceras de `/`, 404, CSS y fuente | OK | — | Ver la tabla de campos de arriba |
+
+**Control positivo con la política aplicada** (en la página de prueba, sin tocar el sitio): un `<script>` insertado en línea sin hash **no se ejecutó** (`window.__x` quedó sin definir) y una imagen de `example.com` **no cargó**. Ambos quedaron **bloqueados**: eventos `securitypolicyviolation` con disposición `enforce` (`script-src-elem` e `img-src`), mensajes `security`/`error` en la consola («The action has been blocked») y fallos de red con `blockedReason: csp`. Así que el detector ve las violaciones reales y el 0 de las pruebas no es un falso negativo.
 
 ---
 
@@ -184,16 +186,23 @@ Mediana de **cinco corridas alternadas** (móvil 1, escritorio 1, móvil 2…), 
 
 | Medición | Rendimiento | Accesibilidad | Prácticas | SEO | LCP | CLS | TBT | Peticiones |
 | :------- | :---------- | :------------ | :-------- | :-- | :-- | :-- | :-- | :--------- |
-| Despliegue 1, móvil (cinco corridas y mediana) | | | | | | | | |
-| Despliegue 1, escritorio | | | | | | | | |
-| Despliegue 2, móvil | | | | | | | | |
-| Despliegue 2, escritorio | | | | | | | | |
+| Despliegue 1, móvil (cinco corridas y mediana) | no medido | — | — | — | — | — | — | — |
+| Despliegue 1, escritorio | no medido | — | — | — | — | — | — | — |
+| Despliegue 2, móvil (mediana de cinco) | 95 | 100 | 100 | 100 | 1.933 ms | 0 | 73 ms | 9 (107.419 B) |
+| Despliegue 2, escritorio (mediana de cinco) | 100 | 100 | 100 | 100 | 543 ms | 0 | 0 ms | 9 (106.836 B) |
 
 | Campo | Anotación |
 | :---- | :-------- |
-| Versión de Chrome y de Lighthouse | |
-| ¿Cambió la auditoría de CSP de Lighthouse entre ambos despliegues? (anotar el texto exacto; la fase A no la midió) | |
-| ¿Hubo regresión frente a la línea base? | Sí / No |
+| Versión de Chrome y de Lighthouse | Chrome 155.0.8059.40 y Lighthouse 13.5.0 (`pnpm dlx`, fuera del proyecto). La línea base de 05-01 se midió con Chrome 154.0.8037.98 |
+| ¿Cambió la auditoría de CSP de Lighthouse entre ambos despliegues? (anotar el texto exacto; la fase A no la midió) | Con el despliegue 2, la auditoría «Ensure CSP is effective against XSS attacks» (`csp-xss`, informativa) sale con puntaje 1 (pasa), sin valor mostrado, en móvil y escritorio; «Mitigate clickjacking with XFO or CSP» sale «no aplicable». Si cambió respecto del despliegue 1: **no medido** (no se corrió Lighthouse con el despliegue 1) |
+| ¿Hubo regresión frente a la línea base? | **Sin determinar** (decide el desarrollador). El Rendimiento móvil bajó de 99 a 95 (−4): cumple el umbral numérico (95 o más) y las otras tres categorías y el escritorio no cambian, pero no se puede afirmar «sin regresión». Ver la nota de abajo |
+
+**Notas de la medición del despliegue 2 (agente, 2026-10-13, después de las 17:13, hora de esta máquina).**
+
+- **Lighthouse móvil, cinco corridas alternadas con las de escritorio:** Rendimiento 95, 95, 95, 95, 95; LCP 1.994, 1.975, 1.933, 1.875, 1.930 ms; FCP mediana 1.851 ms; TBT 73, 83, 0, 0, 132 ms; **Speed Index 4.531, 4.546, 4.570, 4.547, 4.476 ms** (mediana 4.546 ms); CLS 0 en las cinco; 9 peticiones. Escritorio: 100 en las cinco; LCP 558, 541, 560, 530, 543 ms; CLS 0, 0, 0,0001, 0, 0,0001. Sin advertencias de ejecución. Accesibilidad, Mejores prácticas y SEO en 100 en las diez corridas.
+- **Línea base de 05-01 (Chrome 154), móvil:** 99 / 100 / 100 / 100; LCP mediana 1.799 ms; FCP 1.717 ms; TBT 36 ms; **Speed Index mediana 2.444 ms**; 106.595 B. La baja del Rendimiento viene del Speed Index (4,5 s frente a 2,4 s), con LCP, FCP y TBT algo más altos. El peso transferido subió 824 B (107.419 B frente a 106.595 B); no se midió qué parte corresponde a la cabecera nueva.
+- **Control local (misma máquina, Chrome 155, mismo Lighthouse):** el mismo build servido con `pnpm preview` (sin cabecera de CSP ni script de Cloudflare), tres corridas móviles: Rendimiento 97, 98 y 96; Speed Index 4.068, 3.926 y 4.353 ms; LCP 1.676, 1.673 y 1.598 ms. En 04-02 el Speed Index del mismo build ya salía en dos modos (≈ 1,2 s y ≈ 4,1 s). Así que el Speed Index lento aparece también sin CSP, pero **esto no demuestra la causa**: no hay una medición de producción anterior al despliegue 2 con Chrome 155, y la producción incluye además el script de Cloudflare.
+- **LCP, CLS e INP por protocolo en producción (tres cargas por condición, dos clics reales cada una; INP en ms por evento):** móvil 412 px, LCP 988, 596 y 640 ms (`p.hero__sub`), CLS 0, INP máximo 56; escritorio 1280 px, LCP 564, 468 y 544 ms (`span.hero__wordmark`), CLS 0,0016, 0 y 0, INP máximo 64. **Con CPU 4× (estrés, no es el criterio):** LCP 1.512, 1.116 y 3.484 ms, INP máximo por carga 304, 160 y 280 ms; en una repetición de la misma condición, LCP 1.916, 3.368 y 3.036 ms e INP máximo 328, 184 y 112 ms. En 05-01 esa condición dio INP de 80 a 128 ms y LCP de 1.136 a 1.596 ms. **Control local con CPU 4×:** LCP 912, 824 y 1.212 ms e INP máximo 120, 160 y 312 ms, así que los INP de ~300 ms con CPU 4× también ocurren sin CSP en esta máquina. En las condiciones sin estrés, INP < 200 ms, LCP < 2,5 s y CLS < 0,05 se cumplen.
 
 ---
 
@@ -230,8 +239,8 @@ Mediana de **cinco corridas alternadas** (móvil 1, escritorio 1, móvil 2…), 
 
 ## Criterios de aceptación que cubre esta evidencia
 
-- [ ] Política completa aplicada en `public/_headers`, sin `'unsafe-inline'` en `script-src`.
-- [ ] Sin violaciones en la consola, en portada y 404, claro y oscuro, menú móvil y cambio de tema.
+- [x] Política completa aplicada en `public/_headers`, sin `'unsafe-inline'` en `script-src`.
+- [x] Sin violaciones en la consola, en portada y 404, claro y oscuro, menú móvil y cambio de tema.
 - [ ] El tema guardado se mantiene tras recargar y la transición de tema funciona.
 - [ ] Lighthouse móvil y escritorio (mediana de cinco corridas alternadas) sin regresión: Rendimiento 95 o más, Accesibilidad 100, Mejores prácticas 100, SEO 100.
 - [ ] Un cambio en el script del tema no puede dejar un hash desactualizado sin que se note antes del despliegue.
