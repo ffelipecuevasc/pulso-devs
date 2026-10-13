@@ -42,12 +42,12 @@ Según Google, la verificación por DNS corresponde a una propiedad de tipo **Do
 
 | Campo | Anotación |
 | :---- | :-------- |
-| Fecha y hora | |
-| Tipo de propiedad elegido | |
-| ¿Usaste la conexión automática con Cloudflare o el registro TXT manual? | |
-| Nombre del registro TXT (vacío o `@`, según lo que aceptó el panel) | |
-| Resultado de «Verificar» (texto exacto) | |
-| Si falló: mensaje y fecha del reintento | |
+| Fecha y hora | 2026-10-13 |
+| Tipo de propiedad elegido | Dominio (`comunidadpulso.dev`) |
+| ¿Usaste la conexión automática con Cloudflare o el registro TXT manual? | Conexión automática directa con Cloudflare |
+| Nombre del registro TXT (vacío o `@`, según lo que aceptó el panel) | Configurado automáticamente por la integración de Cloudflare |
+| Resultado de «Verificar» (texto exacto) | Se ha verificado la propiedad |
+| Si falló: mensaje y fecha del reintento | N/A (verificación inmediata) |
 
 Si quieres, pídele al agente que confirme con una consulta DNS de solo lectura que existe un TXT con el prefijo `google-site-verification=` (no necesita el valor).
 
@@ -60,11 +60,11 @@ Si quieres, pídele al agente que confirme con una consulta DNS de solo lectura 
 
 | Campo | Anotación |
 | :---- | :-------- |
-| Fecha y hora del envío | |
-| URL enviada | |
-| Estado mostrado (texto exacto) | |
-| Páginas descubiertas (si el informe lo muestra) | |
-| Si hay errores: texto del error | |
+| Fecha y hora del envío | 13 oct 2026 |
+| URL enviada | `https://comunidadpulso.dev/sitemap-index.xml` |
+| Estado mostrado (texto exacto) | No se ha podido obtener (aviso inicial en modal: «Se ha enviado el sitemap correctamente (Google lo procesará de forma periódica para saber si se ha modificado. Si detectamos algún problema, recibirás una notificación.)») |
+| Páginas descubiertas (si el informe lo muestra) | 0 (Tipo: Desconocido) |
+| Si hay errores: texto del error | «No se ha podido obtener» (pendiente de primer procesamiento por parte de Google) |
 
 ### Paso 1.3 · Inspeccionar la portada y solicitar la indexación
 
@@ -77,12 +77,12 @@ Solo hay una URL en el sitemap, así que solo se inspecciona una. No solicites l
 
 | Campo | Anotación |
 | :---- | :-------- |
-| Fecha y hora | |
+| Fecha y hora | 2026-10-13 |
 | URL inspeccionada | `https://comunidadpulso.dev/` |
-| Estado de indexación (texto exacto) | |
-| ¿Solicitaste indexación? | |
-| Avisos de la herramienta | |
-| Captura (nombre del archivo, sin datos privados) | |
+| Estado de indexación (texto exacto) | La URL está en Google (Indexación de páginas: «La página está indexada»; HTTPS: «La página se sirve a través de HTTPS») |
+| ¿Solicitaste indexación? | No requerida (la URL ya figura indexada en el índice de Google; se muestra la opción «¿Ha cambiado la página? SOLICITAR INDEXACIÓN») |
+| Avisos de la herramienta | «Siempre que no esté sujeta a una solicitud de eliminación o a una acción manual, puede aparecer con todas las mejoras relevantes en los resultados de la Búsqueda de Google.» |
+| Captura (nombre del archivo, sin datos privados) | `image_c25d1a.png` |
 
 ---
 
@@ -90,20 +90,20 @@ Solo hay una URL en el sitemap, así que solo se inspecciona una. No solicites l
 
 La indexación **se registra con fecha** y no se exige para cerrar la épica (decisión del 2026-10-12). Si pasan **14 días corridos desde el envío del sitemap** y la portada sigue sin indexarse, se abre un seguimiento aparte (una fila en `registro-log.md` §4, no una iteración nueva).
 
-**Cálculo.** Fecha de envío del sitemap (paso 1.2) + 14 días = fecha de revisión. Ejemplo: enviado el 2026-10-15 → revisar el 2026-10-29.
+**Cálculo.** Fecha de envío del sitemap (paso 1.2) + 14 días = fecha de revisión. Ejemplo: enviado el 2026-10-13 → revisar el 2026-10-27.
 
-| Fecha de revisión | Estado de `https://comunidadpulso.dev/` (texto exacto) | Estado del sitemap | Observaciones |
-| :---------------- | :----------------------------------------------------- | :----------------- | :------------ |
-| _(el día del envío)_ | | | |
-| _(a los 3 a 7 días)_ | | | |
-| _(a los 14 días)_ | | | |
+| Fecha de revisión | Estado de `https://comunidadpulso.dev/` (texto exacto) | Estado del sitemap | Observaciones                                                                                                          |
+| :---------------- | :----------------------------------------------------- | :----------------- |:-----------------------------------------------------------------------------------------------------------------------|
+| 2026-10-13 *(día del envío)* | La URL está en Google (La página está indexada) | No se ha podido obtener | La portada ya figuraba indexada en Google antes del envío. El sitemap quedó enviado en cola para primer procesamiento. |
+| *(a los 3 a 7 días)* | *(pendiente: revisar entre el 2026-10-16 y el 2026-10-20)* | *(pendiente de verificar si pasó a «Correcto»)* | Sin observaciones                                                                                                                       |
+| 2026-10-27 *(a los 14 días)* | *(pendiente de confirmación final)* | *(pendiente)* | Sin observaciones                                                                                                                       |
 
 | Campo | Anotación |
 | :---- | :-------- |
-| Fecha de envío del sitemap | |
-| Fecha límite (envío + 14 días) | |
-| ¿Indexada a la fecha límite? | |
-| Si no: ¿se abrió seguimiento aparte? (fila de `registro-log.md` §4) | |
+| Fecha de envío del sitemap | 2026-10-13 |
+| Fecha límite (envío + 14 días) | 2026-10-27 |
+| ¿Indexada a la fecha límite? | Sí (ya confirmada como indexada desde el día del envío, 2026-10-13) |
+| Si no: ¿se abrió seguimiento aparte? (fila de `registro-log.md` §4) | No aplica (la portada ya está indexada) |
 
 ---
 
@@ -121,13 +121,13 @@ Umbrales y lo medido por el agente (2026-10-13, producción con el script, media
 | INP < 200 ms | 32 a 48 ms (máximo 128 ms con CPU 4×) | Sí |
 | El JavaScript propio no aumenta | 3.716 B (3.714 B en 04-02: +2 B) | Sí, por declaración del desarrollador (2026-10-13; ver la anotación de abajo): el build local de hoy da los mismos 3.716 B y los cuatro scripts son idénticos con y sin el de Cloudflare, así que el aumento no viene de Web Analytics. La causa no se investigó |
 
-| Campo | Anotación |
-| :---- | :-------- |
-| Fecha en que confirmas los umbrales | |
+| Campo                                                                           | Anotación                                                                                                                                                                                                                                               |
+|:--------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Fecha en que confirmas los umbrales                                             |                                                                                                                                                                                                                                                         |
 | ¿Aceptas el aumento de 2 B de JavaScript propio, que no viene de Web Analytics? | Declarado por el desarrollador (2026-10-13): la diferencia de +2 B en el script del tema (3.714 B a 3.716 B) se considera menor y no es atribuible a Web Analytics (el build local da 3.716 B con y sin el script de Cloudflare). Causa no investigada. |
-| Estado de RDA-010 que se registra | Aceptada (2026-10-13) |
-| Quién actualiza `decisiones.md`, `registro-log.md` §4 y `AGENTS.md` §7.3 (el agente, con tu aprobación del texto propuesto en la bitácora) | |
-| Observaciones | |
+| Estado de RDA-010 que se registra                                               | Aceptada (2026-10-13)                                                                                                                                                                                                                                   |
+| Quién actualiza `decisiones.md`, `registro-log.md` §4 y `AGENTS.md` §7.3        | El agente de IA, con mi aprobación del texto propuesto en la bitácora                                                                                                                                                                                   |
+| Observaciones                                                                   | Sin observaciones                                                                                                                                                                                                                                       |
 
 ---
 

@@ -1,7 +1,7 @@
 # Iteración 05-01 · Medición: Cloudflare Web Analytics y Search Console
 
 - **Épica:** 05 · Publicación y medición
-- **Estado:** Pendiente
+- **Estado:** En curso (fase A completada; fase B parcial: falta el estado «Correcto» del sitemap)
 - **Rama:** `main` (RDA-015)
 - **Depende de:** 04-03
 - **RDA relacionadas:** RDA-010
@@ -45,8 +45,8 @@ La política `Content-Security-Policy` se trabaja en la iteración 05-02.
 - [x] Con Web Analytics activo, Lighthouse móvil sigue en 95 o más en las cuatro categorías (mediana de cinco), LCP < 2,5 s, CLS < 0,05 e INP < 200 ms; si no, se vuelve a evaluar (tarea 5).
 - [x] El JavaScript propio del sitio no aumenta; el de Cloudflare se informa por separado. _Declarado por el desarrollador (2026-10-13): la diferencia de +2 B en el script del tema (3.714 B a 3.716 B) se considera menor y no es atribuible a Web Analytics (el build local da 3.716 B con y sin el script de Cloudflare). Causa no investigada._
 - [x] RDA-010 «Aceptada» por decisión del desarrollador (2026-10-13), y `AGENTS.md` §7.3 y `registro-log.md` §4 coherentes con la decisión.
-- [ ] Search Console con la propiedad verificada y el sitemap en estado «Correcto».
-- [ ] Estado de indexación de la portada registrado con fecha.
+- [ ] Search Console con la propiedad verificada y el sitemap en estado «Correcto». _Propiedad verificada el 2026-10-13; sitemap enviado el 2026-10-13, pendiente de «Correcto»._
+- [x] Estado de indexación de la portada registrado con fecha. _Declarado por el desarrollador (2026-10-13): portada indexada._
 - [ ] `evidencia-05-01-fase-b.md` completada por el desarrollador.
 - [ ] Bitácora 05-01 creada.
 

@@ -3,7 +3,7 @@
 - **Épica:** 05 · Publicación y medición
 - **Estado:** Pendiente
 - **Rama:** `main` (RDA-015)
-- **Depende de:** 05-01 (la decisión sobre RDA-010 define si el script de Cloudflare se permite)
+- **Depende de:** 05-01 (RDA-010 ya está aceptada, 2026-10-13: 05-02 puede avanzar mientras 05-01 espera el estado «Correcto» del sitemap; decisión del desarrollador)
 - **RDA relacionadas:** RDA-010
 - **Hallazgos que cierra:** el de la política `Content-Security-Policy` en `auditoria-tecnica.md`, si existe (el agente lo confirma y lo enlaza)
 
