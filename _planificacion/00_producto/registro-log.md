@@ -65,7 +65,7 @@ Bloquean contenido o diseño. Mientras falten, se usa `PENDIENTE_DATO` en `src/d
 
 | Tema | RDA | Responsable |
 | :--- | :-- | :---------- |
-| Aceptar la medición con Cloudflare Web Analytics tras medir su efecto | RDA-010 | Desarrollador |
+| Aceptar la medición con Cloudflare Web Analytics (decisión del desarrollador, 2026-10-13, sujeta a la medición con script en 05-01) | RDA-010 | Desarrollador |
 | Si se hace la navegación multipágina (Épica 06), después del despliegue | RDA-011 | Desarrollador |
 
 ## 4. Propuestas fuera de alcance
@@ -93,7 +93,7 @@ Ideas detectadas durante el trabajo que no forman parte de lo planificado.
 | ~~Contraste del borde de los botones secundarios (`--line-strong`: 1,82:1 claro y 2,08:1 oscuro, frente a 3:1). Detalle, alcance y acción en **AUD-02-009**~~ Resuelto en 04-03 (2026-10-12) con los valores aprobados por el desarrollador (claro `.65`, oscuro `.50`): mínimo 3,32:1 en los 8 usos, medido; `DESIGN.md` §2.2 actualizado | Medición de 02-02, decisión del desarrollador | 2026-10-11 |
 | ~~Quitar la sombra de elevación de `.join__panel` (la tarjeta de «Únete»), que contradecía `DESIGN.md` §4 (D2 de la auditoría 02-04)~~ Resuelto en la iteración 02-05 (2026-10-11): la sombra `0 28px 60px -28px rgba(0,19,29,.75)` se eliminó y el valor calculado es `none`; sin otros cambios medidos | Bitácora 02-04, decisión del desarrollador | 2026-10-11 |
 | ~~Agregar a `DESIGN.md` en la próxima edición del documento el anillo del nodo de la línea de tiempo (`.timeline__node`, `box-shadow: 0 0 0 5px var(--bg)`: un anillo de 5 px con el color de fondo que recorta el punto del trazo; no es una sombra de elevación ni un halo de `--accent`, así que no contradice §4)~~ Resuelto en 03-01 (2026-10-11): agregado a la fila «Visión» de `DESIGN.md` §6 con el texto aprobado | Observación de la auditoría 02-04, decisión del desarrollador | 2026-10-11 |
-| Producción carga el script de Cloudflare Web Analytics (configuración automática, 1 petición de tercero, ~10 KB, medido en 04-02) sin que RDA-010 esté decidida; se decide en 05-01. El desarrollador no cambia nada en Cloudflare hasta entonces | Bitácora 04-02 | 2026-10-12 |
+| Producción carga el script de Cloudflare Web Analytics (configuración automática, 1 petición de tercero, ~10 KB, medido en 04-02) y Web Analytics se mantiene activo por decisión del desarrollador (2026-10-13): no se cambia nada en Cloudflare ni se mide la producción sin el script; RDA-010 se acepta por su decisión, sujeta a la medición con script en 05-01 | Bitácora 04-02 | 2026-10-12 |
 
 ## 5. Épicas cerradas y siguiente paso
 

@@ -124,7 +124,7 @@ Umbrales y lo medido por el agente (2026-10-13, producción con el script, media
 | Campo | Anotación |
 | :---- | :-------- |
 | Fecha en que confirmas los umbrales | |
-| ¿Aceptas el aumento de 2 B de JavaScript propio, que no viene de Web Analytics? | |
+| ¿Aceptas el aumento de 2 B de JavaScript propio, que no viene de Web Analytics? | Declarado por el desarrollador (2026-10-13): la diferencia de +2 B en el script del tema (3.714 B a 3.716 B) se considera menor y no es atribuible a Web Analytics (el build local da 3.716 B con y sin el script de Cloudflare). Causa no investigada. |
 | Estado de RDA-010 que se registra (Aceptada u otra) | |
 | Quién actualiza `decisiones.md`, `registro-log.md` §4 y `AGENTS.md` §7.3 (el agente, con tu aprobación del texto propuesto en la bitácora) | |
 | Observaciones | |
