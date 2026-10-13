@@ -38,6 +38,6 @@
 
 - Lighthouse móvil entre 95 y 100 en las cuatro categorías, mediana de tres ejecuciones, en la portada.
 - LCP < 2,5 s, CLS < 0,05 e INP < 200 ms.
-- AUD-01-014, 015, 016, 017 (salvo lo asignado a 05-01), 018 y 020, y AUD-02-009 y 010, cerrados con evidencia.
+- AUD-01-014, 015, 016, 017, 018 y 020, y AUD-02-009 y 010, cerrados con evidencia.
 - AUD-02-005 y AUD-02-008 con Safari y Firefox verificados en la fase B de 04-03, o con su estado actualizado (siguen abiertos hasta 05-03, riesgo aceptado por el desarrollador (2026-10-12)).
 - Sin hallazgos abiertos de severidad Alta en `auditoria-tecnica.md`.

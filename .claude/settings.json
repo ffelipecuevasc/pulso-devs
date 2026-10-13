@@ -25,9 +25,9 @@
       "Edit(src/**)",
       "Edit(public/**)",
       "Edit(_planificacion/**)",
-      "Write(src/**)",
-      "Write(public/**)",
-      "Write(_planificacion/**)"
+      "Edit(src/**)",
+      "Edit(public/**)",
+      "Edit(_planificacion/**)"
     ],
     "deny": [
       "Bash(npm *)",
@@ -54,11 +54,11 @@
       "Edit(.dev.vars)",
       "Edit(.claude/**)",
       "Edit(.git/**)",
-      "Write(.env)",
-      "Write(.env.*)",
-      "Write(.dev.vars)",
-      "Write(.claude/**)",
-      "Write(.git/**)"
+      "Edit(.env)",
+      "Edit(.env.*)",
+      "Edit(.dev.vars)",
+      "Edit(.claude/**)",
+      "Edit(.git/**)"
     ]
   }
 }

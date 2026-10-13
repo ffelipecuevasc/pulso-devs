@@ -5,7 +5,7 @@
 - **Rama:** `main` (RDA-015)
 - **Depende de:** 04-00
 - **RDA relacionadas:** RDA-007, RDA-009, RDA-011
-- **Hallazgos que cierra:** AUD-01-014 (imagen de vista previa), AUD-01-016, AUD-01-017 (salvo lo asignado a 05-01), AUD-01-018
+- **Hallazgos que cierra:** AUD-01-014 (imagen de vista previa), AUD-01-016, AUD-01-017, AUD-01-018
 
 ## Objetivo
 
