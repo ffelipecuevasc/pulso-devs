@@ -92,7 +92,7 @@ Anota el modelo, la versión de Android y el navegador con su versión. No pongo
 
 ## Parte 5 · Decisión sobre `www` y `http`
 
-El agente midió (solo lectura, 2026-10-13); **no propone cambios en Cloudflare**, solo informa para que decidas:
+**Medición inicial, antes del cambio.** El agente midió (solo lectura, 2026-10-13, entre las 19:40 y las 19:50, hora de esta máquina); **no propone cambios en Cloudflare**, solo informa para que decidas:
 
 | Dirección | Respuesta medida |
 | :-------- | :--------------- |
@@ -102,6 +102,49 @@ El agente midió (solo lectura, 2026-10-13); **no propone cambios en Cloudflare*
 | `strict-transport-security` en `https://comunidadpulso.dev/` | Ausente (0 coincidencias) |
 
 Qué causa el `522` y por qué HTTP no redirige a HTTPS: **no verificado** (no se miró la configuración de Cloudflare).
+
+### Medición posterior al cambio (agente, 2026-10-13, solo `HEAD`; ningún `POST`)
+
+**Declarado por el desarrollador: activó Always Use HTTPS en Cloudflare a las 20:04 del 2026-10-13** (hora del desarrollador; captura del panel de la zona `comunidadpulso.dev`, plan free: la opción aparecía activada y «This setting was last changed a minute ago»; la captura no se copia al repositorio). El panel advierte que activar la opción mientras el origen también fuerza HTTPS puede causar bucles de redirección; por eso se buscó un bucle (no hay).
+
+**Cuándo se midió.** Primera consulta del agente: 20:07:01 en el reloj de esta máquina, que equivale a **20:05:57 a 20:05:58 según la cabecera `Date` de Cloudflare** (23:05:58 GMT; hora de Chile = GMT−3). El reloj de esta máquina iba **64 a 65 s adelantado** respecto del `Date` de Cloudflare (medido en 6 respuestas). La desviación del reloj del desarrollador **no se conoce**, así que no se puede dar la demora exacta desde sus 20:04: como máximo ~2 min según el servidor.
+
+| Dato | Anotación |
+| :--- | :-------- |
+| Hora del aviso del desarrollador (su reloj) | 20:04 del 2026-10-13 (declarado) |
+| Hora de la primera consulta del agente (`Date` de Cloudflare) | 20:05:58 (23:05:58 GMT) |
+| Hora en que cambió el comportamiento | **No medida**: en la primera consulta la redirección ya estaba activa, así que no se repitió cada 2 minutos. Fue como máximo a las 20:05:58 (servidor) |
+| ¿Hay bucles de redirección? | No: ninguna cadena pasó de 2 saltos y todas terminan en `200` o `404` |
+| ¿Sigue habiendo `522`? | No: `http://www.comunidadpulso.dev/` ya responde `301` en 0,06 s |
+
+**Saltos por URL** (`curl -I`, sin seguir y luego siguiendo a mano, máximo 5 saltos; los tiempos son `time_total` de `curl` de cada petición `HEAD`):
+
+| URL pedida | Salto | URL del salto | Código | `location` | Tiempo |
+| :--------- | :---- | :------------ | :----- | :--------- | :----- |
+| `http://comunidadpulso.dev/` | 0 | `http://comunidadpulso.dev/` | `301` | `https://comunidadpulso.dev/` | 0,10 s |
+| | 1 | `https://comunidadpulso.dev/` | `200` | — | 0,16 s |
+| `http://comunidadpulso.dev/ruta-inexistente?x=1` | 0 | `http://comunidadpulso.dev/ruta-inexistente?x=1` | `301` | `https://comunidadpulso.dev/ruta-inexistente?x=1` | 0,09 s |
+| | 1 | `https://comunidadpulso.dev/ruta-inexistente?x=1` | `404` | — | 0,15 s |
+| `http://www.comunidadpulso.dev/` | 0 | `http://www.comunidadpulso.dev/` | `301` | `https://www.comunidadpulso.dev/` | 0,06 s |
+| | 1 | `https://www.comunidadpulso.dev/` | `301` | `https://comunidadpulso.dev/` | 0,14 s |
+| | 2 | `https://comunidadpulso.dev/` | `200` | — | 0,62 s |
+| `https://www.comunidadpulso.dev/` | 0 | `https://www.comunidadpulso.dev/` | `301` | `https://comunidadpulso.dev/` | 0,57 s |
+| | 1 | `https://comunidadpulso.dev/` | `200` | — | 0,65 s |
+| `https://comunidadpulso.dev/` | 0 | `https://comunidadpulso.dev/` | `200` | — | 0,64 s |
+
+| URL pedida | ¿Destino final en `https://comunidadpulso.dev/…`? | ¿Conserva ruta y consulta? | Saltos | Bucle |
+| :--------- | :----------------------------------------------- | :------------------------- | :----- | :---- |
+| `http://comunidadpulso.dev/` | Sí | No aplica (ruta `/`) | 1 | No |
+| `http://comunidadpulso.dev/ruta-inexistente?x=1` | Sí | Sí: `/ruta-inexistente?x=1` llega íntegra; el destino responde `404`, como la portada para una ruta inexistente | 1 | No |
+| `http://www.comunidadpulso.dev/` | Sí (pasa primero por `https://www`) | No aplica (ruta `/`) | 2 | No |
+| `https://www.comunidadpulso.dev/` | Sí | No aplica en esta consulta (con `/ruta?x=1` se midió antes: la conserva) | 1 | No |
+| `https://comunidadpulso.dev/` | Sí (es el destino) | No aplica | 0 | No |
+
+**Portada `https://comunidadpulso.dev/`** (consulta de las 20:07:19, reloj de esta máquina; `Date` 23:06:14 GMT): `200`; `content-security-policy` **idéntica** a la línea de `public/_headers` (524 caracteres, `cmp` sin diferencias); **sin** `content-security-policy-report-only`; `x-content-type-options: nosniff`, `referrer-policy: strict-origin-when-cross-origin` y `x-frame-options: DENY` presentes; `Cache-Control: public, max-age=0, must-revalidate`. **Sin cambios** respecto de la medición anterior. `strict-transport-security`: **no apareció** (0 coincidencias en la portada, en las dos redirecciones `http://`, en `https://www` y en la 404).
+
+**No medido:** la hora exacta en que cambió el comportamiento (ya estaba activo en la primera consulta); la configuración de Cloudflare (no se miró); `strict-transport-security` más allá de la ausencia de la cabecera; el comportamiento con `POST` u otros métodos (solo `HEAD` y `GET`); si `http://www/ruta?x=1` conserva ruta y consulta en sus dos saltos (no se pidió esa URL).
+
+Las dos filas de «Decisión» de abajo se escribieron **antes** del cambio, cuando `http://` no redirigía y `http://www` daba `522`. Se dejan tal cual y en blanco para que las completes o las marques como resueltas.
 
 | Decisión | Anotación |
 | :------- | :-------- |
