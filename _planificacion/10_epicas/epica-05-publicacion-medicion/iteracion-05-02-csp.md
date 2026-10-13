@@ -18,6 +18,7 @@ Reemplazar el `frame-ancestors 'none'` actual de `public/_headers` por una polí
 - Las fuentes y las imágenes se sirven desde el propio dominio.
 - Si RDA-010 se acepta, hay que permitir el script de Cloudflare Web Analytics y su petición `/cdn-cgi/rum`.
 - `pnpm preview` no aplica `public/_headers`: las cabeceras solo se prueban en producción.
+- Método (decisión del desarrollador, 2026-10-13): hashes fijos en `public/_headers` más una integración propia que hace fallar `pnpm build` si no coinciden con `dist/`.
 
 ## Tareas
 

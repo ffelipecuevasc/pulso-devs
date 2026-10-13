@@ -226,3 +226,4 @@ Criterios de término de `definicion-epica-04.md` (medido = lo medí; declarado 
 | 2026-10-13 | Cloudflare Web Analytics se mantiene activo; no se mide la producción sin el script; RDA-010 se acepta por decisión del desarrollador (declarado por el desarrollador, 2026-10-13), sujeta a la medición con script (05-01). |
 | 2026-10-13 | RDA-010 aceptada: la medición con script cumple los umbrales; `AGENTS.md` §7.3 actualizado con el texto aprobado. |
 | 2026-10-13 | Search Console: propiedad verificada, sitemap enviado (pendiente de «Correcto») y portada indexada; se decide avanzar a 05-02 en paralelo y cerrar 05-01 cuando el sitemap esté en «Correcto». |
+| 2026-10-13 | CSP 05-02: método C aprobado (hashes fijos en public/_headers más verificación en el build); textos de política pendientes de aprobación. |

@@ -13,6 +13,7 @@
 - Un push a `main` publica en producción. Antes de cada push el agente deja `pnpm format`, `pnpm check` y `pnpm build` sin errores.
 - El agente solo hace peticiones de solo lectura a producción (`GET` y `HEAD`). No envía `POST` a `/cdn-cgi/rum`.
 - `'unsafe-inline'` no entra en `script-src` en ningún texto. Si algo lo exigiera, se detiene el trabajo y se consulta.
+- **Método aprobado (declarado por el desarrollador, 2026-10-13): método C.** Hashes fijos en `public/_headers` más una integración propia que hace fallar `pnpm build` si no coinciden con `dist/`. Los textos (a) y (b) no cambiaron tras revisar las directivas heredadas de `default-src 'none'` (ver `bitacora-05-02-ajuste-2026-10-13.md`); siguen pendientes de tu aprobación.
 - Los hashes y el texto exacto de la política están en la bitácora, sección «Texto propuesto». Si el HTML cambia antes del despliegue, los hashes se recalculan y el texto se vuelve a aprobar.
 
 ---
@@ -21,7 +22,7 @@
 
 | Cuándo | Qué dices | Qué hace el agente después |
 | :----- | :-------- | :------------------------- |
-| Apruebas cómo se mantienen los hashes (integración `verificarCsp` y su línea en `astro.config.mjs`, que es un archivo de configuración y exige tu consulta previa) | «Aprobado el método (CSP)» | Crea `src/integraciones/verificarCsp.js` y agrega su línea a `astro.config.mjs` |
+| Apruebas el diseño final de la integración `verificarCsp` y su adición a `astro.config.mjs` (archivo de configuración: exige tu consulta previa). El **método C** ya quedó aprobado el 2026-10-13 (declarado por el desarrollador); esta frase aprueba el código concreto, tal como se muestra en `bitacora-05-02-ajuste-2026-10-13.md` | «Aprobado el método (CSP)» | Crea `src/integraciones/verificarCsp.js` y agrega su línea a `astro.config.mjs` |
 | Apruebas el texto del primer despliegue (solo informe) | «Aprobado el texto (CSP informe)» | Agrega la línea `Content-Security-Policy-Report-Only` a `public/_headers`, deja `format`, `check` y `build` en verde y te entrega el resumen y el mensaje de commit |
 | Después de tu push del despliegue 1 | «Publicado el despliegue 1 (CSP informe)» (con la hora del push) | Confirma las cabeceras con `curl` y corre la parte 2 |
 | Apruebas el texto de la política aplicada | «Aprobado el texto (CSP aplicada)» | Cambia `public/_headers` (la política completa pasa a `Content-Security-Policy` y se quita la línea de solo informe), verifica y te entrega el resumen |
