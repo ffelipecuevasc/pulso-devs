@@ -1,0 +1,1524 @@
+{
+ "iteracion": "05-01 fase A",
+ "condicion": "produccion CON Cloudflare Web Analytics (inyeccion automatica activa)",
+ "url": "https://comunidadpulso.dev/",
+ "fecha": "2026-10-13",
+ "herramientas": {
+  "lighthouse": "13.5.0 (pnpm dlx, fuera del proyecto)",
+  "chrome": "154.0.8037.98 headless=new",
+  "protocolo": "Chrome DevTools Protocol sin bibliotecas (scripts en la carpeta temporal de la sesion)"
+ },
+ "notas": [
+  "Corridas alternadas: movil 1, escritorio 1, movil 2, escritorio 2, ... (10 corridas).",
+  "No se guardan los 10 informes completos de Lighthouse (cada uno pesa cientos de KB); aqui van las metricas y la lista de peticiones de cada corrida. Los informes completos quedan en la carpeta temporal de la sesion.",
+  "El token de Web Analytics que aparece en la etiqueta inyectada se omite a proposito."
+ ],
+ "lighthouse": {
+  "medianas": {
+   "movil": {
+    "rendimiento": 99,
+    "accesibilidad": 100,
+    "practicas": 100,
+    "seo": 100,
+    "fcp": 1717.2235,
+    "lcp": 1798.9875,
+    "cls": 0,
+    "tbt": 36,
+    "si": 2444.1685,
+    "peticiones": 9,
+    "transferido": 106595
+   },
+   "escritorio": {
+    "rendimiento": 100,
+    "accesibilidad": 100,
+    "practicas": 100,
+    "seo": 100,
+    "fcp": 490.569,
+    "lcp": 510.5945,
+    "cls": 0,
+    "tbt": 0,
+    "si": 1033.4932,
+    "peticiones": 9,
+    "transferido": 106024
+   }
+  },
+  "corridas": {
+   "movil": [
+    {
+     "i": 1,
+     "version": "13.5.0",
+     "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36",
+     "rendimiento": 98,
+     "accesibilidad": 100,
+     "practicas": 100,
+     "seo": 100,
+     "fcp": 1734.5294999999999,
+     "lcp": 1737.5294999999999,
+     "cls": 0,
+     "tbt": 0,
+     "si": 2909.768115999225,
+     "lcpElemento": null,
+     "peticiones": 9,
+     "transferido": 106439,
+     "terceros": [],
+     "lista": [
+      {
+       "url": "https://comunidadpulso.dev/",
+       "tipo": "Document",
+       "transferSize": 17130,
+       "resourceSize": 47994,
+       "estado": 200
+      },
+      {
+       "url": "https://comunidadpulso.dev/_astro/fonts/bb1f54b37830a56c.woff2",
+       "tipo": "Font",
+       "transferSize": 40024,
+       "resourceSize": 39680,
+       "estado": 200
+      },
+      {
+       "url": "https://comunidadpulso.dev/_astro/fonts/b05aa21e93f7ae9f.woff2",
+       "tipo": "Font",
+       "transferSize": 20517,
+       "resourceSize": 20156,
+       "estado": 200
+      },
+      {
+       "url": "https://comunidadpulso.dev/_astro/LayoutBase.CqvnoCML.css",
+       "tipo": "Stylesheet",
+       "transferSize": 8953,
+       "resourceSize": 32248,
+       "estado": 200
+      },
+      {
+       "url": "https://comunidadpulso.dev/_astro/pulsodevs-small.CW72LdSX_Z11zCeM.avif",
+       "tipo": "Image",
+       "transferSize": 1783,
+       "resourceSize": 1472,
+       "estado": 200
+      },
+      {
+       "url": "https://comunidadpulso.dev/_astro/pulsodevs.ZG62qWtB_Z1m66Sk.avif",
+       "tipo": "Image",
+       "transferSize": 4920,
+       "resourceSize": 4600,
+       "estado": 200
+      },
+      {
+       "url": "https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920",
+       "tipo": "Script",
+       "transferSize": 10438,
+       "resourceSize": 31679,
+       "estado": 200
+      },
+      {
+       "url": "https://comunidadpulso.dev/cdn-cgi/rum?",
+       "tipo": "XHR",
+       "transferSize": 402,
+       "resourceSize": 0,
+       "estado": 204
+      },
+      {
+       "url": "https://comunidadpulso.dev/icono-32.png",
+       "tipo": "Other",
+       "transferSize": 2272,
+       "resourceSize": 1895,
+       "estado": 200
+      }
+     ]
+    },
+    {
+     "i": 2,
+     "version": "13.5.0",
+     "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36",
+     "rendimiento": 99,
+     "accesibilidad": 100,
+     "practicas": 100,
+     "seo": 100,
+     "fcp": 1709.9875,
+     "lcp": 1798.9875,
+     "cls": 0,
+     "tbt": 39,
+     "si": 2382.399886901889,
+     "lcpElemento": null,
+     "peticiones": 9,
+     "transferido": 106596,
+     "terceros": [],
+     "lista": [
+      {
+       "url": "https://comunidadpulso.dev/",
+       "tipo": "Document",
+       "transferSize": 17128,
+       "resourceSize": 47994,
+       "estado": 200
+      },
+      {
+       "url": "https://comunidadpulso.dev/_astro/fonts/bb1f54b37830a56c.woff2",
+       "tipo": "Font",
+       "transferSize": 40042,
+       "resourceSize": 39680,
+       "estado": 200
+      },
+      {
+       "url": "https://comunidadpulso.dev/_astro/fonts/b05aa21e93f7ae9f.woff2",
+       "tipo": "Font",
+       "transferSize": 20486,
+       "resourceSize": 20156,
+       "estado": 200
+      },
+      {
+       "url": "https://comunidadpulso.dev/_astro/LayoutBase.CqvnoCML.css",
+       "tipo": "Stylesheet",
+       "transferSize": 8914,
+       "resourceSize": 32248,
+       "estado": 200
+      },
+      {
+       "url": "https://comunidadpulso.dev/_astro/pulsodevs-small.CW72LdSX_Z11zCeM.avif",
+       "tipo": "Image",
+       "transferSize": 1824,
+       "resourceSize": 1472,
+       "estado": 200
+      },
+      {
+       "url": "https://comunidadpulso.dev/_astro/pulsodevs.ZG62qWtB_Z1m66Sk.avif",
+       "tipo": "Image",
+       "transferSize": 4910,
+       "resourceSize": 4600,
+       "estado": 200
+      },
+      {
+       "url": "https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920",
+       "tipo": "Script",
+       "transferSize": 10438,
+       "resourceSize": 31679,
+       "estado": 200
+      },
+      {
+       "url": "https://comunidadpulso.dev/cdn-cgi/rum?",
+       "tipo": "XHR",
+       "transferSize": 434,
+       "resourceSize": 0,
+       "estado": 204
+      },
+      {
+       "url": "https://comunidadpulso.dev/icono-32.png",
+       "tipo": "Other",
+       "transferSize": 2420,
+       "resourceSize": 1895,
+       "estado": 200
+      }
+     ]
+    },
+    {
+     "i": 3,
+     "version": "13.5.0",
+     "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36",
+     "rendimiento": 99,
+     "accesibilidad": 100,
+     "practicas": 100,
+     "seo": 100,
+     "fcp": 1717.2235,
+     "lcp": 1851.0145,
+     "cls": 0,
+     "tbt": 36,
+     "si": 2444.1684501916843,
+     "lcpElemento": null,
+     "peticiones": 9,
+     "transferido": 106648,
+     "terceros": [],
+     "lista": [
+      {
+       "url": "https://comunidadpulso.dev/",
+       "tipo": "Document",
+       "transferSize": 17125,
+       "resourceSize": 47994,
+       "estado": 200
+      },
+      {
+       "url": "https://comunidadpulso.dev/_astro/fonts/bb1f54b37830a56c.woff2",
+       "tipo": "Font",
+       "transferSize": 40033,
+       "resourceSize": 39680,
+       "estado": 200
+      },
+      {
+       "url": "https://comunidadpulso.dev/_astro/fonts/b05aa21e93f7ae9f.woff2",
+       "tipo": "Font",
+       "transferSize": 20484,
+       "resourceSize": 20156,
+       "estado": 200
+      },
+      {
+       "url": "https://comunidadpulso.dev/_astro/LayoutBase.CqvnoCML.css",
+       "tipo": "Stylesheet",
+       "transferSize": 9012,
+       "resourceSize": 32248,
+       "estado": 200
+      },
+      {
+       "url": "https://comunidadpulso.dev/_astro/pulsodevs-small.CW72LdSX_Z11zCeM.avif",
+       "tipo": "Image",
+       "transferSize": 1784,
+       "resourceSize": 1472,
+       "estado": 200
+      },
+      {
+       "url": "https://comunidadpulso.dev/_astro/pulsodevs.ZG62qWtB_Z1m66Sk.avif",
+       "tipo": "Image",
+       "transferSize": 4918,
+       "resourceSize": 4600,
+       "estado": 200
+      },
+      {
+       "url": "https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920",
+       "tipo": "Script",
+       "transferSize": 10438,
+       "resourceSize": 31679,
+       "estado": 200
+      },
+      {
+       "url": "https://comunidadpulso.dev/cdn-cgi/rum?",
+       "tipo": "XHR",
+       "transferSize": 460,
+       "resourceSize": 0,
+       "estado": 204
+      },
+      {
+       "url": "https://comunidadpulso.dev/icono-32.png",
+       "tipo": "Other",
+       "transferSize": 2394,
+       "resourceSize": 1895,
+       "estado": 200
+      }
+     ]
+    },
+    {
+     "i": 4,
+     "version": "13.5.0",
+     "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36",
+     "rendimiento": 99,
+     "accesibilidad": 100,
+     "practicas": 100,
+     "seo": 100,
+     "fcp": 1720.1090000000004,
+     "lcp": 1743.1090000000004,
+     "cls": 0,
+     "tbt": 0,
+     "si": 2305.042102004787,
+     "lcpElemento": null,
+     "peticiones": 9,
+     "transferido": 106595,
+     "terceros": [],
+     "lista": [
+      {
+       "url": "https://comunidadpulso.dev/",
+       "tipo": "Document",
+       "transferSize": 17126,
+       "resourceSize": 47994,
+       "estado": 200
+      },
+      {
+       "url": "https://comunidadpulso.dev/_astro/fonts/bb1f54b37830a56c.woff2",
+       "tipo": "Font",
+       "transferSize": 40069,
+       "resourceSize": 39680,
+       "estado": 200
+      },
+      {
+       "url": "https://comunidadpulso.dev/_astro/fonts/b05aa21e93f7ae9f.woff2",
+       "tipo": "Font",
+       "transferSize": 20488,
+       "resourceSize": 20156,
+       "estado": 200
+      },
+      {
+       "url": "https://comunidadpulso.dev/_astro/LayoutBase.CqvnoCML.css",
+       "tipo": "Stylesheet",
+       "transferSize": 8920,
+       "resourceSize": 32248,
+       "estado": 200
+      },
+      {
+       "url": "https://comunidadpulso.dev/_astro/pulsodevs-small.CW72LdSX_Z11zCeM.avif",
+       "tipo": "Image",
+       "transferSize": 1789,
+       "resourceSize": 1472,
+       "estado": 200
+      },
+      {
+       "url": "https://comunidadpulso.dev/_astro/pulsodevs.ZG62qWtB_Z1m66Sk.avif",
+       "tipo": "Image",
+       "transferSize": 4915,
+       "resourceSize": 4600,
+       "estado": 200
+      },
+      {
+       "url": "https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920",
+       "tipo": "Script",
+       "transferSize": 10438,
+       "resourceSize": 31679,
+       "estado": 200
+      },
+      {
+       "url": "https://comunidadpulso.dev/cdn-cgi/rum?",
+       "tipo": "XHR",
+       "transferSize": 434,
+       "resourceSize": 0,
+       "estado": 204
+      },
+      {
+       "url": "https://comunidadpulso.dev/icono-32.png",
+       "tipo": "Other",
+       "transferSize": 2416,
+       "resourceSize": 1895,
+       "estado": 200
+      }
+     ]
+    },
+    {
+     "i": 5,
+     "version": "13.5.0",
+     "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36",
+     "rendimiento": 99,
+     "accesibilidad": 100,
+     "practicas": 100,
+     "seo": 100,
+     "fcp": 1703.8355,
+     "lcp": 1840.8915,
+     "cls": 0,
+     "tbt": 49,
+     "si": 2457.2041945612254,
+     "lcpElemento": null,
+     "peticiones": 9,
+     "transferido": 106580,
+     "terceros": [],
+     "lista": [
+      {
+       "url": "https://comunidadpulso.dev/",
+       "tipo": "Document",
+       "transferSize": 17126,
+       "resourceSize": 47994,
+       "estado": 200
+      },
+      {
+       "url": "https://comunidadpulso.dev/_astro/fonts/bb1f54b37830a56c.woff2",
+       "tipo": "Font",
+       "transferSize": 40036,
+       "resourceSize": 39680,
+       "estado": 200
+      },
+      {
+       "url": "https://comunidadpulso.dev/_astro/fonts/b05aa21e93f7ae9f.woff2",
+       "tipo": "Font",
+       "transferSize": 20484,
+       "resourceSize": 20156,
+       "estado": 200
+      },
+      {
+       "url": "https://comunidadpulso.dev/_astro/LayoutBase.CqvnoCML.css",
+       "tipo": "Stylesheet",
+       "transferSize": 8920,
+       "resourceSize": 32248,
+       "estado": 200
+      },
+      {
+       "url": "https://comunidadpulso.dev/_astro/pulsodevs-small.CW72LdSX_Z11zCeM.avif",
+       "tipo": "Image",
+       "transferSize": 1780,
+       "resourceSize": 1472,
+       "estado": 200
+      },
+      {
+       "url": "https://comunidadpulso.dev/_astro/pulsodevs.ZG62qWtB_Z1m66Sk.avif",
+       "tipo": "Image",
+       "transferSize": 4969,
+       "resourceSize": 4600,
+       "estado": 200
+      },
+      {
+       "url": "https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920",
+       "tipo": "Script",
+       "transferSize": 10438,
+       "resourceSize": 31679,
+       "estado": 200
+      },
+      {
+       "url": "https://comunidadpulso.dev/cdn-cgi/rum?",
+       "tipo": "XHR",
+       "transferSize": 429,
+       "resourceSize": 0,
+       "estado": 204
+      },
+      {
+       "url": "https://comunidadpulso.dev/icono-32.png",
+       "tipo": "Other",
+       "transferSize": 2398,
+       "resourceSize": 1895,
+       "estado": 200
+      }
+     ]
+    }
+   ],
+   "escritorio": [
+    {
+     "i": 1,
+     "version": "13.5.0",
+     "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36",
+     "rendimiento": 100,
+     "accesibilidad": 100,
+     "practicas": 100,
+     "seo": 100,
+     "fcp": 483.59450000000027,
+     "lcp": 510.59450000000027,
+     "cls": 0.00006832195322425978,
+     "tbt": 0,
+     "si": 1062.9110647269135,
+     "lcpElemento": null,
+     "peticiones": 9,
+     "transferido": 106018,
+     "terceros": [],
+     "lista": [
+      {
+       "url": "https://comunidadpulso.dev/",
+       "tipo": "Document",
+       "transferSize": 17128,
+       "resourceSize": 47994,
+       "estado": 200
+      },
+      {
+       "url": "https://comunidadpulso.dev/_astro/fonts/bb1f54b37830a56c.woff2",
+       "tipo": "Font",
+       "transferSize": 40030,
+       "resourceSize": 39680,
+       "estado": 200
+      },
+      {
+       "url": "https://comunidadpulso.dev/_astro/fonts/b05aa21e93f7ae9f.woff2",
+       "tipo": "Font",
+       "transferSize": 20492,
+       "resourceSize": 20156,
+       "estado": 200
+      },
+      {
+       "url": "https://comunidadpulso.dev/_astro/LayoutBase.CqvnoCML.css",
+       "tipo": "Stylesheet",
+       "transferSize": 8915,
+       "resourceSize": 32248,
+       "estado": 200
+      },
+      {
+       "url": "https://comunidadpulso.dev/_astro/pulsodevs-small.CW72LdSX_Z2fTzPo.avif",
+       "tipo": "Image",
+       "transferSize": 1226,
+       "resourceSize": 911,
+       "estado": 200
+      },
+      {
+       "url": "https://comunidadpulso.dev/_astro/pulsodevs.ZG62qWtB_Z1m66Sk.avif",
+       "tipo": "Image",
+       "transferSize": 4946,
+       "resourceSize": 4600,
+       "estado": 200
+      },
+      {
+       "url": "https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920",
+       "tipo": "Script",
+       "transferSize": 10438,
+       "resourceSize": 31679,
+       "estado": 200
+      },
+      {
+       "url": "https://comunidadpulso.dev/cdn-cgi/rum?",
+       "tipo": "XHR",
+       "transferSize": 452,
+       "resourceSize": 0,
+       "estado": 204
+      },
+      {
+       "url": "https://comunidadpulso.dev/icono-32.png",
+       "tipo": "Other",
+       "transferSize": 2391,
+       "resourceSize": 1895,
+       "estado": 200
+      }
+     ]
+    },
+    {
+     "i": 2,
+     "version": "13.5.0",
+     "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36",
+     "rendimiento": 100,
+     "accesibilidad": 100,
+     "practicas": 100,
+     "seo": 100,
+     "fcp": 489.1014999999999,
+     "lcp": 514.1014999999999,
+     "cls": 0.00006832195322425978,
+     "tbt": 0,
+     "si": 1044.0603714486365,
+     "lcpElemento": null,
+     "peticiones": 9,
+     "transferido": 106032,
+     "terceros": [],
+     "lista": [
+      {
+       "url": "https://comunidadpulso.dev/",
+       "tipo": "Document",
+       "transferSize": 17124,
+       "resourceSize": 47994,
+       "estado": 200
+      },
+      {
+       "url": "https://comunidadpulso.dev/_astro/fonts/bb1f54b37830a56c.woff2",
+       "tipo": "Font",
+       "transferSize": 40027,
+       "resourceSize": 39680,
+       "estado": 200
+      },
+      {
+       "url": "https://comunidadpulso.dev/_astro/fonts/b05aa21e93f7ae9f.woff2",
+       "tipo": "Font",
+       "transferSize": 20497,
+       "resourceSize": 20156,
+       "estado": 200
+      },
+      {
+       "url": "https://comunidadpulso.dev/_astro/LayoutBase.CqvnoCML.css",
+       "tipo": "Stylesheet",
+       "transferSize": 8923,
+       "resourceSize": 32248,
+       "estado": 200
+      },
+      {
+       "url": "https://comunidadpulso.dev/_astro/pulsodevs-small.CW72LdSX_Z2fTzPo.avif",
+       "tipo": "Image",
+       "transferSize": 1227,
+       "resourceSize": 911,
+       "estado": 200
+      },
+      {
+       "url": "https://comunidadpulso.dev/_astro/pulsodevs.ZG62qWtB_Z1m66Sk.avif",
+       "tipo": "Image",
+       "transferSize": 4970,
+       "resourceSize": 4600,
+       "estado": 200
+      },
+      {
+       "url": "https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920",
+       "tipo": "Script",
+       "transferSize": 10438,
+       "resourceSize": 31679,
+       "estado": 200
+      },
+      {
+       "url": "https://comunidadpulso.dev/cdn-cgi/rum?",
+       "tipo": "XHR",
+       "transferSize": 428,
+       "resourceSize": 0,
+       "estado": 204
+      },
+      {
+       "url": "https://comunidadpulso.dev/icono-32.png",
+       "tipo": "Other",
+       "transferSize": 2398,
+       "resourceSize": 1895,
+       "estado": 200
+      }
+     ]
+    },
+    {
+     "i": 3,
+     "version": "13.5.0",
+     "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36",
+     "rendimiento": 100,
+     "accesibilidad": 100,
+     "practicas": 100,
+     "seo": 100,
+     "fcp": 490.5690000000001,
+     "lcp": 496.5690000000001,
+     "cls": 0,
+     "tbt": 0,
+     "si": 968.3338119990095,
+     "lcpElemento": null,
+     "peticiones": 9,
+     "transferido": 106027,
+     "terceros": [],
+     "lista": [
+      {
+       "url": "https://comunidadpulso.dev/",
+       "tipo": "Document",
+       "transferSize": 17129,
+       "resourceSize": 47994,
+       "estado": 200
+      },
+      {
+       "url": "https://comunidadpulso.dev/_astro/fonts/bb1f54b37830a56c.woff2",
+       "tipo": "Font",
+       "transferSize": 40034,
+       "resourceSize": 39680,
+       "estado": 200
+      },
+      {
+       "url": "https://comunidadpulso.dev/_astro/fonts/b05aa21e93f7ae9f.woff2",
+       "tipo": "Font",
+       "transferSize": 20522,
+       "resourceSize": 20156,
+       "estado": 200
+      },
+      {
+       "url": "https://comunidadpulso.dev/_astro/LayoutBase.CqvnoCML.css",
+       "tipo": "Stylesheet",
+       "transferSize": 8920,
+       "resourceSize": 32248,
+       "estado": 200
+      },
+      {
+       "url": "https://comunidadpulso.dev/_astro/pulsodevs-small.CW72LdSX_Z2fTzPo.avif",
+       "tipo": "Image",
+       "transferSize": 1229,
+       "resourceSize": 911,
+       "estado": 200
+      },
+      {
+       "url": "https://comunidadpulso.dev/_astro/pulsodevs.ZG62qWtB_Z1m66Sk.avif",
+       "tipo": "Image",
+       "transferSize": 4909,
+       "resourceSize": 4600,
+       "estado": 200
+      },
+      {
+       "url": "https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920",
+       "tipo": "Script",
+       "transferSize": 10438,
+       "resourceSize": 31679,
+       "estado": 200
+      },
+      {
+       "url": "https://comunidadpulso.dev/cdn-cgi/rum?",
+       "tipo": "XHR",
+       "transferSize": 428,
+       "resourceSize": 0,
+       "estado": 204
+      },
+      {
+       "url": "https://comunidadpulso.dev/icono-32.png",
+       "tipo": "Other",
+       "transferSize": 2418,
+       "resourceSize": 1895,
+       "estado": 200
+      }
+     ]
+    },
+    {
+     "i": 4,
+     "version": "13.5.0",
+     "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36",
+     "rendimiento": 100,
+     "accesibilidad": 100,
+     "practicas": 100,
+     "seo": 100,
+     "fcp": 509.2135,
+     "lcp": 515.2135000000001,
+     "cls": 0,
+     "tbt": 0,
+     "si": 1005.9194854158272,
+     "lcpElemento": null,
+     "peticiones": 9,
+     "transferido": 105870,
+     "terceros": [],
+     "lista": [
+      {
+       "url": "https://comunidadpulso.dev/",
+       "tipo": "Document",
+       "transferSize": 17128,
+       "resourceSize": 47994,
+       "estado": 200
+      },
+      {
+       "url": "https://comunidadpulso.dev/_astro/fonts/bb1f54b37830a56c.woff2",
+       "tipo": "Font",
+       "transferSize": 40071,
+       "resourceSize": 39680,
+       "estado": 200
+      },
+      {
+       "url": "https://comunidadpulso.dev/_astro/fonts/b05aa21e93f7ae9f.woff2",
+       "tipo": "Font",
+       "transferSize": 20479,
+       "resourceSize": 20156,
+       "estado": 200
+      },
+      {
+       "url": "https://comunidadpulso.dev/_astro/LayoutBase.CqvnoCML.css",
+       "tipo": "Stylesheet",
+       "transferSize": 8924,
+       "resourceSize": 32248,
+       "estado": 200
+      },
+      {
+       "url": "https://comunidadpulso.dev/_astro/pulsodevs-small.CW72LdSX_Z2fTzPo.avif",
+       "tipo": "Image",
+       "transferSize": 1223,
+       "resourceSize": 911,
+       "estado": 200
+      },
+      {
+       "url": "https://comunidadpulso.dev/_astro/pulsodevs.ZG62qWtB_Z1m66Sk.avif",
+       "tipo": "Image",
+       "transferSize": 4911,
+       "resourceSize": 4600,
+       "estado": 200
+      },
+      {
+       "url": "https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920",
+       "tipo": "Script",
+       "transferSize": 10438,
+       "resourceSize": 31679,
+       "estado": 200
+      },
+      {
+       "url": "https://comunidadpulso.dev/cdn-cgi/rum?",
+       "tipo": "XHR",
+       "transferSize": 403,
+       "resourceSize": 0,
+       "estado": 204
+      },
+      {
+       "url": "https://comunidadpulso.dev/icono-32.png",
+       "tipo": "Other",
+       "transferSize": 2293,
+       "resourceSize": 1895,
+       "estado": 200
+      }
+     ]
+    },
+    {
+     "i": 5,
+     "version": "13.5.0",
+     "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36",
+     "rendimiento": 100,
+     "accesibilidad": 100,
+     "practicas": 100,
+     "seo": 100,
+     "fcp": 492.419,
+     "lcp": 497.419,
+     "cls": 0,
+     "tbt": 0,
+     "si": 1033.4931938352047,
+     "lcpElemento": null,
+     "peticiones": 9,
+     "transferido": 106024,
+     "terceros": [],
+     "lista": [
+      {
+       "url": "https://comunidadpulso.dev/",
+       "tipo": "Document",
+       "transferSize": 17132,
+       "resourceSize": 47994,
+       "estado": 200
+      },
+      {
+       "url": "https://comunidadpulso.dev/_astro/fonts/bb1f54b37830a56c.woff2",
+       "tipo": "Font",
+       "transferSize": 40028,
+       "resourceSize": 39680,
+       "estado": 200
+      },
+      {
+       "url": "https://comunidadpulso.dev/_astro/fonts/b05aa21e93f7ae9f.woff2",
+       "tipo": "Font",
+       "transferSize": 20525,
+       "resourceSize": 20156,
+       "estado": 200
+      },
+      {
+       "url": "https://comunidadpulso.dev/_astro/LayoutBase.CqvnoCML.css",
+       "tipo": "Stylesheet",
+       "transferSize": 8923,
+       "resourceSize": 32248,
+       "estado": 200
+      },
+      {
+       "url": "https://comunidadpulso.dev/_astro/pulsodevs-small.CW72LdSX_Z2fTzPo.avif",
+       "tipo": "Image",
+       "transferSize": 1216,
+       "resourceSize": 911,
+       "estado": 200
+      },
+      {
+       "url": "https://comunidadpulso.dev/_astro/pulsodevs.ZG62qWtB_Z1m66Sk.avif",
+       "tipo": "Image",
+       "transferSize": 4925,
+       "resourceSize": 4600,
+       "estado": 200
+      },
+      {
+       "url": "https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920",
+       "tipo": "Script",
+       "transferSize": 10438,
+       "resourceSize": 31679,
+       "estado": 200
+      },
+      {
+       "url": "https://comunidadpulso.dev/cdn-cgi/rum?",
+       "tipo": "XHR",
+       "transferSize": 425,
+       "resourceSize": 0,
+       "estado": 204
+      },
+      {
+       "url": "https://comunidadpulso.dev/icono-32.png",
+       "tipo": "Other",
+       "transferSize": 2412,
+       "resourceSize": 1895,
+       "estado": 200
+      }
+     ]
+    }
+   ]
+  }
+ },
+ "protocolo": [
+  {
+   "condicion": "movil-412",
+   "repeticion": 1,
+   "lcp_ms": 640,
+   "lcp_elemento": "p.hero__sub",
+   "cls": 0,
+   "inp_clics_ms": [
+    48,
+    32
+   ],
+   "peticiones": [
+    {
+     "url": "https://comunidadpulso.dev/",
+     "tipo": "Document",
+     "estado": 200,
+     "bytes": 17126
+    },
+    {
+     "url": "https://comunidadpulso.dev/_astro/fonts/bb1f54b37830a56c.woff2",
+     "tipo": "Font",
+     "estado": 200,
+     "bytes": 40035
+    },
+    {
+     "url": "https://comunidadpulso.dev/_astro/fonts/b05aa21e93f7ae9f.woff2",
+     "tipo": "Font",
+     "estado": 200,
+     "bytes": 20478
+    },
+    {
+     "url": "https://comunidadpulso.dev/_astro/LayoutBase.CqvnoCML.css",
+     "tipo": "Stylesheet",
+     "estado": 200,
+     "bytes": 8946
+    },
+    {
+     "url": "https://comunidadpulso.dev/_astro/pulsodevs-small.CW72LdSX_Z11zCeM.avif",
+     "tipo": "Image",
+     "estado": 200,
+     "bytes": 1786
+    },
+    {
+     "url": "https://comunidadpulso.dev/_astro/pulsodevs.ZG62qWtB_ZGz14n.avif",
+     "tipo": "Image",
+     "estado": 200,
+     "bytes": 10405
+    },
+    {
+     "url": "https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920",
+     "tipo": "Script",
+     "estado": 200,
+     "bytes": 10438
+    },
+    {
+     "url": "https://comunidadpulso.dev/cdn-cgi/rum?",
+     "tipo": "XHR",
+     "estado": 204,
+     "bytes": 501
+    },
+    {
+     "url": "https://comunidadpulso.dev/icono-32.png",
+     "tipo": "Other",
+     "estado": 200,
+     "bytes": 2363
+    }
+   ]
+  },
+  {
+   "condicion": "movil-412",
+   "repeticion": 2,
+   "lcp_ms": 528,
+   "lcp_elemento": "p.hero__sub",
+   "cls": 0,
+   "inp_clics_ms": [
+    32,
+    32
+   ],
+   "peticiones": [
+    {
+     "url": "https://comunidadpulso.dev/",
+     "tipo": "Document",
+     "estado": 200,
+     "bytes": 17130
+    },
+    {
+     "url": "https://comunidadpulso.dev/_astro/fonts/bb1f54b37830a56c.woff2",
+     "tipo": "Font",
+     "estado": 200,
+     "bytes": 40065
+    },
+    {
+     "url": "https://comunidadpulso.dev/_astro/fonts/b05aa21e93f7ae9f.woff2",
+     "tipo": "Font",
+     "estado": 200,
+     "bytes": 20485
+    },
+    {
+     "url": "https://comunidadpulso.dev/_astro/LayoutBase.CqvnoCML.css",
+     "tipo": "Stylesheet",
+     "estado": 200,
+     "bytes": 8911
+    },
+    {
+     "url": "https://comunidadpulso.dev/_astro/pulsodevs-small.CW72LdSX_Z11zCeM.avif",
+     "tipo": "Image",
+     "estado": 200,
+     "bytes": 1794
+    },
+    {
+     "url": "https://comunidadpulso.dev/_astro/pulsodevs.ZG62qWtB_ZGz14n.avif",
+     "tipo": "Image",
+     "estado": 200,
+     "bytes": 10415
+    },
+    {
+     "url": "https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920",
+     "tipo": "Script",
+     "estado": 200,
+     "bytes": 10438
+    },
+    {
+     "url": "https://comunidadpulso.dev/cdn-cgi/rum?",
+     "tipo": "XHR",
+     "estado": 204,
+     "bytes": 500
+    },
+    {
+     "url": "https://comunidadpulso.dev/icono-32.png",
+     "tipo": "Other",
+     "estado": 200,
+     "bytes": 2362
+    }
+   ]
+  },
+  {
+   "condicion": "movil-412",
+   "repeticion": 3,
+   "lcp_ms": 640,
+   "lcp_elemento": "p.hero__sub",
+   "cls": 0,
+   "inp_clics_ms": [
+    48,
+    32
+   ],
+   "peticiones": [
+    {
+     "url": "https://comunidadpulso.dev/",
+     "tipo": "Document",
+     "estado": 200,
+     "bytes": 17127
+    },
+    {
+     "url": "https://comunidadpulso.dev/_astro/fonts/bb1f54b37830a56c.woff2",
+     "tipo": "Font",
+     "estado": 200,
+     "bytes": 40036
+    },
+    {
+     "url": "https://comunidadpulso.dev/_astro/fonts/b05aa21e93f7ae9f.woff2",
+     "tipo": "Font",
+     "estado": 200,
+     "bytes": 20489
+    },
+    {
+     "url": "https://comunidadpulso.dev/_astro/LayoutBase.CqvnoCML.css",
+     "tipo": "Stylesheet",
+     "estado": 200,
+     "bytes": 8913
+    },
+    {
+     "url": "https://comunidadpulso.dev/_astro/pulsodevs-small.CW72LdSX_Z11zCeM.avif",
+     "tipo": "Image",
+     "estado": 200,
+     "bytes": 1779
+    },
+    {
+     "url": "https://comunidadpulso.dev/_astro/pulsodevs.ZG62qWtB_ZGz14n.avif",
+     "tipo": "Image",
+     "estado": 200,
+     "bytes": 10445
+    },
+    {
+     "url": "https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920",
+     "tipo": "Script",
+     "estado": 200,
+     "bytes": 10438
+    },
+    {
+     "url": "https://comunidadpulso.dev/cdn-cgi/rum?",
+     "tipo": "XHR",
+     "estado": 204,
+     "bytes": 497
+    },
+    {
+     "url": "https://comunidadpulso.dev/icono-32.png",
+     "tipo": "Other",
+     "estado": 200,
+     "bytes": 2363
+    }
+   ]
+  },
+  {
+   "condicion": "escritorio-1280",
+   "repeticion": 1,
+   "lcp_ms": 640,
+   "lcp_elemento": "span.hero__wordmark",
+   "cls": 0.0016,
+   "inp_clics_ms": [
+    32,
+    32
+   ],
+   "peticiones": [
+    {
+     "url": "https://comunidadpulso.dev/",
+     "tipo": "Document",
+     "estado": 200,
+     "bytes": 17129
+    },
+    {
+     "url": "https://comunidadpulso.dev/_astro/fonts/bb1f54b37830a56c.woff2",
+     "tipo": "Font",
+     "estado": 200,
+     "bytes": 40036
+    },
+    {
+     "url": "https://comunidadpulso.dev/_astro/fonts/b05aa21e93f7ae9f.woff2",
+     "tipo": "Font",
+     "estado": 200,
+     "bytes": 20481
+    },
+    {
+     "url": "https://comunidadpulso.dev/_astro/LayoutBase.CqvnoCML.css",
+     "tipo": "Stylesheet",
+     "estado": 200,
+     "bytes": 8940
+    },
+    {
+     "url": "https://comunidadpulso.dev/_astro/pulsodevs-small.CW72LdSX_Z2fTzPo.avif",
+     "tipo": "Image",
+     "estado": 200,
+     "bytes": 1227
+    },
+    {
+     "url": "https://comunidadpulso.dev/_astro/pulsodevs.ZG62qWtB_Z1m66Sk.avif",
+     "tipo": "Image",
+     "estado": 200,
+     "bytes": 4916
+    },
+    {
+     "url": "https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920",
+     "tipo": "Script",
+     "estado": 200,
+     "bytes": 10438
+    },
+    {
+     "url": "https://comunidadpulso.dev/cdn-cgi/rum?",
+     "tipo": "XHR",
+     "estado": 204,
+     "bytes": 493
+    },
+    {
+     "url": "https://comunidadpulso.dev/icono-32.png",
+     "tipo": "Other",
+     "estado": 200,
+     "bytes": 2360
+    }
+   ]
+  },
+  {
+   "condicion": "escritorio-1280",
+   "repeticion": 2,
+   "lcp_ms": 608,
+   "lcp_elemento": "span.hero__wordmark",
+   "cls": 0.0006,
+   "inp_clics_ms": [
+    32,
+    32
+   ],
+   "peticiones": [
+    {
+     "url": "https://comunidadpulso.dev/",
+     "tipo": "Document",
+     "estado": 200,
+     "bytes": 17129
+    },
+    {
+     "url": "https://comunidadpulso.dev/_astro/fonts/bb1f54b37830a56c.woff2",
+     "tipo": "Font",
+     "estado": 200,
+     "bytes": 40028
+    },
+    {
+     "url": "https://comunidadpulso.dev/_astro/fonts/b05aa21e93f7ae9f.woff2",
+     "tipo": "Font",
+     "estado": 200,
+     "bytes": 20500
+    },
+    {
+     "url": "https://comunidadpulso.dev/_astro/LayoutBase.CqvnoCML.css",
+     "tipo": "Stylesheet",
+     "estado": 200,
+     "bytes": 8947
+    },
+    {
+     "url": "https://comunidadpulso.dev/_astro/pulsodevs-small.CW72LdSX_Z2fTzPo.avif",
+     "tipo": "Image",
+     "estado": 200,
+     "bytes": 1225
+    },
+    {
+     "url": "https://comunidadpulso.dev/_astro/pulsodevs.ZG62qWtB_Z1m66Sk.avif",
+     "tipo": "Image",
+     "estado": 200,
+     "bytes": 4913
+    },
+    {
+     "url": "https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920",
+     "tipo": "Script",
+     "estado": 200,
+     "bytes": 10438
+    },
+    {
+     "url": "https://comunidadpulso.dev/cdn-cgi/rum?",
+     "tipo": "XHR",
+     "estado": 204,
+     "bytes": 425
+    },
+    {
+     "url": "https://comunidadpulso.dev/icono-32.png",
+     "tipo": "Other",
+     "estado": 200,
+     "bytes": 2418
+    }
+   ]
+  },
+  {
+   "condicion": "escritorio-1280",
+   "repeticion": 3,
+   "lcp_ms": 816,
+   "lcp_elemento": "span.hero__wordmark",
+   "cls": 0,
+   "inp_clics_ms": [
+    48,
+    48
+   ],
+   "peticiones": [
+    {
+     "url": "https://comunidadpulso.dev/",
+     "tipo": "Document",
+     "estado": 200,
+     "bytes": 17126
+    },
+    {
+     "url": "https://comunidadpulso.dev/_astro/fonts/bb1f54b37830a56c.woff2",
+     "tipo": "Font",
+     "estado": 200,
+     "bytes": 40030
+    },
+    {
+     "url": "https://comunidadpulso.dev/_astro/fonts/b05aa21e93f7ae9f.woff2",
+     "tipo": "Font",
+     "estado": 200,
+     "bytes": 20492
+    },
+    {
+     "url": "https://comunidadpulso.dev/_astro/LayoutBase.CqvnoCML.css",
+     "tipo": "Stylesheet",
+     "estado": 200,
+     "bytes": 8918
+    },
+    {
+     "url": "https://comunidadpulso.dev/_astro/pulsodevs-small.CW72LdSX_Z2fTzPo.avif",
+     "tipo": "Image",
+     "estado": 200,
+     "bytes": 1261
+    },
+    {
+     "url": "https://comunidadpulso.dev/_astro/pulsodevs.ZG62qWtB_Z1m66Sk.avif",
+     "tipo": "Image",
+     "estado": 200,
+     "bytes": 4909
+    },
+    {
+     "url": "https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920",
+     "tipo": "Script",
+     "estado": 200,
+     "bytes": 10438
+    },
+    {
+     "url": "https://comunidadpulso.dev/cdn-cgi/rum?",
+     "tipo": "XHR",
+     "estado": 204,
+     "bytes": 500
+    },
+    {
+     "url": "https://comunidadpulso.dev/icono-32.png",
+     "tipo": "Other",
+     "estado": 200,
+     "bytes": 2360
+    }
+   ]
+  },
+  {
+   "condicion": "movil-412-cpu4x",
+   "repeticion": 1,
+   "lcp_ms": 1136,
+   "lcp_elemento": "p.hero__sub",
+   "cls": 0,
+   "inp_clics_ms": [
+    96,
+    112
+   ],
+   "peticiones": [
+    {
+     "url": "https://comunidadpulso.dev/",
+     "tipo": "Document",
+     "estado": 200,
+     "bytes": 17128
+    },
+    {
+     "url": "https://comunidadpulso.dev/_astro/fonts/bb1f54b37830a56c.woff2",
+     "tipo": "Font",
+     "estado": 200,
+     "bytes": 40063
+    },
+    {
+     "url": "https://comunidadpulso.dev/_astro/fonts/b05aa21e93f7ae9f.woff2",
+     "tipo": "Font",
+     "estado": 200,
+     "bytes": 20482
+    },
+    {
+     "url": "https://comunidadpulso.dev/_astro/LayoutBase.CqvnoCML.css",
+     "tipo": "Stylesheet",
+     "estado": 200,
+     "bytes": 8913
+    },
+    {
+     "url": "https://comunidadpulso.dev/_astro/pulsodevs-small.CW72LdSX_Z11zCeM.avif",
+     "tipo": "Image",
+     "estado": 200,
+     "bytes": 1786
+    },
+    {
+     "url": "https://comunidadpulso.dev/_astro/pulsodevs.ZG62qWtB_ZGz14n.avif",
+     "tipo": "Image",
+     "estado": 200,
+     "bytes": 10402
+    },
+    {
+     "url": "https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920",
+     "tipo": "Script",
+     "estado": 200,
+     "bytes": 10438
+    },
+    {
+     "url": "https://comunidadpulso.dev/cdn-cgi/rum?",
+     "tipo": "XHR",
+     "estado": 204,
+     "bytes": 498
+    },
+    {
+     "url": "https://comunidadpulso.dev/icono-32.png",
+     "tipo": "Other",
+     "estado": 200,
+     "bytes": 2364
+    }
+   ]
+  },
+  {
+   "condicion": "movil-412-cpu4x",
+   "repeticion": 2,
+   "lcp_ms": 1260,
+   "lcp_elemento": "p.hero__sub",
+   "cls": 0,
+   "inp_clics_ms": [
+    112,
+    112
+   ],
+   "peticiones": [
+    {
+     "url": "https://comunidadpulso.dev/",
+     "tipo": "Document",
+     "estado": 200,
+     "bytes": 17125
+    },
+    {
+     "url": "https://comunidadpulso.dev/_astro/fonts/bb1f54b37830a56c.woff2",
+     "tipo": "Font",
+     "estado": 200,
+     "bytes": 40040
+    },
+    {
+     "url": "https://comunidadpulso.dev/_astro/fonts/b05aa21e93f7ae9f.woff2",
+     "tipo": "Font",
+     "estado": 200,
+     "bytes": 20490
+    },
+    {
+     "url": "https://comunidadpulso.dev/_astro/LayoutBase.CqvnoCML.css",
+     "tipo": "Stylesheet",
+     "estado": 200,
+     "bytes": 8919
+    },
+    {
+     "url": "https://comunidadpulso.dev/_astro/pulsodevs-small.CW72LdSX_Z11zCeM.avif",
+     "tipo": "Image",
+     "estado": 200,
+     "bytes": 1779
+    },
+    {
+     "url": "https://comunidadpulso.dev/_astro/pulsodevs.ZG62qWtB_ZGz14n.avif",
+     "tipo": "Image",
+     "estado": 200,
+     "bytes": 10447
+    },
+    {
+     "url": "https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920",
+     "tipo": "Script",
+     "estado": 200,
+     "bytes": 10438
+    },
+    {
+     "url": "https://comunidadpulso.dev/cdn-cgi/rum?",
+     "tipo": "XHR",
+     "estado": 204,
+     "bytes": 501
+    },
+    {
+     "url": "https://comunidadpulso.dev/icono-32.png",
+     "tipo": "Other",
+     "estado": 200,
+     "bytes": 2362
+    }
+   ]
+  },
+  {
+   "condicion": "movil-412-cpu4x",
+   "repeticion": 3,
+   "lcp_ms": 1596,
+   "lcp_elemento": "p.hero__sub",
+   "cls": 0,
+   "inp_clics_ms": [
+    128,
+    80
+   ],
+   "peticiones": [
+    {
+     "url": "https://comunidadpulso.dev/",
+     "tipo": "Document",
+     "estado": 200,
+     "bytes": 17125
+    },
+    {
+     "url": "https://comunidadpulso.dev/_astro/fonts/bb1f54b37830a56c.woff2",
+     "tipo": "Font",
+     "estado": 200,
+     "bytes": 40031
+    },
+    {
+     "url": "https://comunidadpulso.dev/_astro/fonts/b05aa21e93f7ae9f.woff2",
+     "tipo": "Font",
+     "estado": 200,
+     "bytes": 20486
+    },
+    {
+     "url": "https://comunidadpulso.dev/_astro/LayoutBase.CqvnoCML.css",
+     "tipo": "Stylesheet",
+     "estado": 200,
+     "bytes": 8914
+    },
+    {
+     "url": "https://comunidadpulso.dev/_astro/pulsodevs-small.CW72LdSX_Z11zCeM.avif",
+     "tipo": "Image",
+     "estado": 200,
+     "bytes": 1779
+    },
+    {
+     "url": "https://comunidadpulso.dev/_astro/pulsodevs.ZG62qWtB_ZGz14n.avif",
+     "tipo": "Image",
+     "estado": 200,
+     "bytes": 10440
+    },
+    {
+     "url": "https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920",
+     "tipo": "Script",
+     "estado": 200,
+     "bytes": 10438
+    },
+    {
+     "url": "https://comunidadpulso.dev/cdn-cgi/rum?",
+     "tipo": "XHR",
+     "estado": 204,
+     "bytes": 496
+    },
+    {
+     "url": "https://comunidadpulso.dev/icono-32.png",
+     "tipo": "Other",
+     "estado": 200,
+     "bytes": 2364
+    }
+   ]
+  }
+ ],
+ "html": {
+  "con_accept_text_html_y_ua": {
+   "bytes": 47994,
+   "beacon": true
+  },
+  "con_accept_text_html_sin_ua": {
+   "bytes": 47994,
+   "beacon": true
+  },
+  "accept_cualquiera_con_ua": {
+   "bytes": 47627,
+   "beacon": false
+  },
+  "curl_por_defecto": {
+   "bytes": 47627,
+   "beacon": false
+  },
+  "accept_json_con_ua": {
+   "bytes": 47627,
+   "beacon": false
+  },
+  "diferencia_sin_comprimir_bytes": 367,
+  "brotli_con": 15513,
+  "brotli_sin": 15245,
+  "diferencia_brotli_bytes": 268,
+  "scripts_en_linea_propios": {
+   "cantidad": 4,
+   "bytes": 3716,
+   "detalle": [
+    581,
+    1365,
+    1536,
+    234
+   ]
+  },
+  "json_ld_bytes": 468
+ }
+}
