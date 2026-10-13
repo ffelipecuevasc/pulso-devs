@@ -2,8 +2,8 @@
 
 - **Iteración:** 05-01 · Medición: Cloudflare Web Analytics y Search Console
 - **Responsable:** desarrollador (solo él opera Search Console y el DNS de Cloudflare; el agente no toca ninguno de los dos)
-- **Estado:** Pendiente (preparada en la fase A, 2026-10-13, con el método ajustado)
-- **Fecha de los resultados:** _(completar)_
+- **Estado:** Completada
+- **Fecha de los resultados:** 2026-10-13
 
 **Qué cambió respecto de la primera versión de este archivo.** El 2026-10-13 el desarrollador decidió **mantener Cloudflare Web Analytics activo**: no se desactiva la inyección en el panel de Cloudflare y no se mide la producción sin el script. Por eso esta fase B ya no incluye los pasos de desactivar y reactivar Web Analytics. Quedan Search Console y el cierre de RDA-010.
 
@@ -62,9 +62,9 @@ Si quieres, pídele al agente que confirme con una consulta DNS de solo lectura 
 | :---- | :-------- |
 | Fecha y hora del envío | 13 oct 2026 |
 | URL enviada | `https://comunidadpulso.dev/sitemap-index.xml` |
-| Estado mostrado (texto exacto) | No se ha podido obtener (aviso inicial en modal: «Se ha enviado el sitemap correctamente (Google lo procesará de forma periódica para saber si se ha modificado. Si detectamos algún problema, recibirás una notificación.)») |
-| Páginas descubiertas (si el informe lo muestra) | 0 (Tipo: Desconocido) |
-| Si hay errores: texto del error | «No se ha podido obtener» (pendiente de primer procesamiento por parte de Google) |
+| Estado mostrado (texto exacto) | No se ha podido obtener (aviso inicial en modal: «Se ha enviado el sitemap correctamente (Google lo procesará de forma periódica para saber si se ha modificado. Si detectamos algún problema, recibirás una notificación.)»). Actualización 2026-10-13: Correcto |
+| Páginas descubiertas (si el informe lo muestra) | 0 (Tipo: Desconocido). Actualización 2026-10-13: 1 (Tipo: Índice de sitemaps; vídeos: 0) |
+| Si hay errores: texto del error | «No se ha podido obtener» (pendiente de primer procesamiento por parte de Google). Actualización 2026-10-13: Sin errores (estado Correcto) |
 
 ### Paso 1.3 · Inspeccionar la portada y solicitar la indexación
 
@@ -95,7 +95,7 @@ La indexación **se registra con fecha** y no se exige para cerrar la épica (de
 | Fecha de revisión | Estado de `https://comunidadpulso.dev/` (texto exacto) | Estado del sitemap | Observaciones                                                                                                          |
 | :---------------- | :----------------------------------------------------- | :----------------- |:-----------------------------------------------------------------------------------------------------------------------|
 | 2026-10-13 *(día del envío)* | La URL está en Google (La página está indexada) | No se ha podido obtener | La portada ya figuraba indexada en Google antes del envío. El sitemap quedó enviado en cola para primer procesamiento. |
-| *(a los 3 a 7 días)* | *(pendiente: revisar entre el 2026-10-16 y el 2026-10-20)* | *(pendiente de verificar si pasó a «Correcto»)* | Sin observaciones                                                                                                                       |
+| *(a los 3 a 7 días)* | *(pendiente: revisar entre el 2026-10-16 y el 2026-10-20)* | *(pendiente de verificar si pasó a «Correcto»)* El estado del sitemap pasó a «Correcto» el 2026-10-13 (última lectura de Google el mismo día), por lo que esta revisión ya no es necesaria. | Sin observaciones                                                                                                                       |
 | 2026-10-27 *(a los 14 días)* | *(pendiente de confirmación final)* | *(pendiente)* | Sin observaciones                                                                                                                       |
 
 | Campo | Anotación |
@@ -123,7 +123,7 @@ Umbrales y lo medido por el agente (2026-10-13, producción con el script, media
 
 | Campo                                                                           | Anotación                                                                                                                                                                                                                                               |
 |:--------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Fecha en que confirmas los umbrales                                             |                                                                                                                                                                                                                                                         |
+| Fecha en que confirmas los umbrales                                             | 2026-10-13 (declarado por el desarrollador; fecha de aceptación de RDA-010)                                                                                                                                                                                                                                                      |
 | ¿Aceptas el aumento de 2 B de JavaScript propio, que no viene de Web Analytics? | Declarado por el desarrollador (2026-10-13): la diferencia de +2 B en el script del tema (3.714 B a 3.716 B) se considera menor y no es atribuible a Web Analytics (el build local da 3.716 B con y sin el script de Cloudflare). Causa no investigada. |
 | Estado de RDA-010 que se registra                                               | Aceptada (2026-10-13)                                                                                                                                                                                                                                   |
 | Quién actualiza `decisiones.md`, `registro-log.md` §4 y `AGENTS.md` §7.3        | El agente de IA, con mi aprobación del texto propuesto en la bitácora                                                                                                                                                                                   |
@@ -143,5 +143,5 @@ Umbrales y lo medido por el agente (2026-10-13, producción con el script, media
 ## Criterios de aceptación que cubre esta evidencia
 
 - [x] RDA-010 «Aceptada» y `AGENTS.md` §7.3 y `registro-log.md` §4 coherentes con la decisión.
-- [ ] Search Console con la propiedad verificada y el sitemap en estado «Correcto».
-- [ ] Estado de indexación de la portada registrado con fecha.
+- [x] Search Console con la propiedad verificada y el sitemap en estado «Correcto».
+- [x] Estado de indexación de la portada registrado con fecha.
