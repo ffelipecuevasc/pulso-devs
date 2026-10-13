@@ -13,7 +13,7 @@
 - Un push a `main` publica en producción. Antes de cada push el agente deja `pnpm format`, `pnpm check` y `pnpm build` sin errores.
 - El agente solo hace peticiones de solo lectura a producción (`GET` y `HEAD`). No envía `POST` a `/cdn-cgi/rum`.
 - `'unsafe-inline'` no entra en `script-src` en ningún texto. Si algo lo exigiera, se detiene el trabajo y se consulta.
-- **Método aprobado (declarado por el desarrollador, 2026-10-13): método C.** Hashes fijos en `public/_headers` más una integración propia que hace fallar `pnpm build` si no coinciden con `dist/`. Los textos (a) y (b) no cambiaron tras revisar las directivas heredadas de `default-src 'none'` (ver `bitacora-05-02-ajuste-2026-10-13.md`); el texto (a) y el método quedaron aprobados el 2026-10-13 (ver la parte 1); el texto (b) sigue pendiente de tu aprobación.
+- **Método aprobado (declarado por el desarrollador, 2026-10-13): método C.** Hashes fijos en `public/_headers` más una integración propia que hace fallar `pnpm build` si no coinciden con `dist/`. Los textos (a) y (b) no cambiaron tras revisar las directivas heredadas de `default-src 'none'` (ver `bitacora-05-02-ajuste-2026-10-13.md`); el método y los textos (a) y (b) quedaron aprobados el 2026-10-13 (ver las partes 1 y 3).
 - Los hashes y el texto exacto de la política están en la bitácora, sección «Texto propuesto». Si el HTML cambia antes del despliegue, los hashes se recalculan y el texto se vuelve a aprobar.
 
 ---
@@ -56,11 +56,11 @@
 | Frase de aprobación del método y fecha | «Aprobado el método (CSP)» · 2026-10-13 (declarado por el desarrollador) |
 | Frase de aprobación del texto y fecha | «Aprobado el texto (CSP informe)» · 2026-10-13 (declarado por el desarrollador) |
 | Fecha y hora del push | 2026-10-13, 16:40 (declarado por el desarrollador) |
-| Hash del commit | `956cd7f` (leído de `git log` local; el desarrollador confirma que es el que empujó) |
+| Hash del commit | `956cd7f` (leído de `git log` local; coincide con el mensaje del commit que muestra Workers Builds, ver la fila del build) |
 | Hora en que `curl -I` ya muestra `content-security-policy-report-only` | 16:42 del 2026-10-13 (reloj de esta máquina: 16:42:13). Ya estaba visible en la **primera** consulta del agente; no se consultó antes, así que la hora exacta de aparición se desconoce |
 | Minutos entre el push y esa hora (mide el tiempo de publicación de Workers Builds) | 2 como máximo (cota superior, no medición exacta) |
 | `content-security-policy` sigue siendo `frame-ancestors 'none'` | Sí |
-| El build de Cloudflare terminó sin errores | No verificado por el agente (no ve el panel de Workers Builds); la cabecera nueva ya está en producción. Lo confirma el desarrollador |
+| El build de Cloudflare terminó sin errores | Sí (declarado por el desarrollador, 2026-10-13, con captura del panel de Workers Builds): el commit «Épica 05 - Iteración 05-02: CSP en modo solo informe con hashes fijos y verificación…» figura «Ready» en 36 s, desde `main`, y es el despliegue activo (versión `d5837bb1`, 100 % del tráfico). `d5837bb1` es el ID de versión de Cloudflare, no un hash de Git. La captura no se guarda en el repositorio |
 
 ### Comprobación de cabeceras en producción (agente, solo lectura)
 
@@ -125,7 +125,9 @@ El agente **no** envía ningún `POST` a producción: el envío del beacon lo ha
 
 **Cómo se midió la parte 2 (agente, 2026-10-13).** Script propio sobre el protocolo de Chrome (sin biblioteca), un Chrome limpio por prueba, tamaños 1280 y 360 px, `prefers-color-scheme` y `prefers-reduced-motion` emulados, clics reales (`Input.dispatchMouseEvent`). Las violaciones se leen con un escucha de `securitypolicyviolation` (instalado antes de cargar la página) y con la consola (`Log.entryAdded`, excepciones y `console.error`). **Control positivo:** insertar un `<script>` en línea sin hash y cargar una imagen de `example.com` produjo 2 violaciones (`script-src-elem` e `img-src`, disposición `report`) y 2 mensajes `security`/`info` en la consola, así que el detector sí ve las violaciones; en solo informe aparecen como `info`, no como `error`. Las visitas de prueba a producción quedan registradas en Web Analytics como tráfico de Chrome headless. El script de medición vive en la carpeta temporal de la sesión, no en el repositorio.
 
-**Resultado de la parte 2:** 0 violaciones en todas las cargas medidas (P1 a P5, N1 a N3 en dos temas, M1, M2, T1 a T6 y W) y consola sin mensajes, salvo el aviso de red 404 de la propia página 404. La parte 3 no se inicia sin tu aprobación («Aprobado el texto (CSP aplicada)»).
+**Resultado de la parte 2:** 0 violaciones en todas las cargas medidas (P1 a P5, N1 a N3 en dos temas, M1, M2, T1 a T6 y W) y consola sin mensajes, salvo el aviso de red 404 de la propia página 404. El texto (b) quedó aprobado el 2026-10-13 (ver la parte 3).
+
+**Confirmaciones del desarrollador con el despliegue 1 (declaradas, 2026-10-13; no son mediciones del agente).** Firefox: abrió el sitio con la consola abierta y no apareció ningún error. Cambio de tema: la animación funciona sin cambios visibles. La revisión visual del cambio de tema **después del despliegue 2** sigue pendiente.
 
 ---
 
@@ -145,7 +147,7 @@ Solo se pasa a esta parte si la parte 2 no tiene violaciones, o si las violacion
 
 | Campo | Anotación |
 | :---- | :-------- |
-| Frase de aprobación y fecha | «Aprobado el texto (CSP aplicada)» · |
+| Frase de aprobación y fecha | «Aprobado el texto (CSP aplicada)» · 2026-10-13 (declarado por el desarrollador) |
 | Fecha y hora del push | |
 | Hash del commit | |
 | Minutos entre el push y la cabecera visible | |
