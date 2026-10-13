@@ -1,7 +1,7 @@
 # Iteración 05-02 · Política Content-Security-Policy
 
 - **Épica:** 05 · Publicación y medición
-- **Estado:** En curso (fase A completada, 2026-10-13; fase B iniciada)
+- **Estado:** Terminada (2026-10-13)
 - **Rama:** `main` (RDA-015)
 - **Depende de:** 05-01 (terminada el 2026-10-13; RDA-010 aceptada, por lo que se permite el script de Cloudflare)
 - **RDA relacionadas:** RDA-010
@@ -38,13 +38,13 @@ Reemplazar el `frame-ancestors 'none'` actual de `public/_headers` por una polí
 
 ## Criterios de aceptación
 
-- [ ] Política completa aplicada en `public/_headers`, sin `'unsafe-inline'` en `script-src`.
-- [ ] Sin violaciones en la consola, en portada y 404, claro y oscuro, menú móvil y cambio de tema.
-- [ ] El tema guardado se mantiene tras recargar y la transición de tema funciona.
-- [ ] Lighthouse móvil y escritorio (mediana de cinco corridas alternadas) sin regresión: Rendimiento 95 o más, Accesibilidad 100, Mejores prácticas 100, SEO 100.
-- [ ] Un cambio en el script del tema no puede dejar un hash desactualizado sin que se note antes del despliegue.
-- [ ] Procedimiento de reversa probado o documentado.
-- [ ] `evidencia-05-02-fase-b.md` completada y bitácora 05-02 creada.
+- [x] Política completa aplicada en `public/_headers`, sin `'unsafe-inline'` en `script-src`. _Cabeceras de producción medidas por el agente (2026-10-13)._
+- [x] Sin violaciones en la consola, en portada y 404, claro y oscuro, menú móvil y cambio de tema. _Medido por el agente por protocolo (Chrome 155); consola de Chrome y Firefox declarada por el desarrollador, 2026-10-13._
+- [x] El tema guardado se mantiene tras recargar y la transición de tema funciona. _Tema guardado y transición medidos por el agente por protocolo; apariencia visual declarada por el desarrollador, 2026-10-13._
+- [x] Lighthouse móvil y escritorio (mediana de cinco corridas alternadas) sin regresión: Rendimiento 95 o más, Accesibilidad 100, Mejores prácticas 100, SEO 100. _Aceptado por el desarrollador (2026-10-13): Rendimiento móvil 95 (mediana de cinco), justo en el umbral; línea base de 05-01: 99; la baja de 4 puntos no se atribuyó a la CSP ni se descartó; 05-03 vuelve a medir. Escritorio 100 / 100 / 100 / 100 y las otras tres categorías móviles en 100, medido por el agente._
+- [x] Un cambio en el script del tema no puede dejar un hash desactualizado sin que se note antes del despliegue. _Respaldo: prueba en una copia del proyecto fuera del repositorio, 6 casos de falla (`bitacora-05-02-ajuste-2026-10-13.md`); no se probó en producción. Declarado por el desarrollador (2026-10-13)._
+- [x] Procedimiento de reversa probado o documentado. _Documentado (parte 5 de `evidencia-05-02-fase-b.md`); no probado en producción._
+- [x] `evidencia-05-02-fase-b.md` completada y bitácora 05-02 creada.
 
 ## Fuera de alcance
 

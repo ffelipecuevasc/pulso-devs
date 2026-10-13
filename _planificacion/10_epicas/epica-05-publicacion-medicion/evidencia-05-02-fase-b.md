@@ -2,8 +2,8 @@
 
 - **Iteración:** 05-02 · Política Content-Security-Policy
 - **Responsable:** desarrollador (aprueba los textos, hace los commits y los push a `main`); el agente prepara los cambios, mide y lee la consola. El agente **nunca** ejecuta `git commit`, `git push`, `git revert` ni `wrangler`.
-- **Estado:** En curso (despliegue 1 publicado el 2026-10-13 a las 16:40; partes 1 y 2 medidas por el agente)
-- **Fecha de los resultados:** _(completar)_
+- **Estado:** Completada
+- **Fecha de los resultados:** 2026-10-13
 
 **Cómo usar este archivo.** Sigue las partes en orden. Cada recuadro se completa con lo que realmente se ve, con fecha y hora. Lo que dice «Esperado» viene de la fase A (bitácora `99_bitacora/bitacora-05-02-2026-10-13.md`), medido en un Chrome local contra el build y no en producción: **en producción puede salir distinto**, y para eso es esta fase. Si algo no coincide, detente, anota qué ves y avisa; no improvises.
 
@@ -127,7 +127,7 @@ El agente **no** envía ningún `POST` a producción: el envío del beacon lo ha
 
 **Resultado de la parte 2:** 0 violaciones en todas las cargas medidas (P1 a P5, N1 a N3 en dos temas, M1, M2, T1 a T6 y W) y consola sin mensajes, salvo el aviso de red 404 de la propia página 404. El texto (b) quedó aprobado el 2026-10-13 (ver la parte 3).
 
-**Confirmaciones del desarrollador con el despliegue 1 (declaradas, 2026-10-13; no son mediciones del agente).** Firefox: abrió el sitio con la consola abierta y no apareció ningún error. Cambio de tema: la animación funciona sin cambios visibles. La revisión visual del cambio de tema **después del despliegue 2** sigue pendiente.
+**Confirmaciones del desarrollador con el despliegue 1 (declaradas, 2026-10-13; no son mediciones del agente).** Firefox: abrió el sitio con la consola abierta y no apareció ningún error. Cambio de tema: la animación funciona sin cambios visibles. La revisión visual del cambio de tema **después del despliegue 2** quedó declarada el 2026-10-13 (ver la parte 3).
 
 ---
 
@@ -152,6 +152,7 @@ Solo se pasa a esta parte si la parte 2 no tiene violaciones, o si las violacion
 | Hash del commit | `e5995fc` (leído de `git log` local) |
 | Minutos entre el push y la cabecera visible | 3,8 como máximo (cota superior, no medición exacta): la primera consulta fue a las 17:13:48 (reloj de esta máquina) y la política aplicada ya estaba. El reloj de esta máquina va **64,5 s adelantado** respecto del `Date` de Cloudflare (medido en 4 respuestas: −64,2 a −64,8 s), así que según la hora del servidor la consulta fue a las 17:12:44 (2,7 min). No se conoce la desviación del reloj del desarrollador |
 | `content-security-policy` ya trae la política completa y no existe `content-security-policy-report-only` | Sí. En `/`, la 404, el CSS y la fuente: `content-security-policy` idéntica carácter por carácter a la de `public/_headers` (524 caracteres), sin `content-security-policy-report-only`; `Cache-Control` y las otras tres cabeceras sin cambios |
+| El build de Cloudflare terminó sin errores | Sí (declarado por el desarrollador, 2026-10-13): el build del último despliegue figura «Ready» en Workers Builds |
 
 Se repiten **todas** las pruebas de la parte 2 con la política aplicada. Ahora una violación es un recurso bloqueado de verdad (`security/error`).
 
@@ -160,7 +161,7 @@ Se repiten **todas** las pruebas de la parte 2 con la política aplicada. Ahora 
 | P1 a P5 (portada) | OK | 0 | Chrome 155.0.8059.40. Sin violaciones ni mensajes en consola. Tema aplicado en el primer `<body>`; 0 px de desborde (1280 y 360 px, claro y oscuro); el anillo del logotipo se emite (`false` → `true`); `aria-current` cambia en `#comunidad`, `#talleres` y `#vision` |
 | N1 a N3 (404) | OK | 0 | Solo el aviso de red 404 de la propia página (1280 y 360 px, claro y oscuro) |
 | M1 y M2 (menú) | OK | 0 | `aria-expanded` `false` → `true` → `false`; el enlace «Comunidad» lleva a `#comunidad` y cierra el menú; igual en la 404 |
-| T1 a T6 (tema, transición y recarga) | OK | 0 | Claro ↔ oscuro y guardado en `localStorage`; la transición existe (2 animaciones de vista, 250 ms y 1000 ms) y `style.setProperty` (`--vt-x` = `1086.5px`) **no queda bloqueado**; doble clic sin errores (el segundo clic cae dentro de la transición, AUD-02-008); tema guardado se mantiene tras recargar portada y 404, sin parpadeo; con `reduced-motion` el cambio es inmediato. **La revisión visual de la animación queda pendiente del desarrollador** |
+| T1 a T6 (tema, transición y recarga) | OK | 0 | Claro ↔ oscuro y guardado en `localStorage`; la transición existe (2 animaciones de vista, 250 ms y 1000 ms) y `style.setProperty` (`--vt-x` = `1086.5px`) **no queda bloqueado**; doble clic sin errores (el segundo clic cae dentro de la transición, AUD-02-008); tema guardado se mantiene tras recargar portada y 404, sin parpadeo; con `reduced-motion` el cambio es inmediato. **Revisión visual (declarado por el desarrollador, 2026-10-13):** con el despliegue 2 en producción, el cambio de tema en claro y oscuro y su animación funcionan; sin errores en la consola de Chrome ni de Firefox |
 | W1 a W4 (Web Analytics) | OK | 0 | El script de Cloudflare carga (`200`, con `integrity`). El `POST` a `https://comunidadpulso.dev/cdn-cgi/rum?` (mismo origen) responde `204` y sale durante la carga; sin otra petición al ocultar la página. **`connect-src 'self'` basta.** Solo hay dos orígenes en las 9 peticiones: `comunidadpulso.dev` y `static.cloudflareinsights.com`; 0 peticiones fallidas ni bloqueadas |
 | Cabeceras de `/`, 404, CSS y fuente | OK | — | Ver la tabla de campos de arriba |
 
@@ -195,7 +196,7 @@ Mediana de **cinco corridas alternadas** (móvil 1, escritorio 1, móvil 2…), 
 | :---- | :-------- |
 | Versión de Chrome y de Lighthouse | Chrome 155.0.8059.40 y Lighthouse 13.5.0 (`pnpm dlx`, fuera del proyecto). La línea base de 05-01 se midió con Chrome 154.0.8037.98 |
 | ¿Cambió la auditoría de CSP de Lighthouse entre ambos despliegues? (anotar el texto exacto; la fase A no la midió) | Con el despliegue 2, la auditoría «Ensure CSP is effective against XSS attacks» (`csp-xss`, informativa) sale con puntaje 1 (pasa), sin valor mostrado, en móvil y escritorio; «Mitigate clickjacking with XFO or CSP» sale «no aplicable». Si cambió respecto del despliegue 1: **no medido** (no se corrió Lighthouse con el despliegue 1) |
-| ¿Hubo regresión frente a la línea base? | **Sin determinar** (decide el desarrollador). El Rendimiento móvil bajó de 99 a 95 (−4): cumple el umbral numérico (95 o más) y las otras tres categorías y el escritorio no cambian, pero no se puede afirmar «sin regresión». Ver la nota de abajo |
+| ¿Hubo regresión frente a la línea base? | **Sin determinar** (decide el desarrollador). El Rendimiento móvil bajó de 99 a 95 (−4): cumple el umbral numérico (95 o más) y las otras tres categorías y el escritorio no cambian, pero no se puede afirmar «sin regresión». Ver la nota de abajo. **Aceptado por el desarrollador (2026-10-13):** el umbral se cumple; la baja de 4 puntos no se atribuyó a la CSP ni se descartó; 95 está en el umbral |
 
 **Notas de la medición del despliegue 2 (agente, 2026-10-13, después de las 17:13, hora de esta máquina).**
 
@@ -241,8 +242,8 @@ Mediana de **cinco corridas alternadas** (móvil 1, escritorio 1, móvil 2…), 
 
 - [x] Política completa aplicada en `public/_headers`, sin `'unsafe-inline'` en `script-src`.
 - [x] Sin violaciones en la consola, en portada y 404, claro y oscuro, menú móvil y cambio de tema.
-- [ ] El tema guardado se mantiene tras recargar y la transición de tema funciona.
-- [ ] Lighthouse móvil y escritorio (mediana de cinco corridas alternadas) sin regresión: Rendimiento 95 o más, Accesibilidad 100, Mejores prácticas 100, SEO 100.
-- [ ] Un cambio en el script del tema no puede dejar un hash desactualizado sin que se note antes del despliegue.
-- [ ] Procedimiento de reversa probado o documentado.
-- [ ] `evidencia-05-02-fase-b.md` completada y bitácora 05-02 creada (la bitácora de la fase A ya existe y se completa al cerrar).
+- [x] El tema guardado se mantiene tras recargar y la transición de tema funciona. _Tema guardado y transición medidos por el agente por protocolo; apariencia visual declarada por el desarrollador, 2026-10-13._
+- [x] Lighthouse móvil y escritorio (mediana de cinco corridas alternadas) sin regresión: Rendimiento 95 o más, Accesibilidad 100, Mejores prácticas 100, SEO 100. _Aceptado por el desarrollador (2026-10-13): Rendimiento móvil 95 (mediana de cinco), justo en el umbral; línea base de 05-01: 99; la baja de 4 puntos no se atribuyó a la CSP ni se descartó; 05-03 vuelve a medir. Escritorio 100 / 100 / 100 / 100 y las otras tres categorías móviles en 100, medido por el agente._
+- [x] Un cambio en el script del tema no puede dejar un hash desactualizado sin que se note antes del despliegue. _Respaldo: prueba en una copia del proyecto fuera del repositorio, 6 casos de falla (`bitacora-05-02-ajuste-2026-10-13.md`); no se probó en producción. Declarado por el desarrollador (2026-10-13)._
+- [x] Procedimiento de reversa probado o documentado. _Documentado (parte 5 de `evidencia-05-02-fase-b.md`); no probado en producción._
+- [x] `evidencia-05-02-fase-b.md` completada y bitácora 05-02 creada (la bitácora de la fase A ya existe; el cierre está en `bitacora-05-02-fase-b-2026-10-13.md`).
