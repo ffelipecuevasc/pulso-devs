@@ -1,7 +1,7 @@
 # Iteración 05-03 · Verificación final en producción
 
 - **Épica:** 05 · Publicación y medición
-- **Estado:** Pendiente
+- **Estado:** Terminada (2026-10-13)
 - **Rama:** `main` (RDA-015)
 - **Depende de:** 05-02
 - **RDA relacionadas:** RDA-008
@@ -33,12 +33,12 @@ Verificados en Chrome y Firefox. Si más adelante hay acceso a un equipo Apple, 
 
 ## Criterios de aceptación
 
-- [ ] El sitio cumple los criterios de la Épica 04 en producción (Lighthouse 95 o más en Rendimiento, 100 en las otras tres, LCP < 2,5 s, CLS < 0,05, INP < 200 ms).
-- [ ] Sin hallazgos abiertos de severidad Alta.
-- [ ] Todo hallazgo abierto queda clasificado: resuelto o «riesgo aceptado» con fecha.
-- [ ] Estado de indexación registrado con fecha.
-- [ ] Evidencia del desarrollador registrada en `evidencia-05-03-fase-b.md`.
-- [ ] Bitácora 05-03 creada.
+- [x] El sitio cumple los criterios de la Épica 04 en producción (Lighthouse 95 o más en Rendimiento, 100 en las otras tres, LCP < 2,5 s, CLS < 0,05, INP < 200 ms). _Medido por el agente (2026-10-13, mediana de cinco alternadas): móvil 98 / 100 / 100 / 100, escritorio 100 / 100 / 100 / 100, LCP 1.839 ms, CLS 0, INP 32 a 48 ms (`bitacora-05-03-fase-a-2026-10-13.md`); confirmado por el desarrollador._
+- [x] Sin hallazgos abiertos de severidad Alta. _Leído en `auditoria-tecnica.md`: AUD-01-005, 012 y 016 resueltos; confirmado por el desarrollador (2026-10-13)._
+- [x] Todo hallazgo abierto queda clasificado: resuelto o «riesgo aceptado» con fecha. _Clasificación aprobada por el desarrollador y aplicada en `auditoria-tecnica.md` (2026-10-13); Safari, iPhone, VoiceOver, Narrador de Windows y `apple-touch-icon`: riesgo aceptado (declaración del 2026-10-12)._
+- [x] Estado de indexación registrado con fecha. _Declarado por el desarrollador, 2026-10-13, 21:10 hrs (parte 3 de la evidencia): «La URL está en Google»; sitemap «Correcto», 1 página descubierta._
+- [x] Evidencia del desarrollador registrada en `evidencia-05-03-fase-b.md`. _Partes 1 a 6 completadas el 2026-10-13._
+- [x] Bitácora 05-03 creada. _`bitacora-05-03-fase-a-2026-10-13.md` y `bitacora-05-03-fase-b-2026-10-13.md`._
 
 ## Fuera de alcance
 

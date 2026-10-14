@@ -12,6 +12,8 @@ Es una **landing page**: una sola página que presenta la comunidad, explica qu�
 
 Si estás aprendiendo desarrollo web, este repositorio te sirve para ver cómo se construye un sitio real, de principio a fin, con herramientas modernas.
 
+**Estado del proyecto.** El ciclo inicial está terminado: el sitio está publicado en [comunidadpulso.dev](https://comunidadpulso.dev) con diseño en modo claro y oscuro, SEO técnico, accesibilidad medida y una política de seguridad de contenido (CSP). Una posible navegación con varias páginas está en evaluación y no está comprometida.
+
 ## Tecnologías
 
 | Herramienta | Para qué se usa |
@@ -21,6 +23,7 @@ Si estás aprendiendo desarrollo web, este repositorio te sirve para ver cómo s
 | [Node.js](https://nodejs.org) | Entorno que ejecuta las herramientas de desarrollo. |
 | [PNPM](https://pnpm.io) | Gestor de paquetes (instala las dependencias). |
 | [Cloudflare Workers](https://workers.cloudflare.com) | Publica el sitio en internet, conectado a este repositorio de GitHub. |
+| [Cloudflare Web Analytics](https://www.cloudflare.com/web-analytics/) | Mide las visitas al sitio. Cloudflare lo agrega al publicar, por eso su script no está en este repositorio. |
 
 ## Cómo ejecutarlo en tu computador
 
@@ -40,6 +43,9 @@ Abre `http://localhost:4321` en tu navegador.
 | `pnpm dev` | Inicia el sitio en modo desarrollo |
 | `pnpm build` | Genera la versión final en la carpeta `dist/` |
 | `pnpm preview` | Muestra localmente la versión final |
+| `pnpm check` | Revisa el código con `astro check` |
+| `pnpm format` | Da formato al código con Prettier |
+| `pnpm format:check` | Comprueba el formato sin cambiar archivos |
 
 ## Cómo se publica
 
@@ -48,6 +54,8 @@ Astro no necesita un servidor para funcionar: al compilar el proyecto genera el 
 **Cloudflare Workers** los sirve desde su red global de servidores, de modo que cada visitante los recibe desde un punto cercano a su ubicación. La publicación la realiza Wrangler, la herramienta de Cloudflare para esa tarea.
 
 Todo el proceso está conectado a este repositorio de GitHub: cada cambio que llega a la rama `main` se compila y se publica solo, sin pasos manuales. Por eso `main` siempre refleja la versión que está en línea.
+
+Las cabeceras de seguridad, incluida la política de seguridad de contenido (CSP), están en `public/_headers`. Como esa política usa «hashes» fijos para el código en línea, el proyecto trae una integración propia (`src/integraciones/verificarCsp.js`) que hace fallar `pnpm build` si un hash no coincide con lo compilado, para no publicar una política desactualizada.
 
 ## Estructura
 
