@@ -6,6 +6,8 @@
 
 ## Contexto (desde la Épica 04)
 
+Estado al iniciar la épica (2026-10-12); la situación actual está en el registro y en las iteraciones 05-01 a 05-03.
+
 - Cloudflare Web Analytics **ya está activo en producción**: Cloudflare inyecta el script en el borde. El build local no tiene terceros. Está registrado en `registro-log.md` §4 y RDA-010 sigue «Propuesta».
 - La política `Content-Security-Policy` hoy es solo `frame-ancestors 'none'` en `public/_headers`. Se completa en esta épica (decisión del desarrollador, 2026-10-11).
 - Los hallazgos AUD-02-005 y AUD-02-008 (transición de tema y clics durante el efecto) quedaron «Parcial: verificados en Chrome y Firefox; falta Safari».

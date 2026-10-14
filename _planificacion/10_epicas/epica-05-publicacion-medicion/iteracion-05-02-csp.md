@@ -5,7 +5,7 @@
 - **Rama:** `main` (RDA-015)
 - **Depende de:** 05-01 (terminada el 2026-10-13; RDA-010 aceptada, por lo que se permite el script de Cloudflare)
 - **RDA relacionadas:** RDA-010
-- **Hallazgos que cierra:** el de la política `Content-Security-Policy` en `auditoria-tecnica.md`, si existe (el agente lo confirma y lo enlaza)
+- **Hallazgos que cierra:** Ninguno: `auditoria-tecnica.md` no tiene un hallazgo de CSP (confirmado en la fase A, 2026-10-13)
 
 ## Objetivo
 

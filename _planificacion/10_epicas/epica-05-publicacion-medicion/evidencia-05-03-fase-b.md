@@ -22,8 +22,8 @@ Todo es de solo lectura contra `https://comunidadpulso.dev/` y está detallado e
 | Ruta inexistente | `404` con `<meta name="robots" content="noindex">` y las mismas cabeceras |
 | `robots.txt`, `sitemap-index.xml`, `sitemap-0.xml` | `200` los tres; el sitemap lista solo `https://comunidadpulso.dev/` |
 | `https://www.comunidadpulso.dev/` | `301` con `Location: https://comunidadpulso.dev/` (conserva ruta y consulta) |
-| `http://comunidadpulso.dev/` | `200` **sin redirigir a HTTPS** (2 de 2 intentos) |
-| `http://www.comunidadpulso.dev/` | `522` tras ~19,5 s (3 de 3 intentos) |
+| `http://comunidadpulso.dev/` | `200` **sin redirigir a HTTPS** (2 de 2 intentos) (medido antes de activar Always Use HTTPS; ver la parte 5) |
+| `http://www.comunidadpulso.dev/` | `522` tras ~19,5 s (3 de 3 intentos) (medido antes de activar Always Use HTTPS; ver la parte 5) |
 | Lighthouse móvil (mediana de cinco alternadas) | 98 / 100 / 100 / 100 (las cinco corridas dieron 98); LCP 1.839 ms; CLS 0; TBT 37 ms |
 | Lighthouse escritorio (mediana de cinco) | 100 / 100 / 100 / 100; LCP 526 ms; CLS 0; TBT 0 ms |
 | INP por protocolo (sin estrés) | 32 a 48 ms (móvil 412 px y escritorio 1280 px) |
